@@ -48,12 +48,12 @@ public class FlorestGenerator : MapGenerator
         bool setSpawnPoint = false;
         while (setSpawnPoint == false)
         {
-            int rand = Random.Range(20, innerCoords.Count - 10);
+            int rand = Random.Range(50, coords.Count - 50);
             for (int i = 0; i < obstaclesCoords.Count; i++)
             {
-                if (NotObstacleCoordinate(innerCoords[rand], obstaclesCoords[i]))
+                if (NotObstacleCoordinate(coords[rand], obstaclesCoords[i]))
                 {
-                    playerSpawnPoint = middleTilemap.GetCellCenterWorld(new Vector3Int(innerCoords[rand].x, innerCoords[rand].y, 0));
+                    playerSpawnPoint = middleTilemap.GetCellCenterWorld(new Vector3Int(coords[rand].x, coords[rand].y, 0));
                     setSpawnPoint = true;
                     break;
                 }
@@ -68,12 +68,12 @@ public class FlorestGenerator : MapGenerator
     {
         while (enemiesSpawnPoints.Count < 3)
         {
-            int rand = Random.Range(20, innerCoords.Count - 10);
+            int rand = Random.Range(30, coords.Count - 20);
             for (int i = 0; i < obstaclesCoords.Count; i++)
             {
-                if (NotObstacleCoordinate(innerCoords[rand], obstaclesCoords[i]))
+                if (NotObstacleCoordinate(coords[rand], obstaclesCoords[i]))
                 {
-                    enemiesSpawnPoints.Add(middleTilemap.GetCellCenterWorld(new Vector3Int(innerCoords[rand].x, innerCoords[rand].y, 0)));
+                    enemiesSpawnPoints.Add(middleTilemap.GetCellCenterWorld(new Vector3Int(coords[rand].x, coords[rand].y, 0)));
                     break;
                 }
             }
@@ -85,8 +85,8 @@ public class FlorestGenerator : MapGenerator
     {
         coords.ForEach(ProcessCoordinates(floorTilemap, mapItems.bottomTiles, mapItems.bottomTiles.Length));
         innerCoords.ForEach(ProcessCoordinates(middleTilemap, mapItems.middleTiles, mapItems.middleTiles.Length));
-        //outerCoords.ForEach(ProcessCoordinates(topTilemap, mapItems.outerTiles, mapItems.outerTiles.Length));
-        //obstaclesCoords.ForEach(ProcessCoordinates(topTilemap, mapItems.topTiles, mapItems.topTiles.Length));
+        outerCoords.ForEach(ProcessCoordinates(topTilemap, mapItems.outerTiles, mapItems.outerTiles.Length));
+        obstaclesCoords.ForEach(ProcessCoordinates(topTilemap, mapItems.topTiles, mapItems.topTiles.Length));
         return this;
     }
 
