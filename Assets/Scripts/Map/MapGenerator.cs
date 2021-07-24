@@ -10,7 +10,7 @@ public abstract class MapGenerator : ScriptableObject
     public List<Coordinates> innerCoords = new List<Coordinates>();
     public List<Coordinates> obstaclesCoords = new List<Coordinates>();
     public List<Coordinates> enemiesSpawnCoords = new List<Coordinates>();
-    public Coordinates playerSpawnPoint { get; set; }
+    public Coordinates playerSpawnCoordinate { get; set; }
     public MapItems mapItems;
     public Tilemap floorTilemap { get; set; }
     public Tilemap middleTilemap { get; set; }
@@ -39,4 +39,10 @@ public abstract class MapGenerator : ScriptableObject
         obstaclesCoords = new List<Coordinates>();
         return this;
     }
+
+    public bool NotObstacleCoordinate(Coordinates someCoord, Coordinates obstacleCoord)
+    {
+        return someCoord.x != obstacleCoord.x || someCoord.y != obstacleCoord.y;
+    }
+
 }

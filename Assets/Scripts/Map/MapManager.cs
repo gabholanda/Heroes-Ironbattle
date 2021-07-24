@@ -88,12 +88,12 @@ public class MapManager : MonoBehaviour
         {
             for (int i = 0; i < players.Length; i++)
             {
-                players[i].transform.position = new Vector3(mapGenerator.playerSpawnPoint.x, mapGenerator.playerSpawnPoint.y);
+                players[i].transform.position = new Vector3(mapGenerator.playerSpawnCoordinate.x, mapGenerator.playerSpawnCoordinate.y);
             }
         }
         else
         {
-            Instantiate(player, new Vector3(mapGenerator.playerSpawnPoint.x, mapGenerator.playerSpawnPoint.y), Quaternion.identity);
+            Instantiate(player, new Vector3(mapGenerator.playerSpawnCoordinate.x, mapGenerator.playerSpawnCoordinate.y), Quaternion.identity);
         }
         return this;
     }

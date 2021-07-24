@@ -45,15 +45,38 @@ public class FlorestGenerator : MapGenerator
 
     public override MapGenerator SetPlayerSpawnPoint()
     {
-        int rand = Random.Range(20, innerCoords.Count - 10);
-        playerSpawnPoint = innerCoords[rand];
-        innerCoords.Remove(innerCoords[rand]);
+        playerSpawnCoordinate = null;
+        while (playerSpawnCoordinate == null)
+        {
+            int rand = Random.Range(20, innerCoords.Count - 10);
+            for (int i = 0; i < obstaclesCoords.Count; i++)
+            {
+                if (NotObstacleCoordinate(innerCoords[rand], obstaclesCoords[i]))
+                {
+                    playerSpawnCoordinate = innerCoords[rand];
+                    break;
+                }
+            }
+        }
+
         return this;
     }
 
+
     public override MapGenerator SetEnemiesSpawnPoints()
     {
-        //TODO
+        while (enemiesSpawnCoords.Count < 3)
+        {
+            int rand = Random.Range(20, innerCoords.Count - 10);
+            for (int i = 0; i < obstaclesCoords.Count; i++)
+            {
+                if (NotObstacleCoordinate(innerCoords[rand], obstaclesCoords[i]))
+                {
+                    enemiesSpawnCoords.Add(innerCoords[rand]);
+                    break;
+                }
+            }
+        }
         return this;
     }
 
