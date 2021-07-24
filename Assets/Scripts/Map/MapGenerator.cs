@@ -9,8 +9,8 @@ public abstract class MapGenerator : ScriptableObject
     public List<Coordinates> coords = new List<Coordinates>();
     public List<Coordinates> innerCoords = new List<Coordinates>();
     public List<Coordinates> obstaclesCoords = new List<Coordinates>();
-    public List<Coordinates> enemiesSpawnCoords = new List<Coordinates>();
-    public Coordinates playerSpawnCoordinate { get; set; }
+    public List<Vector3> enemiesSpawnPoints = new List<Vector3>();
+    public Vector3 playerSpawnPoint { get; set; }
     public MapItems mapItems;
     public Tilemap floorTilemap { get; set; }
     public Tilemap middleTilemap { get; set; }

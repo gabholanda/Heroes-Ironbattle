@@ -326,6 +326,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapGenerator: {fileID: 11400000, guid: 7e391b20f5e0dd34da0a063cbf2ac7c5, type: 2}
   player: {fileID: 6431199696723903610, guid: 91de32c705765f54fa0fbb1ed105b6ac, type: 3}
+  enemies:
+  - {fileID: 0}
+  enemiesToSpawn:
+  - {fileID: 0}
   availableMapItems:
   - {fileID: 11400000, guid: 003bc9e0d5217024491a23cf743da3ce, type: 2}
   floorTilemap: {fileID: 1053675687}

@@ -32,9 +32,9 @@ public class MapManager : MonoBehaviour
         SetTilemaps()
         .PickGenerator()
         .GenerateMap()
-        .SpawnPlayer()
-        .SetEnemiesToSpawn()
-        .SpawnEnemies();
+        .SpawnPlayer();
+        //.SetEnemiesToSpawn()
+        //.SpawnEnemies();
     }
 
     IEnumerator Automap()
@@ -88,12 +88,12 @@ public class MapManager : MonoBehaviour
         {
             for (int i = 0; i < players.Length; i++)
             {
-                players[i].transform.position = new Vector3(mapGenerator.playerSpawnCoordinate.x, mapGenerator.playerSpawnCoordinate.y);
+                players[i].transform.position = mapGenerator.playerSpawnPoint;
             }
         }
         else
         {
-            Instantiate(player, new Vector3(mapGenerator.playerSpawnCoordinate.x, mapGenerator.playerSpawnCoordinate.y), Quaternion.identity);
+            Instantiate(player, new Vector3(mapGenerator.playerSpawnPoint.x, mapGenerator.playerSpawnPoint.y), Quaternion.identity);
         }
         return this;
     }
@@ -108,10 +108,16 @@ public class MapManager : MonoBehaviour
         int enemiesQty = Random.Range(5, 15);
         for (int i = 0; i < enemiesQty; i++)
         {
-            GameObject chosenEnemy = enemies[Random.Range(0, enemies.Count - 1)];
-            Coordinates randomSpawn = mapGenerator.enemiesSpawnCoords[Random.Range(0, mapGenerator.enemiesSpawnCoords.Count - 1)];
-            Instantiate(chosenEnemy, new Vector3(randomSpawn.x, randomSpawn.y), Quaternion.identity);
+            Instantiate(GetRandomEnemy(), GetRandomEnemySpawnPoint(), Quaternion.identity);
         }
         return this;
+    }
+    private GameObject GetRandomEnemy()
+    {
+        return enemies[Random.Range(0, enemies.Count - 1)];
+    }
+    private Vector3 GetRandomEnemySpawnPoint()
+    {
+        return mapGenerator.enemiesSpawnPoints[Random.Range(0, mapGenerator.enemiesSpawnPoints.Count - 1)];
     }
 }
