@@ -85,6 +85,7 @@ public class FlorestGenerator : MapGenerator
     {
         coords.ForEach(ProcessCoordinates(floorTilemap, mapItems.bottomTiles, mapItems.bottomTiles.Length));
         innerCoords.ForEach(ProcessCoordinates(middleTilemap, mapItems.middleTiles, mapItems.middleTiles.Length));
+        outerCoords.ForEach(ProcessCoordinates(floorTilemap, mapItems.outerTiles, mapItems.outerTiles.Length));
         outerCoords.ForEach(ProcessCoordinates(topTilemap, mapItems.outerTiles, mapItems.outerTiles.Length));
         obstaclesCoords.ForEach(ProcessCoordinates(topTilemap, mapItems.topTiles, mapItems.topTiles.Length));
         return this;
@@ -101,12 +102,13 @@ public class FlorestGenerator : MapGenerator
 
     private void SetHorizontalOutCoords(int y, int initialPosX, int totalRow)
     {
-        for (int x = initialPosX - 10; x < initialPosX; x++)
+        // TODO: Optimize it so it wont generate unnecessary tiles
+        for (int x = initialPosX - 20; x < initialPosX; x++)
         {
             AddCoord(x, y, outerCoords);
         }
 
-        for (int x = totalRow; x < totalRow + 10; x++)
+        for (int x = totalRow; x < totalRow + 20; x++)
         {
             AddCoord(x, y, outerCoords);
         }
@@ -130,7 +132,7 @@ public class FlorestGenerator : MapGenerator
 
     private bool IsDecoration()
     {
-        return Random.Range(1, 3) == 1;
+        return Random.Range(1, 6) == 1;
     }
 
     private bool IsGap()

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -22,10 +21,10 @@ public class MapManager : MonoBehaviour
     public Tilemap topTilemap;
     public int minSize, maxSize;
 
-    private void Start()
+    private void Awake()
     {
-        StartCoroutine(Automap());
-        //StartGeneratingMap();
+        //StartCoroutine(Automap());
+        StartGeneratingMap();
     }
     public void StartGeneratingMap()
     {

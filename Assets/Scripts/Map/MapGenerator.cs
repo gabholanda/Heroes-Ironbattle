@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public abstract class MapGenerator : ScriptableObject
 {
+    // TODO: Refactor to use x,y list/array
     public List<Coordinates> outerCoords = new List<Coordinates>();
     public List<Coordinates> coords = new List<Coordinates>();
     public List<Coordinates> innerCoords = new List<Coordinates>();
