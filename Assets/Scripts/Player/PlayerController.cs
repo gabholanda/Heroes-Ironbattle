@@ -9,19 +9,27 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private CharacterCombat characterCombat;
     [SerializeField]
+    private CharacterAnimator characterAnimator;
+    [SerializeField]
     private CharacterStats stats;
     [SerializeField]
     private ParticleSystem castingParticles;
+    [SerializeField]
+    private AbilityHandler[] handlers;
+
     public InputReader PlayerReader;
 
+    public GameObject castingPoint;
+
+    public GameObject target;
     private void Start()
     {
+        handlers[0].Initialize(castingPoint, new Vector2());
+        characterAnimator = gameObject.AddComponent<CharacterAnimator>();
         characterMovement = gameObject.AddComponent<CharacterMovement>();
+        characterMovement.CharAnim = characterAnimator;
         characterCombat = gameObject.AddComponent<CharacterCombat>();
         characterMovement.SetStats(stats);
-        characterMovement.dashDuration = 0.1f;
-        characterMovement.dashCooldown = 1f;
-        characterMovement.dashCoeficient = 3f;
         castingParticles.Stop();
     }
     private void Awake()
@@ -57,12 +65,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnAbilityCancel(InputAction.CallbackContext obj)
     {
-        throw new NotImplementedException();
+        castingParticles.Stop();
     }
 
     private void OnFire(InputAction.CallbackContext obj)
     {
-        throw new NotImplementedException();
+        if (!handlers[0].isCoolingDown)
+        {
+            Vector3 mousePos = Mouse.current.position.ReadValue();
+            mousePos.z = 10;
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+            characterAnimator.SetAnimation("Casting", true, false);
+            handlers[0].Execute(gameObject, worldPosition);
+        }
     }
 
     private void OnMove(InputAction.CallbackContext ctx)

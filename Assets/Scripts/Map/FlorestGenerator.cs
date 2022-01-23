@@ -85,8 +85,8 @@ public class FlorestGenerator : MapGenerator
     {
         coords.ForEach(ProcessCoordinates(floorTilemap, mapItems.bottomTiles, mapItems.bottomTiles.Length));
         innerCoords.ForEach(ProcessCoordinates(middleTilemap, mapItems.middleTiles, mapItems.middleTiles.Length));
-        outerCoords.ForEach(ProcessCoordinates(floorTilemap, mapItems.outerTiles, mapItems.outerTiles.Length));
-        outerCoords.ForEach(ProcessCoordinates(topTilemap, mapItems.outerTiles, mapItems.outerTiles.Length));
+        outerCoords.ForEach(ProcessCoordinates(floorTilemap, mapItems.outerBottomTiles, mapItems.outerBottomTiles.Length));
+        outerCoords.ForEach(ProcessCoordinates(topTilemap, mapItems.outerTopTiles, mapItems.outerTopTiles.Length));
         obstaclesCoords.ForEach(ProcessCoordinates(topTilemap, mapItems.topTiles, mapItems.topTiles.Length));
         return this;
     }
@@ -95,7 +95,7 @@ public class FlorestGenerator : MapGenerator
     {
         return delegate (Coordinates coord)
         {
-            tilemap.SetTile(new Vector3Int(coord.x, coord.y, 0), tiles[UnityEngine.Random.Range(0, tilesLength - 1)]);
+            tilemap.SetTile(new Vector3Int(coord.x, coord.y, 0), tiles[UnityEngine.Random.Range(0, tilesLength)]);
             //Debug.Log(coord.x + ":" + coord.y);
         };
     }

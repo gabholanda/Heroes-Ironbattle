@@ -12,8 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe527fd682001a40951aaad083be43e, type: 3}
   m_Name: Florest MapItems
   m_EditorClassIdentifier: 
-  outerTiles:
+  outerBottomTiles:
+  - {fileID: 11400000, guid: b2fe94281baf8ed4985f18812934315b, type: 2}
+  - {fileID: 11400000, guid: 35d0d4606b1bd0048be851e662db5b6b, type: 2}
+  - {fileID: 11400000, guid: 3fc33449cef80a04c994b0cd0b9b8860, type: 2}
+  - {fileID: 11400000, guid: 2689ae2a72687cf4ebd968cade11338c, type: 2}
+  - {fileID: 11400000, guid: c5a6963edae6aba4aa2a91ad1125b0dd, type: 2}
+  - {fileID: 11400000, guid: 25481d6c75bdec54cb8cca4fd844ca52, type: 2}
+  - {fileID: 11400000, guid: eedd2ccb7e12faa439c1d23327df237d, type: 2}
+  - {fileID: 11400000, guid: 74e26cc1f66f8f048b3714aea7e57580, type: 2}
+  - {fileID: 11400000, guid: 43cad132f1f991549a8e5d06037fa55a, type: 2}
+  outerTopTiles:
   - {fileID: 11400000, guid: 5e33c20f18c968547aa8965fbe333477, type: 2}
+  - {fileID: 11400000, guid: a9eb0ba81addaa047ac9bce97918cb90, type: 2}
+  - {fileID: 11400000, guid: cc9c4006ff7ed0e45a0b035e58bb08b7, type: 2}
   bottomTiles:
   - {fileID: 11400000, guid: ca8fc82550ca306428c991accb043daa, type: 2}
   - {fileID: 11400000, guid: 593bf85642245944696179a5a3e51f51, type: 2}
@@ -43,4 +55,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f37cc6a551f59b24ba136203f8badff5, type: 2}
   topTiles:
   - {fileID: 11400000, guid: 9756df710a4ad9f43bd080a43b7355b1, type: 2}
+  - {fileID: 11400000, guid: 7689561ad4a5f19408911836376acd40, type: 2}
+  - {fileID: 11400000, guid: 2519f061f8363a4469cb2fd83f77437a, type: 2}
   type: 0

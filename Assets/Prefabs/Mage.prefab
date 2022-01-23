@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 475288034}
   - component: {fileID: 475288036}
   - component: {fileID: 475288035}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Staff particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,11 +972,11 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 1
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -985,20 +985,20 @@ ParticleSystem:
           time: 0
           value: 0
           inSlope: 0
-          outSlope: 1
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 1
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 2
+          outSlope: 2
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -4754,6 +4754,49 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &1387867187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1387867188}
+  - component: {fileID: 1387867189}
+  m_Layer: 9
+  m_Name: castingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1387867188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387867187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.781, y: 1.117, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6431199696723903608}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1387867189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387867187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b372189e26082488b1227a5a88e734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1812459881
 GameObject:
   m_ObjectHideFlags: 0
@@ -4765,7 +4808,7 @@ GameObject:
   - component: {fileID: 1812459882}
   - component: {fileID: 1812459884}
   - component: {fileID: 1812459883}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Casting Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5725,33 +5768,33 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 1
+      scalar: 2.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 1
+          value: 1
+          inSlope: -2
+          outSlope: -2
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
+          value: 0
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -9518,7 +9561,8 @@ GameObject:
   - component: {fileID: 6431199695417879191}
   - component: {fileID: 6431199695417879190}
   - component: {fileID: 6431199695417879189}
-  m_Layer: 0
+  - component: {fileID: 1020798994}
+  m_Layer: 9
   m_Name: Staff-Diagonal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9532,14 +9576,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6431199695417879184}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27, y: 0.36, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.428, y: 1.225, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 475288034}
   m_Father: {fileID: 6431199696723903608}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 31.111456}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.073544}
 --- !u!212 &6431199695417879190
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9601,11 +9645,26 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 47a8aad428d6c334d88fb8c774511f1a, type: 2}
+  - {fileID: 7400000, guid: 984b34392b74d3a4e8a20e674a50ed46, type: 2}
+  - {fileID: 7400000, guid: c47d0f29e0cfad942a6b3aaf928cf758, type: 2}
+  - {fileID: 7400000, guid: 661b28dc036088a4494d3137f9397325, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1020798994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431199695417879184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1648c24b9af8ec46ab989adfaea6351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 6431199695417879189}
 --- !u!1 &6431199696723903610
 GameObject:
   m_ObjectHideFlags: 0
@@ -9619,7 +9678,8 @@ GameObject:
   - component: {fileID: 3553262527252671618}
   - component: {fileID: 709747010538094713}
   - component: {fileID: 6435816235699274352}
-  m_Layer: 0
+  - component: {fileID: 1678621621}
+  m_Layer: 9
   m_Name: Mage
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -9639,6 +9699,7 @@ Transform:
   m_Children:
   - {fileID: 6431199695417879191}
   - {fileID: 1812459882}
+  - {fileID: 1387867188}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9706,8 +9767,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterMovement: {fileID: 0}
   characterCombat: {fileID: 0}
-  stats: {fileID: 11400000, guid: 9993e3f78e7b5d243ad07b7700fcdece, type: 2}
+  characterAnimator: {fileID: 0}
+  stats: {fileID: 11400000, guid: 4f919f84c2078754fae60e4b76128f58, type: 2}
+  castingParticles: {fileID: 1812459884}
+  handlers:
+  - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
   PlayerReader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
+  castingPoint: {fileID: 1387867187}
+  target: {fileID: 0}
 --- !u!50 &709747010538094713
 Rigidbody2D:
   serializedVersion: 4
@@ -9720,14 +9787,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &6435816235699274352
 CapsuleCollider2D:
@@ -9745,3 +9812,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00036242604, y: 0.3329544}
   m_Size: {x: 0.7619104, y: 0.81427526}
   m_Direction: 0
+--- !u!95 &1678621621
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431199696723903610}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 17fa7fa0ec9a7f64abb568b7be7c737a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

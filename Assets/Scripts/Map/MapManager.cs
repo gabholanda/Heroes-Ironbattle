@@ -71,12 +71,12 @@ public class MapManager : MonoBehaviour
     {
         mapGenerator
           .ClearMap()
-          .ClearCoords()
           .SetMaxCoords(minSize, maxSize)
           .SetCoords()
           .SetPlayerSpawnPoint()
           .SetEnemiesSpawnPoints()
-          .FillMap();
+          .FillMap()
+          .ClearCoords();
         return this;
     }
 

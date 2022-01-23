@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 510d6c43f398c4649b1b08c9dd0c44b5, type: 3}
+  m_Name: Icespike
+  m_EditorClassIdentifier: 
+  sound: {fileID: 0}
+  icon: {fileID: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  abilityName: Icespike
+  description: Icespikes come out from the ground dealing 100% of your magic damage
+    and dealing a 30% slowing effect for 2 seconds.
+  cooldownDuration: 0
+  cooldownOnAbilityEnd: 1
+  abilityDestroyDuration: 0.5
+  scalingCoeficient: 1

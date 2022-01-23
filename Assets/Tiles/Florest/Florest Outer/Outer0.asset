@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Outer0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 4403933487624526528, guid: af31bfe2894efa243b62f754bed465e3,
+  m_Sprite: {fileID: -5624670463692665993, guid: fc1f79d95b52dbb48910443ec7a706a8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
@@ -34,4 +34,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 0
+  m_ColliderType: 2

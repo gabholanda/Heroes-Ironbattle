@@ -1,7 +1,55 @@
 fileFormatVersion: 2
 guid: fc1f79d95b52dbb48910443ec7a706a8
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1262199715586883859
+    second: Florest_pack_0
+  - first:
+      213: 4456633705221222178
+    second: Florest_pack_1
+  - first:
+      213: 8483096161833901296
+    second: Florest_pack_2
+  - first:
+      213: -5624670463692665993
+    second: Florest_pack_3
+  - first:
+      213: 3308690204906695620
+    second: Florest_pack_4
+  - first:
+      213: -5330919407766304913
+    second: Florest_pack_5
+  - first:
+      213: 3875162483188964941
+    second: Florest_pack_6
+  - first:
+      213: 229182170470483830
+    second: Florest_pack_7
+  - first:
+      213: -655989849054400781
+    second: Florest_pack_8
+  - first:
+      213: -1324619397101590811
+    second: Florest_pack_9
+  - first:
+      213: 8458964620244666052
+    second: Florest_pack_10
+  - first:
+      213: 7888099394119334427
+    second: Florest_pack_11
+  - first:
+      213: -8070242137086636191
+    second: Florest_pack_12
+  - first:
+      213: -931054681628469620
+    second: Florest_pack_13
+  - first:
+      213: -8166634038631008093
+    second: Florest_pack_14
+  - first:
+      213: -6845652677911708050
+    second: Florest_pack_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +79,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -40,12 +88,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -64,7 +112,31 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -73,7 +145,157 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Florest_pack_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 130
+        width: 55
+        height: 63
+      alignment: 9
+      pivot: {x: 0.49598038, y: 0.20703997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 5.5, y: -12.5}
+        - {x: -4.5, y: -12.5}
+        - {x: -9.5, y: -19.5}
+        - {x: 8.5, y: -19.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: dee38dccb04cb7ee0800000000000000
+      internalID: -1262199715586883859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Florest_pack_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 129
+        width: 55
+        height: 64
+      alignment: 9
+      pivot: {x: 0.50328565, y: 0.21494389}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -9.5, y: -19}
+        - {x: -4.5, y: -12}
+        - {x: 5.5, y: -12}
+        - {x: 8.5, y: -19}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f6ebd1eb429dd30800000000000000
+      internalID: 4456633705221222178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Florest_pack_2
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 109
+        width: 61
+        height: 83
+      alignment: 9
+      pivot: {x: 0.48257673, y: 0.23530039}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8.5, y: -12.5}
+        - {x: -8.5, y: -12.5}
+        - {x: -14.5, y: -21.5}
+        - {x: 13.5, y: -21.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fcd69983030ab570800000000000000
+      internalID: 8483096161833901296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Florest_pack_3
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 108
+        width: 61
+        height: 84
+      alignment: 9
+      pivot: {x: 0.4805513, y: 0.3274259}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7.5, y: -13}
+        - {x: -7.5, y: -13}
+        - {x: -12.5, y: -21}
+        - {x: 9.5, y: -21}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b87f8930821f1b0800000000000000
+      internalID: -5624670463692665993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Florest_pack_4
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 7
+        width: 55
+        height: 110
+      alignment: 9
+      pivot: {x: 0.49092546, y: 0.15766925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5.5, y: -32}
+        - {x: -10.5, y: -38}
+        - {x: 9.5, y: -38}
+        - {x: 5.5, y: -32}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cb274f0634daed20800000000000000
+      internalID: 3308690204906695620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Florest_pack_6
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 32
+        width: 60
+        height: 75
+      alignment: 9
+      pivot: {x: 0.36461335, y: 0.16274232}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -21, y: -25.5}
+        - {x: -16, y: -18.5}
+        - {x: 0, y: -18.5}
+        - {x: 6, y: -25.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e16693fb757c530800000000000000
+      internalID: 3875162483188964941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
