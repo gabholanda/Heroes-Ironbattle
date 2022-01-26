@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject castingPoint;
 
     public GameObject target;
+
     private void Start()
     {
         handlers[0].Initialize(castingPoint, new Vector2());
@@ -70,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnFire(InputAction.CallbackContext obj)
     {
+        //TODO: Add selected handler instead of first in list
         if (!handlers[0].isCoolingDown)
         {
             Vector3 mousePos = Mouse.current.position.ReadValue();

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475288033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.046, y: 1.069, z: 0}
+  m_LocalPosition: {x: 1, y: 0.902, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6431199695417879191}
@@ -983,19 +983,19 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
-          tangentMode: 0
+          tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 2
-          outSlope: 2
-          tangentMode: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0
@@ -9742,7 +9742,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4d8050307c8d3bc46ae8be5f2dd7b5dc, type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: a4b920995923d1f47aa8f4db3567ae30,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9772,9 +9773,12 @@ MonoBehaviour:
   castingParticles: {fileID: 1812459884}
   handlers:
   - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
+  afterImage: {fileID: 0}
   PlayerReader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
   castingPoint: {fileID: 1387867187}
   target: {fileID: 0}
+  afterImagePrefab: {fileID: 1286667001457802513, guid: 08b216040cb287b4b9fcdc01d600a64d,
+    type: 3}
 --- !u!50 &709747010538094713
 Rigidbody2D:
   serializedVersion: 4

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour, IMovable
 {
@@ -11,6 +12,7 @@ public class CharacterMovement : MonoBehaviour, IMovable
     public CharacterAnimator CharAnim { get; set; }
     private Vector3 movVector;
 
+    //TODO: Change it to the ability system and just pass a handler
     [Header("Dash Info")]
     public float dashCoeficient;
     public float dashDuration;
@@ -19,7 +21,6 @@ public class CharacterMovement : MonoBehaviour, IMovable
     public float dashCooldownTimer;
     public bool isDashing;
     public bool canDash;
-    // Start is called before the first frame update
 
     void Awake()
     {
@@ -41,6 +42,7 @@ public class CharacterMovement : MonoBehaviour, IMovable
         {
             rb.MovePosition(transform.position + movVector * Time.deltaTime);
         }
+        Flip();
     }
 
     public void SetVector(Vector2 v2)
@@ -113,5 +115,21 @@ public class CharacterMovement : MonoBehaviour, IMovable
                 dashCooldownTimer = 0f;
             }
         }
+    }
+
+    public void Flip()
+    {
+        Vector3 mousePosition = Mouse.current.position.ReadValue();
+        mousePosition.z = 10f;
+        Vector3 positionToWorld = Camera.main.ScreenToWorldPoint(mousePosition);
+        if (positionToWorld.x < transform.position.x)
+            transform.localScale = new Vector3(-1, 1, 1);
+        else
+            transform.localScale = new Vector3(1, 1, 1);
+    }
+
+    public bool IsFlipped()
+    {
+        return transform.localScale.x == -1;
     }
 }
