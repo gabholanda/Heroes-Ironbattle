@@ -10,7 +10,6 @@ public class ProjectileHandler : AbilityHandler
 
     public override void Initialize(GameObject player, Vector2 v2)
     {
-        ability = prefab.GetComponent<Ability>();
         this.isCoolingDown = false;
         this.coRunner = player.GetComponent<CoroutineRunner>();
     }

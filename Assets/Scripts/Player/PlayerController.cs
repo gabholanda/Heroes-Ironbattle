@@ -16,8 +16,9 @@ public class PlayerController : MonoBehaviour
     private ParticleSystem castingParticles;
     [SerializeField]
     private AbilityHandler[] handlers;
-
-    public InputReader PlayerReader;
+    [SerializeField]
+    private DashHandler dashHandler;
+    public InputReader playerReader;
 
     public GameObject castingPoint;
 
@@ -26,22 +27,29 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         handlers[0].Initialize(castingPoint, new Vector2());
+
         characterAnimator = gameObject.AddComponent<CharacterAnimator>();
         characterMovement = gameObject.AddComponent<CharacterMovement>();
-        characterMovement.CharAnim = characterAnimator;
+
+        characterMovement
+            .SetStats(stats)
+            .SetAnimator(characterAnimator)
+            .SetDashHandler(dashHandler)
+            .InitializeDashHandler(castingPoint, gameObject.transform.position);
+
         characterCombat = gameObject.AddComponent<CharacterCombat>();
-        characterMovement.SetStats(stats);
         castingParticles.Stop();
     }
     private void Awake()
     {
-        PlayerReader.OnMove.performed += OnMove;
-        PlayerReader.OnFire.performed += OnFire;
-        PlayerReader.OnAbilitySelect.performed += OnAbilitySelect;
-        PlayerReader.OnAbilityCancel.performed += OnAbilityCancel;
-        PlayerReader.OnDash.performed += OnDash;
-        PlayerReader.OnMenuOpen.performed += OnMenuOpen;
-        PlayerReader.OnMenuClose.performed += OnMenuClose;
+        playerReader.OnMove.performed += OnMove;
+        playerReader.OnFire.performed += OnFire;
+        playerReader.OnAbilitySelect.performed += OnAbilitySelect;
+        playerReader.OnAbilityCancel.performed += OnAbilityCancel;
+        playerReader.OnDash.performed += OnDash;
+        playerReader.OnMenuOpen.performed += OnMenuOpen;
+        playerReader.OnMenuClose.performed += OnMenuClose;
+
     }
 
     private void OnMenuClose(InputAction.CallbackContext obj)
@@ -90,23 +98,23 @@ public class PlayerController : MonoBehaviour
 
     void OnEnable()
     {
-        PlayerReader.OnMove.Enable();
-        PlayerReader.OnFire.Enable();
-        PlayerReader.OnAbilitySelect.Enable();
-        PlayerReader.OnAbilityCancel.Enable();
-        PlayerReader.OnDash.Enable();
-        PlayerReader.OnMenuOpen.Enable();
-        PlayerReader.OnMenuClose.Enable();
+        playerReader.OnMove.Enable();
+        playerReader.OnFire.Enable();
+        playerReader.OnAbilitySelect.Enable();
+        playerReader.OnAbilityCancel.Enable();
+        playerReader.OnDash.Enable();
+        playerReader.OnMenuOpen.Enable();
+        playerReader.OnMenuClose.Enable();
     }
 
     void OnDisable()
     {
-        PlayerReader.OnMove.Disable();
-        PlayerReader.OnFire.Disable();
-        PlayerReader.OnAbilitySelect.Disable();
-        PlayerReader.OnAbilityCancel.Disable();
-        PlayerReader.OnDash.Disable();
-        PlayerReader.OnMenuOpen.Disable();
-        PlayerReader.OnMenuClose.Disable();
+        playerReader.OnMove.Disable();
+        playerReader.OnFire.Disable();
+        playerReader.OnAbilitySelect.Disable();
+        playerReader.OnAbilityCancel.Disable();
+        playerReader.OnDash.Disable();
+        playerReader.OnMenuOpen.Disable();
+        playerReader.OnMenuClose.Disable();
     }
 }

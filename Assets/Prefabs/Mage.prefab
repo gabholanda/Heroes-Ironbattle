@@ -9679,6 +9679,7 @@ GameObject:
   - component: {fileID: 709747010538094713}
   - component: {fileID: 6435816235699274352}
   - component: {fileID: 1678621621}
+  - component: {fileID: 1872058166}
   m_Layer: 9
   m_Name: Mage
   m_TagString: Player
@@ -9773,12 +9774,10 @@ MonoBehaviour:
   castingParticles: {fileID: 1812459884}
   handlers:
   - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
-  afterImage: {fileID: 0}
-  PlayerReader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
+  dashHandler: {fileID: 11400000, guid: 193e502b3a4d0864fa5e9cd43fea9459, type: 2}
+  playerReader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
   castingPoint: {fileID: 1387867187}
   target: {fileID: 0}
-  afterImagePrefab: {fileID: 1286667001457802513, guid: 08b216040cb287b4b9fcdc01d600a64d,
-    type: 3}
 --- !u!50 &709747010538094713
 Rigidbody2D:
   serializedVersion: 4
@@ -9835,3 +9834,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1872058166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431199696723903610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9050f2a5f43a24aaeee18959215ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intervalPerImage: 0.05
+  destroyAfterSeconds: 0.3
+  color:
+    serializedVersion: 2
+    rgba: 2522745611
+  spriteRenderer: {fileID: 6431199696723903609}
+  prefab: {fileID: 1286667001457802513, guid: 08b216040cb287b4b9fcdc01d600a64d, type: 3}

@@ -19,11 +19,13 @@ public class AfterImageEffect : MonoBehaviour
 
     void Update()
     {
-        if (characterMove.isDashing)
+        if (characterMove.dashHandler.isDashing)
             currentTime += Time.deltaTime;
         if (currentTime > intervalPerImage)
         {
-            GameObject obj = Instantiate(prefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            GameObject obj = Instantiate(prefab,
+                new Vector3(transform.position.x, transform.position.y, transform.position.z),
+                Quaternion.identity);
             obj.transform.localScale = transform.localScale;
             SpriteRenderer sprRend = obj.GetComponent<SpriteRenderer>();
             sprRend.color = color;
