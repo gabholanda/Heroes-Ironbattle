@@ -4,7 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Stale Ground Handler", menuName = "ScriptableObjects/Ability Handlers/New Stale Ground Handler")]
 public class StaleGroundHandler : AbilityHandler
 {
-    private Transform startPoint;
     public float offsetX;
     public float offsetY;
     public override void Initialize(GameObject player, Vector2 v2)
@@ -16,12 +15,12 @@ public class StaleGroundHandler : AbilityHandler
 
     public override void Execute(GameObject player, Vector2 v2)
     {
-        Transform castingPoint = player.GetComponent<PlayerController>().transform;
-        startPoint.transform.position = new Vector2(castingPoint.position.x - offsetX, castingPoint.position.y - offsetY);
+        Transform playerTransform = player.GetComponent<PlayerController>().transform;
+        Vector3 castingPoint = new Vector2(playerTransform.position.x - offsetX, playerTransform.position.y - offsetY);
         GameObject obj = Instantiate(prefab,
                     new Vector3
-                    (startPoint.transform.position.x,
-                    startPoint.transform.position.y),
+                    (castingPoint.x,
+                    castingPoint.y),
                     Quaternion.identity);
         this.isCoolingDown = true;
         coRunner.Run(this.StartCooldown());

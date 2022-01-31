@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class CharacterCombat : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private AbilityHandler selectedAbility;
+    public void SelectAbility(AbilityHandler ability)
     {
-        
+        selectedAbility = ability;
+    }
+    public void CancelAbility()
+    {
+        selectedAbility = null;
+    }
+    public void Cast(GameObject gObj, Vector2 v2)
+    {
+        selectedAbility.Execute(gObj, v2);
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool canCast()
     {
-        
+        return selectedAbility != null && !selectedAbility.isCoolingDown;
     }
 }

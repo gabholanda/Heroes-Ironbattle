@@ -26,8 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        handlers[0].Initialize(castingPoint, new Vector2());
-
+        InitializeAbilities();
         characterAnimator = gameObject.AddComponent<CharacterAnimator>();
         characterMovement = gameObject.AddComponent<CharacterMovement>();
 
@@ -69,6 +68,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnAbilitySelect(InputAction.CallbackContext obj)
     {
+        if (Keyboard.current.qKey.wasPressedThisFrame)
+        {
+            characterCombat.SelectAbility(handlers[0]);
+        }
+        else if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            characterCombat.SelectAbility(handlers[1]);
+        }
+        else if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            characterCombat.SelectAbility(handlers[2]);
+        }
         castingParticles.Play();
     }
 
@@ -80,13 +91,14 @@ public class PlayerController : MonoBehaviour
     private void OnFire(InputAction.CallbackContext obj)
     {
         //TODO: Add selected handler instead of first in list
-        if (!handlers[0].isCoolingDown)
+        if (characterCombat.canCast())
         {
+            // TODO: fazer isso em um script de utility;
             Vector3 mousePos = Mouse.current.position.ReadValue();
             mousePos.z = 10;
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
             characterAnimator.SetAnimation("Casting", true, false);
-            handlers[0].Execute(gameObject, worldPosition);
+            characterCombat.Cast(gameObject, worldPosition);
         }
     }
 
@@ -116,5 +128,13 @@ public class PlayerController : MonoBehaviour
         playerReader.OnDash.Disable();
         playerReader.OnMenuOpen.Disable();
         playerReader.OnMenuClose.Disable();
+    }
+
+    void InitializeAbilities()
+    {
+        for (int i = 0; i < handlers.Length; i++)
+        {
+            handlers[i].Initialize(castingPoint, new Vector2());
+        }
     }
 }

@@ -22,7 +22,6 @@ public class CharacterMovement : MonoBehaviour, IMovable
     {
         if (dashHandler.isDashing)
         {
-            Debug.Log(dashHandler.isDashing);
             rb.MovePosition(transform.position + movVector * Time.deltaTime * dashHandler.GetAbilityData().scalingCoeficient);
         }
         else

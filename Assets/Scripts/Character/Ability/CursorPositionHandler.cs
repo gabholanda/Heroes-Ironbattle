@@ -17,10 +17,7 @@ public class CursorPositionHandler : AbilityHandler
 
     public override void Execute(GameObject player, Vector2 v2)
     {
-        // TODO: fazer isso em um script de utility;
-        Vector3 mousePosition = Mouse.current.position.ReadValue();
-        mousePosition.z = 10f;
-        Vector3 positionToWorld = Camera.main.ScreenToWorldPoint(mousePosition);
+        Vector3 positionToWorld = v2;
         positionToWorld.z = 0;
         positionToWorld.x -= offsetX;
         positionToWorld.y -= offsetY;

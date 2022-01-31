@@ -400,6 +400,29 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 596678034}
+    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
+        type: 3}
+      propertyPath: handlers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
+        type: 3}
+      propertyPath: handlers.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842,
+        type: 2}
+    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
+        type: 3}
+      propertyPath: handlers.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e,
+        type: 2}
+    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
+        type: 3}
+      propertyPath: handlers.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb,
+        type: 2}
     - target: {fileID: 6431199696723903608, guid: 91de32c705765f54fa0fbb1ed105b6ac,
         type: 3}
       propertyPath: m_RootOrder
