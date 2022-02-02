@@ -29,14 +29,14 @@ public class PlayerController : MonoBehaviour
         InitializeAbilities();
         characterAnimator = gameObject.AddComponent<CharacterAnimator>();
         characterMovement = gameObject.AddComponent<CharacterMovement>();
-
+        characterCombat = gameObject.AddComponent<CharacterCombat>();
         characterMovement
             .SetStats(stats)
             .SetAnimator(characterAnimator)
             .SetDashHandler(dashHandler)
             .InitializeDashHandler(castingPoint, gameObject.transform.position);
 
-        characterCombat = gameObject.AddComponent<CharacterCombat>();
+
         castingParticles.Stop();
     }
     private void Awake()
@@ -80,6 +80,10 @@ public class PlayerController : MonoBehaviour
         {
             characterCombat.SelectAbility(handlers[2]);
         }
+        else if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            characterCombat.SelectAbility(handlers[3]);
+        }
         castingParticles.Play();
     }
 
@@ -90,14 +94,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnFire(InputAction.CallbackContext obj)
     {
-        //TODO: Add selected handler instead of first in list
         if (characterCombat.canCast())
         {
             // TODO: fazer isso em um script de utility;
             Vector3 mousePos = Mouse.current.position.ReadValue();
             mousePos.z = 10;
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
-            characterAnimator.SetAnimation("Casting", true, false);
+            characterAnimator.SetAnimation("Casting", true, false, true, true);
             characterCombat.Cast(gameObject, worldPosition);
         }
     }

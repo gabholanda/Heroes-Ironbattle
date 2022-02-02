@@ -10,7 +10,7 @@ public class CharacterMovement : MonoBehaviour, IMovable
     private Rigidbody2D rb;
     [SerializeField]
     private CharacterStats stats;
-    public CharacterAnimator charAnim { get; set; }
+    public CharacterAnimator CharAnim { get; set; }
     private Vector3 movVector;
 
     void Awake()
@@ -37,11 +37,11 @@ public class CharacterMovement : MonoBehaviour, IMovable
             movVector = new Vector3(v2.x, v2.y) * stats.moveSpeed;
         if (IsMoving())
         {
-            charAnim.SetAnimation("Walk", true, true);
+            CharAnim.SetAnimation("Walk", true, true, false, false);
         }
         else
         {
-            charAnim.SetAnimation("Idle", true, true);
+            CharAnim.SetAnimation("Idle", true, true, false, false);
         }
     }
 
@@ -53,7 +53,7 @@ public class CharacterMovement : MonoBehaviour, IMovable
 
     public CharacterMovement SetAnimator(CharacterAnimator _charAnim)
     {
-        charAnim = _charAnim;
+        CharAnim = _charAnim;
         return this;
     }
 
