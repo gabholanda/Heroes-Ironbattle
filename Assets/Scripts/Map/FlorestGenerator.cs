@@ -66,7 +66,7 @@ public class FlorestGenerator : MapGenerator
 
     public override MapGenerator SetEnemiesSpawnPoints()
     {
-        while (enemiesSpawnPoints.Count < 3)
+        while (enemiesSpawnPoints.Count < 30)
         {
             int rand = Random.Range(30, coords.Count - 20);
             for (int i = 0; i < obstaclesCoords.Count; i++)

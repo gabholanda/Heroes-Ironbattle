@@ -9,7 +9,7 @@ public class CharacterCombat : MonoBehaviour
     {
         selectedAbility = ability;
     }
-    public void CancelAbility()
+    public void CancelAbilitySelection()
     {
         selectedAbility = null;
     }

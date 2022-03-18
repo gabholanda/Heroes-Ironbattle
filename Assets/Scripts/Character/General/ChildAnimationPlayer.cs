@@ -4,9 +4,10 @@ public class ChildAnimationPlayer : MonoBehaviour
 {
     [SerializeField]
     private Animation anim;
+    private CharacterAnimator parentAnim;
     private bool isInterrupted = false;
     public string prefix;
-    // Start is called before the first frame update
+
     void Start()
     {
         anim = anim.GetComponent<Animation>();
@@ -34,6 +35,11 @@ public class ChildAnimationPlayer : MonoBehaviour
     public void HasFinished()
     {
         isInterrupted = false;
-        anim.Play(prefix + "Idle");
+        anim.Play(prefix + parentAnim.GetCurrentAnimation());
+    }
+
+    public void SetParentAnimator(CharacterAnimator charAnim)
+    {
+        parentAnim = charAnim;
     }
 }

@@ -39,16 +39,7 @@ public class ProjectileHandler : AbilityHandler
         {
             pos.y = -limiter;
         }
-
-        if (playerScale.x > 0)
-        {
-            pos.x = 1;
-        }
-        else
-        {
-            pos.x = -1;
-        }
-
+        pos.x = playerScale.x;
         return pos;
     }
 }

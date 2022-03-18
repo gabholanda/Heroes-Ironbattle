@@ -20,6 +20,7 @@ public class MapManager : MonoBehaviour
     public Tilemap middleTilemap;
     public Tilemap topTilemap;
     public int minSize, maxSize;
+    public AstarPath astarPath;
 
     private void Awake()
     {
@@ -31,9 +32,11 @@ public class MapManager : MonoBehaviour
         SetTilemaps()
         .PickGenerator()
         .GenerateMap()
-        .SpawnPlayer();
-        //.SetEnemiesToSpawn()
-        //.SpawnEnemies();
+        .SpawnPlayer()
+        .SetEnemiesToSpawn()
+        .SpawnEnemies()
+        .Pathfind();
+
     }
 
     IEnumerator Automap()
@@ -99,10 +102,11 @@ public class MapManager : MonoBehaviour
     private MapManager SetEnemiesToSpawn()
     {
         //enemiesToSpawn = enemies.FindAll(enemy => enemy.GetComponent<EnemyController>().type == mapGenerator.mapItems.type);
+        enemiesToSpawn = enemies.FindAll(enemy => enemy);
         return this;
     }
 
-    private MapManager SpawnEnemies()
+    public MapManager SpawnEnemies()
     {
         int enemiesQty = Random.Range(5, 15);
         for (int i = 0; i < enemiesQty; i++)
@@ -118,5 +122,17 @@ public class MapManager : MonoBehaviour
     private Vector3 GetRandomEnemySpawnPoint()
     {
         return mapGenerator.enemiesSpawnPoints[Random.Range(0, mapGenerator.enemiesSpawnPoints.Count - 1)];
+    }
+
+    private void Pathfind()
+    {
+        StartCoroutine(Scan());
+    }
+
+    private IEnumerator Scan()
+    {
+        yield return new WaitForSeconds(0.1f);
+        //astarPath.data.gridGraph.width = 10;
+        astarPath.Scan();
     }
 }

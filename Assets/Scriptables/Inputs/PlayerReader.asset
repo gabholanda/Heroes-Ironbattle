@@ -20,7 +20,7 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 2D Vector
+    - m_Name: Keyboard/Mouse
       m_Id: 0040894f-5ad2-42bd-a7b4-2b0998e8e387
       m_Path: 2DVector
       m_Interactions: 
@@ -55,6 +55,46 @@ MonoBehaviour:
     - m_Name: right
       m_Id: 107310c2-1ba1-481a-8a98-46e2e067e824
       m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: On Move
+      m_Flags: 8
+    - m_Name: PS4 Controller
+      m_Id: 026cd214-4419-44a1-883c-4e4c2e3174ee
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: On Move
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 037b176d-bf4b-47fe-98d5-641883b87794
+      m_Path: <DualShockGamepad>/leftStick/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: On Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 05f5afbb-65eb-4a4e-8a3c-0891f9f1c404
+      m_Path: <DualShockGamepad>/leftStick/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: On Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 452dd7ab-1a4f-48e2-9bc8-b828a56f2847
+      m_Path: <DualShockGamepad>/leftStick/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: On Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 959d94cf-ec0c-47cf-a75b-450107aadcf6
+      m_Path: <DualShockGamepad>/leftStick/right
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -103,6 +143,14 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 488e83b6-c08d-4a32-ba73-b739b67cf6bc
       m_Path: <Keyboard>/r
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: On Ability Select
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 30d58f4b-c8dc-439b-8d4a-887974388a70
+      m_Path: <Keyboard>/space
       m_Interactions: 
       m_Processors: 
       m_Groups: 

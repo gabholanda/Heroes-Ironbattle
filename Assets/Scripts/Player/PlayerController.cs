@@ -27,9 +27,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         InitializeAbilities();
-        characterAnimator = gameObject.AddComponent<CharacterAnimator>();
-        characterMovement = gameObject.AddComponent<CharacterMovement>();
-        characterCombat = gameObject.AddComponent<CharacterCombat>();
+        SetComponents();
         characterMovement
             .SetStats(stats)
             .SetAnimator(characterAnimator)
@@ -89,6 +87,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnAbilityCancel(InputAction.CallbackContext obj)
     {
+        characterCombat.CancelAbilitySelection();
         castingParticles.Stop();
     }
 
@@ -139,5 +138,12 @@ public class PlayerController : MonoBehaviour
         {
             handlers[i].Initialize(castingPoint, new Vector2());
         }
+    }
+
+    void SetComponents()
+    {
+        characterAnimator = gameObject.AddComponent<CharacterAnimator>();
+        characterMovement = gameObject.AddComponent<CharacterMovement>();
+        characterCombat = gameObject.AddComponent<CharacterCombat>();
     }
 }

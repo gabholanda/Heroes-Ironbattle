@@ -10,14 +10,17 @@ public class CharacterAnimator : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         childAnimation = gameObject.GetComponentInChildren<ChildAnimationPlayer>();
+        childAnimation.SetParentAnimator(this);
     }
     public void SetAnimation(string animation, bool hasChild, bool useMain, bool isNotInterruptible, bool canInterrupt)
     {
-        currentAnim = animation;
         if (useMain)
+        {
+            currentAnim = animation;
             animator.Play(currentAnim);
+        }
         if (hasChild)
-            childAnimation.PlayAnimation(currentAnim, isNotInterruptible, canInterrupt);
+            childAnimation.PlayAnimation(animation, isNotInterruptible, canInterrupt);
     }
 
     public string GetCurrentAnimation()
