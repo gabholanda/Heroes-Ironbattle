@@ -9564,7 +9564,7 @@ GameObject:
   - component: {fileID: 1020798994}
   m_Layer: 9
   m_Name: Staff-Diagonal
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9681,6 +9681,7 @@ GameObject:
   - component: {fileID: 6435816235699274352}
   - component: {fileID: 1678621621}
   - component: {fileID: 1872058166}
+  - component: {fileID: 2100419940}
   m_Layer: 9
   m_Name: Mage
   m_TagString: Player
@@ -9765,23 +9766,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 6431199696723903610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d1ea3f390ad8a34da495f85848b4fce, type: 3}
+  m_Script: {fileID: 11500000, guid: 215eadfa761cd0843b8c6313075aef82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: 4f919f84c2078754fae60e4b76128f58, type: 2}
+  isDead: 0
   characterMovement: {fileID: 0}
   characterCombat: {fileID: 0}
   characterAnimator: {fileID: 0}
-  stats: {fileID: 11400000, guid: 4f919f84c2078754fae60e4b76128f58, type: 2}
   castingParticles: {fileID: 1812459884}
   handlers:
   - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
   - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
   - {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
-  - {fileID: 11400000, guid: 6a7f43e0f58f8a74baf99651f5b3aca2, type: 2}
   dashHandler: {fileID: 11400000, guid: 193e502b3a4d0864fa5e9cd43fea9459, type: 2}
   playerReader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
   castingPoint: {fileID: 1387867187}
-  target: {fileID: 0}
 --- !u!50 &709747010538094713
 Rigidbody2D:
   serializedVersion: 4
@@ -9857,3 +9857,17 @@ MonoBehaviour:
     rgba: 2522745611
   spriteRenderer: {fileID: 6431199696723903609}
   prefab: {fileID: 1286667001457802513, guid: 08b216040cb287b4b9fcdc01d600a64d, type: 3}
+--- !u!114 &2100419940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431199696723903610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2fc7810f0e9ba479379d65596aabe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUpPrefab: {fileID: 6238899390641873202, guid: 1754c1c27b5fd774e9207799af4a2516,
+    type: 3}

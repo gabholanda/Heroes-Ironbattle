@@ -18,8 +18,8 @@ TagManager:
   - Ability
   - Player
   - Obstacles
-  - 
-  - 
+  - Monster
+  - Damage
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Damage
+    uniqueID: 246986377
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

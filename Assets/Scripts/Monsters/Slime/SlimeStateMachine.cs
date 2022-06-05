@@ -14,39 +14,65 @@ public class SlimeStateMachine : StateMachine
     public SlimeChasingState chasingState;
     [HideInInspector]
     public SlimeAttackState attackState;
+    [HideInInspector]
+    public SlimeDyingState dyingState;
+    [HideInInspector]
+    public SlimeDeadState deadState;
 
     public Rigidbody2D rb;
+    public Collider2D col;
     public Animator anim;
     [HideInInspector]
     public Seeker seeker;
     [HideInInspector]
     public Path nodes;
     public int currentWayPoint = 0;
-    //public bool reachedEndOfPath = false;
     public float newWaypointDistance;
     public Transform gfxTransform;
-
-    public CharacterStats stats;
+    public Material material;
+    public AbilityHandler ability;
 
     public Transform target;
 
     // Jumping mechanics data
-    public float goUpDur = 0f;
     public float goUpTime = 0.5f;
     public bool goUp = true;
-    public float goDownDur = 0f;
     public float goDownTime = 0.3f;
 
     private void Awake()
+    {
+        seeker = GetComponent<Seeker>();
+        material = GetComponentInChildren<SpriteRenderer>().material;
+        stats = new CharacterStats();
+        stats.SetCharacterStats(baseStats);
+        ability.Initialize(gameObject, transform.position);
+        CreateStateDictionary();
+        InstantiateDefaultStates();
+        AddDefaultStates();
+        currentState = GetInitialState();
+        currentState.Enter();
+    }
+    private void InstantiateDefaultStates()
     {
         idleState = new SlimeIdleState(this);
         patrollingState = new SlimePatrollingState(this);
         alertState = new SlimeAlertState(this);
         chasingState = new SlimeChasingState(this);
         attackState = new SlimeAttackState(this);
-        seeker = GetComponent<Seeker>();
+        dyingState = new SlimeDyingState(this);
+        deadState = new SlimeDeadState(this);
     }
 
+    private void AddDefaultStates()
+    {
+        AddState(idleState);
+        AddState(patrollingState);
+        AddState(alertState);
+        AddState(chasingState);
+        AddState(dyingState);
+        AddState(deadState);
+        AddState(attackState);
+    }
     protected override BaseState GetInitialState()
     {
         return patrollingState;
@@ -124,28 +150,24 @@ public class SlimeStateMachine : StateMachine
 
     public void GoUp(float speed)
     {
-        goUpDur += Time.deltaTime;
         gfxTransform.localPosition += new Vector3(
                 0,
                 speed * Time.deltaTime,
                 0);
-        if (goUpDur > goUpTime)
+        if (gfxTransform.localPosition.y > 0.5f)
         {
-            goUpDur = 0f;
             goUp = false;
         }
     }
 
     public void GoDown(float speed)
     {
-        goDownDur += Time.deltaTime;
         gfxTransform.localPosition -= new Vector3(
                  0,
-                 speed * Time.deltaTime,
+                 speed * Time.deltaTime * 1.05f,
                  0);
-        if (goDownDur > goDownTime)
+        if (gfxTransform.localPosition.y < 0)
         {
-            goDownDur = 0f;
             goUp = true;
         }
     }
@@ -166,11 +188,21 @@ public class SlimeStateMachine : StateMachine
 
     public void AttackEnemy(Collider2D collider)
     {
-        this.ChangeState(this.attackState);
+        target = collider.transform;
+        var children = GetComponentsInChildren<EnemyDetector>();
+        for (int i = 0; i < children.Length; i++)
+        {
+            Destroy(children[i].gameObject);
+        }
+        StartCoroutine(TriggerAttackIntervals());
     }
 
-    public void CheckAttack()
+    public IEnumerator TriggerAttackIntervals()
     {
-
+        while (true)
+        {
+            this.ChangeState(this.attackState);
+            yield return new WaitForSeconds(2.5f);
+        }
     }
 }

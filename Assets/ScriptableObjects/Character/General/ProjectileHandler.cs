@@ -2,21 +2,20 @@
 [CreateAssetMenu(fileName = "Projectile Handler", menuName = "ScriptableObjects/Ability Handlers/New Projectile Handler")]
 public class ProjectileHandler : AbilityHandler
 {
-    public ParticleSystem ps;
     private Transform startPoint;
     public float projectileSpeed;
     public Vector3 dir;
     public float limiter;
 
-    public override void Initialize(GameObject player, Vector2 v2)
+    public override void Initialize(GameObject caster, Vector2 v2)
     {
         this.isCoolingDown = false;
-        this.coRunner = player.GetComponent<CoroutineRunner>();
+        this.coRunner = caster.GetComponent<CoroutineRunner>();
     }
-    public override void Execute(GameObject player, Vector2 v2)
+    public override void Execute(GameObject caster, Vector2 v2)
     {
-        startPoint = player.GetComponent<PlayerController>().castingPoint.transform;
-        dir = SetDirection(v2, player.transform.localScale, limiter);
+        startPoint = caster.GetComponent<PlayerStateMachine>().castingPoint.transform;
+        dir = SetDirection(v2, caster.transform.localScale, limiter);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         GameObject obj = Instantiate(prefab,
                     new Vector3
@@ -25,7 +24,9 @@ public class ProjectileHandler : AbilityHandler
                     Quaternion.AngleAxis(angle, Vector3.forward));
         this.isCoolingDown = true;
         coRunner.Run(this.StartCooldown());
-        obj.GetComponent<Ability>().StartTimers();
+        Ability ability = obj.GetComponent<Ability>();
+        ability.caster = caster;
+        ability.StartTimers();
     }
 
     private Vector2 SetDirection(Vector2 pos, Vector2 playerScale, float limiter)

@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Stats", menuName = "ScriptableObjects/Character/Stats")]
-public class CharacterStats : ScriptableObject
+public class CharacterBaseStats: ScriptableObject
 {
     [Header("Flat Stats")]
-
     [Min(1)]
     public int strength;
     [Min(1)]

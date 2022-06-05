@@ -7,6 +7,8 @@ public class AbilityData : ScriptableObject
     public AudioSource sound;
     public Sprite icon;
     public Color color;
+    public ElementType element;
+    public DamageType type;
     public string abilityName;
     [TextArea]
     public string description;

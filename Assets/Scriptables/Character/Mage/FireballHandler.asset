@@ -20,5 +20,5 @@ MonoBehaviour:
   coRunner: {fileID: 0}
   ps: {fileID: 0}
   projectileSpeed: 10
-  dir: {x: 0, y: 0, z: 0}
+  dir: {x: 1, y: 0.17234528, z: 0}
   limiter: 0.6

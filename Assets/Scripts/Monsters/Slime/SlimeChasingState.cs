@@ -22,7 +22,7 @@ public class SlimeChasingState : BaseState
 
     public override void UpdatePhysics()
     {
-        _sm.SetMovement(_sm.stats.moveSpeed);
+        _sm.SetMovement(_sm.stats.combatStats.MoveSpeed);
         if (_sm.goUp)
             _sm.GoUp(upSpeed);
         else

@@ -7,6 +7,6 @@ public class IcespikeAbility : Ability
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //ps.Play();
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

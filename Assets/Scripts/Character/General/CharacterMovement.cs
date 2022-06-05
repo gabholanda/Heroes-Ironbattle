@@ -34,7 +34,7 @@ public class CharacterMovement : MonoBehaviour, IMovable
     public void SetVector(Vector2 v2)
     {
         if (!dashHandler.isDashing)
-            movVector = new Vector3(v2.x, v2.y) * stats.moveSpeed;
+            movVector = new Vector3(v2.x, v2.y) * stats.combatStats.MoveSpeed;
         if (IsMoving())
         {
             CharAnim.SetAnimation("Walk", true, true, false, false);

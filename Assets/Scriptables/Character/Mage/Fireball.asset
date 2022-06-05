@@ -15,11 +15,13 @@ MonoBehaviour:
   sound: {fileID: 0}
   icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
+  element: 0
+  type: 1
   abilityName: Fireball
-  description: 'A powerful fireball that sets it''s enemies ablaze!
+  description: 'Inteligence-based: A powerful fireball that sets it''s enemies ablaze!
 
-    It does
-    120% damage and a 3 seconds burn (40% damage)'
+    It
+    does 120% damage and a 3 seconds burn (40% damage)'
   cooldownDuration: 1
   cooldownOnAbilityEnd: 0
   abilityDestroyDuration: 3

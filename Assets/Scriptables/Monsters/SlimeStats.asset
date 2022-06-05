@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6486c7bf344450248ab3889534af78fe, type: 3}
+  m_Script: {fileID: 11500000, guid: e741bc61c554c1048815340ebecd146e, type: 3}
   m_Name: SlimeStats
   m_EditorClassIdentifier: 
   strength: 2
@@ -17,12 +17,12 @@ MonoBehaviour:
   dexterity: 1
   vitality: 3
   baseDefense: 2
-  baseMagicResistance: 3
+  baseMagicResistance: 1
   fire: 0
   ice: 0
-  dark: 0
+  dark: 44
   lightning: 0
-  maxHealth: 10
+  maxHealth: 3000
   barrier: 0
   maxEnergy: 0
   regenRate: 0

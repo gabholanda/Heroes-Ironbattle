@@ -16,7 +16,7 @@ public class StaleGroundHandler : AbilityHandler
 
     public override void Execute(GameObject player, Vector2 v2)
     {
-        startPoint = player.GetComponent<PlayerController>().castingPoint.transform;
+        startPoint = player.GetComponent<PlayerStateMachine>().castingPoint.transform;
         Vector3 castingPoint = new Vector2(startPoint.position.x - (offsetX * player.transform.localScale.x), startPoint.position.y - offsetY);
 
         GameObject obj = Instantiate(prefab,
