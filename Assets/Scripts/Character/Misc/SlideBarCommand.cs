@@ -5,21 +5,10 @@ using UnityEngine.UI;
 
 public class SlideBarCommand : Command
 {
-    float intervalBetween;
     float normalizedValue;
     private Image image;
     Queue<SlideBarCommand> queue;
     float oldNormalizedValue;
-
-
-
-    public SlideBarCommand(float _normalizedValue, Image _image, float _oldNormalizedValue, Queue<SlideBarCommand> _queue)
-    {
-        normalizedValue = _normalizedValue;
-        image = _image;
-        queue = _queue;
-        oldNormalizedValue = _oldNormalizedValue;
-    }
     public override void Execute() { }
 
     public void Execute(float value)
@@ -39,8 +28,25 @@ public class SlideBarCommand : Command
         image.fillAmount = value;
     }
 
-    private void IncrementImageFill(float value)
+    public SlideBarCommand AddNormalizedValue(float _normalizedvalue)
     {
-        image.fillAmount += value;
+        normalizedValue = _normalizedvalue;
+        return this;
+    }
+
+    public SlideBarCommand AddImage(Image _image)
+    {
+        image = _image;
+        return this;
+    }
+    public SlideBarCommand AddOldNormalizedValue(float _oldNormalizedValue)
+    {
+        oldNormalizedValue = _oldNormalizedValue;
+        return this;
+    }
+    public SlideBarCommand AddQueue(Queue<SlideBarCommand> _queue)
+    {
+        queue = _queue;
+        return this;
     }
 }

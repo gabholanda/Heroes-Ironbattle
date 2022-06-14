@@ -2,22 +2,29 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour, UIResourceBar
+public class SlidingBar : MonoBehaviour, UIResourceBar
 {
     [SerializeField]
     private Image image;
+    private ResourcesStats resources;
 
-    private float oldNormalizedHealth = 1f;
+    private float oldNormalizedValue = 1f;
     readonly Queue<SlideBarCommand> commandQueue = new Queue<SlideBarCommand>();
+
+
+    public void SetStats(ResourcesStats _resources)
+    {
+        resources = _resources;
+    }
 
     public void UpdateBar(float normalizedValue)
     {
         commandQueue.Enqueue(new SlideBarCommand()
             .AddNormalizedValue(normalizedValue)
-            .AddOldNormalizedValue(oldNormalizedHealth)
+            .AddOldNormalizedValue(oldNormalizedValue)
             .AddImage(image)
             .AddQueue(commandQueue));
-        oldNormalizedHealth = normalizedValue;
+        oldNormalizedValue = normalizedValue;
     }
 
     private void Update()

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour, IMovable
@@ -18,11 +16,11 @@ public class CharacterMovement : MonoBehaviour, IMovable
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (dashHandler.isDashing)
         {
-            rb.MovePosition(transform.position + movVector * Time.deltaTime * dashHandler.GetAbilityData().scalingCoeficient);
+            rb.MovePosition(Time.deltaTime * dashHandler.GetAbilityData().scalingCoeficient * movVector + transform.position);
         }
         else
         {
@@ -33,8 +31,8 @@ public class CharacterMovement : MonoBehaviour, IMovable
 
     public void SetVector(Vector2 v2)
     {
-        if (!dashHandler.isDashing)
-            movVector = new Vector3(v2.x, v2.y) * stats.combatStats.MoveSpeed;
+        //if (!dashHandler.isDashing)
+        movVector = new Vector3(v2.x, v2.y) * stats.combatStats.MoveSpeed;
         if (IsMoving())
         {
             CharAnim.SetAnimation("Walk", true, true, false, false);
@@ -81,11 +79,6 @@ public class CharacterMovement : MonoBehaviour, IMovable
     public bool IsMoving()
     {
         return Mathf.Abs(movVector.x) > 0 || Mathf.Abs(movVector.y) > 0;
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(collision.collider.name);
     }
 
     public void Flip()

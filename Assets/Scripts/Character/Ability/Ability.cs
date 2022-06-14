@@ -6,10 +6,6 @@ public abstract class Ability : MonoBehaviour
     public AbilityHandler handler;
     public Rigidbody2D rb;
     public GameObject caster;
-    //protected void OnDestroy()
-    //{
-
-    //}
 
     protected IEnumerator StartSelfDestroyTimer()
     {
@@ -28,6 +24,11 @@ public abstract class Ability : MonoBehaviour
     public void StartTimers()
     {
         StartCoroutine(this.StartSelfDestroyTimer());
+    }
+
+    public bool DoesNotContainEffect(StatusEffect effect)
+    {
+        return effect is null;
     }
 
 }

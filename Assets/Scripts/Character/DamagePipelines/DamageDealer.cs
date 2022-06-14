@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public delegate float DamageFormula(Ability ability);
 public delegate void DamageResources(ResourcesStats stats, float finalDamage);

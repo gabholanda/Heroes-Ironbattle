@@ -44,7 +44,7 @@ public class FireballAbility : Ability
     private void SetStatusEffect(GameObject target)
     {
         Burn burn = target.GetComponentInChildren<Burn>();
-        if (DoesNotContainBurnEffect(burn))
+        if (DoesNotContainEffect(burn))
         {
             GameObject burnObj = Instantiate(burnEffectPrefab, target.transform);
             burn = burnObj.GetComponent<Burn>();
@@ -60,10 +60,5 @@ public class FireballAbility : Ability
         {
             burn.Renew();
         }
-    }
-
-    private bool DoesNotContainBurnEffect(Burn burn)
-    {
-        return burn == null;
     }
 }

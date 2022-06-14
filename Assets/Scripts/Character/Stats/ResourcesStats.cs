@@ -6,14 +6,14 @@ public class ResourcesStats
         float currentHealth,
         float maxHealth,
         float barrier,
-        float maxEnergy,
+        float maxMana,
         float regenRate)
     {
         CurrentHealth = currentHealth;
         MaxHealth = maxHealth;
         Barrier = barrier;
-        CurrentEnergy = maxEnergy;
-        MaxEnergy = maxEnergy;
+        CurrentMana = maxMana;
+        MaxMana = maxMana;
         RegenRate = regenRate;
     }
 
@@ -36,8 +36,8 @@ public class ResourcesStats
             }
         }
     }
-    public float CurrentEnergy { get; set; }
-    public float MaxEnergy { get; set; }
+    public float CurrentMana { get; set; }
+    public float MaxMana { get; set; }
     public float RegenRate { get; set; }
 
 }

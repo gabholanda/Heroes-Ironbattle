@@ -37,7 +37,7 @@ public class CharacterStats
             baseStats.maxHealth,
             baseStats.maxHealth,
             baseStats.barrier,
-            baseStats.maxEnergy,
+            baseStats.maxMana,
             baseStats.regenRate
             );
     }
