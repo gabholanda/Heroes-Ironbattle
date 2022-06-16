@@ -22,7 +22,7 @@ public class SlimeDyingState : BaseState
         }
         _sm.StopRepeat("SeekTarget");
         _sm.GetComponent<Collider2D>().enabled = false;
-        _sm.anim.Play("Dying");
+        _sm.actions.graphics.anim.Play("Dying");
     }
 
     public override void UpdateLogic()

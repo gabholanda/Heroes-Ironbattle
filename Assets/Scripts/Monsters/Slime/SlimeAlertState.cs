@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SlimeAlertState : BaseState
 {
-    private SlimeStateMachine _sm;
-    private float changeStateTimer = 0.5f;
+    private readonly SlimeStateMachine _sm;
+    private readonly float changeStateTimer = 0.5f;
     private float changeStateDur;
     public SlimeAlertState(SlimeStateMachine stateMachine) : base("Alert", stateMachine)
     {
@@ -14,8 +14,8 @@ public class SlimeAlertState : BaseState
 
     public override void Enter()
     {
-        _sm.anim.Play("Alert");
-        _sm.ResetWayPoint();
+        _sm.actions.graphics.anim.Play("Alert");
+        _sm.actions.seekerAI.ResetWayPoint();
     }
 
     public override void UpdateLogic()

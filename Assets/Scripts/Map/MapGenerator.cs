@@ -28,6 +28,7 @@ public abstract class MapGenerator : ScriptableObject
         floorTilemap.ClearAllTiles();
         middleTilemap.ClearAllTiles();
         topTilemap.ClearAllTiles();
+        enemiesSpawnPoints = new List<Vector3>();
         return this;
     }
 

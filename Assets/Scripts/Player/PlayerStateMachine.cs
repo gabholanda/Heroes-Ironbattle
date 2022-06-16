@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
 
-
-
-
 public class PlayerStateMachine : StateMachine
 {
-
     [HideInInspector]
     public PlayerControlsState controlsState;
     [HideInInspector]
@@ -20,6 +16,8 @@ public class PlayerStateMachine : StateMachine
     public CharacterCombat characterCombat;
     [HideInInspector]
     public CharacterAnimator characterAnimator;
+    [HideInInspector]
+    public CharacterInteractor characterInteractor;
 
     [SerializeField]
     public ParticleSystem castingParticles;
@@ -29,20 +27,17 @@ public class PlayerStateMachine : StateMachine
     private DashHandler dashHandler;
     public InputReader playerReader;
 
+    [SerializeField]
+    public SlidingBar manaBar;
+
     public GameObject castingPoint;
+    private ManaRegenerator manaRegenerator;
 
     private void Awake()
     {
-        CreateStateDictionary();
-        InstantiateDefaultStates();
-        AddDefaultStates();
-        StartInitialStates();
+        InitializeStates();
         InitializeAbilities();
-        SetComponents();
-        stats = new CharacterStats();
-        InitializeCharacterMovement();
-
-        stats.SetCharacterStats(baseStats);
+        InitializeCharacter();
         castingParticles.Stop();
     }
 
@@ -54,7 +49,7 @@ public class PlayerStateMachine : StateMachine
         }
     }
 
-    private new void LateUpdate()
+    private new void FixedUpdate()
     {
         foreach (BaseState state in states.Values)
         {
@@ -82,6 +77,14 @@ public class PlayerStateMachine : StateMachine
         }
     }
 
+    private void InitializeStates()
+    {
+        CreateStateDictionary();
+        InstantiateDefaultStates();
+        AddDefaultStates();
+        StartInitialStates();
+    }
+
     void InitializeAbilities()
     {
         for (int i = 0; i < handlers.Length; i++)
@@ -95,6 +98,7 @@ public class PlayerStateMachine : StateMachine
         characterAnimator = gameObject.AddComponent<CharacterAnimator>();
         characterMovement = gameObject.AddComponent<CharacterMovement>();
         characterCombat = gameObject.AddComponent<CharacterCombat>();
+        characterInteractor = gameObject.AddComponent<CharacterInteractor>();
     }
 
     private void InitializeCharacterMovement()
@@ -104,5 +108,31 @@ public class PlayerStateMachine : StateMachine
             .SetAnimator(characterAnimator)
             .SetDashHandler(dashHandler)
             .InitializeDashHandler(castingPoint, gameObject.transform.position);
+    }
+
+    private void InitializeCharacterCombat()
+    {
+        characterCombat
+            .SetResources(stats.resources)
+            .SetManaBar(manaBar);
+    }
+
+    private void InitializeRegenerator()
+    {
+        manaRegenerator = GetComponent<ManaRegenerator>();
+        manaRegenerator
+            .SetResources(stats.resources)
+            .SetManaBar(manaBar);
+        manaRegenerator.StartRegeneration();
+    }
+
+    private void InitializeCharacter()
+    {
+        SetComponents();
+        stats = new CharacterStats();
+        InitializeCharacterMovement();
+        stats.SetCharacterStats(baseStats);
+        InitializeCharacterCombat();
+        InitializeRegenerator();
     }
 }

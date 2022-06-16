@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 [CreateAssetMenu(fileName = "Static Handler", menuName = "ScriptableObjects/Ability Handlers/New Static Handler")]
 public class StaticHandler : AbilityHandler
 {
@@ -12,12 +10,12 @@ public class StaticHandler : AbilityHandler
 
     public override void Execute(GameObject caster, Vector2 v2)
     {
-
-        GameObject obj = Instantiate(prefab, caster.transform);
+        GameObject obj = Instantiate(prefab, caster.transform.position, Quaternion.identity);
         this.isCoolingDown = true;
         Ability ability = obj.GetComponent<Ability>();
         ability.caster = caster;
         ability.StartTimers();
-        coRunner.Run(this.StartCooldown());
+        if (coRunner != null)
+            coRunner?.Run(this.StartCooldown());
     }
 }

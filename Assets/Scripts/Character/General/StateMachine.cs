@@ -24,7 +24,7 @@ public class StateMachine : MonoBehaviour
             currentState.UpdateLogic();
     }
 
-    protected void LateUpdate()
+    protected void FixedUpdate()
     {
         if (currentState != null)
             currentState.UpdatePhysics();

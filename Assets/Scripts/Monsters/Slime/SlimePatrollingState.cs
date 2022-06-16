@@ -2,12 +2,12 @@
 
 public class SlimePatrollingState : BaseState
 {
-    private SlimeStateMachine _sm;
+    private readonly SlimeStateMachine _sm;
 
     private float checkRepathing;
-    private float checkRepathingTimer = 0.3f;
-    private float upSpeed = 1f;
-    private float downSpeed = 1.6f;
+    private readonly float checkRepathingTimer = 1f;
+    private readonly float upSpeed = 1f;
+    private readonly float downSpeed = 1.6f;
 
     public SlimePatrollingState(SlimeStateMachine stateMachine) : base("Patrol", stateMachine)
     {
@@ -15,44 +15,31 @@ public class SlimePatrollingState : BaseState
     }
     public override void Enter()
     {
-        _sm.UpdatePath();
+        _sm.actions.seekerAI.UpdatePath(_sm.actions.physics.rb);
     }
 
     public override void UpdateLogic()
     {
-        _sm.UpdatePath();
-    }
-
-    public override void UpdatePhysics()
-    {
-        _sm.SetMovement(_sm.stats.combatStats.MoveSpeed);
+        _sm.actions.seekerAI.UpdatePath(_sm.actions.physics.rb);
         if (_sm.goUp)
             _sm.GoUp(upSpeed);
         else
             _sm.GoDown(downSpeed);
 
-        CanRepath();
+        _sm.actions.CanRepath(ref checkRepathing, checkRepathingTimer);
+    }
+
+    public override void UpdatePhysics()
+    {
+        _sm.actions.SetMovement(_sm.stats.combatStats.MoveSpeed);
     }
 
     public override void Exit()
     {
-        _sm.ResetWayPoint();
+        _sm.actions.seekerAI.ResetWayPoint();
     }
 
 
-    private void CanRepath()
-    {
-        if (_sm.rb.velocity.x == 0 & _sm.rb.velocity.y == 0)
-        {
-            checkRepathing += Time.deltaTime;
-            if (checkRepathing > checkRepathingTimer)
-            {
-                Vector2 standardPath = _sm.rb.position + Random.insideUnitCircle * 8f;
-                checkRepathing = 0f;
-                _sm.ResetWayPoint();
-                _sm.StartNewPath(standardPath);
-            }
-        }
-    }
+
 
 }

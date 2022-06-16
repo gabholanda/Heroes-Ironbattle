@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 32739667}
   - component: {fileID: 32739669}
   - component: {fileID: 32739668}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: ChasingDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 468050909}
   - component: {fileID: 468050911}
   - component: {fileID: 468050910}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: AttackDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,6 +187,11 @@ GameObject:
   - component: {fileID: 3906688315430537505}
   - component: {fileID: 3906688315430537532}
   - component: {fileID: 535649134}
+  - component: {fileID: 6051838817219805517}
+  - component: {fileID: 535649135}
+  - component: {fileID: 535649136}
+  - component: {fileID: 535649137}
+  - component: {fileID: 8705368928990841240}
   m_Layer: 11
   m_Name: SlimePhysics
   m_TagString: Monster
@@ -226,20 +231,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats: {fileID: 11400000, guid: cf8e1ab47fde8f845b8e6b696a4eda31, type: 2}
   isDead: 0
-  rb: {fileID: 3906688315430537504}
-  col: {fileID: 3906688315430537505}
-  anim: {fileID: 2432190194326628348}
-  seeker: {fileID: 0}
-  currentWayPoint: 0
-  newWaypointDistance: 2.5
-  gfxTransform: {fileID: 4758571913321537144}
-  material: {fileID: 0}
-  ability: {fileID: 11400000, guid: e4707d87be4849048b30879822792815, type: 2}
-  target: {fileID: 0}
-  goUpDur: 0
+  actions: {fileID: 0}
   goUpTime: 0.5
   goUp: 1
-  goDownDur: 0
   goDownTime: 0.3
 --- !u!50 &3906688315430537504
 Rigidbody2D:
@@ -313,7 +307,7 @@ MonoBehaviour:
       m_Bits: 4294967295
     useGraphRaycasting: 0
   traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  tagPenalties: 0000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
 --- !u!114 &535649134
@@ -330,6 +324,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popUpPrefab: {fileID: 6238899390641873202, guid: 1754c1c27b5fd774e9207799af4a2516,
     type: 3}
+--- !u!114 &6051838817219805517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906688315430537506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef84de5b6a1e16428b6d4fffef9b3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seeker: {fileID: 0}
+  currentWayPoint: 0
+  newWaypointDistance: 0.5
+--- !u!114 &535649135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906688315430537506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3023e28cc1ca0f64da20218ba3b12835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  col: {fileID: 0}
+  effectArea: 8
+--- !u!114 &535649136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906688315430537506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646a1b9f9c6a4bd4aba642fee510b367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  gfxTransform: {fileID: 4758571913321537144}
+  material: {fileID: 0}
+--- !u!114 &535649137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906688315430537506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f80f0158ceb1ea419d6befcc1ff5465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  graphics: {fileID: 0}
+  seekerAI: {fileID: 0}
+  sm: {fileID: 0}
+  target: {fileID: 0}
+  abilities:
+  - {fileID: 11400000, guid: e4707d87be4849048b30879822792815, type: 2}
+--- !u!114 &8705368928990841240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906688315430537506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e250223a069814c90de21ad53e73d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6775678865972164266
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,9 +411,10 @@ GameObject:
   - component: {fileID: 4758571913321537144}
   - component: {fileID: 1610052100984339349}
   - component: {fileID: 2432190194326628348}
+  - component: {fileID: 3906688315650560593}
   m_Layer: 11
   m_Name: SlimeGFX
-  m_TagString: Monster
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -400,7 +471,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3769544209421153258, guid: dbf00f758b08cc348bfe438ea6890054,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -412,7 +483,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &2432190194326628348
 Animator:
   serializedVersion: 3
@@ -432,3 +503,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3906688315650560593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6775678865972164266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cad7bc5c6aff468f15b03fef87833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimum: 50

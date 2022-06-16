@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9128437707784266417}
   m_Layer: 0
   m_Name: Grid Manager
-  m_TagString: Untagged
+  m_TagString: MapManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,9 +49,9 @@ MonoBehaviour:
   mapGenerator: {fileID: 11400000, guid: 7e391b20f5e0dd34da0a063cbf2ac7c5, type: 2}
   player: {fileID: 6431199696723903610, guid: 91de32c705765f54fa0fbb1ed105b6ac, type: 3}
   enemies:
-  - {fileID: 0}
+  - {fileID: 3906688315430537506, guid: f10a52b3ae6781e4887e6d728adb934b, type: 3}
   enemiesToSpawn:
-  - {fileID: 0}
+  - {fileID: 3906688315430537506, guid: f10a52b3ae6781e4887e6d728adb934b, type: 3}
   availableMapItems:
   - {fileID: 11400000, guid: 003bc9e0d5217024491a23cf743da3ce, type: 2}
   floorTilemap: {fileID: 9128437707753171491}
@@ -59,13 +59,15 @@ MonoBehaviour:
   topTilemap: {fileID: 9128437707850368392}
   minSize: 300
   maxSize: 600
---- !u!19719996 &9128437708472507694
+  astarPath: {fileID: 0}
+  enemyManager: {fileID: 0}
+--- !u!19719996 &9128437709145073326
 TilemapCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9128437709418616986}
+  m_GameObject: {fileID: 9128437707850368397}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -75,13 +77,13 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!19719996 &9128437709145073326
+--- !u!19719996 &9128437708472507694
 TilemapCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9128437707850368397}
+  m_GameObject: {fileID: 9128437709418616986}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -172,6 +174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Middle Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509914090293420671, guid: f8b8ff81cf7f5d041b07aade7ce2dcc4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8b8ff81cf7f5d041b07aade7ce2dcc4, type: 3}
@@ -283,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 4956612919754237663, guid: 968462e8f6bea3e43a83a626caa5d83f,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968462e8f6bea3e43a83a626caa5d83f, type: 3}
@@ -381,6 +388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 3294521760307640102, guid: fa44babdbe566a64cb3eeb094a3ada5e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa44babdbe566a64cb3eeb094a3ada5e, type: 3}

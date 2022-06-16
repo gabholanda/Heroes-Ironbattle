@@ -36,7 +36,7 @@ public class CharacterBaseStats: ScriptableObject
     public float barrier;
     [Min(0f)]
     [Tooltip("Each Class will have a different Energy Name")]
-    public float maxEnergy;
+    public float maxMana;
     [Min(0.1f)]
     public float regenRate;
     [Min(0f)]

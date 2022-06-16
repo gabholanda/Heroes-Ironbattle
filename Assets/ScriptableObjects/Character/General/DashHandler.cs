@@ -21,18 +21,10 @@ public class DashHandler : AbilityHandler
 
     public IEnumerator StartDashing()
     {
-        float dashTimer = 0f;
         isDashing = true;
-        while (isDashing)
-        {
-            yield return new WaitForSeconds(0.1f);
-            dashTimer += 0.1f;
-            if (dashDuration < dashTimer)
-            {
-                isDashing = false;
-                this.isCoolingDown = true;
-                coRunner.Run(this.StartCooldown());
-            }
-        }
+        yield return new WaitForSeconds(dashDuration);
+        isDashing = false;
+        this.isCoolingDown = true;
+        coRunner.Run(this.StartCooldown());
     }
 }

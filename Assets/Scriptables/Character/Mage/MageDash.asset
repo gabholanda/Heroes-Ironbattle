@@ -17,6 +17,9 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   abilityName: ugaugauga
   description: Dash dash dash
+  element: 4
+  type: 0
+  manaCost: 0
   cooldownDuration: 1
   cooldownOnAbilityEnd: 1
   abilityDestroyDuration: 0

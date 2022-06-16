@@ -27,6 +27,11 @@ public class PlayerControlsState : BaseState
         DisableControlEvents();
     }
 
+    private void OnInteract(InputAction.CallbackContext ctx)
+    {
+        _sm.characterInteractor.Interact(_sm.gameObject);
+    }
+
 
     private void OnDash(InputAction.CallbackContext ctx)
     {
@@ -62,6 +67,8 @@ public class PlayerControlsState : BaseState
 
     public void OnFire(InputAction.CallbackContext obj)
     {
+        //_sm.GetComponent<Rigidbody2D>().velocity *= 0;
+        //_sm.GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 6), ForceMode2D.Impulse);
         if (_sm.characterCombat.canCast())
         {
             // TODO: fazer isso em um script de utility;
@@ -86,6 +93,7 @@ public class PlayerControlsState : BaseState
         _sm.playerReader.OnAbilitySelect.performed += OnAbilitySelect;
         _sm.playerReader.OnAbilityCancel.performed += OnAbilityCancel;
         _sm.playerReader.OnDash.performed += OnDash;
+        _sm.playerReader.OnInteract.performed += OnInteract;
     }
 
     private void EnableControlEvents()
@@ -95,6 +103,7 @@ public class PlayerControlsState : BaseState
         _sm.playerReader.OnAbilitySelect.Enable();
         _sm.playerReader.OnAbilityCancel.Enable();
         _sm.playerReader.OnDash.Enable();
+        _sm.playerReader.OnInteract.Enable();
     }
 
     private void UnregisterControlEvents()
@@ -104,6 +113,7 @@ public class PlayerControlsState : BaseState
         _sm.playerReader.OnAbilitySelect.performed -= OnAbilitySelect;
         _sm.playerReader.OnAbilityCancel.performed -= OnAbilityCancel;
         _sm.playerReader.OnDash.performed -= OnDash;
+        _sm.playerReader.OnInteract.performed -= OnInteract;
     }
 
     private void DisableControlEvents()
@@ -113,5 +123,6 @@ public class PlayerControlsState : BaseState
         _sm.playerReader.OnAbilitySelect.Disable();
         _sm.playerReader.OnAbilityCancel.Disable();
         _sm.playerReader.OnDash.Disable();
+        _sm.playerReader.OnInteract.Disable();
     }
 }

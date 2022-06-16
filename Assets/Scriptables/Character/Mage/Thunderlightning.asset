@@ -17,8 +17,11 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   abilityName: Thunderlightning
   description: A powerful lightning strike that deals 150% damage to enemies and
-    deals a slight Stun effect with a 25% chance and 1s durante during 10s
-  cooldownDuration: 0
+    deals a slight Stun effect with a 25% chance and 1s  during 10s
+  element: 0
+  type: 0
+  manaCost: 15
+  cooldownDuration: 7
   cooldownOnAbilityEnd: 0
   abilityDestroyDuration: 0.3
   scalingCoeficient: 1.5

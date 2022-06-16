@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ability
   - Monster
+  - Obstacles
+  - MapManager
   layers:
   - Default
   - TransparentFX

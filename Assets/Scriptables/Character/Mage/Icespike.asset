@@ -18,7 +18,10 @@ MonoBehaviour:
   abilityName: Icespike
   description: Icespikes come out from the ground dealing 100% of your magic damage
     and dealing a 30% slowing effect for 2 seconds.
-  cooldownDuration: 0
+  element: 1
+  type: 1
+  manaCost: 12
+  cooldownDuration: 4
   cooldownOnAbilityEnd: 1
   abilityDestroyDuration: 0.5
   scalingCoeficient: 1

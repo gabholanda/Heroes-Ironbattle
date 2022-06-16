@@ -15,7 +15,7 @@ public class CursorPositionHandler : AbilityHandler
         this.coRunner = player.GetComponent<CoroutineRunner>();
     }
 
-    public override void Execute(GameObject player, Vector2 v2)
+    public override void Execute(GameObject caster, Vector2 v2)
     {
         Vector3 positionToWorld = v2;
         positionToWorld.z = 0;
@@ -26,6 +26,8 @@ public class CursorPositionHandler : AbilityHandler
                     Quaternion.identity);
         this.isCoolingDown = true;
         coRunner.Run(this.StartCooldown());
-        obj.GetComponent<Ability>().StartTimers();
+        Ability ability = obj.GetComponent<Ability>();
+        ability.caster = caster;
+        ability.StartTimers();
     }
 }

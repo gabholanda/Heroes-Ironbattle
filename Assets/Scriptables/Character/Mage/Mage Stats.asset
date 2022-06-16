@@ -22,8 +22,8 @@ MonoBehaviour:
   ice: 0
   dark: 10
   lightning: 0
-  maxHealth: 100
+  maxHealth: 41224
   barrier: 0
-  maxEnergy: 100
+  maxMana: 100
   regenRate: 3
-  moveSpeed: 30
+  moveSpeed: 7

@@ -204,3 +204,19 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
+  OnInteract:
+    m_Name: On Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 66bd4cce-f665-41e1-9f72-3786694ca7e9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 683bb137-fdcb-4f6e-bc3a-c59a985e7b02
+      m_Path: <Keyboard>/f
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: On Interact
+      m_Flags: 0

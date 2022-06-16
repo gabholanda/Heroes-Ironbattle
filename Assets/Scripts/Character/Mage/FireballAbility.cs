@@ -19,9 +19,9 @@ public class FireballAbility : Ability
         damageHandler = FireballFormula;
         dealerHandler = DamageMethods.StandardDamageDealing;
     }
-    private void Update()
+    private void FixedUpdate()
     {
-        rb.AddForce(newHandler.dir * newHandler.projectileSpeed);
+        rb.AddForce(newHandler.dir * newHandler.projectileSpeed * Time.fixedDeltaTime);
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {

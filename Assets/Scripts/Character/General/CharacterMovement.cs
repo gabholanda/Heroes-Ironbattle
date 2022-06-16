@@ -10,28 +10,29 @@ public class CharacterMovement : MonoBehaviour, IMovable
     private CharacterStats stats;
     public CharacterAnimator CharAnim { get; set; }
     private Vector3 movVector;
+    public float decelerationCoeficient = 0.5f;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (dashHandler.isDashing)
         {
-            rb.MovePosition(Time.deltaTime * dashHandler.GetAbilityData().scalingCoeficient * movVector + transform.position);
+            rb.MovePosition((dashHandler.GetAbilityData().scalingCoeficient * Time.fixedDeltaTime * movVector) + transform.position);
         }
         else
         {
-            rb.MovePosition(transform.position + movVector * Time.deltaTime);
+            rb.MovePosition((Time.fixedDeltaTime * movVector) + transform.position);
         }
+        Decelerate();
         Flip();
     }
 
     public void SetVector(Vector2 v2)
     {
-        //if (!dashHandler.isDashing)
         movVector = new Vector3(v2.x, v2.y) * stats.combatStats.MoveSpeed;
         if (IsMoving())
         {
@@ -95,5 +96,14 @@ public class CharacterMovement : MonoBehaviour, IMovable
     public bool IsFlipped()
     {
         return transform.localScale.x == -1;
+    }
+
+    public void Decelerate()
+    {
+        if (Mathf.Abs(rb.velocity.x) > 0 || Mathf.Abs(rb.velocity.y) > 0)
+        {
+            rb.AddForce(decelerationCoeficient * -1f * rb.velocity, ForceMode2D.Impulse);
+            //rb.velocity *= 0.99f * Time.fixedDeltaTime;
+        }
     }
 }

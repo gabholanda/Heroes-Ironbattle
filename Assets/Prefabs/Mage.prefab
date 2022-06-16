@@ -9682,6 +9682,7 @@ GameObject:
   - component: {fileID: 1678621621}
   - component: {fileID: 1872058166}
   - component: {fileID: 2100419940}
+  - component: {fileID: 1961639340}
   m_Layer: 9
   m_Name: Mage
   m_TagString: Player
@@ -9774,6 +9775,7 @@ MonoBehaviour:
   characterMovement: {fileID: 0}
   characterCombat: {fileID: 0}
   characterAnimator: {fileID: 0}
+  characterInteractor: {fileID: 0}
   castingParticles: {fileID: 1812459884}
   handlers:
   - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
@@ -9781,6 +9783,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
   dashHandler: {fileID: 11400000, guid: 193e502b3a4d0864fa5e9cd43fea9459, type: 2}
   playerReader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
+  manaBar: {fileID: 0}
   castingPoint: {fileID: 1387867187}
 --- !u!50 &709747010538094713
 Rigidbody2D:
@@ -9794,14 +9797,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
-  m_LinearDrag: 0
+  m_Mass: 5
+  m_LinearDrag: 1000000
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &6435816235699274352
 CapsuleCollider2D:
@@ -9871,3 +9874,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popUpPrefab: {fileID: 6238899390641873202, guid: 1754c1c27b5fd774e9207799af4a2516,
     type: 3}
+  healthBarObj: {fileID: 0}
+--- !u!114 &1961639340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431199696723903610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e3b379d90cea9348af59920c01934aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

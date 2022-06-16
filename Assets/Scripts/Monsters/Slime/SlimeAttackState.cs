@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SlimeAttackState : BaseState
 {
-    private SlimeStateMachine _sm;
-    private float upSpeed = 1.4f;
-    private float downSpeed = 2.3f;
+    private readonly SlimeStateMachine _sm;
+    private readonly float upSpeed = 1.4f;
+    private readonly float downSpeed = 2.3f;
     private float totalTime;
     public SlimeAttackState(SlimeStateMachine stateMachine) : base("Attack", stateMachine)
     {
@@ -15,13 +15,13 @@ public class SlimeAttackState : BaseState
 
     public override void Enter()
     {
-        _sm.anim.Play("Attack");
+        _sm.actions.graphics.anim.Play("Attack");
         ExecuteAbility();
         AddForceTowardsTarget();
         _sm.StartCoroutine(AttackTime());
     }
 
-    public override void UpdatePhysics()
+    public override void UpdateLogic()
     {
         if (_sm.goUp)
             _sm.GoUp(upSpeed);
@@ -31,24 +31,22 @@ public class SlimeAttackState : BaseState
 
     public override void Exit()
     {
-        _sm.ResetWayPoint();
-        //Physics2D.IgnoreCollision(_sm.col, _sm.target.GetComponent<Collider2D>(), false);
+        _sm.actions.seekerAI.ResetWayPoint();
     }
 
     private void ExecuteAbility()
     {
-        _sm.ability.Execute(_sm.gameObject, _sm.transform.position);
+        _sm.actions.abilities[0].Execute(_sm.gameObject, _sm.transform.position);
         totalTime = _sm.goUpTime + _sm.goDownTime;
-        _sm.ability.GetAbilityData().cooldownDuration = totalTime;
+        _sm.actions.abilities[0].GetAbilityData().cooldownDuration = totalTime;
     }
 
     private void AddForceTowardsTarget()
     {
         float speed = _sm.stats.combatStats.MoveSpeed * 600f;
-        Vector2 direction = ((Vector2)_sm.target.transform.position - _sm.rb.position).normalized;
+        Vector2 direction = ((Vector2)_sm.actions.target.transform.position - _sm.actions.physics.rb.position).normalized;
         Vector2 force = direction * speed;
-        _sm.rb.AddForce(force);
-        //Physics2D.IgnoreCollision(_sm.col, _sm.target.GetComponent<Collider2D>());
+        _sm.actions.physics.rb.AddForce(force);
     }
 
     private IEnumerator AttackTime()

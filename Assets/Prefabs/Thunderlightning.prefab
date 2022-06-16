@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: -5308191754523909550}
   - component: {fileID: -2892316171379877148}
   - component: {fileID: -3898668779032211010}
-  m_Layer: 0
+  - component: {fileID: -2230055974496255587}
+  m_Layer: 8
   m_Name: Thunderlightning
-  m_TagString: Untagged
+  m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -6521675766281271015, guid: 5f935423cc0e6a7499857a2c3d06c367,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -167,3 +168,19 @@ MonoBehaviour:
   handler: {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
   rb: {fileID: -5308191754523909550}
   caster: {fileID: 0}
+  freezeStatusEffectPrefab: {fileID: 596540021257466038, guid: 540bf8cd51d6b5342a21024abd69e3e9,
+    type: 3}
+  freezeScalingCoeficient: 0.1
+--- !u!114 &-2230055974496255587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950213672642449100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ef212a0b3c944429588e65e96380c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageReceiver: {fileID: 0}

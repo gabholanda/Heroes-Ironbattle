@@ -31,6 +31,8 @@ public class FlorestGenerator : MapGenerator
                 {
                     AddCoord(x, y, obstaclesCoords);
                     //x++;
+                    AddCoord(x, y, coords);
+                    continue;
                     //continue;
                 }
                 AddCoord(x, y, coords);
@@ -66,14 +68,14 @@ public class FlorestGenerator : MapGenerator
 
     public override MapGenerator SetEnemiesSpawnPoints()
     {
-        while (enemiesSpawnPoints.Count < 30)
+        while (enemiesSpawnPoints.Count < 50)
         {
-            int rand = Random.Range(30, coords.Count - 20);
+            int rand = Random.Range(0, innerCoords.Count - 10);
             for (int i = 0; i < obstaclesCoords.Count; i++)
             {
-                if (NotObstacleCoordinate(coords[rand], obstaclesCoords[i]))
+                if (NotObstacleCoordinate(innerCoords[rand], obstaclesCoords[i]))
                 {
-                    enemiesSpawnPoints.Add(middleTilemap.GetCellCenterWorld(new Vector3Int(coords[rand].x, coords[rand].y, 0)));
+                    enemiesSpawnPoints.Add(middleTilemap.GetCellCenterWorld(new Vector3Int(innerCoords[rand].x, innerCoords[rand].y, 0)));
                     break;
                 }
             }
@@ -95,7 +97,7 @@ public class FlorestGenerator : MapGenerator
     {
         return delegate (Coordinates coord)
         {
-            tilemap.SetTile(new Vector3Int(coord.x, coord.y, 0), tiles[UnityEngine.Random.Range(0, tilesLength)]);
+            tilemap.SetTile(new Vector3Int(coord.x, coord.y, 0), tiles[Random.Range(0, tilesLength)]);
             //Debug.Log(coord.x + ":" + coord.y);
         };
     }

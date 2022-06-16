@@ -14,19 +14,21 @@ public class StaleGroundHandler : AbilityHandler
         this.coRunner = player.GetComponent<CoroutineRunner>();
     }
 
-    public override void Execute(GameObject player, Vector2 v2)
+    public override void Execute(GameObject caster, Vector2 v2)
     {
-        startPoint = player.GetComponent<PlayerStateMachine>().castingPoint.transform;
-        Vector3 castingPoint = new Vector2(startPoint.position.x - (offsetX * player.transform.localScale.x), startPoint.position.y - offsetY);
+        startPoint = caster.GetComponent<PlayerStateMachine>().castingPoint.transform;
+        Vector3 castingPoint = new Vector2(startPoint.position.x - (offsetX * caster.transform.localScale.x), startPoint.position.y - offsetY);
 
         GameObject obj = Instantiate(prefab,
                     new Vector3
                     (castingPoint.x,
                     castingPoint.y),
                     Quaternion.identity);
-        obj.transform.localScale = new Vector3(player.transform.localScale.x, 1f, 1f);
+        obj.transform.localScale = new Vector3(caster.transform.localScale.x, 1f, 1f);
         this.isCoolingDown = true;
-        coRunner.Run(this.StartCooldown());
-        obj.GetComponent<Ability>().StartTimers();
+        coRunner?.Run(this.StartCooldown());
+        Ability ability = obj.GetComponent<Ability>();
+        ability.caster = caster;
+        ability.StartTimers();
     }
 }
