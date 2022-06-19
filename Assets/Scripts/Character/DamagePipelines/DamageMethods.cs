@@ -4,14 +4,14 @@ using UnityEngine;
 
 public static class DamageMethods
 {
-    public static void StandardDamageDealing(ResourcesStats resources, float finalDamage)
+    public static void StandardDamageDealing(CharacterStats stats, float finalDamage)
     {
-        if (resources.Barrier > 0)
+        if (stats.Barrier > 0)
         {
-            float remainingDamage = resources.Barrier - finalDamage;
-            resources.Barrier -= finalDamage;
+            float remainingDamage = stats.Barrier - finalDamage;
+            stats.Barrier -= finalDamage;
             finalDamage -= Mathf.Abs(remainingDamage);
         }
-        resources.CurrentHealth -= finalDamage;
+        stats.CurrentHealth -= finalDamage;
     }
 }

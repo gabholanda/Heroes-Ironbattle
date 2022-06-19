@@ -5,12 +5,12 @@ using UnityEngine;
 public class CharacterCombat : MonoBehaviour
 {
     private AbilityHandler selectedAbility;
-    private ResourcesStats resources;
+    private CharacterStats stats;
     private SlidingBar manaBar;
 
-    public CharacterCombat SetResources(ResourcesStats _resources)
+    public CharacterCombat SetStats(CharacterStats _stats)
     {
-        resources = _resources;
+        stats = _stats;
         return this;
     }
 
@@ -39,14 +39,15 @@ public class CharacterCombat : MonoBehaviour
         bool doesntHaveAnAbilitySelected = selectedAbility == null;
         if (doesntHaveAnAbilitySelected) return false;
         if (selectedAbility.isCoolingDown) return false;
-        bool hasEnoughManaToCast = resources.CurrentMana > selectedAbility.GetAbilityData().manaCost;
+        bool hasEnoughManaToCast = stats.CurrentMana > selectedAbility.GetAbilityData().manaCost;
+        Debug.Log(stats.CurrentMana);
         return hasEnoughManaToCast;
     }
 
     private void UpdateManaBar()
     {
-        resources.CurrentMana -= selectedAbility.GetAbilityData().manaCost;
-        float normalizedValue = resources.CurrentMana / resources.MaxMana;
+        stats.CurrentMana -= selectedAbility.GetAbilityData().manaCost;
+        float normalizedValue = stats.CurrentMana / stats.MaxMana;
         manaBar.UpdateBar(normalizedValue);
     }
 }

@@ -18,7 +18,6 @@ MonoBehaviour:
   prefab: {fileID: 5498125659857406263, guid: 8024a1f0a6958284e97087bbcd24430e, type: 3}
   isCoolingDown: 0
   coRunner: {fileID: 0}
-  ps: {fileID: 0}
-  projectileSpeed: 10
-  dir: {x: 1, y: 0.17234528, z: 0}
+  projectileSpeed: 1000
+  dir: {x: -1, y: 0.10847692, z: 0}
   limiter: 0.6

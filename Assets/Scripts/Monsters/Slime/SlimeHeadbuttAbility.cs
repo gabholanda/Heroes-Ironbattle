@@ -34,7 +34,7 @@ public class SlimeHeadbuttAbility : Ability
 
     private float HeadbuttFormula(Ability ability)
     {
-        int strength = caster.GetComponent<StateMachine>().stats.combatStats.Strength;
+        int strength = caster.GetComponent<StateMachine>().stats.Strength;
         float scalingCoeficient = ability.handler.GetAbilityData().scalingCoeficient;
         return Mathf.Round(strength * scalingCoeficient);
     }

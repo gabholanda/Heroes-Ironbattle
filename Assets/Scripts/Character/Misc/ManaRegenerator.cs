@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ManaRegenerator : MonoBehaviour
 {
-    private ResourcesStats resources;
+    private CharacterStats stats;
     private SlidingBar manaBar;
     // Start is called before the first frame update
-    public ManaRegenerator SetResources(ResourcesStats _resources)
+    public ManaRegenerator SetStats(CharacterStats _stats)
     {
-        resources = _resources;
+        stats = _stats;
         return this;
     }
 
@@ -29,16 +29,16 @@ public class ManaRegenerator : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            if (resources.CurrentMana < resources.MaxMana)
+            if (stats.CurrentMana < stats.MaxMana)
             {
-                resources.CurrentMana += resources.RegenRate;
+                stats.CurrentMana += stats.RegenRate;
             }
-            else if (resources.CurrentMana > resources.MaxMana)
+            else if (stats.CurrentMana > stats.MaxMana)
             {
-                resources.CurrentMana = resources.MaxMana;
+                stats.CurrentMana = stats.MaxMana;
             }
-            if (resources.MaxMana != resources.CurrentMana)
-                manaBar.UpdateBar(resources.CurrentMana / resources.MaxMana);
+            if (stats.MaxMana != stats.CurrentMana)
+                manaBar.UpdateBar(stats.CurrentMana / stats.MaxMana);
 
         }
     }

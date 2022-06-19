@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dc35bb067195142ada34f57fb18202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats: {fileID: 11400000, guid: cf8e1ab47fde8f845b8e6b696a4eda31, type: 2}
+  stats: {fileID: 11400000, guid: cf8e1ab47fde8f845b8e6b696a4eda31, type: 2}
   isDead: 0
   actions: {fileID: 0}
   goUpTime: 0.5

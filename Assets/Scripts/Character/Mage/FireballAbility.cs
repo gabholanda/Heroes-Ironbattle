@@ -36,7 +36,7 @@ public class FireballAbility : Ability
 
     private float FireballFormula(Ability ability)
     {
-        int intelligence = caster.GetComponent<StateMachine>().stats.combatStats.Intelligence;
+        int intelligence = caster.GetComponent<StateMachine>().stats.Intelligence;
         float scalingCoeficient = ability.handler.GetAbilityData().scalingCoeficient;
         return Mathf.Round(intelligence * scalingCoeficient);
     }
@@ -52,7 +52,7 @@ public class FireballAbility : Ability
             burn.element = ElementType.Fire;
             burn.type = DamageType.Magical;
             burn.duration = 3;
-            int intelligence = caster.GetComponent<StateMachine>().stats.combatStats.Intelligence;
+            int intelligence = caster.GetComponent<StateMachine>().stats.Intelligence;
             burn.effectValue = Mathf.Round(intelligence * burnScalingCoeficient);
             burn.Apply();
         }

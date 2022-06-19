@@ -31,7 +31,7 @@ public class SlimePatrollingState : BaseState
 
     public override void UpdatePhysics()
     {
-        _sm.actions.SetMovement(_sm.stats.combatStats.MoveSpeed);
+        _sm.actions.SetMovement(_sm.stats.MoveSpeed);
     }
 
     public override void Exit()

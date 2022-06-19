@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    [SerializeField]
-    protected CharacterBaseStats baseStats;
     protected BaseState currentState;
     public Dictionary<string, BaseState> states;
     public CharacterStats stats;

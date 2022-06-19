@@ -33,7 +33,7 @@ public class IcespikeAbility : Ability
 
     private float IcespikeFormula(Ability ability)
     {
-        int intelligence = caster.GetComponent<StateMachine>().stats.combatStats.Intelligence;
+        int intelligence = caster.GetComponent<StateMachine>().stats.Intelligence;
         float scalingCoeficient = ability.handler.GetAbilityData().scalingCoeficient;
         return Mathf.Round(intelligence * scalingCoeficient);
     }

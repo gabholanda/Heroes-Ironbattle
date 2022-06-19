@@ -7,14 +7,12 @@ public class DamageReceiver : MonoBehaviour
     [SerializeField]
     protected GameObject popUpPrefab;
     protected StateMachine stateMachine;
-    protected ResourcesStats resources;
-    protected DefenseResistances defensesResistances;
-    protected ElementalResistances elementalResistances;
+    protected CharacterStats stats;
 
     protected virtual void Start()
     {
         stateMachine = GetComponent<StateMachine>();
-        (resources, defensesResistances, elementalResistances) = stateMachine.stats;
+        stats = stateMachine.stats;
     }
 
     public virtual void ReceiveDamage(float damage, AbilityData abilityData, DamageResources damageResources)
@@ -24,7 +22,7 @@ public class DamageReceiver : MonoBehaviour
             float finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
             if (DamageIsNegative(finalDamage)) finalDamage = 0;
             InstantiateDamagePopUp(finalDamage);
-            damageResources(resources, finalDamage);
+            damageResources(stats, finalDamage);
             if (IsDead())
             {
                 DoDeathProcedures();
@@ -39,7 +37,7 @@ public class DamageReceiver : MonoBehaviour
             float finalDamage = MitigateDamage(damage, type, element);
             if (DamageIsNegative(finalDamage)) finalDamage = 0;
             InstantiateDamagePopUp(finalDamage);
-            damageResources(resources, finalDamage);
+            damageResources(stats, finalDamage);
             if (IsDead())
             {
                 Debug.Log("Died");
@@ -66,7 +64,7 @@ public class DamageReceiver : MonoBehaviour
 
     private float MitigatePhysicalDamage(float damage, ElementType element)
     {
-        int physicalDefense = defensesResistances.Defense;
+        int physicalDefense = stats.Defense;
         float elementalResistance = 1f - GetElementResistance(element);
         damage -= physicalDefense * elementalResistance;
         return damage;
@@ -74,7 +72,7 @@ public class DamageReceiver : MonoBehaviour
 
     private float MitigateMagicDamage(float damage, ElementType element)
     {
-        int magicResistance = defensesResistances.MagicResistance;
+        int magicResistance = stats.MagicResistance;
         float elementalResistance = 1f - GetElementResistance(element);
         damage -= magicResistance * elementalResistance;
         return damage;
@@ -92,13 +90,13 @@ public class DamageReceiver : MonoBehaviour
         switch (element)
         {
             case ElementType.Fire:
-                return elementalResistances.Fire;
+                return stats.Fire;
             case ElementType.Ice:
-                return elementalResistances.Ice;
+                return stats.Ice;
             case ElementType.Dark:
-                return elementalResistances.Dark;
+                return stats.Dark;
             case ElementType.Lightning:
-                return elementalResistances.Lightning;
+                return stats.Lightning;
             default:
                 return 0f;
         }
@@ -111,7 +109,7 @@ public class DamageReceiver : MonoBehaviour
 
     protected bool IsDead()
     {
-        return resources.CurrentHealth < 0;
+        return stats.CurrentHealth < 0;
     }
 
     protected void DoDeathProcedures()
