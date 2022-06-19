@@ -69,7 +69,7 @@ public class PlayerControlsState : BaseState
     {
         //_sm.GetComponent<Rigidbody2D>().velocity *= 0;
         //_sm.GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 6), ForceMode2D.Impulse);
-        if (_sm.characterCombat.canCast())
+        if (_sm.characterCombat.CanCast())
         {
             // TODO: fazer isso em um script de utility;
             Vector3 mousePos = Mouse.current.position.ReadValue();

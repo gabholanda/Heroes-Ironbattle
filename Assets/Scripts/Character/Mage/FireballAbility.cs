@@ -30,6 +30,7 @@ public class FireballAbility : Ability
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
             damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
+            onHitParticles.Play();
             SetStatusEffect(collider.gameObject);
         }
     }

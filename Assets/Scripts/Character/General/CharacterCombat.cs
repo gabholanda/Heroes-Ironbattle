@@ -34,13 +34,12 @@ public class CharacterCombat : MonoBehaviour
         selectedAbility.Execute(gObj, v2);
     }
 
-    public bool canCast()
+    public bool CanCast()
     {
         bool doesntHaveAnAbilitySelected = selectedAbility == null;
         if (doesntHaveAnAbilitySelected) return false;
         if (selectedAbility.isCoolingDown) return false;
         bool hasEnoughManaToCast = stats.CurrentMana > selectedAbility.GetAbilityData().manaCost;
-        Debug.Log(stats.CurrentMana);
         return hasEnoughManaToCast;
     }
 

@@ -6,6 +6,7 @@ public abstract class Ability : MonoBehaviour
     public AbilityHandler handler;
     public Rigidbody2D rb;
     public GameObject caster;
+    public ParticleSystem onHitParticles;
 
     protected IEnumerator StartSelfDestroyTimer()
     {
