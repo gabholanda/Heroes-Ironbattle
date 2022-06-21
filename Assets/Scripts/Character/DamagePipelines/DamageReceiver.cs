@@ -40,7 +40,6 @@ public class DamageReceiver : MonoBehaviour
             damageResources(stats, finalDamage);
             if (IsDead())
             {
-                Debug.Log("Died");
                 DoDeathProcedures();
             }
         }

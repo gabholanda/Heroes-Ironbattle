@@ -9770,7 +9770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215eadfa761cd0843b8c6313075aef82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats: {fileID: 11400000, guid: 4f919f84c2078754fae60e4b76128f58, type: 2}
+  stats: {fileID: 11400000, guid: 4f919f84c2078754fae60e4b76128f58, type: 2}
   isDead: 0
   characterMovement: {fileID: 0}
   characterCombat: {fileID: 0}

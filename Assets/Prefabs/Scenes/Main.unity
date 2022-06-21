@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -145,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155827251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71.21537, y: 18.08966, z: -15.401983}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 635970919}
@@ -268,11 +268,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Combat UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 8064820253047676446, guid: 604d20fced7e4464a93d0305932abcf5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604d20fced7e4464a93d0305932abcf5, type: 3}
@@ -642,17 +637,17 @@ PrefabInstance:
     - target: {fileID: 5427920875278212676, guid: 7a026ff5de9803f409f32a966ed07660,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1048843
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5427920875278212676, guid: 7a026ff5de9803f409f32a966ed07660,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.317749
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5427920875278212676, guid: 7a026ff5de9803f409f32a966ed07660,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.55474216
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5427920875278212676, guid: 7a026ff5de9803f409f32a966ed07660,
         type: 3}
@@ -773,11 +768,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9128437707850368397, guid: 034db2ff28a93b44c80f85957e513371,
-        type: 3}
-      propertyPath: m_TagString
-      value: Obstacles
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 034db2ff28a93b44c80f85957e513371, type: 3}
 --- !u!1001 &1488061456
@@ -791,12 +781,6 @@ PrefabInstance:
       propertyPath: healthBarObj
       value: 
       objectReference: {fileID: 263856205}
-    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
-        type: 3}
-      propertyPath: stats
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f919f84c2078754fae60e4b76128f58,
-        type: 2}
     - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
         type: 3}
       propertyPath: manaBar
@@ -1049,11 +1033,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4424975402713205467, guid: f2b6748b3640af2489859093d8eb6017,
-        type: 3}
-      propertyPath: towerPrefab
-      value: 
-      objectReference: {fileID: 4029994826465657956, guid: bee4a46bf848de84985d050001aed520,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2b6748b3640af2489859093d8eb6017, type: 3}
