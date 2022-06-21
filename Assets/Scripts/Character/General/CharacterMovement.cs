@@ -33,7 +33,7 @@ public class CharacterMovement : MonoBehaviour, IMovable
 
     public void SetVector(Vector2 v2)
     {
-        movVector = new Vector3(v2.x, v2.y) * stats.MoveSpeed;
+        movVector = new Vector3(v2.x, v2.y) * stats.combatStats.MoveSpeed;
         if (IsMoving())
         {
             CharAnim.SetAnimation("Walk", true, true, false, false);

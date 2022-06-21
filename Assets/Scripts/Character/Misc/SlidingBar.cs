@@ -6,9 +6,16 @@ public class SlidingBar : MonoBehaviour, UIResourceBar
 {
     [SerializeField]
     private Image image;
+    private ResourcesStats resources;
 
     private float oldNormalizedValue = 1f;
     readonly Queue<SlideBarCommand> commandQueue = new Queue<SlideBarCommand>();
+
+
+    public void SetStats(ResourcesStats _resources)
+    {
+        resources = _resources;
+    }
 
     public void UpdateBar(float normalizedValue)
     {

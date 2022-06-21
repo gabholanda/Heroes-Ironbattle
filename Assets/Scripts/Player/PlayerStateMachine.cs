@@ -113,7 +113,7 @@ public class PlayerStateMachine : StateMachine
     private void InitializeCharacterCombat()
     {
         characterCombat
-            .SetStats(stats)
+            .SetResources(stats.resources)
             .SetManaBar(manaBar);
     }
 
@@ -121,7 +121,7 @@ public class PlayerStateMachine : StateMachine
     {
         manaRegenerator = GetComponent<ManaRegenerator>();
         manaRegenerator
-            .SetStats(stats)
+            .SetResources(stats.resources)
             .SetManaBar(manaBar);
         manaRegenerator.StartRegeneration();
     }
@@ -129,7 +129,9 @@ public class PlayerStateMachine : StateMachine
     private void InitializeCharacter()
     {
         SetComponents();
+        stats = new CharacterStats();
         InitializeCharacterMovement();
+        stats.SetCharacterStats(baseStats);
         InitializeCharacterCombat();
         InitializeRegenerator();
     }

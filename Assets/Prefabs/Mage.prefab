@@ -9676,10 +9676,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6431199696723903608}
   - component: {fileID: 6431199696723903609}
-  - component: {fileID: 3553262527252671618}
   - component: {fileID: 709747010538094713}
   - component: {fileID: 6435816235699274352}
   - component: {fileID: 1678621621}
+  - component: {fileID: 3553262527252671618}
   - component: {fileID: 1872058166}
   - component: {fileID: 2100419940}
   - component: {fileID: 1961639340}
@@ -9758,33 +9758,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &3553262527252671618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431199696723903610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215eadfa761cd0843b8c6313075aef82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 4f919f84c2078754fae60e4b76128f58, type: 2}
-  isDead: 0
-  characterMovement: {fileID: 0}
-  characterCombat: {fileID: 0}
-  characterAnimator: {fileID: 0}
-  characterInteractor: {fileID: 0}
-  castingParticles: {fileID: 1812459884}
-  handlers:
-  - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
-  - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
-  - {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
-  dashHandler: {fileID: 11400000, guid: 193e502b3a4d0864fa5e9cd43fea9459, type: 2}
-  playerReader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
-  manaBar: {fileID: 0}
-  castingPoint: {fileID: 1387867187}
 --- !u!50 &709747010538094713
 Rigidbody2D:
   serializedVersion: 4
@@ -9841,6 +9814,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3553262527252671618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431199696723903610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215eadfa761cd0843b8c6313075aef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: 4f919f84c2078754fae60e4b76128f58, type: 2}
+  isDead: 0
+  characterMovement: {fileID: 0}
+  characterCombat: {fileID: 0}
+  characterAnimator: {fileID: 0}
+  characterInteractor: {fileID: 0}
+  castingParticles: {fileID: 1812459884}
+  handlers:
+  - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
+  - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
+  - {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
+  dashHandler: {fileID: 11400000, guid: 193e502b3a4d0864fa5e9cd43fea9459, type: 2}
+  playerReader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
+  manaBar: {fileID: 0}
+  castingPoint: {fileID: 1387867187}
 --- !u!114 &1872058166
 MonoBehaviour:
   m_ObjectHideFlags: 0

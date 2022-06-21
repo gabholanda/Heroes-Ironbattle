@@ -30,14 +30,13 @@ public class FireballAbility : Ability
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
             damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
-            onHitParticles.Play();
             SetStatusEffect(collider.gameObject);
         }
     }
 
     private float FireballFormula(Ability ability)
     {
-        int intelligence = caster.GetComponent<StateMachine>().stats.Intelligence;
+        int intelligence = caster.GetComponent<StateMachine>().stats.combatStats.Intelligence;
         float scalingCoeficient = ability.handler.GetAbilityData().scalingCoeficient;
         return Mathf.Round(intelligence * scalingCoeficient);
     }
@@ -53,7 +52,7 @@ public class FireballAbility : Ability
             burn.element = ElementType.Fire;
             burn.type = DamageType.Magical;
             burn.duration = 3;
-            int intelligence = caster.GetComponent<StateMachine>().stats.Intelligence;
+            int intelligence = caster.GetComponent<StateMachine>().stats.combatStats.Intelligence;
             burn.effectValue = Mathf.Round(intelligence * burnScalingCoeficient);
             burn.Apply();
         }

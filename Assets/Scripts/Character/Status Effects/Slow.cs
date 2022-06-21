@@ -5,13 +5,13 @@ using UnityEngine;
 public class Slow : StatusEffect
 {
     private ParticleSystem ps;
-    private CharacterStats stats;
+    private CombatStats combatStats;
     public override void Apply()
     {
         Vector3 currentPosition = transform.position;
         transform.position = new Vector3(currentPosition.x + xOffset, currentPosition.y + yOffset, currentPosition.z);
         ps = GetComponent<ParticleSystem>();
-        stats = target.GetComponent<StateMachine>().stats;
+        combatStats = target.GetComponent<StateMachine>().stats.combatStats;
         StartCoroutine(Tick());
     }
 
@@ -19,10 +19,10 @@ public class Slow : StatusEffect
     {
         ps.Play();
         float percentageToReduce = (1 - effectValue);
-        stats.MoveSpeed *= percentageToReduce;
+        combatStats.MoveSpeed *= percentageToReduce;
         yield return new WaitForSeconds(duration);
         ps.Stop();
-        stats.MoveSpeed = stats.MoveSpeed / percentageToReduce;
+        combatStats.MoveSpeed = combatStats.MoveSpeed / percentageToReduce;
         Destroy(gameObject);
     }
 }

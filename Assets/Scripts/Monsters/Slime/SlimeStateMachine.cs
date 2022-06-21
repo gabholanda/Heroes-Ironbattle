@@ -30,11 +30,13 @@ public class SlimeStateMachine : StateMachine
     private void Awake()
     {
         actions = GetComponent<MonsterActions>();
+        stats = new CharacterStats();
+        stats.SetCharacterStats(baseStats);
         CreateStateDictionary();
         InstantiateDefaultStates();
         AddDefaultStates();
         currentState = GetInitialState();
-        Invoke(nameof(EnterInitialState), 0.5f);
+        Invoke("EnterInitialState", 0.5f);
     }
 
     private void EnterInitialState()

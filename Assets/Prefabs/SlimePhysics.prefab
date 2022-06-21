@@ -182,9 +182,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3906688315430537534}
-  - component: {fileID: 3906688315430537535}
   - component: {fileID: 3906688315430537504}
   - component: {fileID: 3906688315430537505}
+  - component: {fileID: 3906688315430537535}
   - component: {fileID: 3906688315430537532}
   - component: {fileID: 535649134}
   - component: {fileID: 6051838817219805517}
@@ -217,24 +217,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3906688315430537535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3906688315430537506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09dc35bb067195142ada34f57fb18202, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: cf8e1ab47fde8f845b8e6b696a4eda31, type: 2}
-  isDead: 0
-  actions: {fileID: 0}
-  goUpTime: 0.5
-  goUp: 1
-  goDownTime: 0.3
 --- !u!50 &3906688315430537504
 Rigidbody2D:
   serializedVersion: 4
@@ -282,6 +264,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8848686, y: 0.9405987}
   m_EdgeRadius: 0
+--- !u!114 &3906688315430537535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906688315430537506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dc35bb067195142ada34f57fb18202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: cf8e1ab47fde8f845b8e6b696a4eda31, type: 2}
+  isDead: 0
+  actions: {fileID: 0}
+  goUpTime: 0.5
+  goUp: 1
+  goDownTime: 0.3
 --- !u!114 &3906688315430537532
 MonoBehaviour:
   m_ObjectHideFlags: 0

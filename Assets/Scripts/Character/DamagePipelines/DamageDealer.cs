@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public delegate float DamageFormula(Ability ability);
-public delegate void DamageResources(CharacterStats stats, float finalDamage);
+public delegate void DamageResources(ResourcesStats stats, float finalDamage);
 public class DamageDealer : MonoBehaviour
 {
     public DamageReceiver damageReceiver;

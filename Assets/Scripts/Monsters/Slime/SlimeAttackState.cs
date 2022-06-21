@@ -43,7 +43,7 @@ public class SlimeAttackState : BaseState
 
     private void AddForceTowardsTarget()
     {
-        float speed = _sm.stats.MoveSpeed * 600f;
+        float speed = _sm.stats.combatStats.MoveSpeed * 600f;
         Vector2 direction = ((Vector2)_sm.actions.target.transform.position - _sm.actions.physics.rb.position).normalized;
         Vector2 force = direction * speed;
         _sm.actions.physics.rb.AddForce(force);

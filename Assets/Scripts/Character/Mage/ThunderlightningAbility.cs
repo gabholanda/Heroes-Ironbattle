@@ -34,7 +34,7 @@ public class ThunderlightningAbility : Ability
 
     private float ThunderLightningFormula(Ability ability)
     {
-        int intelligence = caster.GetComponent<StateMachine>().stats.Intelligence;
+        int intelligence = caster.GetComponent<StateMachine>().stats.combatStats.Intelligence;
         float scalingCoeficient = ability.handler.GetAbilityData().scalingCoeficient;
         return Mathf.Round(intelligence * scalingCoeficient);
     }
