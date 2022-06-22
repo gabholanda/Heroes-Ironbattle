@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System;
 
-public abstract class AbilityHandler: ScriptableObject
+public abstract class AbilityHandler : ScriptableObject
 {
     [SerializeField]
     protected AbilityData abilityData;
@@ -10,12 +11,15 @@ public abstract class AbilityHandler: ScriptableObject
     public GameObject prefab;
     public bool isCoolingDown;
     public CoroutineRunner coRunner;
+
+    [NonSerialized]
+    public float currentTime;
     public abstract void Initialize(GameObject t, Vector2 v2);
     public abstract void Execute(GameObject g, Vector2 v2);
 
     public IEnumerator StartCooldown()
     {
-        float currentTime = 0f;
+        currentTime = 0f;
         while (abilityData.cooldownDuration > currentTime)
         {
             yield return new WaitForSeconds(0.1f);

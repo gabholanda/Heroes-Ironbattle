@@ -18,6 +18,8 @@ public class PlayerStateMachine : StateMachine
     public CharacterAnimator characterAnimator;
     [HideInInspector]
     public CharacterInteractor characterInteractor;
+    [HideInInspector]
+    public CharacterUIAbilityManager abilityUI;
 
     [SerializeField]
     public ParticleSystem castingParticles;
@@ -36,8 +38,8 @@ public class PlayerStateMachine : StateMachine
     private void Awake()
     {
         InitializeStates();
-        InitializeAbilities();
         InitializeCharacter();
+        InitializeAbilities();
         castingParticles.Stop();
     }
 
@@ -91,6 +93,9 @@ public class PlayerStateMachine : StateMachine
         {
             handlers[i].Initialize(castingPoint, new Vector2());
         }
+        abilityUI
+            .SetAbilityHandlers(handlers)
+            .SetHandlers();
     }
 
     void SetComponents()
@@ -99,6 +104,7 @@ public class PlayerStateMachine : StateMachine
         characterMovement = gameObject.AddComponent<CharacterMovement>();
         characterCombat = gameObject.AddComponent<CharacterCombat>();
         characterInteractor = gameObject.AddComponent<CharacterInteractor>();
+        abilityUI = gameObject.AddComponent<CharacterUIAbilityManager>();
     }
 
     private void InitializeCharacterMovement()

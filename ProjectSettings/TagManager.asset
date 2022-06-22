@@ -8,6 +8,9 @@ TagManager:
   - Monster
   - Obstacles
   - MapManager
+  - QSkill
+  - ESkill
+  - RSkill
   layers:
   - Default
   - TransparentFX

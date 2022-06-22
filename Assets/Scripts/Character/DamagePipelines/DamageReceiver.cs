@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DamageReceiver : MonoBehaviour
 {
@@ -42,7 +40,6 @@ public class DamageReceiver : MonoBehaviour
             damageResources(resources, finalDamage);
             if (IsDead())
             {
-                Debug.Log("Died");
                 DoDeathProcedures();
             }
         }
