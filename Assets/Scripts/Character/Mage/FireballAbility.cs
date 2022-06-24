@@ -18,6 +18,9 @@ public class FireballAbility : Ability
         damageDealer = GetComponent<DamageDealer>();
         damageHandler = FireballFormula;
         dealerHandler = DamageMethods.StandardDamageDealing;
+        source = GetComponent<AudioSource>();
+        source.clip = handler.GetAbilityData().onCastSound;
+        source.Play();
     }
     private void FixedUpdate()
     {
@@ -30,6 +33,9 @@ public class FireballAbility : Ability
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
             damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
+            onHitParticles.Play();
+            source.clip = handler.GetAbilityData().onHitSound;
+            source.Play();
             SetStatusEffect(collider.gameObject);
         }
     }

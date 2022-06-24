@@ -11,7 +11,6 @@ public class InputReader : ScriptableObject
     public InputAction OnAbilitySelect;
     public InputAction OnAbilityCancel;
     public InputAction OnDash;
-    public InputAction OnMenuOpen;
-    public InputAction OnMenuClose;
+    public InputAction TriggerMenu;
     public InputAction OnInteract;
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerClosedMenuState : BaseState
@@ -27,28 +27,30 @@ public class PlayerClosedMenuState : BaseState
 
     private void OnMenuOpen(InputAction.CallbackContext obj)
     {
-        _sm.RemoveState("Controls");
+        _sm.OpenSettings();
+        _sm.RemoveState("ClosedMenu");
         _sm.AddState(_sm.openMenuState);
+        _sm.openMenuState.Enter();
     }
 
     private void RegisterMenuEvent()
     {
-        _sm.playerReader.OnMenuOpen.performed += OnMenuOpen;
+        _sm.playerReader.TriggerMenu.performed += OnMenuOpen;
     }
 
     private void UnregisterMenuEvent()
     {
-        _sm.playerReader.OnMenuOpen.performed -= OnMenuOpen;
+        _sm.playerReader.TriggerMenu.performed -= OnMenuOpen;
     }
 
     private void EnableMenuEvent()
     {
-        _sm.playerReader.OnMenuOpen.Enable();
+        _sm.playerReader.TriggerMenu.Enable();
     }
 
     private void DisableMenuEvent()
     {
-        _sm.playerReader.OnMenuOpen.Disable();
+        _sm.playerReader.TriggerMenu.Disable();
     }
 
 }

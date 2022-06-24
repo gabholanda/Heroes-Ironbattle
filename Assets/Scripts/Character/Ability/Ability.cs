@@ -7,6 +7,7 @@ public abstract class Ability : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject caster;
     public ParticleSystem onHitParticles;
+    public AudioSource source;
 
     protected IEnumerator StartSelfDestroyTimer()
     {

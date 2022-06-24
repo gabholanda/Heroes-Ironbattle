@@ -16,7 +16,7 @@ public class MonsterPhysics : MonoBehaviour
 
     public bool IsStale()
     {
-        return Mathf.Abs(rb.velocity.x) <= 0.5 && Mathf.Abs(rb.velocity.y) <= 0.5;
+        return Mathf.Abs(rb.velocity.x) <= 0.1 && Mathf.Abs(rb.velocity.y) <= 0.1;
     }
 
     public Vector2 SetNewStandardPath()

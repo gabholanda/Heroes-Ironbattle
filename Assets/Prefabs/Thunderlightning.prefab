@@ -97,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 1950213672642449100}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 474d8447983c414458a51d80babddb6e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 43597ae1faf7c8c41afd779916038bac, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -144,7 +144,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 1}
-    oldSize: {x: 0.625, y: 0.3125}
+    oldSize: {x: 0.6875, y: 0.375}
     newSize: {x: 0.625, y: 0.3125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -168,6 +168,8 @@ MonoBehaviour:
   handler: {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
   rb: {fileID: -5308191754523909550}
   caster: {fileID: 0}
+  onHitParticles: {fileID: 0}
+  source: {fileID: 0}
   freezeStatusEffectPrefab: {fileID: 596540021257466038, guid: 540bf8cd51d6b5342a21024abd69e3e9,
     type: 3}
   freezeScalingCoeficient: 0.1

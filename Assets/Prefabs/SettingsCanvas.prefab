@@ -2269,11 +2269,11 @@ GameObject:
   - component: {fileID: 5248975319999790133}
   m_Layer: 5
   m_Name: SettingsCanvas
-  m_TagString: Untagged
+  m_TagString: Settings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5248975319999790132
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3743,6 +3743,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ResetDefaults
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419124787122562458, guid: 4b22379bed350a0439144940b89aeba8,
+        type: 3}
+      propertyPath: m_text
+      value: Reset Defaults
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b22379bed350a0439144940b89aeba8, type: 3}

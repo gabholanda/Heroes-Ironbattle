@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510d6c43f398c4649b1b08c9dd0c44b5, type: 3}
   m_Name: Icespike
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  icon: {fileID: 0}
+  onCastSound: {fileID: 0}
+  onHitSound: {fileID: 0}
+  icon: {fileID: 21300000, guid: 529f75708c81d4f408edf1511348d010, type: 3}
   color: {r: 0, g: 0, b: 0, a: 0}
   abilityName: Icespike
   description: Icespikes come out from the ground dealing 100% of your magic damage

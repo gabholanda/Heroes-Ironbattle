@@ -188,22 +188,22 @@ MonoBehaviour:
       m_Groups: 
       m_Action: On Dash
       m_Flags: 0
-  OnMenuOpen:
-    m_Name: On Menu Open
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 92fe1b8c-8b9e-4436-bbca-26b488913b7b
+  TriggerMenu:
+    m_Name: Trigger Menu
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 608b6869-429d-43c3-bf69-cef5e2a2776e
     m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-  OnMenuClose:
-    m_Name: On Menu Close
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 75f12768-5a41-48bb-b10b-b3c4f98e41b9
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
+    m_Interactions: Press(behavior=1)
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 5b4414e8-2761-4234-a674-e3e62b6ed1af
+      m_Path: <Keyboard>/tab
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Trigger Menu
+      m_Flags: 0
   OnInteract:
     m_Name: On Interact
     m_Type: 0

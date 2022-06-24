@@ -37,7 +37,7 @@ public class SettingsManager : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this);
         SetButtonsCallback();
         SetSettingsOnStart();
     }
@@ -106,7 +106,12 @@ public class SettingsManager : MonoBehaviour
 
     private void CloseWindow()
     {
-        gameObject.SetActive(false);
+        int children = transform.childCount;
+
+        for (int i = 0; i < children; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 
     private void SetButtonsCallback()

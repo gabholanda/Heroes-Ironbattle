@@ -21,7 +21,12 @@ public class MainMenuUIManager : MonoBehaviour
 
     void Settings()
     {
-        settingsCanvas.SetActive(true);
+        int children = settingsCanvas.transform.childCount;
+
+        for (int i = 0; i < children; i++)
+        {
+            settingsCanvas.transform.GetChild(i).gameObject.SetActive(true);
+        }
     }
 
     void Quit()

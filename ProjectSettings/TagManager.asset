@@ -11,6 +11,7 @@ TagManager:
   - QSkill
   - ESkill
   - RSkill
+  - Settings
   layers:
   - Default
   - TransparentFX

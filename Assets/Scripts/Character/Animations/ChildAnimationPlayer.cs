@@ -35,6 +35,7 @@ public class ChildAnimationPlayer : MonoBehaviour
     public void HasFinished()
     {
         isInterrupted = false;
+        if (string.IsNullOrEmpty(prefix)) prefix = "Idle";
         anim.Play(prefix + parentAnim.GetCurrentAnimation());
     }
 

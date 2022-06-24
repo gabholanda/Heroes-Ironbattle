@@ -67,8 +67,6 @@ public class PlayerControlsState : BaseState
 
     public void OnFire(InputAction.CallbackContext obj)
     {
-        //_sm.GetComponent<Rigidbody2D>().velocity *= 0;
-        //_sm.GetComponent<Rigidbody2D>().AddForce(new Vector2(6, 6), ForceMode2D.Impulse);
         if (_sm.characterCombat.CanCast())
         {
             // TODO: fazer isso em um script de utility;

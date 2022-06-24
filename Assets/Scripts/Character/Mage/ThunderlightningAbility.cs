@@ -26,7 +26,7 @@ public class ThunderlightningAbility : Ability
         {
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
-            damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
+            StartCoroutine(DamageThrice());
             SetStatusEffect(collider.gameObject);
         }
     }
@@ -57,5 +57,14 @@ public class ThunderlightningAbility : Ability
         {
             slow.Renew();
         }
+    }
+
+    private IEnumerator DamageThrice()
+    {
+        damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
+        yield return new WaitForSeconds(0.1f);
+        damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
+        yield return new WaitForSeconds(0.1f);
+        damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
     }
 }

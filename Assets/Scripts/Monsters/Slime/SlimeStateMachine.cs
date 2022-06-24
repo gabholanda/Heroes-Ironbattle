@@ -27,8 +27,12 @@ public class SlimeStateMachine : StateMachine
     public bool goUp = true;
     public float goDownTime = 0.3f;
 
+    [SerializeField]
+    private AudioSource jumpAudio;
+
     private void Awake()
     {
+        jumpAudio = GetComponent<AudioSource>();
         actions = GetComponent<MonsterActions>();
         stats = new CharacterStats();
         stats.SetCharacterStats(baseStats);
@@ -99,6 +103,7 @@ public class SlimeStateMachine : StateMachine
                  0);
         if (actions.graphics.gfxTransform.localPosition.y < 0)
         {
+            jumpAudio.Play();
             goUp = true;
         }
     }

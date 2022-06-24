@@ -4,10 +4,10 @@
 public class AbilityData : ScriptableObject
 {
     [Header("UI/UX Data")]
-    public AudioSource sound;
+    public AudioClip onCastSound;
+    public AudioClip onHitSound;
     public Sprite icon;
     public Color color;
-    public string abilityName;
     [TextArea]
     public string description;
 

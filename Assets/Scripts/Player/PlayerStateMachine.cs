@@ -21,26 +21,34 @@ public class PlayerStateMachine : StateMachine
     [HideInInspector]
     public CharacterUIAbilityManager abilityUI;
 
-    [SerializeField]
-    public ParticleSystem castingParticles;
-
+    [Header("Abilities")]
     public AbilityHandler[] handlers;
     [SerializeField]
     private DashHandler dashHandler;
+
+    [Header("Input")]
     public InputReader playerReader;
 
+
+    [Header("Casting")]
+
     [SerializeField]
-    public SlidingBar manaBar;
-
+    public ParticleSystem castingParticles;
     public GameObject castingPoint;
-    private ManaRegenerator manaRegenerator;
 
+    [Header("UI Elements")]
+    public SlidingBar manaBar;
+    public GameObject menu;
+
+    private ManaRegenerator manaRegenerator;
     private void Awake()
     {
+        menu = GameObject.FindGameObjectWithTag("Settings");
         InitializeStates();
         InitializeCharacter();
         InitializeAbilities();
         castingParticles.Stop();
+        characterAnimator.SetAnimation("Idle", true, true, false, true);
     }
 
     private new void Update()
@@ -56,6 +64,26 @@ public class PlayerStateMachine : StateMachine
         foreach (BaseState state in states.Values)
         {
             state.UpdatePhysics();
+        }
+    }
+
+    public void OpenSettings()
+    {
+        int children = menu.transform.childCount;
+
+        for (int i = 0; i < children; i++)
+        {
+            menu.transform.GetChild(i).gameObject.SetActive(true);
+        }
+    }
+
+    public void CloseSettings()
+    {
+        int children = menu.transform.childCount;
+
+        for (int i = 0; i < children; i++)
+        {
+            menu.transform.GetChild(i).gameObject.SetActive(false);
         }
     }
 
@@ -87,7 +115,7 @@ public class PlayerStateMachine : StateMachine
         StartInitialStates();
     }
 
-    void InitializeAbilities()
+    private void InitializeAbilities()
     {
         for (int i = 0; i < handlers.Length; i++)
         {
@@ -98,7 +126,7 @@ public class PlayerStateMachine : StateMachine
             .SetHandlers();
     }
 
-    void SetComponents()
+    private void SetComponents()
     {
         characterAnimator = gameObject.AddComponent<CharacterAnimator>();
         characterMovement = gameObject.AddComponent<CharacterMovement>();

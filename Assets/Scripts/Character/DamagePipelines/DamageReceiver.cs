@@ -8,6 +8,11 @@ public class DamageReceiver : MonoBehaviour
     protected ResourcesStats resources;
     protected DefenseResistances defensesResistances;
     protected ElementalResistances elementalResistances;
+    [SerializeField]
+    protected GameEvent onHitEvent;
+
+    [SerializeField]
+    protected AudioSource onHitSource;
 
     protected virtual void Start()
     {
@@ -15,34 +20,21 @@ public class DamageReceiver : MonoBehaviour
         (resources, defensesResistances, elementalResistances) = stateMachine.stats;
     }
 
-    public virtual void ReceiveDamage(float damage, AbilityData abilityData, DamageResources damageResources)
+    public virtual DamageReceiver ReceiveDamage(float damage, AbilityData abilityData, DamageResources damageResources)
     {
-        if (TargetIsNotDead())
-        {
-            float finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
-            if (DamageIsNegative(finalDamage)) finalDamage = 0;
-            InstantiateDamagePopUp(finalDamage);
-            damageResources(resources, finalDamage);
-            if (IsDead())
-            {
-                DoDeathProcedures();
-            }
-        }
+        float finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
+        if (DamageIsNegative(finalDamage)) finalDamage = 0;
+        InstantiateDamagePopUp(finalDamage);
+        damageResources(resources, finalDamage);
+        return this;
     }
 
-    public void ReceiveDamage(float damage, DamageType type, ElementType element, DamageResources damageResources)
+    public DamageReceiver ReceiveDamage(float damage, DamageType type, ElementType element, DamageResources damageResources)
     {
-        if (TargetIsNotDead())
-        {
-            float finalDamage = MitigateDamage(damage, type, element);
-            if (DamageIsNegative(finalDamage)) finalDamage = 0;
-            InstantiateDamagePopUp(finalDamage);
-            damageResources(resources, finalDamage);
-            if (IsDead())
-            {
-                DoDeathProcedures();
-            }
-        }
+        float finalDamage = MitigateDamage(damage, type, element);
+        if (DamageIsNegative(finalDamage)) finalDamage = 0;
+        damageResources(resources, finalDamage);
+        return this;
     }
 
     public float MitigateDamage(float damage, DamageType type, ElementType element)
@@ -60,6 +52,49 @@ public class DamageReceiver : MonoBehaviour
             return MitigateTrueDamage(damage, element);
         }
     }
+
+    protected bool IsDead()
+    {
+        return resources.CurrentHealth < 0;
+    }
+
+    protected void DoDeathProcedures()
+    {
+        stateMachine.isDead = true;
+        stateMachine.ChangeState("Dying");
+    }
+
+    protected bool DamageIsNegative(float finalDamage)
+    {
+        return finalDamage < 0;
+    }
+
+    public DamageReceiver CheckDeath()
+    {
+        if (IsDead())
+        {
+            DoDeathProcedures();
+        }
+        return this;
+    }
+    public DamageReceiver TriggerEvent()
+    {
+        onHitEvent.Raise();
+        return this;
+    }
+
+    public DamageReceiver PlaySound()
+    {
+        onHitSource.Play();
+        return this;
+    }
+
+    protected void InstantiateDamagePopUp(float finalDamage)
+    {
+        GameObject popUp = Instantiate(popUpPrefab, transform);
+        popUp.GetComponent<DamagePopUp>().SetDamageText(finalDamage);
+    }
+
 
     private float MitigatePhysicalDamage(float damage, ElementType element)
     {
@@ -99,32 +134,5 @@ public class DamageReceiver : MonoBehaviour
             default:
                 return 0f;
         }
-    }
-
-    protected bool TargetIsNotDead()
-    {
-        return !stateMachine.isDead;
-    }
-
-    protected bool IsDead()
-    {
-        return resources.CurrentHealth < 0;
-    }
-
-    protected void DoDeathProcedures()
-    {
-        stateMachine.isDead = true;
-        stateMachine.ChangeState("Dying");
-    }
-
-    protected bool DamageIsNegative(float finalDamage)
-    {
-        return finalDamage < 0;
-    }
-
-    protected void InstantiateDamagePopUp(float finalDamage)
-    {
-        GameObject popUp = Instantiate(popUpPrefab, transform);
-        popUp.GetComponent<DamagePopUp>().SetDamageText(finalDamage);
     }
 }

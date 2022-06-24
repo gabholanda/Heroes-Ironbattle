@@ -12,20 +12,19 @@ public class PlayerDamageReceiver : DamageReceiver
         (resources, defensesResistances, elementalResistances) = stateMachine.stats;
         healthBar = healthBarObj.GetComponent<SlidingBar>();
     }
-    public override void ReceiveDamage(float damage, AbilityData abilityData, DamageResources damageResources)
+    public override DamageReceiver ReceiveDamage(float damage, AbilityData abilityData, DamageResources damageResources)
     {
-        if (TargetIsNotDead())
-        {
-            float finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
-            if (DamageIsNegative(finalDamage)) finalDamage = 0;
-            InstantiateDamagePopUp(finalDamage);
-            damageResources(resources, finalDamage);
-            float normalizedValue = resources.CurrentHealth / resources.MaxHealth;
-            healthBar.UpdateBar(normalizedValue);
-            if (IsDead())
-            {
-                DoDeathProcedures();
-            }
-        }
+        float finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
+        if (DamageIsNegative(finalDamage)) finalDamage = 0;
+        damageResources(resources, finalDamage);
+        InstantiateDamagePopUp(finalDamage);
+        UpdateUI();
+        return this;
+    }
+
+    private void UpdateUI()
+    {
+        float normalizedValue = resources.CurrentHealth / resources.MaxHealth;
+        healthBar.UpdateBar(normalizedValue);
     }
 }

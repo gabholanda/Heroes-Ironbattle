@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510d6c43f398c4649b1b08c9dd0c44b5, type: 3}
   m_Name: Thunderlightning
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  icon: {fileID: 0}
+  onCastSound: {fileID: 0}
+  onHitSound: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1d51e2691ffc77f4f81fbd5524a6082d, type: 3}
   color: {r: 0, g: 0, b: 0, a: 0}
-  abilityName: Thunderlightning
   description: A powerful lightning strike that deals 150% damage to enemies and
     deals a slight Stun effect with a 25% chance and 1s  during 10s
-  element: 0
-  type: 0
+  element: 3
+  type: 1
   manaCost: 15
   cooldownDuration: 7
   cooldownOnAbilityEnd: 0
-  abilityDestroyDuration: 0.3
+  abilityDestroyDuration: 0.5
   scalingCoeficient: 1.5

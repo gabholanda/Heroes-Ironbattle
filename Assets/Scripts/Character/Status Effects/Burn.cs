@@ -21,7 +21,12 @@ public class Burn : StatusEffect
         ps.Play();
         while (duration > current)
         {
-            receiver.ReceiveDamage(effectValue, type, element, dealer);
+            receiver
+                .CheckDeath()
+                .ReceiveDamage(effectValue, type, element, dealer)
+                .TriggerEvent()
+                .PlaySound()
+                .CheckDeath();
             yield return new WaitForSeconds(timeCheck);
             current += timeCheck;
         }
