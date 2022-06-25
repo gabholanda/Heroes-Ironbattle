@@ -33,6 +33,7 @@ public class DamageReceiver : MonoBehaviour
     {
         float finalDamage = MitigateDamage(damage, type, element);
         if (DamageIsNegative(finalDamage)) finalDamage = 0;
+        InstantiateDamagePopUp(finalDamage);
         damageResources(resources, finalDamage);
         return this;
     }

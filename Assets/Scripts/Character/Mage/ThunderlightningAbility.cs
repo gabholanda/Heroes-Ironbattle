@@ -18,6 +18,9 @@ public class ThunderlightningAbility : Ability
         damageDealer = GetComponent<DamageDealer>();
         damageHandler = ThunderLightningFormula;
         dealerHandler = DamageMethods.StandardDamageDealing;
+        source = GetComponent<AudioSource>();
+        source.clip = handler.GetAbilityData().onCastSound;
+        source.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -61,6 +64,9 @@ public class ThunderlightningAbility : Ability
 
     private IEnumerator DamageThrice()
     {
+        onHitParticles.Play();
+        source.clip = handler.GetAbilityData().onHitSound;
+        source.Play();
         damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
         yield return new WaitForSeconds(0.1f);
         damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);

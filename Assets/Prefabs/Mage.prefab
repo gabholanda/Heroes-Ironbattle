@@ -9600,7 +9600,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 200
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -9962,15 +9962,16 @@ MonoBehaviour:
   characterAnimator: {fileID: 0}
   characterInteractor: {fileID: 0}
   abilityUI: {fileID: 0}
-  castingParticles: {fileID: 1812459884}
   handlers:
   - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
   - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
   - {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
   dashHandler: {fileID: 11400000, guid: 193e502b3a4d0864fa5e9cd43fea9459, type: 2}
   playerReader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
-  manaBar: {fileID: 0}
+  castingParticles: {fileID: 1812459884}
   castingPoint: {fileID: 1387867187}
+  manaBar: {fileID: 0}
+  menu: {fileID: 0}
 --- !u!114 &1872058166
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ public class FireballAbility : Ability
     [SerializeField]
     private float burnScalingCoeficient;
 
-
     private void OnEnable()
     {
         newHandler = (ProjectileHandler)handler;
@@ -22,10 +21,12 @@ public class FireballAbility : Ability
         source.clip = handler.GetAbilityData().onCastSound;
         source.Play();
     }
+
     private void FixedUpdate()
     {
-        rb.AddForce(newHandler.dir * newHandler.projectileSpeed * Time.fixedDeltaTime);
+        rb.AddForce(newHandler.projectileSpeed * Time.fixedDeltaTime * newHandler.dir);
     }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Monster"))

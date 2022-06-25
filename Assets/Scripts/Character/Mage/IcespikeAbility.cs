@@ -18,6 +18,9 @@ public class IcespikeAbility : Ability
         damageDealer = GetComponent<DamageDealer>();
         damageHandler = IcespikeFormula;
         dealerHandler = DamageMethods.StandardDamageDealing;
+        source = GetComponent<AudioSource>();
+        source.clip = handler.GetAbilityData().onCastSound;
+        source.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
