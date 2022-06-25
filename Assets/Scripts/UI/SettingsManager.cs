@@ -125,6 +125,7 @@ public class SettingsManager : MonoBehaviour
         SetMixersOnStart();
         SetResolutionsOnStart();
         SetFullscreenOnStart();
+        UpdateUI();
     }
 
     private void SetMixersOnStart()

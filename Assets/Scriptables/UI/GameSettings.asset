@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d531b3ba3502de641aac501b2a6a3e50, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  musicVolume: -58.57143
-  effectsVolume: -62.285713
-  masterVolume: -33.714287
-  resolution: 
+  musicVolume: 0
+  effectsVolume: 0
+  masterVolume: 0
+  resolution: 640 x 480 @ 60Hz
   fullscreen: 0
