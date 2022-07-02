@@ -14,7 +14,7 @@ public class PlayerDamageReceiver : DamageReceiver
     }
     public override DamageReceiver ReceiveDamage(float damage, AbilityData abilityData, DamageResources damageResources)
     {
-        float finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
+        int finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
         if (DamageIsNegative(finalDamage)) finalDamage = 0;
         damageResources(resources, finalDamage);
         InstantiateDamagePopUp(finalDamage);

@@ -15,14 +15,12 @@ public class PlayerControlsState : BaseState
 
     public override void Enter()
     {
-        base.Enter();
         RegisterControlEvents();
         EnableControlEvents();
     }
 
     public override void Exit()
     {
-        base.Exit();
         UnregisterControlEvents();
         DisableControlEvents();
     }

@@ -14,13 +14,11 @@ public class SlimeDeadState : BaseState
 
     public override void Enter()
     {
-        base.Enter();
         _sm.actions.graphics.anim.Play("Dead");
     }
 
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
         fade -= Time.deltaTime * 0.7f;
         _sm.actions.graphics.material.SetFloat("_Fade", fade);
         if (fade <= 0)

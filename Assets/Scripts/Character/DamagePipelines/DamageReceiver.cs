@@ -22,7 +22,7 @@ public class DamageReceiver : MonoBehaviour
 
     public virtual DamageReceiver ReceiveDamage(float damage, AbilityData abilityData, DamageResources damageResources)
     {
-        float finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
+        int finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
         if (DamageIsNegative(finalDamage)) finalDamage = 0;
         InstantiateDamagePopUp(finalDamage);
         damageResources(resources, finalDamage);
@@ -31,26 +31,26 @@ public class DamageReceiver : MonoBehaviour
 
     public DamageReceiver ReceiveDamage(float damage, DamageType type, ElementType element, DamageResources damageResources)
     {
-        float finalDamage = MitigateDamage(damage, type, element);
+        int finalDamage = MitigateDamage(damage, type, element);
         if (DamageIsNegative(finalDamage)) finalDamage = 0;
         InstantiateDamagePopUp(finalDamage);
         damageResources(resources, finalDamage);
         return this;
     }
 
-    public float MitigateDamage(float damage, DamageType type, ElementType element)
+    public int MitigateDamage(float damage, DamageType type, ElementType element)
     {
         if (type == DamageType.Magical)
         {
-            return MitigateMagicDamage(damage, element);
+            return Mathf.RoundToInt(MitigateMagicDamage(damage, element));
         }
         else if (type == DamageType.Physical)
         {
-            return MitigatePhysicalDamage(damage, element);
+            return Mathf.RoundToInt(MitigatePhysicalDamage(damage, element));
         }
         else
         {
-            return MitigateTrueDamage(damage, element);
+            return Mathf.RoundToInt(MitigateTrueDamage(damage, element));
         }
     }
 
@@ -109,7 +109,7 @@ public class DamageReceiver : MonoBehaviour
     {
         int magicResistance = defensesResistances.MagicResistance;
         float elementalResistance = 1f - GetElementResistance(element);
-        damage -= magicResistance * elementalResistance;
+        damage -= (magicResistance) * elementalResistance;
         return damage;
     }
 
@@ -125,13 +125,13 @@ public class DamageReceiver : MonoBehaviour
         switch (element)
         {
             case ElementType.Fire:
-                return elementalResistances.Fire;
+                return elementalResistances.Fire / 100;
             case ElementType.Ice:
-                return elementalResistances.Ice;
+                return elementalResistances.Ice / 100;
             case ElementType.Dark:
-                return elementalResistances.Dark;
+                return elementalResistances.Dark / 100;
             case ElementType.Lightning:
-                return elementalResistances.Lightning;
+                return elementalResistances.Lightning / 100;
             default:
                 return 0f;
         }

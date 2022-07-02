@@ -1,31 +1,24 @@
-﻿using UnityEngine;
-
-public class SlimePatrollingState : BaseState
+﻿public class GoblinPatrollingState : BaseState
 {
-    private readonly SlimeStateMachine _sm;
+    private readonly GoblinStateMachine _sm;
 
     private float checkRepathing;
     private readonly float checkRepathingTimer = 1f;
-    private readonly float upSpeed = 1f;
-    private readonly float downSpeed = 1.6f;
 
-    public SlimePatrollingState(SlimeStateMachine stateMachine) : base("Patrol", stateMachine)
+    public GoblinPatrollingState(GoblinStateMachine stateMachine) : base("Patrol", stateMachine)
     {
         _sm = stateMachine;
     }
     public override void Enter()
     {
         _sm.actions.seekerAI.UpdatePath(_sm.actions.physics.rb);
+        _sm.actions.graphics.anim.Play("Walk");
+        _sm.actions.graphics.PlayChildrenAnimations("Walk");
     }
 
     public override void UpdateLogic()
     {
         _sm.actions.seekerAI.UpdatePath(_sm.actions.physics.rb);
-        if (_sm.goUp)
-            _sm.GoUp(upSpeed);
-        else
-            _sm.GoDown(downSpeed);
-
         _sm.actions.CanRepath(ref checkRepathing, checkRepathingTimer);
     }
 
@@ -38,5 +31,4 @@ public class SlimePatrollingState : BaseState
     {
         _sm.actions.seekerAI.ResetWayPoint();
     }
-
 }

@@ -123,7 +123,7 @@ public class MapManager : MonoBehaviour
     }
     private GameObject GetRandomEnemy()
     {
-        return enemiesToSpawn[Random.Range(0, enemiesToSpawn.Count - 1)];
+        return enemiesToSpawn[Random.Range(0, enemiesToSpawn.Count)];
     }
     private Vector3 GetRandomEnemySpawnPoint()
     {

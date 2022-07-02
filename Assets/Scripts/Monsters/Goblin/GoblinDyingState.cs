@@ -1,20 +1,18 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SlimeDyingState : BaseState
+public class GoblinDyingState : BaseState
 {
-    private SlimeStateMachine _sm;
+    private readonly GoblinStateMachine _sm;
     private float changeStateTimer = 0f;
-    private float changeStateTimerDur = 0.3f;
+    private float changeStateTimerDur = 3f;
 
-    public SlimeDyingState(SlimeStateMachine stateMachine) : base("Dying", stateMachine)
+    public GoblinDyingState(GoblinStateMachine stateMachine) : base("Dying", stateMachine)
     {
         _sm = stateMachine;
     }
 
     public override void Enter()
     {
-        base.Enter();
         EnemyDetector[] detectors = _sm.GetComponentsInChildren<EnemyDetector>();
         for (int i = 0; i < detectors.Length; i++)
         {
@@ -22,8 +20,9 @@ public class SlimeDyingState : BaseState
         }
         _sm.actions.StopRepeat("SeekTarget");
         _sm.GetComponent<Collider2D>().enabled = false;
-        _sm.actions.graphics.anim.Play("Dying");
+        _sm.actions.graphics.PlayChildrenAnimations("Dying");
     }
+
 
     public override void UpdateLogic()
     {

@@ -10,12 +10,14 @@ public class StaticHandler : AbilityHandler
 
     public override void Execute(GameObject caster, Vector2 v2)
     {
-        GameObject obj = Instantiate(prefab, caster.transform.position, Quaternion.identity);
+        Vector3 pos;
+        pos = caster.transform.position;
+        GameObject obj = Instantiate(prefab, pos, Quaternion.identity);
         this.isCoolingDown = true;
         Ability ability = obj.GetComponent<Ability>();
         ability.caster = caster;
         ability.StartTimers();
         if (coRunner != null)
-            coRunner?.Run(this.StartCooldown());
+            coRunner.Run(this.StartCooldown());
     }
 }

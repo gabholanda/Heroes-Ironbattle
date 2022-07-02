@@ -43,6 +43,16 @@ public class MonsterActions : MonoBehaviour
         }
     }
 
+    public void SetRepeat(float time, float frequency, string method)
+    {
+        InvokeRepeating(method, time, frequency);
+    }
+
+    public void StopRepeat(string method)
+    {
+        CancelInvoke(method);
+    }
+
     public void Flip()
     {
         if (physics.rb.velocity.x > 0)
@@ -52,35 +62,6 @@ public class MonsterActions : MonoBehaviour
         else
         {
             transform.localScale = new Vector3(-1, 1, 1);
-        }
-    }
-
-    public void DetectEnemy(Collider2D collider)
-    {
-        if (target == null)
-        {
-            target = collider.transform;
-            sm.ChangeState("Alert");
-        }
-    }
-
-    public void AttackEnemy(Collider2D collider)
-    {
-        target = collider.transform;
-        var children = GetComponentsInChildren<EnemyDetector>();
-        for (int i = 0; i < children.Length; i++)
-        {
-            Destroy(children[i].gameObject);
-        }
-        StartCoroutine(TriggerAttackIntervals());
-    }
-
-    public IEnumerator TriggerAttackIntervals()
-    {
-        while (!sm.isDead)
-        {
-            sm.ChangeState("Attack");
-            yield return new WaitForSeconds(2.5f);
         }
     }
 

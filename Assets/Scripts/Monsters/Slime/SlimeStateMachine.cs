@@ -73,16 +73,6 @@ public class SlimeStateMachine : StateMachine
         return patrollingState;
     }
 
-    public void SetRepeat(float time, float frequency, string method)
-    {
-        actions.InvokeRepeating(method, time, frequency);
-    }
-
-    public void StopRepeat(string method)
-    {
-        actions.CancelInvoke(method);
-    }
-
     public void GoUp(float speed)
     {
         actions.graphics.gfxTransform.localPosition += new Vector3(
@@ -105,6 +95,35 @@ public class SlimeStateMachine : StateMachine
         {
             jumpAudio.Play();
             goUp = true;
+        }
+    }
+
+    public void DetectEnemy(Collider2D collider)
+    {
+        if (actions.target == null)
+        {
+            actions.target = collider.transform;
+            ChangeState("Alert");
+        }
+    }
+
+    public void AttackEnemy(Collider2D collider)
+    {
+        actions.target = collider.transform;
+        var children = GetComponentsInChildren<EnemyDetector>();
+        for (int i = 0; i < children.Length; i++)
+        {
+            Destroy(children[i].gameObject);
+        }
+        StartCoroutine(TriggerAttackIntervals());
+    }
+
+    public IEnumerator TriggerAttackIntervals()
+    {
+        while (!isDead)
+        {
+            ChangeState("Attack");
+            yield return new WaitForSeconds(2.5f);
         }
     }
 }
