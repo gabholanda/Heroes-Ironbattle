@@ -12,18 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e741bc61c554c1048815340ebecd146e, type: 3}
   m_Name: SlimeStats
   m_EditorClassIdentifier: 
-  strength: 3
-  intelligence: 0
-  dexterity: 1
-  vitality: 3
-  baseDefense: 2
-  baseMagicResistance: 1
-  fire: 0
-  ice: 0
-  dark: 44
-  lightning: 0
-  maxHealth: 30
-  barrier: 0
-  maxMana: 0
-  regenRate: 0
-  moveSpeed: 1.5
+  stats:
+    resources:
+      _currentHealth: 30
+      _maxHealth: 30
+      _currentMana: 0
+      _maxMana: 0
+      _regenRate: 0
+    combatStats:
+      _strength: 3
+      _intelligence: 1
+      _dexterity: 1
+      _moveSpeed: 5
+    defensesResistances:
+      _defense: 1
+      _magicResistance: 1
+    elementalResistances:
+      _fire: 0
+      _ice: 0
+      _dark: 0
+      _lightning: 0

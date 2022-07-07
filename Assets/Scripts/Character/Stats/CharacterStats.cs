@@ -1,10 +1,19 @@
-﻿public class CharacterStats
+﻿using System;
+using UnityEngine;
+
+
+[Serializable]
+public class CharacterStats
 {
     public CharacterStats() { }
 
+    [SerializeField]
     public ResourcesStats resources;
+    [SerializeField]
     public CombatStats combatStats;
+    [SerializeField]
     public DefenseResistances defensesResistances;
+    [SerializeField]
     public ElementalResistances elementalResistances;
 
     public void SetCharacterStats(CharacterBaseStats baseStats)
@@ -17,42 +26,26 @@
 
     public void SetCombatStats(CharacterBaseStats baseStats)
     {
-        combatStats = new CombatStats(
-            baseStats.strength,
-            baseStats.intelligence,
-            baseStats.dexterity,
-            baseStats.vitality,
-            baseStats.moveSpeed
-            );
+        combatStats = new CombatStats();
+        combatStats += baseStats.stats.combatStats;
     }
 
     public void SetResourcesStats(CharacterBaseStats baseStats)
     {
-        resources = new ResourcesStats(
-            baseStats.maxHealth,
-            baseStats.maxHealth,
-            baseStats.barrier,
-            baseStats.maxMana,
-            baseStats.regenRate
-            );
+        resources = new ResourcesStats();
+        resources += baseStats.stats.resources;
     }
 
     public void SetDefensesResistances(CharacterBaseStats baseStats)
     {
-        defensesResistances = new DefenseResistances(
-            baseStats.baseDefense,
-            baseStats.baseMagicResistance
-            );
+        defensesResistances = new DefenseResistances();
+        defensesResistances += baseStats.stats.defensesResistances;
     }
 
     public void SetElementalResistances(CharacterBaseStats baseStats)
     {
-        elementalResistances = new ElementalResistances(
-            baseStats.fire,
-            baseStats.ice,
-            baseStats.dark,
-            baseStats.lightning
-            );
+        elementalResistances = new ElementalResistances();
+        elementalResistances += baseStats.stats.elementalResistances;
     }
 
     internal void Deconstruct(
@@ -63,5 +56,14 @@
         resources = this.resources;
         defenses = this.defensesResistances;
         elementalResistances = this.elementalResistances;
+    }
+
+    public override string ToString()
+    {
+
+        return resources.ToString() + "\n" +
+            combatStats.ToString() + "\n" +
+            defensesResistances.ToString() + "\n" +
+            elementalResistances.ToString() + "\n";
     }
 }

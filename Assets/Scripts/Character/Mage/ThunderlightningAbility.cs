@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ThunderlightningAbility : Ability
@@ -7,11 +6,6 @@ public class ThunderlightningAbility : Ability
     private DamageDealer damageDealer;
     private DamageFormula damageHandler;
     private DamageResources dealerHandler;
-    [SerializeField]
-    private GameObject freezeStatusEffectPrefab;
-    [SerializeField]
-    private float freezeScalingCoeficient;
-
 
     private void OnEnable()
     {
@@ -30,7 +24,7 @@ public class ThunderlightningAbility : Ability
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
             StartCoroutine(DamageThrice());
-            SetStatusEffect(collider.gameObject);
+            handler.onHitEvent?.Raise(collider);
         }
     }
 
@@ -40,26 +34,6 @@ public class ThunderlightningAbility : Ability
         int intelligence = caster.GetComponent<StateMachine>().stats.combatStats.Intelligence;
         float scalingCoeficient = ability.handler.GetAbilityData().scalingCoeficient;
         return Mathf.Round(intelligence * scalingCoeficient);
-    }
-
-    private void SetStatusEffect(GameObject target)
-    {
-        Slow slow = target.GetComponentInChildren<Slow>();
-        if (DoesNotContainEffect(slow))
-        {
-            GameObject slowObj = Instantiate(freezeStatusEffectPrefab, target.transform);
-            slow = slowObj.GetComponent<Slow>();
-            slow.target = target;
-            slow.element = ElementType.Ice;
-            slow.type = DamageType.Magical;
-            slow.duration = 5f;
-            slow.effectValue = freezeScalingCoeficient;
-            slow.Apply();
-        }
-        else
-        {
-            slow.Renew();
-        }
     }
 
     private IEnumerator DamageThrice()

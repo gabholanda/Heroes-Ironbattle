@@ -12,6 +12,9 @@ public abstract class AbilityHandler : ScriptableObject
     public bool isCoolingDown;
     public CoroutineRunner coRunner;
 
+    [Header("Events")]
+    public OnAbilityHitEvent onHitEvent;
+
     [NonSerialized]
     public float currentTime;
     public abstract void Initialize(GameObject t, Vector2 v2);

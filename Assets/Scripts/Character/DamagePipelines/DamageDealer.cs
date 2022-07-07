@@ -11,12 +11,13 @@ public class DamageDealer : MonoBehaviour
     {
         float totalDamage = damageFormula(ability);
         AbilityData abilityData = ability.handler.GetAbilityData();
-        damageReceiver
-            .CheckDeath()
-            .ReceiveDamage(totalDamage, abilityData, dealer)
-            .TriggerEvent()
-            .PlaySound()
-            .CheckDeath();
+        if (damageReceiver)
+            damageReceiver
+                .CheckDeath()
+                .ReceiveDamage(totalDamage, abilityData, dealer)
+                .TriggerEvent()
+                .PlaySound()
+                .CheckDeath();
     }
 
     public void SetReceiver(DamageReceiver receiver)

@@ -1,43 +1,69 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[Serializable]
 public class ResourcesStats
 {
+    public ResourcesStats() { }
     public ResourcesStats(
         float currentHealth,
         float maxHealth,
-        float barrier,
         float maxMana,
         float regenRate)
     {
-        CurrentHealth = currentHealth;
         MaxHealth = maxHealth;
-        Barrier = barrier;
-        CurrentMana = maxMana;
+        CurrentHealth = currentHealth;
         MaxMana = maxMana;
+        CurrentMana = maxMana;
         RegenRate = regenRate;
     }
 
-    public float CurrentHealth { get; set; }
-    public float MaxHealth { get; set; }
+    [SerializeField]
+    [Min(0)]
+    private float _currentHealth;
+    public float CurrentHealth { get { return _currentHealth; } set { _currentHealth = value > MaxHealth ? MaxHealth : value; } }
 
-    private float barrier;
-    public float Barrier
+    [SerializeField]
+    [Min(1)]
+    private float _maxHealth;
+    public float MaxHealth { get { return _maxHealth; } set { _maxHealth = value; } }
+
+    [SerializeField]
+    [Min(0)]
+    private float _currentMana;
+    public float CurrentMana { get { return _currentMana; } set { _currentMana = value > MaxMana ? MaxMana : value; } }
+
+    [SerializeField]
+    [Min(1)]
+    private float _maxMana;
+    public float MaxMana { get { return _maxMana; } set { _maxMana = value; } }
+
+    [SerializeField]
+    [Min(0)]
+    private float _regenRate;
+    public float RegenRate { get { return _regenRate; } set { _regenRate = value < 0 ? 1 : value; } }
+
+    public static ResourcesStats operator +(ResourcesStats a, ResourcesStats b)
+    => new ResourcesStats(
+        a.CurrentHealth + b.CurrentHealth,
+        a.MaxHealth + b.MaxHealth,
+        a.MaxMana + b.MaxMana,
+        a.RegenRate + b.RegenRate);
+
+    public static ResourcesStats operator -(ResourcesStats a, ResourcesStats b)
+    => new ResourcesStats(
+        a.CurrentHealth - b.CurrentHealth,
+        a.MaxHealth - b.MaxHealth,
+        a.MaxMana - b.MaxMana,
+        a.RegenRate - b.RegenRate);
+
+    public override string ToString()
     {
-        get { return barrier; }
-        set
-        {
-            if (value > barrier)
-            {
-                barrier = 0;
-            }
-            else
-            {
-                barrier -= value;
-            }
-        }
+        return "CurrentHealth: " + CurrentHealth + "\n" +
+            "MaxHealth: " + MaxHealth + "\n" +
+            "CurrentMana: " + CurrentMana + "\n" +
+            "MaxMana: " + MaxMana + "\n" +
+            "RegenRate: " + RegenRate + "\n";
     }
-    public float CurrentMana { get; set; }
-    public float MaxMana { get; set; }
-    public float RegenRate { get; set; }
 
 }

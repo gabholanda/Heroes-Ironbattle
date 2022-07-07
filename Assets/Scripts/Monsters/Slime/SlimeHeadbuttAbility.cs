@@ -7,25 +7,20 @@ public class SlimeHeadbuttAbility : Ability
     private DamageDealer damageDealer;
     private DamageFormula damageHandler;
     private DamageResources dealerHandler;
-    private int notHit;
-    private float forceScaling = 50f;
+    private bool notHit;
     private void OnEnable()
     {
-        notHit = 0;
+        notHit = true;
         damageDealer = GetComponent<DamageDealer>();
         damageHandler = HeadbuttFormula;
         dealerHandler = DamageMethods.StandardDamageDealing;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && notHit == 0)
+        if (collision.gameObject.CompareTag("Player") && notHit)
         {
-            notHit = 1;
-            Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
-            CharacterMovement movement = collision.GetComponent<CharacterMovement>();
-            movement.SetVector(new Vector2(0, 0));
-            playerRb.velocity *= 0;
-            playerRb.AddForce(GetRandomForce() * forceScaling, ForceMode2D.Impulse);
+            notHit = false;
+            handler.onHitEvent.Raise(collision);
             DamageReceiver receiver = collision.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
             damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);

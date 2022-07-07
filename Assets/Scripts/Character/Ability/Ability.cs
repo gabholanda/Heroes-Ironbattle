@@ -28,9 +28,4 @@ public abstract class Ability : MonoBehaviour
         StartCoroutine(this.StartSelfDestroyTimer());
     }
 
-    public bool DoesNotContainEffect(StatusEffect effect)
-    {
-        return effect is null;
-    }
-
 }

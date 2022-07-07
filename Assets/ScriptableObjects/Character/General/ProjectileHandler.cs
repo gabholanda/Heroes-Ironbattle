@@ -2,6 +2,7 @@
 [CreateAssetMenu(fileName = "Projectile Handler", menuName = "ScriptableObjects/Ability Handlers/New Projectile Handler")]
 public class ProjectileHandler : AbilityHandler
 {
+    [Header("Projectile Attributes")]
     private Transform startPoint;
     public float projectileSpeed;
     public Vector3 dir;
@@ -22,10 +23,10 @@ public class ProjectileHandler : AbilityHandler
                     (startPoint.transform.position.x,
                     startPoint.transform.position.y),
                     Quaternion.AngleAxis(angle, Vector3.forward));
-        this.isCoolingDown = true;
-        coRunner.Run(this.StartCooldown());
         Ability ability = obj.GetComponent<Ability>();
         ability.caster = caster;
+        this.isCoolingDown = true;
+        coRunner.Run(this.StartCooldown());
         ability.StartTimers();
     }
 

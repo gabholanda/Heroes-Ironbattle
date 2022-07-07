@@ -374,6 +374,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   gfxTransform: {fileID: 4758571913321537144}
   material: {fileID: 0}
+  children: []
 --- !u!114 &535649137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,7 +528,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4134532177001121870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2534555, y: -0.28210536, z: -0.707865}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3906688315430537534}

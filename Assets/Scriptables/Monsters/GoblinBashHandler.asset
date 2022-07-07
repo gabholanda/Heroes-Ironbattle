@@ -15,5 +15,6 @@ MonoBehaviour:
   abilityData: {fileID: 11400000, guid: 34ec6350d35607b44bcbee5b73b395fc, type: 2}
   ability: {fileID: 0}
   prefab: {fileID: 595609864047480264, guid: ea666ce8166b17d4e9fae1f50c0b3491, type: 3}
-  isCoolingDown: 0
+  isCoolingDown: 1
   coRunner: {fileID: 0}
+  onHitEvent: {fileID: 11400000, guid: 949d7da0f183b19459b8c1ec67c6c546, type: 2}

@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510d6c43f398c4649b1b08c9dd0c44b5, type: 3}
   m_Name: HeadbuttAbility
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
+  onCastSound: {fileID: 0}
+  onHitSound: {fileID: 0}
   icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
+  description: 
   element: 4
   type: 0
-  abilityName: Headbutt Ability
-  description: 
+  manaCost: 0
   cooldownDuration: 0.8
   cooldownOnAbilityEnd: 0
   abilityDestroyDuration: 0.5
   scalingCoeficient: 1
+  onHitEvent: {fileID: 11400000, guid: 42d452c981b1e744fb4d88cd18ca7e13, type: 2}

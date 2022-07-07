@@ -6,10 +6,6 @@ public class FireballAbility : Ability
     private DamageDealer damageDealer;
     private DamageFormula damageHandler;
     private DamageResources dealerHandler;
-    [SerializeField]
-    private GameObject burnEffectPrefab;
-    [SerializeField]
-    private float burnScalingCoeficient;
 
     private void OnEnable()
     {
@@ -37,7 +33,7 @@ public class FireballAbility : Ability
             onHitParticles.Play();
             source.clip = handler.GetAbilityData().onHitSound;
             source.Play();
-            SetStatusEffect(collider.gameObject);
+            handler.onHitEvent?.Raise(collider, caster);
         }
     }
 
@@ -48,24 +44,4 @@ public class FireballAbility : Ability
         return Mathf.Round(intelligence * scalingCoeficient);
     }
 
-    private void SetStatusEffect(GameObject target)
-    {
-        Burn burn = target.GetComponentInChildren<Burn>();
-        if (DoesNotContainEffect(burn))
-        {
-            GameObject burnObj = Instantiate(burnEffectPrefab, target.transform);
-            burn = burnObj.GetComponent<Burn>();
-            burn.target = target;
-            burn.element = ElementType.Fire;
-            burn.type = DamageType.Magical;
-            burn.duration = 3;
-            int intelligence = caster.GetComponent<StateMachine>().stats.combatStats.Intelligence;
-            burn.effectValue = Mathf.Round(intelligence * burnScalingCoeficient);
-            burn.Apply();
-        }
-        else
-        {
-            burn.Renew();
-        }
-    }
 }

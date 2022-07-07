@@ -18,5 +18,6 @@ MonoBehaviour:
   prefab: {fileID: 1950213672642449100, guid: d2fc2ec009a641d4abac788b608e3146, type: 3}
   isCoolingDown: 0
   coRunner: {fileID: 0}
+  onHitEvent: {fileID: 11400000, guid: b15b8d62834109c44bad567892d50f69, type: 2}
   offsetX: 0
   offsetY: -1.8

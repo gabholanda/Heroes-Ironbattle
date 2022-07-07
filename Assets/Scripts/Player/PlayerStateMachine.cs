@@ -21,6 +21,8 @@ public class PlayerStateMachine : StateMachine
     [HideInInspector]
     public CharacterUIAbilityManager abilityUI;
 
+    public ArtifactInventory inventory;
+
     [Header("Abilities")]
     public AbilityHandler[] handlers;
     [SerializeField]
@@ -49,6 +51,8 @@ public class PlayerStateMachine : StateMachine
         InitializeAbilities();
         castingParticles.Stop();
         characterAnimator.SetAnimation("Idle", true, true, false, true);
+        if (inventory is null) inventory = ScriptableObject.CreateInstance<ArtifactInventory>();
+        inventory.Items.ForEach(item => item.Apply(gameObject));
     }
 
     private new void Update()

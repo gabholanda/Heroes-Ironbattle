@@ -12,18 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e741bc61c554c1048815340ebecd146e, type: 3}
   m_Name: Goblin Stats
   m_EditorClassIdentifier: 
-  strength: 7
-  intelligence: 1
-  dexterity: 3
-  vitality: 1
-  baseDefense: 1
-  baseMagicResistance: 2
-  fire: 15
-  ice: 5
-  dark: 0
-  lightning: 0
-  maxHealth: 50
-  barrier: 0
-  maxMana: 0
-  regenRate: 0
-  moveSpeed: 10
+  stats:
+    resources:
+      _currentHealth: 50
+      _maxHealth: 50
+      _currentMana: 0
+      _maxMana: 0
+      _regenRate: 0
+    combatStats:
+      _strength: 5
+      _intelligence: 1
+      _dexterity: 1
+      _moveSpeed: 7
+    defensesResistances:
+      _defense: 1
+      _magicResistance: 2
+    elementalResistances:
+      _fire: 5
+      _ice: 0
+      _dark: 0
+      _lightning: 0

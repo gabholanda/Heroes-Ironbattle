@@ -163,9 +163,6 @@ MonoBehaviour:
   caster: {fileID: 0}
   onHitParticles: {fileID: 8170322632567882588}
   source: {fileID: 0}
-  burnEffectPrefab: {fileID: 8838399817676206214, guid: f399b2f8728929445b30a1e27ba05bca,
-    type: 3}
-  burnScalingCoeficient: 0.4
 --- !u!114 &-6360827240111369691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,6 +738,11 @@ PrefabInstance:
     - target: {fileID: 1102880892274165367, guid: ac332f2a2bb49814798a84bdf5879532,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1793670348887298898, guid: ac332f2a2bb49814798a84bdf5879532,
+        type: 3}
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1793670348887298898, guid: ac332f2a2bb49814798a84bdf5879532,

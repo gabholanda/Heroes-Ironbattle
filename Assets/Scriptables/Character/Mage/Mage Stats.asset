@@ -12,18 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e741bc61c554c1048815340ebecd146e, type: 3}
   m_Name: Mage Stats
   m_EditorClassIdentifier: 
-  strength: 1
-  intelligence: 5
-  dexterity: 1
-  vitality: 3
-  baseDefense: 1
-  baseMagicResistance: 5
-  fire: 0
-  ice: 0
-  dark: 10
-  lightning: 0
-  maxHealth: 41224
-  barrier: 0
-  maxMana: 100
-  regenRate: 3
-  moveSpeed: 7
+  stats:
+    resources:
+      _currentHealth: 500
+      _maxHealth: 500
+      _currentMana: 19
+      _maxMana: 100
+      _regenRate: 3
+    combatStats:
+      _strength: 1
+      _intelligence: 5
+      _dexterity: 1
+      _moveSpeed: 5
+    defensesResistances:
+      _defense: 1
+      _magicResistance: 3
+    elementalResistances:
+      _fire: 5
+      _ice: 5
+      _dark: 15
+      _lightning: 5

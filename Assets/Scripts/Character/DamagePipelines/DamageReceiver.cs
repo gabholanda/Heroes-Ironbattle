@@ -23,19 +23,24 @@ public class DamageReceiver : MonoBehaviour
     public virtual DamageReceiver ReceiveDamage(float damage, AbilityData abilityData, DamageResources damageResources)
     {
         int finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
-        if (DamageIsNegative(finalDamage)) finalDamage = 0;
+        SetMinimumDamage(ref finalDamage);
         InstantiateDamagePopUp(finalDamage);
         damageResources(resources, finalDamage);
         return this;
     }
 
-    public DamageReceiver ReceiveDamage(float damage, DamageType type, ElementType element, DamageResources damageResources)
+    public virtual DamageReceiver ReceiveDamage(float damage, DamageType type, ElementType element, DamageResources damageResources)
     {
         int finalDamage = MitigateDamage(damage, type, element);
-        if (DamageIsNegative(finalDamage)) finalDamage = 0;
+        SetMinimumDamage(ref finalDamage);
         InstantiateDamagePopUp(finalDamage);
         damageResources(resources, finalDamage);
         return this;
+    }
+
+    protected void SetMinimumDamage(ref int finalDamage)
+    {
+        if (DamageIsNegative(finalDamage)) finalDamage = 1;
     }
 
     public int MitigateDamage(float damage, DamageType type, ElementType element)
@@ -59,7 +64,7 @@ public class DamageReceiver : MonoBehaviour
         return resources.CurrentHealth < 0;
     }
 
-    protected void DoDeathProcedures()
+    protected virtual void DoDeathProcedures()
     {
         stateMachine.isDead = true;
         stateMachine.ChangeState("Dying");
