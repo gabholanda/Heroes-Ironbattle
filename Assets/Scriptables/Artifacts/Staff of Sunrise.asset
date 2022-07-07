@@ -32,7 +32,7 @@ MonoBehaviour:
       _regenRate: 0
     combatStats:
       _strength: 0
-      _intelligence: 0
+      _intelligence: 2
       _dexterity: 0
       _moveSpeed: 0
     defensesResistances:
