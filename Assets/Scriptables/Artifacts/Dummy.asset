@@ -53,10 +53,10 @@ MonoBehaviour:
       _maxMana: 0
       _regenRate: 0
     combatStats:
-      _strength: 1
-      _intelligence: 1
-      _dexterity: 1
-      _moveSpeed: 1
+      _strength: 0
+      _intelligence: 0
+      _dexterity: 0
+      _moveSpeed: 0
     defensesResistances:
       _defense: 0
       _magicResistance: 0

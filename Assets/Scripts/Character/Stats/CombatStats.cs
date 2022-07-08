@@ -12,22 +12,22 @@ public class CombatStats
         MoveSpeed = moveSpeed;
     }
     [SerializeField]
-    [Min(1)]
+    [Min(0)]
     private int _strength;
     public int Strength { get { return _strength; } set { _strength = value; } }
 
     [SerializeField]
-    [Min(1)]
+    [Min(0)]
     private int _intelligence;
     public int Intelligence { get { return _intelligence; } set { _intelligence = value; } }
 
     [SerializeField]
-    [Min(1)]
+    [Min(0)]
     private int _dexterity;
     public int Dexterity { get { return _dexterity; } set { _dexterity = value; } }
 
     [SerializeField]
-    [Min(1)]
+    [Min(0)]
     private float _moveSpeed;
     public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value; } }
 
