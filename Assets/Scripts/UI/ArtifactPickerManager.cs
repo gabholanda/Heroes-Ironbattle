@@ -1,8 +1,11 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
+using Random = UnityEngine.Random;
 
 public class ArtifactPickerManager : MonoBehaviour
 {
@@ -25,14 +28,18 @@ public class ArtifactPickerManager : MonoBehaviour
     public TextMeshProUGUI thirdArtifactText;
     public Image thirdArtifactImage;
 
+
+    public List<Rarity> rarityList = new List<Rarity>();
+    private Dictionary<Rarity, Action<Artifact>> dict = new Dictionary<Rarity, Action<Artifact>>();
+
     private void Awake()
     {
+        rarityList.ForEach((rarity) => dict.Add(rarity, null));
         OnDisplayChoices();
     }
 
     public void OnDisplayChoices()
     {
-        Debug.Log(PickCommonRandom());
         Artifact first = PickCommonRandom();
         Artifact second = PickCommonRandom();
         Artifact third = PickCommonRandom();

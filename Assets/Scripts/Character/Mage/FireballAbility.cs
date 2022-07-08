@@ -39,9 +39,11 @@ public class FireballAbility : Ability
 
     private float FireballFormula(Ability ability)
     {
-        int intelligence = caster.GetComponent<StateMachine>().stats.combatStats.Intelligence;
+        CharacterStats stats = caster.GetComponent<StateMachine>().stats;
+        int intelligence = stats.combatStats.Intelligence;
+        float characterElementalScalingAffinity = stats.elementalAffinities[ability.handler.GetAbilityData().element];
         float scalingCoeficient = ability.handler.GetAbilityData().scalingCoeficient;
-        return Mathf.Round(intelligence * scalingCoeficient);
+        return Mathf.Round(intelligence * scalingCoeficient * characterElementalScalingAffinity);
     }
 
 }

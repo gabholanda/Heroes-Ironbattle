@@ -42,13 +42,15 @@ public class OnApplyBurnEffectEvent : OnAbilityHitEvent
     {
         GameObject burnObj = Instantiate(effectPrefab, target.transform);
         Burn burn = burnObj.GetComponent<Burn>();
+        CharacterStats stats = caster.GetComponent<StateMachine>().stats;
+        float characterElementalScalingAffinity = stats.elementalAffinities[burn.element];
+
         burn.target = target;
         burn.element = element;
         burn.type = damageType;
-        burn.duration = duration;
-
-        int intelligence = caster.GetComponent<StateMachine>().stats.combatStats.Intelligence;
-        burn.effectValue = Mathf.Round(intelligence * scalingCoeficient);
+        burn.duration = duration * characterElementalScalingAffinity;
+        int intelligence = stats.combatStats.Intelligence;
+        burn.effectValue = Mathf.Round(intelligence * scalingCoeficient * characterElementalScalingAffinity);
         burn.Apply();
     }
 

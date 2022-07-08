@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -15,6 +16,9 @@ public class CharacterStats
     public DefenseResistances defensesResistances;
     [SerializeField]
     public ElementalResistances elementalResistances;
+    [SerializeField]
+    public Dictionary<ElementType, float> elementalAffinities = new Dictionary<ElementType, float>();
+
 
     public void SetCharacterStats(CharacterBaseStats baseStats)
     {
@@ -22,6 +26,7 @@ public class CharacterStats
         SetResourcesStats(baseStats);
         SetDefensesResistances(baseStats);
         SetElementalResistances(baseStats);
+        AddAffinities();
     }
 
     public void SetCombatStats(CharacterBaseStats baseStats)
@@ -46,6 +51,15 @@ public class CharacterStats
     {
         elementalResistances = new ElementalResistances();
         elementalResistances += baseStats.stats.elementalResistances;
+    }
+
+    public void AddAffinities()
+    {
+        elementalAffinities.Add(ElementType.Fire, 1);
+        elementalAffinities.Add(ElementType.Ice, 1);
+        elementalAffinities.Add(ElementType.Dark, 1);
+        elementalAffinities.Add(ElementType.Lightning, 1);
+        elementalAffinities.Add(ElementType.Neutral, 1);
     }
 
     internal void Deconstruct(

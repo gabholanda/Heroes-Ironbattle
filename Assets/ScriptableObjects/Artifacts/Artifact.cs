@@ -5,6 +5,7 @@ public class Artifact : ScriptableObject
 {
     [Header("UI Info")]
     public Sprite icon;
+    [TextArea(5,20)]
     public string description;
     public Rarity rarity;
     public int quantity;

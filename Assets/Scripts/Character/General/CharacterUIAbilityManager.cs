@@ -12,9 +12,9 @@ public class CharacterUIAbilityManager : MonoBehaviour
 
     private void Awake()
     {
-        QAbilityUI = GameObject.FindGameObjectWithTag("QSkill").GetComponent<UICooldownUpdater>();
-        EAbilityUI = GameObject.FindGameObjectWithTag("ESkill").GetComponent<UICooldownUpdater>();
-        RAbilityUI = GameObject.FindGameObjectWithTag("RSkill").GetComponent<UICooldownUpdater>();
+        QAbilityUI = GameObject.FindGameObjectWithTag("QSkill")?.GetComponent<UICooldownUpdater>();
+        EAbilityUI = GameObject.FindGameObjectWithTag("ESkill")?.GetComponent<UICooldownUpdater>();
+        RAbilityUI = GameObject.FindGameObjectWithTag("RSkill")?.GetComponent<UICooldownUpdater>();
     }
 
     public CharacterUIAbilityManager SetAbilityHandlers(AbilityHandler[] _handlers)

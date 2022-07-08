@@ -830,7 +830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &756269203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,6 +936,7 @@ MonoBehaviour:
   thirdArtifactButton: {fileID: 894588515}
   thirdArtifactText: {fileID: 2101087315}
   thirdArtifactImage: {fileID: 186518849}
+  rarityList: []
 --- !u!114 &894588515 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4493412534524582087, guid: f71cc4b1716a5804baaee4c0a313420a,
