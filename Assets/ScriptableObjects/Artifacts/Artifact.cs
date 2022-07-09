@@ -5,7 +5,7 @@ public class Artifact : ScriptableObject
 {
     [Header("UI Info")]
     public Sprite icon;
-    [TextArea(5,20)]
+    [TextArea(5, 20)]
     public string description;
     public Rarity rarity;
     public int quantity;
@@ -19,49 +19,49 @@ public class Artifact : ScriptableObject
 
     public void Apply(GameObject holder)
     {
-        stats = holder.GetComponent<StateMachine>().stats;
-        ApplyRawStats(stats);
-        ApplyRawDefenses(stats);
-        ApplyElementalResistances(stats);
+        CharacterStats holderStats = holder.GetComponent<StateMachine>().stats;
+        ApplyRawStats(holderStats);
+        ApplyRawDefenses(holderStats);
+        ApplyElementalResistances(holderStats);
         onApplyEvent?.Invoke(holder);
     }
     public void Unapply(GameObject holder)
     {
-        CharacterStats stats = holder.GetComponent<StateMachine>().stats;
-        UnpplyRawStats(stats);
-        UnapplyRawDefenses(stats);
-        UnapplyElementalResistances(stats);
+        CharacterStats holderStats = holder.GetComponent<StateMachine>().stats;
+        UnpplyRawStats(holderStats);
+        UnapplyRawDefenses(holderStats);
+        UnapplyElementalResistances(holderStats);
         onUnapplyEvent?.Invoke(holder);
     }
 
-    private void ApplyRawStats(CharacterStats stats)
+    private void ApplyRawStats(CharacterStats holderStats)
     {
-        stats.combatStats += stats.combatStats;
+        holderStats.combatStats += stats.combatStats;
     }
 
-    private void ApplyRawDefenses(CharacterStats stats)
+    private void ApplyRawDefenses(CharacterStats holderStats)
     {
-        stats.defensesResistances += stats.defensesResistances;
+        holderStats.defensesResistances += stats.defensesResistances;
     }
 
-    private void ApplyElementalResistances(CharacterStats stats)
+    private void ApplyElementalResistances(CharacterStats holderStats)
     {
-        stats.elementalResistances += stats.elementalResistances;
+        holderStats.elementalResistances += stats.elementalResistances;
     }
 
-    private void UnpplyRawStats(CharacterStats stats)
+    private void UnpplyRawStats(CharacterStats holderStats)
     {
-        stats.combatStats -= stats.combatStats;
+        holderStats.combatStats -= stats.combatStats;
     }
 
-    private void UnapplyRawDefenses(CharacterStats stats)
+    private void UnapplyRawDefenses(CharacterStats holderStats)
     {
-        stats.defensesResistances -= stats.defensesResistances;
+        holderStats.defensesResistances -= stats.defensesResistances;
     }
 
-    private void UnapplyElementalResistances(CharacterStats stats)
+    private void UnapplyElementalResistances(CharacterStats holderStats)
     {
-        stats.elementalResistances -= stats.elementalResistances;
+        holderStats.elementalResistances -= stats.elementalResistances;
     }
 
 }

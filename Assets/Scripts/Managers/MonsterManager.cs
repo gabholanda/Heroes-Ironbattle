@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonsterManager : MonoBehaviour
 {
     readonly List<GameObject> totalSpawnedEnemies = new List<GameObject>();
-    public GameObject towerPrefab;
+    public GameObject portalPrefab;
     private bool isAppRunning = true;
 
     void OnApplicationQuit()
@@ -19,7 +19,7 @@ public class MonsterManager : MonoBehaviour
 
         if (totalSpawnedEnemies.Count == 0 && isAppRunning)
         {
-            Instantiate(towerPrefab, enemy.transform.position + new Vector3(0, 5f), Quaternion.identity);
+            Instantiate(portalPrefab, enemy.transform.position + new Vector3(0, 5f), Quaternion.identity);
         }
     }
 

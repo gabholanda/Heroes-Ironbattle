@@ -24,7 +24,7 @@ public class ResourcesStats
     public float CurrentHealth { get { return _currentHealth; } set { _currentHealth = value > MaxHealth ? MaxHealth : value; } }
 
     [SerializeField]
-    [Min(1)]
+    [Min(0)]
     private float _maxHealth;
     public float MaxHealth { get { return _maxHealth; } set { _maxHealth = value; } }
 
@@ -34,7 +34,7 @@ public class ResourcesStats
     public float CurrentMana { get { return _currentMana; } set { _currentMana = value > MaxMana ? MaxMana : value; } }
 
     [SerializeField]
-    [Min(1)]
+    [Min(0)]
     private float _maxMana;
     public float MaxMana { get { return _maxMana; } set { _maxMana = value; } }
 

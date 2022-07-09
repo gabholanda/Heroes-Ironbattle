@@ -5,11 +5,11 @@ using UnityEngine;
 public class TeleporterSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject tower;
+    private GameObject towePrefab;
 
     public void SpawnTeleporter()
     {
-        Instantiate(tower, gameObject.transform.position + new Vector3(0, -7f), Quaternion.identity);
+        Instantiate(towePrefab, gameObject.transform.position + new Vector3(0, -7f), Quaternion.identity);
     }
 
     public void Destroy()

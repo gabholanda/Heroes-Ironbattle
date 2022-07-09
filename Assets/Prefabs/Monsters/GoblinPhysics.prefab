@@ -73,7 +73,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -6215274119432847466, guid: 9f387ff64b62e2b46bea8a9799cf6bfa,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 12ce3aa18f7a692428bedd348af10b88, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
@@ -448,6 +448,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats: {fileID: 11400000, guid: 3bc61ead10456ff4297849e8372cbc9a, type: 2}
+  stats:
+    resources:
+      _currentHealth: 0
+      _maxHealth: 0
+      _currentMana: 0
+      _maxMana: 0
+      _regenRate: 0
+    combatStats:
+      _strength: 0
+      _intelligence: 0
+      _dexterity: 0
+      _moveSpeed: 0
+    defensesResistances:
+      _defense: 0
+      _magicResistance: 0
+    elementalResistances:
+      _fire: 0
+      _ice: 0
+      _dark: 0
+      _lightning: 0
   isDead: 0
   actions: {fileID: 0}
   HitPoint: {fileID: 1019361945}

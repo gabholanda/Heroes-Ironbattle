@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9942dd7ddfa3442989726d03bea62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 5030712812815941717, guid: a361a2ca655e86a4c8b4f78ad67c10b7, type: 3}
+  towePrefab: {fileID: 5030712812815941717, guid: a361a2ca655e86a4c8b4f78ad67c10b7,
+    type: 3}
 --- !u!82 &-2328155370067666697
 AudioSource:
   m_ObjectHideFlags: 0
