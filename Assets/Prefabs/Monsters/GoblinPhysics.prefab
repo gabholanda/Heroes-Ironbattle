@@ -405,10 +405,10 @@ GameObject:
   - component: {fileID: 420213669360547866}
   - component: {fileID: 7082865777687265774}
   - component: {fileID: 1531652003313524218}
+  - component: {fileID: 1033022061}
   - component: {fileID: 5894058968074019809}
   - component: {fileID: 1973999487}
   - component: {fileID: 3533245865678803227}
-  - component: {fileID: 1033022061}
   m_Layer: 11
   m_Name: GoblinPhysics
   m_TagString: Monster
@@ -561,6 +561,22 @@ MonoBehaviour:
   rb: {fileID: 0}
   col: {fileID: 0}
   effectArea: 10
+--- !u!114 &1033022061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093643435774689572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83499b77558fa04b8413f0d0a1082e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUpPrefab: {fileID: 6238899390641873202, guid: 1754c1c27b5fd774e9207799af4a2516,
+    type: 3}
+  onHitEvent: {fileID: 11400000, guid: 25f0f50d15806944d9009cf5c531382f, type: 2}
+  onHitSource: {fileID: 1889723141146101500}
 --- !u!114 &5894058968074019809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,22 +639,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47936916, y: 0.7551725}
   m_EdgeRadius: 0
---- !u!114 &1033022061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8093643435774689572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83499b77558fa04b8413f0d0a1082e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popUpPrefab: {fileID: 6238899390641873202, guid: 1754c1c27b5fd774e9207799af4a2516,
-    type: 3}
-  onHitEvent: {fileID: 11400000, guid: 25f0f50d15806944d9009cf5c531382f, type: 2}
-  onHitSource: {fileID: 1889723141146101500}
 --- !u!1 &8093643435974263883
 GameObject:
   m_ObjectHideFlags: 0

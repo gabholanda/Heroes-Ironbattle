@@ -25,8 +25,10 @@ public class MapManager : MonoBehaviour
     [SerializeField]
     private MonsterManager enemyManager;
 
+    private float wave;
     private void Awake()
     {
+        wave = 0;
         //StartCoroutine(Automap());
         StartGeneratingMap();
     }
@@ -43,6 +45,13 @@ public class MapManager : MonoBehaviour
         enemyManager
             .FindAllEnemies()
             .AddListeners();
+
+        wave++;
+
+        if (wave % 3 == 0)
+        {
+            Debug.Log("Boss time!");
+        }
     }
 
     IEnumerator Automap()

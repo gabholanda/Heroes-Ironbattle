@@ -1038,10 +1038,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1678621621, guid: 91de32c705765f54fa0fbb1ed105b6ac, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2100419940, guid: 91de32c705765f54fa0fbb1ed105b6ac, type: 3}
       propertyPath: healthBarObj
       value: 
@@ -1051,12 +1047,6 @@ PrefabInstance:
       propertyPath: manaBar
       value: 
       objectReference: {fileID: 263856204}
-    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
-        type: 3}
-      propertyPath: inventory
-      value: 
-      objectReference: {fileID: 11400000, guid: 3e0aca4eb88d2c1448f86078e646fcc8,
-        type: 2}
     - target: {fileID: 6431199696723903608, guid: 91de32c705765f54fa0fbb1ed105b6ac,
         type: 3}
       propertyPath: m_RootOrder

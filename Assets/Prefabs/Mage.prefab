@@ -9956,12 +9956,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats: {fileID: 11400000, guid: 4f919f84c2078754fae60e4b76128f58, type: 2}
+  stats:
+    resources:
+      _currentHealth: 0
+      _maxHealth: 0
+      _currentMana: 0
+      _maxMana: 0
+      _regenRate: 0
+    combatStats:
+      _strength: 0
+      _intelligence: 0
+      _dexterity: 0
+      _moveSpeed: 0
+    defensesResistances:
+      _defense: 0
+      _magicResistance: 0
+    elementalResistances:
+      _fire: 0
+      _ice: 0
+      _dark: 0
+      _lightning: 0
   isDead: 0
   characterMovement: {fileID: 0}
   characterCombat: {fileID: 0}
   characterAnimator: {fileID: 0}
   characterInteractor: {fileID: 0}
   abilityUI: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 3e0aca4eb88d2c1448f86078e646fcc8, type: 2}
   handlers:
   - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
   - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
