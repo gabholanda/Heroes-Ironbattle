@@ -62,11 +62,11 @@ public class ArtifactPickerManager : MonoBehaviour
         Rarity chosenRarity = ChooseRandomRarity();
 
 
-        allArtifacts.Items.ForEach((artifact) =>
+        allArtifacts.Items.ForEach((inventoryItem) =>
         {
-            if (artifact.rarity == chosenRarity)
+            if (inventoryItem.Item.rarity == chosenRarity)
             {
-                filteredArtifacts.Add(artifact);
+                filteredArtifacts.Add(inventoryItem.Item);
             }
         });
         return filteredArtifacts;
@@ -115,7 +115,7 @@ public class ArtifactPickerManager : MonoBehaviour
         firstArtifactButton.onClick.RemoveAllListeners();
         secondArtifactButton.onClick.RemoveAllListeners();
         thirdArtifactButton.onClick.RemoveAllListeners();
-        player.GetComponent<PlayerStateMachine>().inventory.Add(artifact);
+        player.GetComponent<PlayerStateMachine>().inventory.Add(new ArtifactInventoryItem(artifact));
         OnSelectEvent.Raise();
         Destroy(gameObject);
     }

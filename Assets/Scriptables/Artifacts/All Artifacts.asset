@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: All Artifacts
   m_EditorClassIdentifier: 
   Items:
-  - {fileID: 11400000, guid: 38a76b8a3f178f741990c890416b45ba, type: 2}
-  - {fileID: 11400000, guid: 2f3bc894d1615c842b4577fef5dd26c4, type: 2}
-  - {fileID: 11400000, guid: 2f3bc894d1615c842b4577fef5dd26c4, type: 2}
-  - {fileID: 11400000, guid: 2f3bc894d1615c842b4577fef5dd26c4, type: 2}
-  - {fileID: 11400000, guid: 2f3bc894d1615c842b4577fef5dd26c4, type: 2}
+  - Item: {fileID: 11400000, guid: 2f3bc894d1615c842b4577fef5dd26c4, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 2f3bc894d1615c842b4577fef5dd26c4, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 2f3bc894d1615c842b4577fef5dd26c4, type: 2}
+    quantity: 1
   holder: {fileID: 0}
   applyableRarities: []

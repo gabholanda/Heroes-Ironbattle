@@ -52,7 +52,7 @@ public class PlayerStateMachine : StateMachine
         castingParticles.Stop();
         characterAnimator.SetAnimation("Idle", true, true, false, true);
         if (inventory is null) inventory = ScriptableObject.CreateInstance<ArtifactInventory>();
-        inventory.Items.ForEach(item => item.Apply(gameObject));
+        inventory.Items.ForEach(inventoryItem => inventoryItem.Item.Apply(gameObject));
         inventory.holder = gameObject;
     }
 

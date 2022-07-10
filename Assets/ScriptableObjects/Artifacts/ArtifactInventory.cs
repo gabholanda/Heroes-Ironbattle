@@ -2,36 +2,37 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Artifact Inventory", menuName = "ScriptableObjects/Inventories/New Artifact Inventory")]
-public class ArtifactInventory : Inventory<Artifact>
+public class ArtifactInventory : Inventory<ArtifactInventoryItem>
 {
+    public List<ArtifactInventoryItem> Items;
     public GameObject holder;
     public List<Rarity> applyableRarities;
-    public override void Add(Artifact item)
+    public override void Add(ArtifactInventoryItem inventoryItem)
     {
-        if (!Items.Contains(item))
+        if (!Items.Contains(inventoryItem))
         {
-            Items.Add(item);
-            item.Apply(holder);
+            Items.Add(inventoryItem);
+            inventoryItem.Item.Apply(holder);
         }
         else
         {
-            Artifact artifact = Items.Find(i => i.name == item.name);
-            artifact.quantity += 1;
-            if (applyableRarities.Contains(item.rarity))
+            Artifact artifact = Items.Find(i => i.Item.name == inventoryItem.Item.name)?.Item;
+            inventoryItem.quantity += 1;
+            if (applyableRarities.Contains(inventoryItem.Item.rarity))
                 artifact.Apply(holder);
         }
     }
 
-    public override void Remove(Artifact item)
+    public override void Remove(ArtifactInventoryItem inventoryItem)
     {
-        if (Items.Contains(item))
+        if (Items.Contains(inventoryItem))
         {
-            Artifact artifact = Items.Find(i => i.name == item.name);
-            artifact.quantity -= 1;
+            Artifact artifact = Items.Find(i => i.Item.name == inventoryItem.Item.name)?.Item;
+            inventoryItem.quantity -= 1;
             artifact.Unapply(holder);
-            if (artifact.quantity <= 0)
+            if (inventoryItem.quantity <= 0)
             {
-                Items.Remove(item);
+                Items.Remove(inventoryItem);
             }
         }
     }
