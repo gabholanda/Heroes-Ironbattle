@@ -9,6 +9,9 @@ public class SlimePatrollingState : BaseState
     private readonly float upSpeed = 1f;
     private readonly float downSpeed = 1.6f;
 
+    private float idleTime;
+    private float intervalToGoIdle;
+
     public SlimePatrollingState(SlimeStateMachine stateMachine) : base("Patrol", stateMachine)
     {
         _sm = stateMachine;
@@ -16,10 +19,19 @@ public class SlimePatrollingState : BaseState
     public override void Enter()
     {
         _sm.actions.seekerAI.UpdatePath(_sm.actions.physics.rb);
+        idleTime = 0f;
+        intervalToGoIdle = Random.Range(6f, 10f);
+        _sm.actions.graphics.anim.Play("Walk");
     }
 
     public override void UpdateLogic()
     {
+        idleTime += Time.deltaTime;
+        if (idleTime > intervalToGoIdle)
+        {
+            _sm.ChangeState(_sm.idleState);
+            return;
+        }
         _sm.actions.seekerAI.UpdatePath(_sm.actions.physics.rb);
         if (_sm.goUp)
             _sm.GoUp(upSpeed);

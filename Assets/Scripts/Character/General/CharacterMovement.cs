@@ -62,9 +62,9 @@ public class CharacterMovement : MonoBehaviour, IMovable
         return this;
     }
 
-    public CharacterMovement InitializeDashHandler(GameObject castingPoint, Vector3 characterPosition)
+    public CharacterMovement InitializeDashHandler(GameObject castingPoint)
     {
-        dashHandler.Initialize(castingPoint, characterPosition);
+        dashHandler.Initialize(castingPoint);
         return this;
     }
 

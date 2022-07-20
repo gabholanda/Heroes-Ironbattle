@@ -6,6 +6,9 @@ public class SlimeIdleState : BaseState
 {
     private SlimeStateMachine _sm;
 
+    private float patrollingTime;
+    private float intervalToGoPatrol;
+
     public SlimeIdleState(SlimeStateMachine stateMachine) : base("Idle", stateMachine)
     {
         _sm = stateMachine;
@@ -13,12 +16,18 @@ public class SlimeIdleState : BaseState
 
     public override void Enter()
     {
-        base.Enter();
+        patrollingTime = 0f;
+        intervalToGoPatrol = Random.Range(1f, 5f);
+        _sm.actions.graphics.anim.Play("Idle");
     }
 
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
-        stateMachine.ChangeState(_sm.patrollingState);
+        patrollingTime += Time.deltaTime;
+        if (patrollingTime > intervalToGoPatrol)
+        {
+            _sm.ChangeState(_sm.patrollingState);
+            return;
+        }
     }
 }

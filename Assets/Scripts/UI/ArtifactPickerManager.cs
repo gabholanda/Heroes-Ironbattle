@@ -80,9 +80,9 @@ public class ArtifactPickerManager : MonoBehaviour
     private void PickChoices(List<Artifact> filteredArtifacts)
     {
         Artifact first = PickRandomArtifact(filteredArtifacts);
-        filteredArtifacts.Remove(first);
+        //filteredArtifacts.Remove(first);
         Artifact second = PickRandomArtifact(filteredArtifacts);
-        filteredArtifacts.Remove(second);
+        //filteredArtifacts.Remove(second);
         Artifact third = PickRandomArtifact(filteredArtifacts);
 
         firstArtifactText.text = first.name;

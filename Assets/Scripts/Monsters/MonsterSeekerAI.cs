@@ -22,6 +22,7 @@ public class MonsterSeekerAI : MonoBehaviour
     public void ResetWayPoint()
     {
         currentWayPoint = 0;
+        nodes = null;
     }
 
 

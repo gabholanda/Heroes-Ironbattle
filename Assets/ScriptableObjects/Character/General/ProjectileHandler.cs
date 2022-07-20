@@ -8,7 +8,7 @@ public class ProjectileHandler : AbilityHandler
     public Vector3 dir;
     public float limiter;
 
-    public override void Initialize(GameObject caster, Vector2 v2)
+    public override void Initialize(GameObject caster)
     {
         this.isCoolingDown = false;
         this.coRunner = caster.GetComponent<CoroutineRunner>();

@@ -17,7 +17,7 @@ public abstract class AbilityHandler : ScriptableObject
 
     [NonSerialized]
     public float currentTime;
-    public abstract void Initialize(GameObject t, Vector2 v2);
+    public abstract void Initialize(GameObject t);
     public abstract void Execute(GameObject g, Vector2 v2);
 
     public IEnumerator StartCooldown()

@@ -9,10 +9,8 @@ public class SpinningHandler : AbilityHandler
     public float dir;
     public float offset;
     public float angle;
-    public override void Initialize(GameObject player, Vector2 v2)
+    public override void Initialize(GameObject player)
     {
-        ability = prefab.GetComponent<Ability>();
-        ability.caster = player;
         this.coRunner = player.GetComponent<CoroutineRunner>();
         initialSpawnPoint = player.transform;
         this.isCoolingDown = false;

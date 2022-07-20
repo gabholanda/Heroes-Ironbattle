@@ -115,6 +115,7 @@ MonoBehaviour:
   allArtifacts: {fileID: 11400000, guid: 3c0a42b1f4b823e44b52adfbb57eddc9, type: 2}
   rarityList:
   - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
+  - {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
   firstArtifactButton: {fileID: 2722008446705783421}
   firstArtifactText: {fileID: 7349393990363945749}
   firstArtifactImage: {fileID: 6025568565739158147}

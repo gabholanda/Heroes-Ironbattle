@@ -124,7 +124,7 @@ public class PlayerStateMachine : StateMachine
     {
         for (int i = 0; i < handlers.Length; i++)
         {
-            handlers[i].Initialize(castingPoint, new Vector2());
+            handlers[i].Initialize(castingPoint);
         }
         abilityUI
             .SetAbilityHandlers(handlers)
@@ -146,7 +146,7 @@ public class PlayerStateMachine : StateMachine
             .SetStats(stats)
             .SetAnimator(characterAnimator)
             .SetDashHandler(dashHandler)
-            .InitializeDashHandler(castingPoint, gameObject.transform.position);
+            .InitializeDashHandler(castingPoint);
     }
 
     private void InitializeCharacterCombat()

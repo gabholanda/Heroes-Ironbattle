@@ -8,9 +8,8 @@ public class CursorPositionHandler : AbilityHandler
 {
     public float offsetX;
     public float offsetY;
-    public override void Initialize(GameObject player, Vector2 v2)
+    public override void Initialize(GameObject player)
     {
-        ability = prefab.GetComponent<Ability>();
         this.isCoolingDown = false;
         this.coRunner = player.GetComponent<CoroutineRunner>();
     }

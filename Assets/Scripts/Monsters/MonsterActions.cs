@@ -21,7 +21,7 @@ public class MonsterActions : MonoBehaviour
         seekerAI = GetComponent<MonsterSeekerAI>();
         graphics = GetComponent<MonsterGraphics>();
         physics = GetComponent<MonsterPhysics>();
-        abilities.ForEach(ability => ability.Initialize(gameObject, transform.position));
+        abilities.ForEach(ability => ability.Initialize(gameObject));
     }
 
     public void SetMovement(float speed)
@@ -32,14 +32,17 @@ public class MonsterActions : MonoBehaviour
         {
             seekerAI.ResetWayPoint();
         }
-        Vector2 direction = ((Vector2)seekerAI.nodes.vectorPath[seekerAI.currentWayPoint] - physics.rb.position).normalized;
-        Vector2 force = direction * speed;
-        physics.rb.AddForce(force);
-        Flip();
-        float distance = Vector2.Distance(physics.rb.position, seekerAI.nodes.vectorPath[seekerAI.currentWayPoint]);
-        if (distance < seekerAI.newWaypointDistance)
+        if (seekerAI.nodes?.vectorPath != null)
         {
-            seekerAI.currentWayPoint++;
+            Vector2 direction = ((Vector2)seekerAI.nodes.vectorPath[seekerAI.currentWayPoint] - physics.rb.position).normalized;
+            Vector2 force = direction * speed;
+            physics.rb.AddForce(force);
+            Flip();
+            float distance = Vector2.Distance(physics.rb.position, seekerAI.nodes.vectorPath[seekerAI.currentWayPoint]);
+            if (distance < seekerAI.newWaypointDistance)
+            {
+                seekerAI.currentWayPoint++;
+            }
         }
     }
 
