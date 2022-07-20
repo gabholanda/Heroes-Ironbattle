@@ -19,4 +19,20 @@ public class AbilityAdder : ScriptableObject
             spawner.Add(abilities[i], timers[i]);
         }
     }
+
+    public void AddProjectileMultiCastToAuto(GameObject target)
+    {
+        AutoAbilitySpawner spawner = target.GetComponentInChildren<AutoAbilitySpawner>();
+        for (int i = 0; i < abilities.Count; i++)
+        {
+            if (i > timers.Count) timers[i] = 1f;
+            MultiCastHandler multicastHandler = (MultiCastHandler)abilities[i];
+
+            multicastHandler.abilities.ForEach(handler =>
+            {
+                ProjectileHandler projectileHandler = (ProjectileHandler)handler;
+                spawner.Add(projectileHandler, timers[i], projectileHandler.dir);
+            });
+        }
+    }
 }

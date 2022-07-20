@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 510d6c43f398c4649b1b08c9dd0c44b5, type: 3}
-  m_Name: Mana Blast
+  m_Name: Magma Ball
   m_EditorClassIdentifier: 
-  onCastSound: {fileID: 8300000, guid: 576398346f7d75647b12dba436853238, type: 3}
+  onCastSound: {fileID: 0}
   onHitSound: {fileID: 0}
   icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   description: 
-  element: 4
+  element: 0
   type: 1
   manaCost: 0
   cooldownDuration: 0
   cooldownOnAbilityEnd: 0
-  abilityDestroyDuration: 0.4
-  scalingCoeficient: 0.5
+  abilityDestroyDuration: 3
+  scalingCoeficient: 0.3

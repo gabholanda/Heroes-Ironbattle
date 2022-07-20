@@ -26,12 +26,13 @@ public class ProjectileHandler : AbilityHandler
         Ability ability = obj.GetComponent<Ability>();
         ability.caster = caster;
         this.isCoolingDown = true;
-        coRunner.Run(this.StartCooldown());
+        coRunner?.Run(this.StartCooldown());
         ability.StartTimers();
     }
 
     private Vector2 SetDirection(Vector2 pos, Vector2 playerScale, float limiter)
     {
+        if (limiter == 0f) return pos;
         pos = ((Vector3)pos - startPoint.transform.position).normalized;
         if (pos.y > limiter)
         {

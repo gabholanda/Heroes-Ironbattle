@@ -8,7 +8,6 @@ public class Artifact : ScriptableObject
     [TextArea(5, 20)]
     public string description;
     public Rarity rarity;
-    public GameObject pickablePrefab;
     [Header("Events")]
     public ArtifactEvent onApplyEvent;
     public ArtifactEvent onUnapplyEvent;

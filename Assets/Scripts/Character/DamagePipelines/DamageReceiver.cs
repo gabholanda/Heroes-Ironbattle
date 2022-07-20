@@ -40,7 +40,7 @@ public class DamageReceiver : MonoBehaviour
 
     protected void SetMinimumDamage(ref int finalDamage)
     {
-        if (DamageIsNegative(finalDamage)) finalDamage = 1;
+        if (DamageIsBelowMinimum(finalDamage)) finalDamage = 1;
     }
 
     public int MitigateDamage(float damage, DamageType type, ElementType element)
@@ -70,9 +70,9 @@ public class DamageReceiver : MonoBehaviour
         stateMachine.ChangeState("Dying");
     }
 
-    protected bool DamageIsNegative(float finalDamage)
+    protected bool DamageIsBelowMinimum(float finalDamage)
     {
-        return finalDamage < 0;
+        return finalDamage <= 0;
     }
 
     public DamageReceiver CheckDeath()
