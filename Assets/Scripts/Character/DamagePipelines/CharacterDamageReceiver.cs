@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 
-public class PlayerDamageReceiver : DamageReceiver
+public class CharacterDamageReceiver : DamageReceiver
 {
     [SerializeField]
     private GameObject healthBarObj;
     private SlidingBar healthBar;
-    private PlayerStateMachine sm;
+    private CharacterStateMachine sm;
 
     protected override void Start()
     {
-        stateMachine = GetComponent<PlayerStateMachine>();
-        sm = GetComponent<PlayerStateMachine>();
+        stateMachine = GetComponent<CharacterStateMachine>();
+        sm = GetComponent<CharacterStateMachine>();
         (resources, defensesResistances, elementalResistances) = stateMachine.stats;
         healthBar = healthBarObj.GetComponent<SlidingBar>();
     }
@@ -19,6 +19,7 @@ public class PlayerDamageReceiver : DamageReceiver
         int finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
         SetMinimumDamage(ref finalDamage);
         damageResources(resources, finalDamage);
+        sm.eventManager.events["Hurt"].Raise();
         InstantiateDamagePopUp(finalDamage);
         UpdateUI();
         return this;
@@ -28,9 +29,9 @@ public class PlayerDamageReceiver : DamageReceiver
     {
         sm.RemoveState("Controls");
         sm.RemoveState("ClosedMenu");
-        sm.characterAnimator.SetAnimation("Dying", false, true, true, false);
-        Destroy(sm.characterCombat);
-        Destroy(sm.characterMovement);
+        sm.animator.SetAnimation("Dying", false, true, true, false);
+        Destroy(sm.combat);
+        Destroy(sm.movement);
         Destroy(this);
     }
 

@@ -21,9 +21,9 @@ public class DashHandler : AbilityHandler
     public IEnumerator StartDashing()
     {
         isDashing = true;
+        this.isCoolingDown = true;
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
-        this.isCoolingDown = true;
         coRunner.Run(this.StartCooldown());
     }
 }

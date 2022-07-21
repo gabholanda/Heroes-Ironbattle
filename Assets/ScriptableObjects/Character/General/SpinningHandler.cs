@@ -17,7 +17,7 @@ public class SpinningHandler : AbilityHandler
     }
     public override void Execute(GameObject player, Vector2 v2)
     {
-        initialSpawnPoint = player.GetComponent<PlayerStateMachine>().transform;
+        initialSpawnPoint = player.GetComponent<CharacterStateMachine>().transform;
         GameObject obj = Instantiate(prefab,
                     new Vector3
                     (initialSpawnPoint.transform.position.x,

@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1cd41d5ff416e459d5f18f255e1275, type: 3}
-  m_Name: ManaBlastReboundEvent
+  m_Script: {fileID: 11500000, guid: 93e33de42bd1de84a80ac9896edf8214, type: 3}
+  m_Name: Ninja Pauldron Adder
   m_EditorClassIdentifier: 
-  force: 5
+  abilities:
+  - {fileID: 11400000, guid: db2df705111447b4bac4428c749e8743, type: 2}
+  timers:
+  - 1

@@ -115,7 +115,7 @@ public class ArtifactPickerManager : MonoBehaviour
         firstArtifactButton.onClick.RemoveAllListeners();
         secondArtifactButton.onClick.RemoveAllListeners();
         thirdArtifactButton.onClick.RemoveAllListeners();
-        player.GetComponent<PlayerStateMachine>().inventory.Add(new ArtifactInventoryItem(artifact));
+        player.GetComponent<CharacterStateMachine>().inventory.Add(new ArtifactInventoryItem(artifact));
         OnSelectEvent.Raise();
         Destroy(gameObject);
     }

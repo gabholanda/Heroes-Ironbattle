@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 public class PlayerClosedMenuState : BaseState
 {
 
-    private readonly PlayerStateMachine _sm;
+    private readonly CharacterStateMachine _sm;
 
-    public PlayerClosedMenuState(PlayerStateMachine stateMachine) : base("ClosedMenu", stateMachine)
+    public PlayerClosedMenuState(CharacterStateMachine stateMachine) : base("ClosedMenu", stateMachine)
     {
         _sm = stateMachine;
     }
@@ -35,22 +35,22 @@ public class PlayerClosedMenuState : BaseState
 
     private void RegisterMenuEvent()
     {
-        _sm.playerReader.TriggerMenu.performed += OnMenuOpen;
+        _sm.reader.TriggerMenu.performed += OnMenuOpen;
     }
 
     private void UnregisterMenuEvent()
     {
-        _sm.playerReader.TriggerMenu.performed -= OnMenuOpen;
+        _sm.reader.TriggerMenu.performed -= OnMenuOpen;
     }
 
     private void EnableMenuEvent()
     {
-        _sm.playerReader.TriggerMenu.Enable();
+        _sm.reader.TriggerMenu.Enable();
     }
 
     private void DisableMenuEvent()
     {
-        _sm.playerReader.TriggerMenu.Disable();
+        _sm.reader.TriggerMenu.Disable();
     }
 
 }

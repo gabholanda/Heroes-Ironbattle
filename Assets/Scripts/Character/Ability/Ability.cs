@@ -28,4 +28,12 @@ public abstract class Ability : MonoBehaviour
         StartCoroutine(this.StartSelfDestroyTimer());
     }
 
+    public virtual void SetupAbility(GameObject _caster)
+    {
+        caster = _caster;
+        handler.isCoolingDown = true;
+        handler.coRunner?.Run(handler.StartCooldown());
+        this.StartTimers();
+    }
+
 }

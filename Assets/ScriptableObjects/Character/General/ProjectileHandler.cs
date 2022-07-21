@@ -15,7 +15,7 @@ public class ProjectileHandler : AbilityHandler
     }
     public override void Execute(GameObject caster, Vector2 v2)
     {
-        startPoint = caster.GetComponent<PlayerStateMachine>().castingPoint.transform;
+        startPoint = caster.GetComponent<CharacterStateMachine>().castingPoint.transform;
         dir = SetDirection(v2, caster.transform.localScale, limiter);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         GameObject obj = Instantiate(prefab,
@@ -24,10 +24,7 @@ public class ProjectileHandler : AbilityHandler
                     startPoint.transform.position.y),
                     Quaternion.AngleAxis(angle, Vector3.forward));
         Ability ability = obj.GetComponent<Ability>();
-        ability.caster = caster;
-        this.isCoolingDown = true;
-        coRunner?.Run(this.StartCooldown());
-        ability.StartTimers();
+        ability.SetupAbility(caster);
     }
 
     private Vector2 SetDirection(Vector2 pos, Vector2 playerScale, float limiter)

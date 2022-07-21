@@ -6,8 +6,6 @@ public class CharacterMovement : MonoBehaviour, IMovable
     public DashHandler dashHandler;
     [SerializeField]
     private Rigidbody2D rb;
-    [SerializeField]
-    private CharacterStats stats;
     public CharacterAnimator CharAnim { get; set; }
     private Vector3 movVector;
     public float decelerationCoeficient = 0.5f;
@@ -33,7 +31,7 @@ public class CharacterMovement : MonoBehaviour, IMovable
 
     public void SetVector(Vector2 v2)
     {
-        movVector = new Vector3(v2.x, v2.y) * stats.combatStats.MoveSpeed;
+        movVector = new Vector3(v2.x, v2.y);
         if (IsMoving())
         {
             CharAnim.SetAnimation("Walk", true, true, false, false);
@@ -42,12 +40,6 @@ public class CharacterMovement : MonoBehaviour, IMovable
         {
             CharAnim.SetAnimation("Idle", true, true, false, false);
         }
-    }
-
-    public CharacterMovement SetStats(CharacterStats _stats)
-    {
-        stats = _stats;
-        return this;
     }
 
     public CharacterMovement SetAnimator(CharacterAnimator _charAnim)
@@ -71,10 +63,7 @@ public class CharacterMovement : MonoBehaviour, IMovable
 
     public void Dash()
     {
-        if (IsMoving() && !dashHandler.isCoolingDown)
-        {
-            dashHandler.Execute(gameObject, gameObject.transform.position);
-        }
+        dashHandler.Execute(gameObject, gameObject.transform.position);
     }
 
     public bool IsMoving()

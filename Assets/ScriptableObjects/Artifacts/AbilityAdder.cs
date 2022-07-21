@@ -35,4 +35,21 @@ public class AbilityAdder : ScriptableObject
             });
         }
     }
+
+    public void AddProjectileMultiCastToDash(GameObject target)
+    {
+        GameEventListener actionListener = target.GetComponentInChildren<GameEventListener>();
+        actionListener.Event = target.GetComponent<CharacterEvent>().events["Dash"];
+        actionListener.TryRegister();
+        for (int i = 0; i < abilities.Count; i++)
+        {
+            MultiCastHandler multicastHandler = (MultiCastHandler)abilities[i];
+            multicastHandler.abilities.ForEach(handler =>
+            {
+                ProjectileHandler projectileHandler = (ProjectileHandler)handler;
+                AbilityCallback abilityCallback = new AbilityCallback(target, projectileHandler.dir, projectileHandler.Execute);
+                actionListener.Response.AddListener(abilityCallback.TriggerCallback);
+            });
+        }
+    }
 }

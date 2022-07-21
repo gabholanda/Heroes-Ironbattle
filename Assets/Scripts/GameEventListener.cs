@@ -4,14 +4,20 @@ using UnityEngine.Events;
 public class GameEventListener : MonoBehaviour
 {
     public GameEvent Event;
-    public UnityEvent Response;
+    public UnityEvent Response = new UnityEvent();
 
     private void OnEnable()
-    { Event.RegisterListener(this); }
+    { TryRegister(); }
 
     private void OnDisable()
     { Event.UnregisterListener(this); }
 
     public void OnEventRaised()
     { Response.Invoke(); }
+
+    public void TryRegister()
+    {
+        Event?.RegisterListener(this);
+    }
+
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerStateMachine : StateMachine
+public class CharacterStateMachine : StateMachine
 {
     [HideInInspector]
     public PlayerControlsState controlsState;
@@ -9,15 +9,16 @@ public class PlayerStateMachine : StateMachine
     [HideInInspector]
     public PlayerOpenMenuState openMenuState;
 
-
     [HideInInspector]
-    public CharacterMovement characterMovement;
+    public CharacterEvent eventManager;
     [HideInInspector]
-    public CharacterCombat characterCombat;
+    public CharacterMovement movement;
     [HideInInspector]
-    public CharacterAnimator characterAnimator;
+    public CharacterCombat combat;
     [HideInInspector]
-    public CharacterInteractor characterInteractor;
+    public CharacterAnimator animator;
+    [HideInInspector]
+    public CharacterInteractor interactor;
     [HideInInspector]
     public CharacterUIAbilityManager abilityUI;
 
@@ -29,7 +30,7 @@ public class PlayerStateMachine : StateMachine
     private DashHandler dashHandler;
 
     [Header("Input")]
-    public InputReader playerReader;
+    public InputReader reader;
 
 
     [Header("Casting")]
@@ -50,7 +51,7 @@ public class PlayerStateMachine : StateMachine
         InitializeCharacter();
         InitializeAbilities();
         castingParticles.Stop();
-        characterAnimator.SetAnimation("Idle", true, true, false, true);
+        animator.SetAnimation("Idle", true, true, false, true);
         if (inventory is null) inventory = ScriptableObject.CreateInstance<ArtifactInventory>();
         inventory.Items.ForEach(inventoryItem => inventoryItem.Item.Apply(gameObject));
         inventory.holder = gameObject;
@@ -133,25 +134,32 @@ public class PlayerStateMachine : StateMachine
 
     private void SetComponents()
     {
-        characterAnimator = gameObject.AddComponent<CharacterAnimator>();
-        characterMovement = gameObject.AddComponent<CharacterMovement>();
-        characterCombat = gameObject.AddComponent<CharacterCombat>();
-        characterInteractor = gameObject.AddComponent<CharacterInteractor>();
+        animator = gameObject.AddComponent<CharacterAnimator>();
+        movement = gameObject.AddComponent<CharacterMovement>();
+        combat = gameObject.AddComponent<CharacterCombat>();
+        interactor = gameObject.AddComponent<CharacterInteractor>();
         abilityUI = gameObject.AddComponent<CharacterUIAbilityManager>();
+        eventManager = gameObject.AddComponent<CharacterEvent>();
+    }
+
+    private void InitializeEvents()
+    {
+        eventManager
+            .InitializeEvents()
+            .AddListeners();
     }
 
     private void InitializeCharacterMovement()
     {
-        characterMovement
-            .SetStats(stats)
-            .SetAnimator(characterAnimator)
+        movement
+            .SetAnimator(animator)
             .SetDashHandler(dashHandler)
             .InitializeDashHandler(castingPoint);
     }
 
     private void InitializeCharacterCombat()
     {
-        characterCombat
+        combat
             .SetResources(stats.resources)
             .SetManaBar(manaBar);
     }
@@ -167,10 +175,11 @@ public class PlayerStateMachine : StateMachine
 
     private void InitializeCharacter()
     {
-        SetComponents();
         stats = new CharacterStats();
-        InitializeCharacterMovement();
         stats.SetCharacterStats(baseStats);
+        SetComponents();
+        InitializeEvents();
+        InitializeCharacterMovement();
         InitializeCharacterCombat();
         InitializeRegenerator();
     }

@@ -9,10 +9,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7422394539607382274, guid: 7865c122933b3a74f99c37a29a97096c,
         type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422394539607382274, guid: 7865c122933b3a74f99c37a29a97096c,
+        type: 3}
       propertyPath: handler
       value: 
       objectReference: {fileID: 11400000, guid: 009d54199567c5b4086cc6a2e8dd1f2c,
         type: 2}
+    - target: {fileID: 7422394539607382276, guid: 7865c122933b3a74f99c37a29a97096c,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 30517c5e6211d954697792397496ca4c, type: 3}
     - target: {fileID: 7422394539607382278, guid: 7865c122933b3a74f99c37a29a97096c,
         type: 3}
       propertyPath: m_RootOrder
@@ -71,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 7422394539607382296, guid: 7865c122933b3a74f99c37a29a97096c,
         type: 3}
       propertyPath: m_Name
-      value: Magma Ball
+      value: Magma Ball Bottom-Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7865c122933b3a74f99c37a29a97096c, type: 3}
