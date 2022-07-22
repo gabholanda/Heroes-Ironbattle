@@ -37,7 +37,6 @@ public class SettingsManager : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(this);
         SetButtonsCallback();
         SetSettingsOnStart();
     }
@@ -117,7 +116,7 @@ public class SettingsManager : MonoBehaviour
     private void SetButtonsCallback()
     {
         resetSettingsButton.onClick.AddListener(ResetSettingsToDefault);
-        closeButton.onClick.AddListener(CloseWindow);
+        closeButton?.onClick.AddListener(CloseWindow);
     }
 
     private void SetSettingsOnStart()
@@ -177,6 +176,6 @@ public class SettingsManager : MonoBehaviour
     private void OnDestroy()
     {
         resetSettingsButton.onClick.RemoveAllListeners();
-        closeButton.onClick.RemoveAllListeners();
+        closeButton?.onClick.RemoveAllListeners();
     }
 }

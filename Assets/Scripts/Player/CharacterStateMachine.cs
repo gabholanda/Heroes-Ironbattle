@@ -46,7 +46,6 @@ public class CharacterStateMachine : StateMachine
     private ManaRegenerator manaRegenerator;
     private void Awake()
     {
-        menu = GameObject.FindGameObjectWithTag("Settings");
         InitializeStates();
         InitializeCharacter();
         InitializeAbilities();
@@ -76,7 +75,6 @@ public class CharacterStateMachine : StateMachine
     public void OpenSettings()
     {
         int children = menu.transform.childCount;
-
         for (int i = 0; i < children; i++)
         {
             menu.transform.GetChild(i).gameObject.SetActive(true);
