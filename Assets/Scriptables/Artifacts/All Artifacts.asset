@@ -15,19 +15,17 @@ MonoBehaviour:
   Items:
   - Item: {fileID: 11400000, guid: 2f3bc894d1615c842b4577fef5dd26c4, type: 2}
     quantity: 1
-  - Item: {fileID: 11400000, guid: 222dfc28bbbab4642b66ca1791a12e5e, type: 2}
-    quantity: 1
-  - Item: {fileID: 11400000, guid: 2f3bc894d1615c842b4577fef5dd26c4, type: 2}
-    quantity: 1
-  - Item: {fileID: 11400000, guid: 2f3bc894d1615c842b4577fef5dd26c4, type: 2}
-    quantity: 1
-  - Item: {fileID: 11400000, guid: 222dfc28bbbab4642b66ca1791a12e5e, type: 2}
-    quantity: 1
-  - Item: {fileID: 11400000, guid: 222dfc28bbbab4642b66ca1791a12e5e, type: 2}
+  - Item: {fileID: 11400000, guid: eafc230325b179f4786ba9a7082e874d, type: 2}
     quantity: 1
   - Item: {fileID: 11400000, guid: 254656f31ca617d4cbca974021ce7ece, type: 2}
     quantity: 1
-  - Item: {fileID: 11400000, guid: eafc230325b179f4786ba9a7082e874d, type: 2}
+  - Item: {fileID: 11400000, guid: 22573b5c0da18f14186111b39bf77042, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 222dfc28bbbab4642b66ca1791a12e5e, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 283f36198214ed743b630bc28c449128, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 17d37d3b780a926438ee438b7f397b22, type: 2}
     quantity: 1
   holder: {fileID: 0}
   applyableRarities: []

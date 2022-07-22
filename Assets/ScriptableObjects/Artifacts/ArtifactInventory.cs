@@ -16,9 +16,10 @@ public class ArtifactInventory : Inventory<ArtifactInventoryItem>
         }
         else
         {
-            Artifact artifact = Items.Find(i => i.Item.name == inventoryItem.Item.name)?.Item;
-            inventoryItem.quantity += 1;
-            if (applyableRarities.Contains(inventoryItem.Item.rarity))
+            ArtifactInventoryItem duplicate = Items.Find(i => i.Item.name == inventoryItem.Item.name);
+            Artifact artifact = duplicate.Item;
+            duplicate.quantity += 1;
+            if (applyableRarities.Contains(duplicate.Item.rarity))
                 artifact.Apply(holder);
         }
     }

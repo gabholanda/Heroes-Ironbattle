@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11a14ed9f8175c4e80acae85a860f72, type: 3}
   m_Name: TestInventory
   m_EditorClassIdentifier: 
-  Items:
-  - Item: {fileID: 11400000, guid: 22573b5c0da18f14186111b39bf77042, type: 2}
-    quantity: 1
+  Items: []
   holder: {fileID: 0}
   applyableRarities:
   - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
