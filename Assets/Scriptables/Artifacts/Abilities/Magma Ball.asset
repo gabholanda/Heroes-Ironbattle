@@ -22,5 +22,5 @@ MonoBehaviour:
   manaCost: 0
   cooldownDuration: 0
   cooldownOnAbilityEnd: 0
-  abilityDestroyDuration: 3
+  abilityDestroyDuration: 1
   scalingCoeficient: 0.3

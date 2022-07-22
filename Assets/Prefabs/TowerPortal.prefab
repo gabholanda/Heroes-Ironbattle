@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4029994826465657956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2154808, y: -2.2290947, z: 0}
+  m_LocalPosition: {x: 19, y: 20.909279, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,8 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9942dd7ddfa3442989726d03bea62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towePrefab: {fileID: 5030712812815941717, guid: a361a2ca655e86a4c8b4f78ad67c10b7,
-    type: 3}
+  towerPrefab: {fileID: 0}
 --- !u!82 &-2328155370067666697
 AudioSource:
   m_ObjectHideFlags: 0

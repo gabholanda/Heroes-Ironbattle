@@ -15,9 +15,6 @@ public class StaticHandler : AbilityHandler
         GameObject obj = Instantiate(prefab, pos, Quaternion.identity);
         this.isCoolingDown = true;
         Ability ability = obj.GetComponent<Ability>();
-        ability.caster = caster;
-        ability.StartTimers();
-        if (coRunner != null)
-            coRunner.Run(this.StartCooldown());
+        ability.SetupAbility(caster);
     }
 }

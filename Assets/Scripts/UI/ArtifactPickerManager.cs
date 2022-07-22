@@ -13,20 +13,25 @@ public class ArtifactPickerManager : MonoBehaviour
 
     [Header("UI Variables")]
     public Button firstArtifactButton;
+    public Image firstArtifactBackground;
     public TextMeshProUGUI firstArtifactText;
     public Image firstArtifactImage;
     public TextMeshProUGUI firstArtifactDescription;
 
 
     public Button secondArtifactButton;
+    public Image secondArtifactBackground;
     public TextMeshProUGUI secondArtifactText;
     public Image secondArtifactImage;
     public TextMeshProUGUI secondArtifactDescription;
 
     public Button thirdArtifactButton;
+    public Image thirdArtifactBackground;
     public TextMeshProUGUI thirdArtifactText;
     public Image thirdArtifactImage;
     public TextMeshProUGUI thirdArtifactDescription;
+
+    private Rarity chosenRarity;
 
     [Header("Event")]
     [SerializeField]
@@ -35,7 +40,7 @@ public class ArtifactPickerManager : MonoBehaviour
 
     private GameObject player;
 
-    private void Awake()
+    private void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         StartSelection();
@@ -45,9 +50,7 @@ public class ArtifactPickerManager : MonoBehaviour
     {
         List<Artifact> filteredArtifacts = FilterArtifactsByRarity();
         PickChoices(filteredArtifacts);
-        firstArtifactButton.interactable = true;
-        secondArtifactButton.interactable = true;
-        thirdArtifactButton.interactable = true;
+        EnableButtons();
         DisplayChoices();
     }
 
@@ -59,8 +62,7 @@ public class ArtifactPickerManager : MonoBehaviour
     private List<Artifact> FilterArtifactsByRarity()
     {
         List<Artifact> filteredArtifacts = new List<Artifact>();
-        Rarity chosenRarity = ChooseRandomRarity();
-
+        chosenRarity = ChooseRandomRarity();
 
         allArtifacts.Items.ForEach((inventoryItem) =>
         {
@@ -97,6 +99,10 @@ public class ArtifactPickerManager : MonoBehaviour
         secondArtifactDescription.text = second.description;
         thirdArtifactDescription.text = third.description;
 
+        firstArtifactBackground.color = chosenRarity.color;
+        secondArtifactBackground.color = chosenRarity.color;
+        thirdArtifactBackground.color = chosenRarity.color;
+
         firstArtifactButton.onClick.AddListener(delegate { SetChoice(first); });
         secondArtifactButton.onClick.AddListener(delegate { SetChoice(second); });
         thirdArtifactButton.onClick.AddListener(delegate { SetChoice(third); });
@@ -105,6 +111,13 @@ public class ArtifactPickerManager : MonoBehaviour
     private void DisplayChoices()
     {
         gameObject.SetActive(true);
+    }
+
+    private void EnableButtons()
+    {
+        firstArtifactButton.interactable = true;
+        secondArtifactButton.interactable = true;
+        thirdArtifactButton.interactable = true;
     }
 
     private void SetChoice(Artifact artifact)
@@ -117,6 +130,6 @@ public class ArtifactPickerManager : MonoBehaviour
         thirdArtifactButton.onClick.RemoveAllListeners();
         player.GetComponent<CharacterStateMachine>().inventory.Add(new ArtifactInventoryItem(artifact));
         OnSelectEvent.Raise();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

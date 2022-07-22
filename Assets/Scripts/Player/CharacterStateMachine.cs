@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class CharacterStateMachine : StateMachine
 {
@@ -23,6 +24,8 @@ public class CharacterStateMachine : StateMachine
     public CharacterUIAbilityManager abilityUI;
 
     public ArtifactInventory inventory;
+    [SerializeField]
+    private List<Rarity> rarities;
 
     [Header("Abilities")]
     public AbilityHandler[] handlers;
@@ -51,8 +54,14 @@ public class CharacterStateMachine : StateMachine
         InitializeAbilities();
         castingParticles.Stop();
         animator.SetAnimation("Idle", true, true, false, true);
-        if (inventory is null) inventory = ScriptableObject.CreateInstance<ArtifactInventory>();
-        inventory.Items.ForEach(inventoryItem => inventoryItem.Item.Apply(gameObject));
+        if (inventory is null)
+        {
+            inventory = ScriptableObject.CreateInstance<ArtifactInventory>();
+            inventory.Items = new List<ArtifactInventoryItem>();
+            inventory.applyableRarities = rarities;
+        }
+
+        inventory.Items?.ForEach(inventoryItem => inventoryItem.Item.Apply(gameObject));
         inventory.holder = gameObject;
     }
 

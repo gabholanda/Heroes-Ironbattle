@@ -9,25 +9,22 @@ public class SpinningHandler : AbilityHandler
     public float dir;
     public float offset;
     public float angle;
-    public override void Initialize(GameObject player)
+    public override void Initialize(GameObject caster)
     {
-        this.coRunner = player.GetComponent<CoroutineRunner>();
-        initialSpawnPoint = player.transform;
+        this.coRunner = caster.GetComponent<CoroutineRunner>();
+        initialSpawnPoint = caster.transform;
         this.isCoolingDown = false;
     }
-    public override void Execute(GameObject player, Vector2 v2)
+    public override void Execute(GameObject caster, Vector2 v2)
     {
-        initialSpawnPoint = player.GetComponent<CharacterStateMachine>().transform;
+        initialSpawnPoint = caster.GetComponent<CharacterStateMachine>().transform;
         GameObject obj = Instantiate(prefab,
                     new Vector3
                     (initialSpawnPoint.transform.position.x,
                     initialSpawnPoint.transform.position.y - offset),
                     Quaternion.AngleAxis(angle, Vector3.forward));
-        this.isCoolingDown = true;
-        coRunner.Run(this.StartCooldown());
         Ability ability = obj.GetComponent<Ability>();
-        ability.caster = player;
-        ability.StartTimers();
+        ability.SetupAbility(caster);
     }
 
 }

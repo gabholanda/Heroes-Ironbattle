@@ -10,13 +10,17 @@ public class TeleporterManager : MonoBehaviour, Interactable
     [SerializeField]
     private GameObject artifactCanvas;
 
-    void Awake()
+    void Start()
     {
         mapManager = GameObject.FindGameObjectWithTag("MapManager").GetComponent<MapManager>();
-        hasSelectedArtifact = false;
+        if (artifactCanvas is null)
+            artifactCanvas = GameObject.FindGameObjectWithTag("ArtifactCanvas");
+    }
 
-        GameObject canvas = Instantiate(artifactCanvas);
-        canvas.SetActive(true);
+    private void OnEnable()
+    {
+        hasSelectedArtifact = false;
+        artifactCanvas?.SetActive(true);
     }
 
     public void OnHasSelectedArtifact()
@@ -30,7 +34,7 @@ public class TeleporterManager : MonoBehaviour, Interactable
         {
             interactor.OnInteract -= Interact;
             mapManager.StartGeneratingMap();
-            Destroy(transform.parent.gameObject);
+            transform.parent.gameObject.SetActive(false);
         }
         else
         {

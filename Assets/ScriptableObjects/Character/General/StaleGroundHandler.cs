@@ -7,10 +7,10 @@ public class StaleGroundHandler : AbilityHandler
     public float offsetX;
     public float offsetY;
     private Transform startPoint;
-    public override void Initialize(GameObject player)
+    public override void Initialize(GameObject caster)
     {
         this.isCoolingDown = false;
-        this.coRunner = player.GetComponent<CoroutineRunner>();
+        this.coRunner = caster.GetComponent<CoroutineRunner>();
     }
 
     public override void Execute(GameObject caster, Vector2 v2)
@@ -24,10 +24,7 @@ public class StaleGroundHandler : AbilityHandler
                     castingPoint.y),
                     Quaternion.identity);
         obj.transform.localScale = new Vector3(caster.transform.localScale.x, 1f, 1f);
-        this.isCoolingDown = true;
-        coRunner?.Run(this.StartCooldown());
         Ability ability = obj.GetComponent<Ability>();
-        ability.caster = caster;
-        ability.StartTimers();
+        ability.SetupAbility(caster);
     }
 }

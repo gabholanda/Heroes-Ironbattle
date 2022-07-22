@@ -3,15 +3,16 @@
 public class TeleporterSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject towePrefab;
+    private GameObject towerPrefab;
 
     public void SpawnTeleporter()
     {
-        Instantiate(towePrefab, gameObject.transform.position + new Vector3(0, -7f), Quaternion.identity);
+        towerPrefab.transform.SetPositionAndRotation(gameObject.transform.position + new Vector3(0, -7f), Quaternion.identity);
+        towerPrefab.SetActive(true);
     }
 
     public void Destroy()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

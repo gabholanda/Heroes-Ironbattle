@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Cursor Position Handler", menuName = "ScriptableObjects/Ability Handlers/New Cursor Position Handler")]
 public class CursorPositionHandler : AbilityHandler
@@ -23,10 +20,7 @@ public class CursorPositionHandler : AbilityHandler
         GameObject obj = Instantiate(prefab,
                     positionToWorld,
                     Quaternion.identity);
-        this.isCoolingDown = true;
-        coRunner.Run(this.StartCooldown());
         Ability ability = obj.GetComponent<Ability>();
-        ability.caster = caster;
-        ability.StartTimers();
+        ability.SetupAbility(caster);
     }
 }

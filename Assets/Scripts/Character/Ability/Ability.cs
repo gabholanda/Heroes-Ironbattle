@@ -9,31 +9,19 @@ public abstract class Ability : MonoBehaviour
     public ParticleSystem onHitParticles;
     public AudioSource source;
 
-    protected IEnumerator StartSelfDestroyTimer()
+    public void StartTimer()
     {
-        float currentTime = 0f;
-        if (handler.GetAbilityData().abilityDestroyDuration == 0)
-            yield return null;
-
-        while (handler.GetAbilityData().abilityDestroyDuration > currentTime)
-        {
-            yield return new WaitForSeconds(0.1f);
-            currentTime += 0.1f;
-        }
-        Destroy(gameObject);
-    }
-
-    public void StartTimers()
-    {
-        StartCoroutine(this.StartSelfDestroyTimer());
+        if (handler.GetAbilityData().abilityDestroyDuration == 0) return;
+        Destroy(gameObject, handler.GetAbilityData().abilityDestroyDuration);
     }
 
     public virtual void SetupAbility(GameObject _caster)
     {
         caster = _caster;
         handler.isCoolingDown = true;
-        handler.coRunner?.Run(handler.StartCooldown());
-        this.StartTimers();
+        if (handler.coRunner)
+            handler.coRunner.Run(handler.StartCooldown());
+        this.StartTimer();
     }
 
 }

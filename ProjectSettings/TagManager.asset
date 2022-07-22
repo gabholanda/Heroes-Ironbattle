@@ -12,6 +12,7 @@ TagManager:
   - ESkill
   - RSkill
   - Settings
+  - ArtifactCanvas
   layers:
   - Default
   - TransparentFX
