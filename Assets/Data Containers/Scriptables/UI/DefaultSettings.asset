@@ -16,4 +16,4 @@ MonoBehaviour:
   effectsVolume: 0
   masterVolume: 0
   resolution: 640 x 480 @ 60Hz
-  fullscreen: 0
+  fullscreen: 1

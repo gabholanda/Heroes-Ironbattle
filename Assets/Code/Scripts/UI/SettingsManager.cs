@@ -138,7 +138,7 @@ public class SettingsManager : MonoBehaviour
     {
         resolutionDropdown.ClearOptions();
         resolutionDropdown.options.Clear();
-        if (currentSettings.resolution != "")
+        if (String.IsNullOrEmpty(currentSettings.resolution))
         {
             SetResolutionSettings();
         }
@@ -154,23 +154,24 @@ public class SettingsManager : MonoBehaviour
             }
         }
         resolutionDropdown.AddOptions(options);
-        defaultSettings.resolution = resolutionDropdown.options[0].text;
+        defaultSettings.resolution = resolutionDropdown.options[resolutionDropdown.options.Count - 1].text;
         resolutionDropdown.value = index;
         currentSettings.resolution = resolutionDropdown.options[index].text;
     }
 
     private void SetFullscreenOnStart()
     {
-        Screen.fullScreen = currentSettings.fullscreen;
-        fullscreenToggle.isOn = currentSettings.fullscreen;
+        Screen.fullScreen = defaultSettings.fullscreen;
+        fullscreenToggle.isOn = defaultSettings.fullscreen;
+        currentSettings.fullscreen = defaultSettings.fullscreen;
     }
 
     private void SetResolutionSettings()
     {
-        String[] splitedResolution = currentSettings.resolution.Split(' ');
+        String[] splitedResolution = defaultSettings.resolution.Split(' ');
         int width = Int16.Parse(splitedResolution[0].Trim());
         int height = Int16.Parse(splitedResolution[2].Trim());
-        Screen.SetResolution(width, height, currentSettings.fullscreen);
+        Screen.SetResolution(width, height, defaultSettings.fullscreen);
     }
 
     private void OnDestroy()
