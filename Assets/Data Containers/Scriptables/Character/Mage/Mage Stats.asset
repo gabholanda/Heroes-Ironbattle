@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     resources:
-      _currentHealth: 500
-      _maxHealth: 500
-      _currentMana: 19
-      _maxMana: 100
+      _currentHealth: 25
+      _maxHealth: 25
+      _currentMana: 50
+      _maxMana: 50
       _regenRate: 3
     combatStats:
       _strength: 1

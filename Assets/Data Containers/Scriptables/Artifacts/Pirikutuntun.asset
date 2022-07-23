@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: Pirikutuntun
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 51ea20e5ab4995442b3e643d55f02e56, type: 3}
-  description: '+50 Health
+  description: '+20 Health
 
     +10 Mana
 
-    +10 Intelligence'
+    +3 Intelligence'
   rarity: {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
-  pickablePrefab: {fileID: 0}
   onApplyEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -28,14 +27,14 @@ MonoBehaviour:
       m_Calls: []
   stats:
     resources:
-      _currentHealth: 50
-      _maxHealth: 50
+      _currentHealth: 20
+      _maxHealth: 20
       _currentMana: 10
       _maxMana: 10
       _regenRate: 0
     combatStats:
       _strength: 0
-      _intelligence: 10
+      _intelligence: 3
       _dexterity: 0
       _moveSpeed: 0
     defensesResistances:

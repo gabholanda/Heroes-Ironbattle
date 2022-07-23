@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 [CreateAssetMenu(fileName = "Projectile Handler", menuName = "ScriptableObjects/Ability Handlers/New Projectile Handler")]
 public class ProjectileHandler : AbilityHandler
 {
@@ -13,7 +14,7 @@ public class ProjectileHandler : AbilityHandler
         this.isCoolingDown = false;
         this.coRunner = caster.GetComponent<CoroutineRunner>();
     }
-    public override void Execute(GameObject caster, Vector2 v2)
+    public override Ability Execute(GameObject caster, Vector2 v2)
     {
         startPoint = caster.GetComponent<CharacterStateMachine>().castingPoint.transform;
         dir = SetDirection(v2, caster.transform.localScale, limiter);
@@ -25,6 +26,7 @@ public class ProjectileHandler : AbilityHandler
                     Quaternion.AngleAxis(angle, Vector3.forward));
         Ability ability = obj.GetComponent<Ability>();
         ability.SetupAbility(caster);
+        return ability;
     }
 
     private Vector2 SetDirection(Vector2 pos, Vector2 playerScale, float limiter)

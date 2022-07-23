@@ -24,4 +24,9 @@ public abstract class Ability : MonoBehaviour
         this.StartTimer();
     }
 
+    public virtual void AfterSetup()
+    {
+
+    }
+
 }

@@ -11,12 +11,14 @@ public class MultiCastHandler : AbilityHandler
         this.isCoolingDown = false;
         this.coRunner = caster.GetComponent<CoroutineRunner>();
     }
-    public override void Execute(GameObject caster, Vector2 v2)
+    public override Ability Execute(GameObject caster, Vector2 v2)
     {
         abilities.ForEach((handler) =>
         {
             handler.Initialize(caster);
             handler.Execute(caster, v2);
         });
+
+        return null;
     }
 }

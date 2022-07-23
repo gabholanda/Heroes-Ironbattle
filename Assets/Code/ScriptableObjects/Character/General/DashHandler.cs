@@ -13,9 +13,10 @@ public class DashHandler : AbilityHandler
         this.isCoolingDown = false;
         this.coRunner = player.GetComponent<CoroutineRunner>();
     }
-    public override void Execute(GameObject g, Vector2 v2)
+    public override Ability Execute(GameObject g, Vector2 v2)
     {
         coRunner.Run(this.StartDashing());
+        return null;
     }
 
     public IEnumerator StartDashing()

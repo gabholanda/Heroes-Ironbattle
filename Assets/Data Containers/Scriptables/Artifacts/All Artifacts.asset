@@ -27,5 +27,7 @@ MonoBehaviour:
     quantity: 1
   - Item: {fileID: 11400000, guid: 17d37d3b780a926438ee438b7f397b22, type: 2}
     quantity: 1
+  - Item: {fileID: 11400000, guid: b2479672be64db84a85f08ede76330c2, type: 2}
+    quantity: 1
   holder: {fileID: 0}
   applyableRarities: []

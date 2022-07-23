@@ -15,7 +15,7 @@ public class SpinningHandler : AbilityHandler
         initialSpawnPoint = caster.transform;
         this.isCoolingDown = false;
     }
-    public override void Execute(GameObject caster, Vector2 v2)
+    public override Ability Execute(GameObject caster, Vector2 v2)
     {
         initialSpawnPoint = caster.GetComponent<CharacterStateMachine>().transform;
         GameObject obj = Instantiate(prefab,
@@ -25,6 +25,7 @@ public class SpinningHandler : AbilityHandler
                     Quaternion.AngleAxis(angle, Vector3.forward));
         Ability ability = obj.GetComponent<Ability>();
         ability.SetupAbility(caster);
+        return ability;
     }
 
 }

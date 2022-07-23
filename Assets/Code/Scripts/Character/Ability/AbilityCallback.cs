@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public delegate void TriggerExecuteCallback(GameObject g, Vector2 v2);
+public delegate Ability TriggerExecuteCallback(GameObject g, Vector2 v2);
 public class AbilityCallback
 {
     private readonly GameObject caster;

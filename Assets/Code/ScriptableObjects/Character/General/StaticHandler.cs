@@ -8,7 +8,7 @@ public class StaticHandler : AbilityHandler
         this.coRunner = caster.GetComponentInChildren<CoroutineRunner>();
     }
 
-    public override void Execute(GameObject caster, Vector2 v2)
+    public override Ability Execute(GameObject caster, Vector2 v2)
     {
         Vector3 pos;
         pos = caster.transform.position;
@@ -16,5 +16,6 @@ public class StaticHandler : AbilityHandler
         this.isCoolingDown = true;
         Ability ability = obj.GetComponent<Ability>();
         ability.SetupAbility(caster);
+        return ability;
     }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea35886f29541ef448ec137c5c3da9c3, type: 3}
+  m_Name: Dark Slash Handler
+  m_EditorClassIdentifier: 
+  abilityData: {fileID: 11400000, guid: e50e700015300494b87d37f52a9599ac, type: 2}
+  ability: {fileID: 0}
+  prefab: {fileID: 7971894521430886708, guid: ac0d0d0d4c6ab90429fb02c519bbe760, type: 3}
+  isCoolingDown: 0
+  coRunner: {fileID: 0}
+  onHitEvent: {fileID: 0}
+  projectileSpeed: 1100
+  dir: {x: 0, y: 0, z: 0}
+  limiter: 0

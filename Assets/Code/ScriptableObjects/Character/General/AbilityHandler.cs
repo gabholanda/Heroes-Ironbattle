@@ -18,7 +18,7 @@ public abstract class AbilityHandler : ScriptableObject
     [NonSerialized]
     public float currentTime;
     public abstract void Initialize(GameObject t);
-    public abstract void Execute(GameObject g, Vector2 v2);
+    public abstract Ability Execute(GameObject g, Vector2 v2);
 
     public IEnumerator StartCooldown()
     {
@@ -39,5 +39,15 @@ public abstract class AbilityHandler : ScriptableObject
     public Ability GetAbility()
     {
         return ability;
+    }
+
+    public void SetAbilityData(AbilityData _data)
+    {
+        abilityData = _data;
+    }
+
+    public void SetAbility(Ability _ability)
+    {
+        ability = _ability;
     }
 }

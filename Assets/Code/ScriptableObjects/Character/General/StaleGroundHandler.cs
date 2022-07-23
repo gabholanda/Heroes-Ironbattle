@@ -13,7 +13,7 @@ public class StaleGroundHandler : AbilityHandler
         this.coRunner = caster.GetComponent<CoroutineRunner>();
     }
 
-    public override void Execute(GameObject caster, Vector2 v2)
+    public override Ability Execute(GameObject caster, Vector2 v2)
     {
         startPoint = caster.GetComponent<CharacterStateMachine>().castingPoint.transform;
         Vector3 castingPoint = new Vector2(startPoint.position.x - (offsetX * caster.transform.localScale.x), startPoint.position.y - offsetY);
@@ -26,5 +26,6 @@ public class StaleGroundHandler : AbilityHandler
         obj.transform.localScale = new Vector3(caster.transform.localScale.x, 1f, 1f);
         Ability ability = obj.GetComponent<Ability>();
         ability.SetupAbility(caster);
+        return ability;
     }
 }
