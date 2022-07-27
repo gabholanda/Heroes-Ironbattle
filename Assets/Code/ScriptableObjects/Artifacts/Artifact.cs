@@ -18,7 +18,8 @@ public class Artifact : ScriptableObject
     public void Apply(GameObject holder)
     {
         CharacterStats holderStats = holder.GetComponent<StateMachine>().stats;
-        ApplyRawStats(holderStats);
+        applyCombatStats(holderStats);
+        applyResourcesStats(holderStats);
         ApplyRawDefenses(holderStats);
         ApplyElementalResistances(holderStats);
         onApplyEvent?.Invoke(holder);
@@ -26,40 +27,51 @@ public class Artifact : ScriptableObject
     public void Unapply(GameObject holder)
     {
         CharacterStats holderStats = holder.GetComponent<StateMachine>().stats;
-        UnpplyRawStats(holderStats);
+        UnapplyCombatStats(holderStats);
+        UnapplyResourcesStats(holderStats);
         UnapplyRawDefenses(holderStats);
         UnapplyElementalResistances(holderStats);
         onUnapplyEvent?.Invoke(holder);
     }
 
-    private void ApplyRawStats(CharacterStats holderStats)
+    private void applyCombatStats(CharacterStats holderStats)
     {
-        holderStats.combatStats += stats.combatStats;
+        holderStats.combatStats.IncreaseStats(stats.combatStats);
+    }
+
+    private void applyResourcesStats(CharacterStats holderStats)
+    {
+        holderStats.resources.IncreaseStats(stats.resources);
     }
 
     private void ApplyRawDefenses(CharacterStats holderStats)
     {
-        holderStats.defensesResistances += stats.defensesResistances;
+        holderStats.defensesResistances.IncreaseStats(stats.defensesResistances);
     }
 
     private void ApplyElementalResistances(CharacterStats holderStats)
     {
-        holderStats.elementalResistances += stats.elementalResistances;
+        holderStats.elementalResistances.IncreaseStats(stats.elementalResistances);
     }
 
-    private void UnpplyRawStats(CharacterStats holderStats)
+    private void UnapplyCombatStats(CharacterStats holderStats)
     {
-        holderStats.combatStats -= stats.combatStats;
+        holderStats.combatStats.DecreaseStats(stats.combatStats);
+    }
+
+    private void UnapplyResourcesStats(CharacterStats holderStats)
+    {
+        holderStats.resources.DecreaseStats(stats.resources);
     }
 
     private void UnapplyRawDefenses(CharacterStats holderStats)
     {
-        holderStats.defensesResistances -= stats.defensesResistances;
+        holderStats.defensesResistances.DecreaseStats(stats.defensesResistances);
     }
 
     private void UnapplyElementalResistances(CharacterStats holderStats)
     {
-        holderStats.elementalResistances -= stats.elementalResistances;
+        holderStats.elementalResistances.DecreaseStats(stats.elementalResistances);
     }
 
 }

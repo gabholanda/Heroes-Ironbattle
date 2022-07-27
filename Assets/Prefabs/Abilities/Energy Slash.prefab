@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7971894521430886707}
   - component: {fileID: 1808508212}
   - component: {fileID: 1808508211}
+  - component: {fileID: -1809382403275396472}
   m_Layer: 8
   m_Name: Energy Slash
   m_TagString: Ability
@@ -262,6 +263,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4124503, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &-1809382403275396472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7971894521430886708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8923f180a60069b4b8958e115c8d6d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 0}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &7971894522956777228
 PrefabInstance:
   m_ObjectHideFlags: 0

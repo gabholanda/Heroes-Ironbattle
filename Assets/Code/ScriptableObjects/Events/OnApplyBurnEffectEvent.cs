@@ -14,7 +14,6 @@ public class OnApplyBurnEffectEvent : OnAbilityHitEvent
     public bool isRenewable;
     public int maxStacks;
 
-    public override void Raise(Collider2D collision) { }
 
     private void SetStatusEffect(GameObject caster, GameObject target)
     {
@@ -54,7 +53,7 @@ public class OnApplyBurnEffectEvent : OnAbilityHitEvent
         burn.Apply();
     }
 
-    public override void Raise(Collider2D collision, GameObject caster)
+    public override void Raise(GameObject caster, Collider2D collision)
     {
         SetStatusEffect(caster, collision.gameObject);
     }

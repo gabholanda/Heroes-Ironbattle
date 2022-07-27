@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2126867362357593215}
   - component: {fileID: 2126867362357593210}
   - component: {fileID: 2126867362357593209}
+  - component: {fileID: -6698100086198862372}
   m_Layer: 8
   m_Name: Shuriken Top
   m_TagString: Ability
@@ -250,3 +251,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
+--- !u!114 &-6698100086198862372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126867362357593987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8923f180a60069b4b8958e115c8d6d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 0}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []

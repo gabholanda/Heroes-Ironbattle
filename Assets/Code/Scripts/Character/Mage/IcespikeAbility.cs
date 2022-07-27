@@ -24,7 +24,7 @@ public class IcespikeAbility : Ability
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
             damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
-            handler.onHitEvent?.Raise(collider);
+            AfterHit(collider);
         }
     }
 

@@ -24,7 +24,7 @@ public class ThunderlightningAbility : Ability
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
             StartCoroutine(DamageThrice());
-            handler.onHitEvent?.Raise(collider);
+            AfterHit(collider);
         }
     }
 

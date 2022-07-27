@@ -32,7 +32,7 @@ public class DarkSlashAbility : Ability
             source.clip = handler.GetAbilityData().onHitSound;
             source.Play();
             onHitParticles.Play();
-            handler.onHitEvent?.Raise(collider, caster);
+            AfterHit(collider);
         }
     }
 

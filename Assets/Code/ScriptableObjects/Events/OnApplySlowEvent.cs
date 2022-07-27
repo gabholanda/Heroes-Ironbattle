@@ -10,11 +10,6 @@ public class OnApplySlowEvent : OnAbilityHitEvent
     public ElementType element;
     public DamageType damageType;
 
-    public override void Raise(Collider2D collision)
-    {
-        SetStatusEffect(collision.gameObject);
-    }
-
     private void SetStatusEffect(GameObject target)
     {
         Slow slow = target.GetComponentInChildren<Slow>();
@@ -40,5 +35,8 @@ public class OnApplySlowEvent : OnAbilityHitEvent
         return effect is null;
     }
 
-    public override void Raise(Collider2D collision, GameObject caster) { }
+    public override void Raise(GameObject caster, Collider2D collision)
+    {
+        SetStatusEffect(collision.gameObject);
+    }
 }

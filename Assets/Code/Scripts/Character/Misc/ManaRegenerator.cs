@@ -6,7 +6,7 @@ public class ManaRegenerator : MonoBehaviour
 {
     private ResourcesStats resources;
     private SlidingBar manaBar;
-    // Start is called before the first frame update
+
     public ManaRegenerator SetResources(ResourcesStats _resources)
     {
         resources = _resources;
@@ -31,7 +31,7 @@ public class ManaRegenerator : MonoBehaviour
             yield return new WaitForSeconds(1f);
             if (resources.CurrentMana < resources.MaxMana)
             {
-                resources.CurrentMana += resources.RegenRate;
+                resources.CurrentMana += resources.ManaRegen;
             }
             else if (resources.CurrentMana > resources.MaxMana)
             {

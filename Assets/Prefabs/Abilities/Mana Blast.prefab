@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5502667485403364387}
   - component: {fileID: 2016668618}
   - component: {fileID: 2016668617}
+  - component: {fileID: -397552610726925057}
   m_Layer: 8
   m_Name: Mana Blast
   m_TagString: Ability
@@ -134,7 +135,12 @@ MonoBehaviour:
   rb: {fileID: 0}
   caster: {fileID: 0}
   onHitParticles: {fileID: 0}
+  listener: {fileID: 0}
   source: {fileID: 0}
+  effectList:
+  - {fileID: 11400000, guid: cd2e75edc2c5bff4595143f5ba129739, type: 2}
+  abilitiesToTriggerOnHit: []
+  onHitEvent: {fileID: 0}
   radius: 1
   radiusIncreasePerIteration: 0.75
 --- !u!82 &2016668617
@@ -234,3 +240,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-397552610726925057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502667485403364391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8923f180a60069b4b8958e115c8d6d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 0}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []

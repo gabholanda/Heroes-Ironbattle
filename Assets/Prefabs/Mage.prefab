@@ -4866,7 +4866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812459881}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0.421, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6431199696723903608}
@@ -9854,6 +9854,7 @@ GameObject:
   - component: {fileID: 1872058166}
   - component: {fileID: 2100419940}
   - component: {fileID: 1961639340}
+  - component: {fileID: 1519181405}
   m_Layer: 9
   m_Name: Mage
   m_TagString: Player
@@ -10006,7 +10007,8 @@ MonoBehaviour:
       _maxHealth: 0
       _currentMana: 0
       _maxMana: 0
-      _regenRate: 0
+      _manaRegen: 0
+      _healthRegen: 0
     combatStats:
       _strength: 0
       _intelligence: 0
@@ -10021,21 +10023,32 @@ MonoBehaviour:
       _dark: 0
       _lightning: 0
   isDead: 0
-  characterMovement: {fileID: 0}
-  characterCombat: {fileID: 0}
-  characterAnimator: {fileID: 0}
-  characterInteractor: {fileID: 0}
+  eventManager: {fileID: 0}
+  movement: {fileID: 0}
+  combat: {fileID: 0}
+  animator: {fileID: 0}
+  interactor: {fileID: 0}
   abilityUI: {fileID: 0}
   inventory: {fileID: 11400000, guid: 3e0aca4eb88d2c1448f86078e646fcc8, type: 2}
+  rarities:
+  - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
+  - {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
+  - {fileID: 11400000, guid: e4b5c71620df6d449a062fbdc9191667, type: 2}
+  - {fileID: 11400000, guid: e6e122013942ecf41913d72c343741ec, type: 2}
+  handlersSchema:
+  - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
+  - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
+  - {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
   handlers:
   - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
   - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
   - {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
   dashHandler: {fileID: 11400000, guid: 193e502b3a4d0864fa5e9cd43fea9459, type: 2}
-  playerReader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
+  reader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
   castingParticles: {fileID: 1812459884}
   castingPoint: {fileID: 1387867187}
   manaBar: {fileID: 0}
+  healthBar: {fileID: 0}
   menu: {fileID: 0}
 --- !u!114 &1872058166
 MonoBehaviour:
@@ -10083,5 +10096,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e3b379d90cea9348af59920c01934aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1519181405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431199696723903610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d575e1f34a74145b8e0ce1342368c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

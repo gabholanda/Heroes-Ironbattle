@@ -26,7 +26,7 @@ public class ManaBlastAbility : Ability
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
             damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
-            handler.onHitEvent?.Raise(collider, caster);
+            AfterHit(collider);
         }
     }
 

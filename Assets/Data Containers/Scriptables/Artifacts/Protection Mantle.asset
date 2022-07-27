@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d57a2675400f547b7c5c5300c6a77d, type: 3}
+  m_Name: Protection Mantle
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 77a28944ae2230e429377fae771ac4b6, type: 3}
+  description: '+2 Magic Resistance
+
+    +1 Defense
+
+    +5% All Elements Resistance'
+  rarity: {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
+  onApplyEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onUnapplyEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stats:
+    resources:
+      _currentHealth: 0
+      _maxHealth: 0
+      _currentMana: 0
+      _maxMana: 0
+      _manaRegen: 0
+      _healthRegen: 0
+    combatStats:
+      _strength: 0
+      _intelligence: 0
+      _dexterity: 0
+      _moveSpeed: 0
+    defensesResistances:
+      _defense: 1
+      _magicResistance: 2
+    elementalResistances:
+      _fire: 5
+      _ice: 5
+      _dark: 5
+      _lightning: 5

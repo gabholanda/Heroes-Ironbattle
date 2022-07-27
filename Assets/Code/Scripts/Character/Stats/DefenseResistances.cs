@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public class DefenseResistances
+public class DefenseResistances : IStats<DefenseResistances>
 {
     public DefenseResistances() { }
     public DefenseResistances(int defense, int magicResistance)
@@ -19,11 +19,17 @@ public class DefenseResistances
     private int _magicResistance;
     public int MagicResistance { get { return _magicResistance; } set { _magicResistance = value; } }
 
-    public static DefenseResistances operator +(DefenseResistances a, DefenseResistances b)
-       => new DefenseResistances(a.Defense + b.Defense, a.MagicResistance + b.MagicResistance);
+    public void IncreaseStats(DefenseResistances b)
+    {
+        this.Defense += b.Defense;
+        this.MagicResistance += b.MagicResistance;
+    }
 
-    public static DefenseResistances operator -(DefenseResistances a, DefenseResistances b)
-      => new DefenseResistances(a.Defense - b.Defense, a.MagicResistance - b.MagicResistance);
+    public void DecreaseStats(DefenseResistances b)
+    {
+        this.Defense -= b.Defense;
+        this.MagicResistance -= b.MagicResistance;
+    }
 
     public override string ToString()
     {

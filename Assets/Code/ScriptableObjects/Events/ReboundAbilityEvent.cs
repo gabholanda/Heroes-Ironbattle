@@ -4,9 +4,8 @@
 public class ReboundAbilityEvent : OnAbilityHitEvent
 {
     public float force;
-    public override void Raise(Collider2D collision) { }
 
-    public override void Raise(Collider2D collision, GameObject caster)
+    public override void Raise(GameObject caster, Collider2D collision)
     {
         Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
         CharacterMovement movement = collision.GetComponent<CharacterMovement>();

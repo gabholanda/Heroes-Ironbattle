@@ -32,25 +32,25 @@ public class CharacterStats
     public void SetCombatStats(CharacterBaseStats baseStats)
     {
         combatStats = new CombatStats();
-        combatStats += baseStats.stats.combatStats;
+        combatStats.IncreaseStats(baseStats.stats.combatStats);
     }
 
     public void SetResourcesStats(CharacterBaseStats baseStats)
     {
         resources = new ResourcesStats();
-        resources += baseStats.stats.resources;
+        resources.IncreaseStats(baseStats.stats.resources);
     }
 
     public void SetDefensesResistances(CharacterBaseStats baseStats)
     {
         defensesResistances = new DefenseResistances();
-        defensesResistances += baseStats.stats.defensesResistances;
+        defensesResistances.IncreaseStats(baseStats.stats.defensesResistances);
     }
 
     public void SetElementalResistances(CharacterBaseStats baseStats)
     {
         elementalResistances = new ElementalResistances();
-        elementalResistances += baseStats.stats.elementalResistances;
+        elementalResistances.IncreaseStats(baseStats.stats.elementalResistances);
     }
 
     public void AddAffinities()

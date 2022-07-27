@@ -35,7 +35,7 @@ public class KunaiAbility : Ability
             damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
             source.clip = handler.GetAbilityData().onHitSound;
             source.Play();
-            handler.onHitEvent?.Raise(collider, caster);
+            AfterHit(collider);
         }
     }
 

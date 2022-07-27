@@ -17,7 +17,10 @@ MonoBehaviour:
   prefab: {fileID: 699128545873200130, guid: c98c10d80a3bbfa40be964ef5a86ee0b, type: 3}
   isCoolingDown: 1
   coRunner: {fileID: 0}
-  onHitEvent: {fileID: 11400000, guid: c2d9f63399b1fd046b54f193ba793f44, type: 2}
+  OnHitEvent: {fileID: 0}
+  effectList:
+  - {fileID: 11400000, guid: c2d9f63399b1fd046b54f193ba793f44, type: 2}
+  abilitiesToTriggerOnHit: []
   projectileSpeed: 750
   dir: {x: 1, y: -1, z: 0}
   limiter: 0

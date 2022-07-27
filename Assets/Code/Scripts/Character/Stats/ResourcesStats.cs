@@ -2,20 +2,22 @@
 using UnityEngine;
 
 [Serializable]
-public class ResourcesStats
+public class ResourcesStats : IStats<ResourcesStats>
 {
     public ResourcesStats() { }
     public ResourcesStats(
         float currentHealth,
         float maxHealth,
         float maxMana,
-        float regenRate)
+        float manaRegen,
+        float healthRegen)
     {
         MaxHealth = maxHealth;
         CurrentHealth = currentHealth;
         MaxMana = maxMana;
         CurrentMana = maxMana;
-        RegenRate = regenRate;
+        ManaRegen = manaRegen;
+        HealthRegen = healthRegen;
     }
 
     [SerializeField]
@@ -38,32 +40,43 @@ public class ResourcesStats
     private float _maxMana;
     public float MaxMana { get { return _maxMana; } set { _maxMana = value; } }
 
-    [SerializeField]
     [Min(0)]
-    private float _regenRate;
-    public float RegenRate { get { return _regenRate; } set { _regenRate = value < 0 ? 1 : value; } }
+    [SerializeField]
+    private float _manaRegen;
+    public float ManaRegen { get { return _manaRegen; } set { _manaRegen = value < 0 ? 1 : value; } }
 
-    public static ResourcesStats operator +(ResourcesStats a, ResourcesStats b)
-    => new ResourcesStats(
-        a.CurrentHealth + b.CurrentHealth,
-        a.MaxHealth + b.MaxHealth,
-        a.MaxMana + b.MaxMana,
-        a.RegenRate + b.RegenRate);
+    [Min(0)]
+    [SerializeField]
+    private float _healthRegen;
+    public float HealthRegen { get { return _healthRegen; } set { _healthRegen = value < 0 ? 0 : value; } }
 
-    public static ResourcesStats operator -(ResourcesStats a, ResourcesStats b)
-    => new ResourcesStats(
-        a.CurrentHealth - b.CurrentHealth,
-        a.MaxHealth - b.MaxHealth,
-        a.MaxMana - b.MaxMana,
-        a.RegenRate - b.RegenRate);
+    public void IncreaseStats(ResourcesStats other)
+    {
+        this.MaxHealth += other.MaxHealth;
+        this.CurrentHealth += other.CurrentHealth;
+        this.MaxMana += other.MaxMana;
+        this.CurrentMana += other.CurrentMana;
+        this.ManaRegen += other.ManaRegen;
+        this.HealthRegen += other.HealthRegen;
+    }
+
+    public void DecreaseStats(ResourcesStats other)
+    {
+        this.MaxHealth -= other.MaxHealth;
+        this.CurrentHealth -= other.CurrentHealth;
+        this.MaxMana -= other.MaxMana;
+        this.ManaRegen -= other.ManaRegen;
+        this.HealthRegen -= other.HealthRegen;
+    }
 
     public override string ToString()
     {
         return "CurrentHealth: " + CurrentHealth + "\n" +
             "MaxHealth: " + MaxHealth + "\n" +
+            "HealthRegen: " + HealthRegen + "\n" +
             "CurrentMana: " + CurrentMana + "\n" +
             "MaxMana: " + MaxMana + "\n" +
-            "RegenRate: " + RegenRate + "\n";
+            "ManaRegen: " + ManaRegen + "\n";
     }
 
 }

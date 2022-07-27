@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 [Serializable]
-public class CombatStats
+public class CombatStats : IStats<CombatStats>
 {
     public CombatStats() { }
     public CombatStats(int strength, int intelligence, int dexterity, float moveSpeed)
@@ -31,11 +31,21 @@ public class CombatStats
     private float _moveSpeed;
     public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value; } }
 
-    public static CombatStats operator +(CombatStats a, CombatStats b)
-        => new CombatStats(a.Strength + b.Strength, a.Intelligence + b.Intelligence, a.Dexterity + b.Dexterity, a.MoveSpeed + b.MoveSpeed);
+    public void IncreaseStats(CombatStats b)
+    {
+        this.Strength += b.Strength;
+        this.Intelligence += b.Intelligence;
+        this.Dexterity += b.Dexterity;
+        this.MoveSpeed += b.MoveSpeed;
+    }
 
-    public static CombatStats operator -(CombatStats a, CombatStats b)
-      => new CombatStats(a.Strength - b.Strength, a.Intelligence - b.Intelligence, a.Dexterity - b.Dexterity, a.MoveSpeed - b.MoveSpeed);
+    public void DecreaseStats(CombatStats b)
+    {
+        this.Strength -= b.Strength;
+        this.Intelligence -= b.Intelligence;
+        this.Dexterity -= b.Dexterity;
+        this.MoveSpeed -= b.MoveSpeed;
+    }
 
     public override string ToString()
     {

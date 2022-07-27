@@ -4,7 +4,8 @@
 public class ForceHitAbilityEvent : OnAbilityHitEvent
 {
     public float force;
-    public override void Raise(Collider2D collision)
+
+    public override void Raise(GameObject caster, Collider2D collision)
     {
         Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
         CharacterMovement movement = collision.GetComponent<CharacterMovement>();
@@ -13,8 +14,6 @@ public class ForceHitAbilityEvent : OnAbilityHitEvent
         playerRb.velocity *= 0;
         playerRb.AddForce(GetRandomForce() * force, ForceMode2D.Impulse);
     }
-
-    public override void Raise(Collider2D collision, GameObject caster) { }
 
     private Vector3 GetRandomForce()
     {

@@ -21,15 +21,15 @@ public class GoblinBashAbility : Ability
     {
         transform.position = caster.GetComponent<GoblinStateMachine>().HitPoint.position;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag("Player") && notHit)
+        if (collider.gameObject.CompareTag("Player") && notHit)
         {
             notHit = false;
-            handler.onHitEvent.Raise(collision);
-            DamageReceiver receiver = collision.GetComponent<DamageReceiver>();
+            DamageReceiver receiver = collider.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
             damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
+            AfterHit(collider);
         }
     }
 

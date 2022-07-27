@@ -2,7 +2,5 @@
 
 public abstract class OnAbilityHitEvent : ScriptableObject
 {
-    public abstract void Raise(Collider2D collision);
-
-    public abstract void Raise(Collider2D collision, GameObject caster);
+    public abstract void Raise(GameObject caster, Collider2D collision);
 }

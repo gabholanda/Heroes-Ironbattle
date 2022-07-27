@@ -33,7 +33,7 @@ public class FireballAbility : Ability
             onHitParticles.Play();
             source.clip = handler.GetAbilityData().onHitSound;
             source.Play();
-            handler.onHitEvent?.Raise(collider, caster);
+            AfterHit(collider);
         }
     }
 

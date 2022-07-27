@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -8424215400039369797}
   - component: {fileID: -6360827240111369691}
   - component: {fileID: 2367406092108953233}
+  - component: {fileID: -2394513861445205440}
   m_Layer: 8
   m_Name: Fireball
   m_TagString: Ability
@@ -162,7 +163,12 @@ MonoBehaviour:
   rb: {fileID: 6666293503130588378}
   caster: {fileID: 0}
   onHitParticles: {fileID: 8170322632567882588}
+  listener: {fileID: -2394513861445205440}
   source: {fileID: 0}
+  effectList:
+  - {fileID: 11400000, guid: fe5249066593deb43887b43a113678d2, type: 2}
+  abilitiesToTriggerOnHit: []
+  onHitEvent: {fileID: 0}
 --- !u!114 &-6360827240111369691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +279,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2394513861445205440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5498125659857406263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8923f180a60069b4b8958e115c8d6d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 0}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &851196028873231116
 PrefabInstance:
   m_ObjectHideFlags: 0

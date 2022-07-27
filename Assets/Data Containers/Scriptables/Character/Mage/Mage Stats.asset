@@ -18,7 +18,8 @@ MonoBehaviour:
       _maxHealth: 30
       _currentMana: 75
       _maxMana: 75
-      _regenRate: 3
+      _manaRegen: 3
+      _healthRegen: 0
     combatStats:
       _strength: 1
       _intelligence: 5

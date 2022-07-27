@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -772,6 +772,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 263856203}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &263856206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8064820253023848888, guid: 604d20fced7e4464a93d0305932abcf5,
+    type: 3}
+  m_PrefabInstance: {fileID: 263856203}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263856205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1f928814e7f4442943e33ffa3aa91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &411701954 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4424975402713205467, guid: f2b6748b3640af2489859093d8eb6017,
@@ -875,7 +887,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 17.378721
   m_Depth: -1
@@ -1588,15 +1600,14 @@ PrefabInstance:
       objectReference: {fileID: 427260901}
     - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
         type: 3}
-      propertyPath: reader
-      value: 
-      objectReference: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354,
-        type: 2}
-    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
-        type: 3}
       propertyPath: manaBar
       value: 
       objectReference: {fileID: 263856204}
+    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 263856206}
     - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
         type: 3}
       propertyPath: inventory
@@ -1605,32 +1616,8 @@ PrefabInstance:
     - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
         type: 3}
       propertyPath: rarities.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
-        type: 3}
-      propertyPath: rarities.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a,
-        type: 2}
-    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
-        type: 3}
-      propertyPath: rarities.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8,
-        type: 2}
-    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
-        type: 3}
-      propertyPath: rarities.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: e4b5c71620df6d449a062fbdc9191667,
-        type: 2}
-    - target: {fileID: 3553262527252671618, guid: 91de32c705765f54fa0fbb1ed105b6ac,
-        type: 3}
-      propertyPath: rarities.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: e6e122013942ecf41913d72c343741ec,
-        type: 2}
     - target: {fileID: 6431199696723903608, guid: 91de32c705765f54fa0fbb1ed105b6ac,
         type: 3}
       propertyPath: m_RootOrder

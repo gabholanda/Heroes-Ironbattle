@@ -19,6 +19,19 @@ public class AbilityAdder : ScriptableObject
         }
     }
 
+    public void AddToOnHit(GameObject target)
+    {
+        AbilityHandler[] handlers = target.GetComponent<CharacterStateMachine>().handlers;
+
+        for (int i = 0; i < handlers.Length; i++)
+        {
+            for (int j = 0; j < abilities.Count; j++)
+            {
+                handlers[i].abilitiesToTriggerOnHit.Add(abilities[j]);
+            }
+        }
+    }
+
     public void AddProjectileMultiCastToAuto(GameObject target)
     {
         AutoAbilitySpawner spawner = target.GetComponentInChildren<AutoAbilitySpawner>();
@@ -35,10 +48,10 @@ public class AbilityAdder : ScriptableObject
         }
     }
 
-    public void AddProjectileMultiCastToDash(GameObject target)
+    public void AddProjectileMultiCastToDash(GameObject caster)
     {
-        GameEventListener actionListener = target.GetComponentInChildren<GameEventListener>();
-        actionListener.Event = target.GetComponent<CharacterEvent>().events["Dash"];
+        GameEventListener actionListener = caster.GetComponentInChildren<GameEventListener>();
+        actionListener.Event = caster.GetComponent<CharacterEvent>().events["Dash"];
         actionListener.TryRegister();
         for (int i = 0; i < abilities.Count; i++)
         {
@@ -46,8 +59,11 @@ public class AbilityAdder : ScriptableObject
             multicastHandler.abilities.ForEach(handler =>
             {
                 ProjectileHandler projectileHandler = (ProjectileHandler)handler;
-                AbilityCallback abilityCallback = new AbilityCallback(target, projectileHandler.dir, projectileHandler.Execute);
-                actionListener.Response.AddListener(abilityCallback.TriggerCallback);
+                AbilityCallback abilityCallback = new AbilityCallback()
+                .AddCaster(caster)
+                .AddPosition(projectileHandler.dir)
+                .AddTriggerAbilityCallback(projectileHandler.Execute);
+                actionListener.Response.AddListener(abilityCallback.TriggerAbilityCallback);
             });
         }
     }

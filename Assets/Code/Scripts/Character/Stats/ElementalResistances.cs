@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public class ElementalResistances
+public class ElementalResistances : IStats<ElementalResistances>
 {
 
     public ElementalResistances() { }
@@ -34,11 +34,21 @@ public class ElementalResistances
     private float _lightning;
     public float Lightning { get { return _lightning; } set { _lightning = value; } }
 
-    public static ElementalResistances operator +(ElementalResistances a, ElementalResistances b)
-      => new ElementalResistances(a.Fire + b.Fire, a.Ice + b.Ice, a.Dark + b.Dark, a.Lightning + b.Lightning);
+    public void IncreaseStats(ElementalResistances b)
+    {
+        this.Fire += b.Fire;
+        this.Ice += b.Ice;
+        this.Dark += b.Dark;
+        this.Lightning += b.Lightning;
+    }
 
-    public static ElementalResistances operator -(ElementalResistances a, ElementalResistances b)
-      => new ElementalResistances(a.Fire - b.Fire, a.Ice - b.Ice, a.Dark - b.Dark, a.Lightning - b.Lightning);
+    public void DecreaseStats(ElementalResistances b)
+    {
+        this.Fire -= b.Fire;
+        this.Ice -= b.Ice;
+        this.Dark -= b.Dark;
+        this.Lightning -= b.Lightning;
+    }
 
     public override string ToString()
     {

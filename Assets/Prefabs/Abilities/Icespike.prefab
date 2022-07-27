@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -3818287501096536126}
   - component: {fileID: -3374566189054268712}
   - component: {fileID: -2579384848305593406}
+  - component: {fileID: -6334678026220741619}
   m_Layer: 8
   m_Name: Icespike
   m_TagString: Ability
@@ -176,10 +177,12 @@ MonoBehaviour:
   rb: {fileID: 7052658729549891977}
   caster: {fileID: 0}
   onHitParticles: {fileID: 0}
+  listener: {fileID: 0}
   source: {fileID: 0}
-  freezeStatusEffectPrefab: {fileID: 596540021257466038, guid: 540bf8cd51d6b5342a21024abd69e3e9,
-    type: 3}
-  freezeScalingCoeficient: 0.3
+  effectList:
+  - {fileID: 11400000, guid: b15b8d62834109c44bad567892d50f69, type: 2}
+  abilitiesToTriggerOnHit: []
+  onHitEvent: {fileID: 0}
 --- !u!114 &-3374566189054268712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,3 +293,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6334678026220741619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052658729549891975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8923f180a60069b4b8958e115c8d6d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 0}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []

@@ -28,6 +28,8 @@ public class CharacterStateMachine : StateMachine
     private List<Rarity> rarities;
 
     [Header("Abilities")]
+    public AbilityHandler[] handlersSchema;
+    [HideInInspector]
     public AbilityHandler[] handlers;
     [SerializeField]
     private DashHandler dashHandler;
@@ -44,9 +46,11 @@ public class CharacterStateMachine : StateMachine
 
     [Header("UI Elements")]
     public SlidingBar manaBar;
+    public SlidingBar healthBar;
     public GameObject menu;
 
     private ManaRegenerator manaRegenerator;
+    private HealthRegenerator healthRegenerator;
     private void Awake()
     {
         InitializeStates();
@@ -130,6 +134,12 @@ public class CharacterStateMachine : StateMachine
 
     private void InitializeAbilities()
     {
+        for (int i = 0; i < handlersSchema.Length; i++)
+        {
+            handlers[i] = Instantiate(handlersSchema[i]);
+            handlersSchema[i].DeepCopy(handlers[i]);
+        }
+
         for (int i = 0; i < handlers.Length; i++)
         {
             handlers[i].Initialize(castingPoint);
@@ -173,6 +183,12 @@ public class CharacterStateMachine : StateMachine
 
     private void InitializeRegenerator()
     {
+        healthRegenerator = GetComponent<HealthRegenerator>();
+        healthRegenerator
+            .SetResources(stats.resources)
+            .SetManaBar(healthBar);
+        healthRegenerator.StartRegeneration();
+
         manaRegenerator = GetComponent<ManaRegenerator>();
         manaRegenerator
             .SetResources(stats.resources)

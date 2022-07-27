@@ -15,6 +15,7 @@ public class SlimeDyingState : BaseState
     public override void Enter()
     {
         base.Enter();
+        _sm.actions.physics.rb.velocity = new Vector2(0, 0);
         EnemyDetector[] detectors = _sm.GetComponentsInChildren<EnemyDetector>();
         for (int i = 0; i < detectors.Length; i++)
         {

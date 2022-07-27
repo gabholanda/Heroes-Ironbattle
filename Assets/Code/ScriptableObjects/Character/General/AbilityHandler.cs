@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -12,8 +13,9 @@ public abstract class AbilityHandler : ScriptableObject
     public bool isCoolingDown;
     public CoroutineRunner coRunner;
 
-    [Header("Events")]
-    public OnAbilityHitEvent onHitEvent;
+    public List<OnAbilityHitEvent> effectList;
+    public List<AbilityHandler> abilitiesToTriggerOnHit;
+
 
     [NonSerialized]
     public float currentTime;
@@ -49,5 +51,17 @@ public abstract class AbilityHandler : ScriptableObject
     public void SetAbility(Ability _ability)
     {
         ability = _ability;
+    }
+
+    public AbilityHandler DeepCopy(AbilityHandler copy)
+    {
+        copy.abilityData = abilityData;
+        copy.ability = ability;
+        copy.ability.handler = copy;
+        copy.prefab = prefab;
+        copy.isCoolingDown = isCoolingDown;
+        copy.coRunner = coRunner;
+
+        return copy;
     }
 }

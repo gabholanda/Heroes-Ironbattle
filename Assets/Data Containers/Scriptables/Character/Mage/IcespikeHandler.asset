@@ -16,8 +16,10 @@ MonoBehaviour:
   ability: {fileID: -3818287501096536126, guid: 2a9ea6f2b32d9d74e9a2f4bff4f89f78,
     type: 3}
   prefab: {fileID: 7052658729549891975, guid: 2a9ea6f2b32d9d74e9a2f4bff4f89f78, type: 3}
-  isCoolingDown: 1
+  isCoolingDown: 0
   coRunner: {fileID: 0}
-  onHitEvent: {fileID: 11400000, guid: b15b8d62834109c44bad567892d50f69, type: 2}
+  effectList:
+  - {fileID: 11400000, guid: b15b8d62834109c44bad567892d50f69, type: 2}
+  abilitiesToTriggerOnHit: []
   offsetX: 0.5
   offsetY: 1.1
