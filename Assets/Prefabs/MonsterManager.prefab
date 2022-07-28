@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4424975402713205466}
   - component: {fileID: 4424975402713205467}
+  - component: {fileID: 2007031404}
   m_Layer: 5
   m_Name: MonsterManager
   m_TagString: Untagged
@@ -43,5 +44,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5158c4b3af3ab04fbf11042a17803db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalPrefab: {fileID: 4029994826465657956, guid: 2118847242b9fe7449b45e378df31960,
-    type: 3}
+  portalPrefab: {fileID: 0}
+--- !u!114 &2007031404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424975402713205464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8923f180a60069b4b8958e115c8d6d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 7728029970d6500438a3df56ef9ac5a8, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4424975402713205467}
+        m_MethodName: FindAndSetEnemies
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

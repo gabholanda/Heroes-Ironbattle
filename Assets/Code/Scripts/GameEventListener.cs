@@ -20,4 +20,9 @@ public class GameEventListener : MonoBehaviour
         Event?.RegisterListener(this);
     }
 
+    public void SelfDestroy()
+    {
+        Destroy(gameObject);
+    }
+
 }

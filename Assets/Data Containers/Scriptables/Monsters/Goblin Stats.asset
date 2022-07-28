@@ -18,12 +18,13 @@ MonoBehaviour:
       _maxHealth: 50
       _currentMana: 0
       _maxMana: 0
-      _regenRate: 0
+      _manaRegen: 0
+      _healthRegen: 0
     combatStats:
       _strength: 5
       _intelligence: 1
       _dexterity: 1
-      _moveSpeed: 7
+      _moveSpeed: 11
     defensesResistances:
       _defense: 1
       _magicResistance: 2

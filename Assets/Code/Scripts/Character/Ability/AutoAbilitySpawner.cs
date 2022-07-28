@@ -25,4 +25,9 @@ public class AutoAbilitySpawner : MonoBehaviour
         var kv = new KeyValuePair<AbilityHandler, float>(ability, time);
         StartCoroutine(Spawn(kv, position));
     }
+
+    public void OnPlayerDeath()
+    {
+        StopAllCoroutines();
+    }
 }

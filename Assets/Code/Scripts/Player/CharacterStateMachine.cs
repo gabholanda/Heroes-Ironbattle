@@ -23,7 +23,10 @@ public class CharacterStateMachine : StateMachine
     [HideInInspector]
     public CharacterUIAbilityManager abilityUI;
 
-    public ArtifactInventory inventory;
+    [Header("Events")]
+    public GameEvent OnFinishSetupCharacter;
+    public GameEvent OnPlayerDeath;
+
     [SerializeField]
     private List<Rarity> rarities;
 
@@ -51,22 +54,14 @@ public class CharacterStateMachine : StateMachine
 
     private ManaRegenerator manaRegenerator;
     private HealthRegenerator healthRegenerator;
-    private void Awake()
+    private void OnEnable()
     {
         InitializeStates();
         InitializeCharacter();
         InitializeAbilities();
         castingParticles.Stop();
         animator.SetAnimation("Idle", true, true, false, true);
-        if (inventory is null)
-        {
-            inventory = ScriptableObject.CreateInstance<ArtifactInventory>();
-            inventory.Items = new List<ArtifactInventoryItem>();
-            inventory.applyableRarities = rarities;
-        }
-
-        inventory.Items?.ForEach(inventoryItem => inventoryItem.Item.Apply(gameObject));
-        inventory.holder = gameObject;
+        OnFinishSetupCharacter?.Raise();
     }
 
     private new void Update()
@@ -83,6 +78,18 @@ public class CharacterStateMachine : StateMachine
         {
             state.UpdatePhysics();
         }
+    }
+
+    public void Restore()
+    {
+        isDead = false;
+        movement.enabled = true;
+        movement.SetVector(new Vector2(0, 0));
+        AddDefaultStates();
+        SetStats();
+        StartInitialStates();
+        InitializeEvents();
+        healthBar.UpdateBar(stats.resources.CurrentHealth / stats.resources.MaxHealth);
     }
 
     public void OpenSettings()
@@ -196,10 +203,20 @@ public class CharacterStateMachine : StateMachine
         manaRegenerator.StartRegeneration();
     }
 
-    private void InitializeCharacter()
+    private void InitializeStats()
     {
         stats = new CharacterStats();
+    }
+
+    private void SetStats()
+    {
         stats.SetCharacterStats(baseStats);
+    }
+
+    private void InitializeCharacter()
+    {
+        InitializeStats();
+        SetStats();
         SetComponents();
         InitializeEvents();
         InitializeCharacterMovement();

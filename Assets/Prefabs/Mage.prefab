@@ -4797,6 +4797,64 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &739149075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 739149076}
+  - component: {fileID: 739149077}
+  m_Layer: 9
+  m_Name: Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &739149076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739149075}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6431199696723903608}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &739149077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739149075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8923f180a60069b4b8958e115c8d6d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 37bfbca2749467342baf51094259d92e, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 830841875}
+        m_MethodName: StartInventory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1387867187
 GameObject:
   m_ObjectHideFlags: 0
@@ -9855,6 +9913,7 @@ GameObject:
   - component: {fileID: 2100419940}
   - component: {fileID: 1961639340}
   - component: {fileID: 1519181405}
+  - component: {fileID: 830841875}
   m_Layer: 9
   m_Name: Mage
   m_TagString: Player
@@ -9878,6 +9937,7 @@ Transform:
   - {fileID: 1387867188}
   - {fileID: 5673600959788426209}
   - {fileID: 424835860}
+  - {fileID: 739149076}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10029,12 +10089,12 @@ MonoBehaviour:
   animator: {fileID: 0}
   interactor: {fileID: 0}
   abilityUI: {fileID: 0}
-  inventory: {fileID: 11400000, guid: 3e0aca4eb88d2c1448f86078e646fcc8, type: 2}
+  OnFinishSetupCharacter: {fileID: 11400000, guid: 37bfbca2749467342baf51094259d92e,
+    type: 2}
+  OnPlayerDeath: {fileID: 11400000, guid: 5061cad342e8e3544b0f748ba3b4aed7, type: 2}
   rarities:
   - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
   - {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
-  - {fileID: 11400000, guid: e4b5c71620df6d449a062fbdc9191667, type: 2}
-  - {fileID: 11400000, guid: e6e122013942ecf41913d72c343741ec, type: 2}
   handlersSchema:
   - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
   - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
@@ -10110,3 +10170,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d575e1f34a74145b8e0ce1342368c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &830841875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431199696723903610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2303e14c5f42acd42bde884b5ebb49f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  rarities:
+  - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
+  - {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}

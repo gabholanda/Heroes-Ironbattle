@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9128437707784266423}
   - component: {fileID: 9128437707784266417}
+  - component: {fileID: 2135468465}
   m_Layer: 0
   m_Name: Grid Manager
   m_TagString: MapManager
@@ -50,8 +51,10 @@ MonoBehaviour:
   player: {fileID: 6431199696723903610, guid: 91de32c705765f54fa0fbb1ed105b6ac, type: 3}
   enemies:
   - {fileID: 3906688315430537506, guid: f10a52b3ae6781e4887e6d728adb934b, type: 3}
+  - {fileID: 8093643435774689572, guid: 5229345229876bb419e4e89b615998da, type: 3}
   enemiesToSpawn:
   - {fileID: 3906688315430537506, guid: f10a52b3ae6781e4887e6d728adb934b, type: 3}
+  - {fileID: 8093643435774689572, guid: 5229345229876bb419e4e89b615998da, type: 3}
   availableMapItems:
   - {fileID: 11400000, guid: 003bc9e0d5217024491a23cf743da3ce, type: 2}
   floorTilemap: {fileID: 9128437707753171491}
@@ -60,7 +63,35 @@ MonoBehaviour:
   minSize: 300
   maxSize: 600
   astarPath: {fileID: 0}
-  enemyManager: {fileID: 0}
+  OnFinishGeneratingMap: {fileID: 11400000, guid: 7728029970d6500438a3df56ef9ac5a8,
+    type: 2}
+--- !u!114 &2135468465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9128437707784266422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8923f180a60069b4b8958e115c8d6d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 000b91204831dd44b90d0aca96f6fef2, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9128437707784266417}
+        m_MethodName: StartGeneratingMap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!19719996 &9128437709145073326
 TilemapCollider2D:
   m_ObjectHideFlags: 0

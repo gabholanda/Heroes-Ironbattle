@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2320585736354648421}
   - component: {fileID: 2320585736354648420}
   - component: {fileID: -2273860660385103818}
+  - component: {fileID: 3933157169811651467}
   m_Layer: 8
   m_Name: SlimeHeadbuttAbility
   m_TagString: Ability
@@ -51,10 +52,7 @@ MonoBehaviour:
   onHitParticles: {fileID: 0}
   listener: {fileID: 0}
   source: {fileID: 0}
-  effectList:
-  - {fileID: 11400000, guid: 42d452c981b1e744fb4d88cd18ca7e13, type: 2}
-  abilitiesToTriggerOnHit: []
-  onHitEvent: {fileID: 0}
+  OnHitEvent: {fileID: 0}
 --- !u!61 &2320585736354648420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -94,3 +92,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageReceiver: {fileID: 0}
+--- !u!114 &3933157169811651467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2320585736354648423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8923f180a60069b4b8958e115c8d6d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 0}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []

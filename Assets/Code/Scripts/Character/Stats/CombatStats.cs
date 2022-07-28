@@ -47,6 +47,14 @@ public class CombatStats : IStats<CombatStats>
         this.MoveSpeed -= b.MoveSpeed;
     }
 
+    public void SetStats(CombatStats b)
+    {
+        this.Strength = b.Strength;
+        this.Intelligence = b.Intelligence;
+        this.Dexterity = b.Dexterity;
+        this.MoveSpeed = b.MoveSpeed;
+    }
+
     public override string ToString()
     {
         return "Stremgth: " + Strength + "\n" +

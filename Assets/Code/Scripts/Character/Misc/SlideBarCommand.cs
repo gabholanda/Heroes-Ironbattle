@@ -13,7 +13,7 @@ public class SlideBarCommand : Command
 
     public void Execute(float value)
     {
-        oldNormalizedValue -= value / 5;
+        oldNormalizedValue -= value / 2;
         if (oldNormalizedValue <= normalizedValue)
         {
             SetImageFill(normalizedValue);

@@ -29,6 +29,7 @@ public class HealthRegenerator : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
+            float current = resources.CurrentHealth;
             if (resources.CurrentHealth < resources.MaxHealth)
             {
                 resources.CurrentHealth += resources.HealthRegen;
@@ -37,7 +38,7 @@ public class HealthRegenerator : MonoBehaviour
             {
                 resources.CurrentHealth = resources.MaxHealth;
             }
-            if (resources.MaxHealth != resources.CurrentHealth)
+            if (current != resources.CurrentHealth)
                 healthBar.UpdateBar(resources.CurrentHealth / resources.MaxHealth);
         }
     }

@@ -34,13 +34,6 @@ public class SlimeHeadbuttAbility : Ability
         return Mathf.Round(strength * scalingCoeficient);
     }
 
-    private Vector3 GetRandomForce()
-    {
-        float x = Random.Range(-1f, 1f);
-        float y = Random.Range(-1f, 1f);
-        return new Vector3(x, y, 0).normalized;
-    }
-
     private void Update()
     {
         if (caster != null)

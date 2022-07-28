@@ -61,7 +61,12 @@ public class DamageReceiver : MonoBehaviour
 
     protected bool IsDead()
     {
-        return resources.CurrentHealth < 0;
+        return resources.CurrentHealth <= 0;
+    }
+
+    public bool IsAlive()
+    {
+        return !IsDead();
     }
 
     protected virtual void DoDeathProcedures()
@@ -77,7 +82,7 @@ public class DamageReceiver : MonoBehaviour
 
     public DamageReceiver CheckDeath()
     {
-        if (IsDead())
+        if (IsDead() && !stateMachine.isDead)
         {
             DoDeathProcedures();
         }

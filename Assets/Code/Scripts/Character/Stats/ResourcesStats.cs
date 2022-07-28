@@ -69,6 +69,16 @@ public class ResourcesStats : IStats<ResourcesStats>
         this.HealthRegen -= other.HealthRegen;
     }
 
+    public void SetStats(ResourcesStats other)
+    {
+        this.MaxHealth = other.MaxHealth;
+        this.CurrentHealth = other.CurrentHealth;
+        this.MaxMana = other.MaxMana;
+        this.CurrentMana = this.MaxMana;
+        this.ManaRegen = other.ManaRegen;
+        this.HealthRegen = other.HealthRegen;
+    }
+
     public override string ToString()
     {
         return "CurrentHealth: " + CurrentHealth + "\n" +

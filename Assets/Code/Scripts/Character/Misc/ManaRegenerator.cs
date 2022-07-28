@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ManaRegenerator : MonoBehaviour
@@ -29,6 +28,7 @@ public class ManaRegenerator : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
+            float current = resources.CurrentMana;
             if (resources.CurrentMana < resources.MaxMana)
             {
                 resources.CurrentMana += resources.ManaRegen;
@@ -37,9 +37,8 @@ public class ManaRegenerator : MonoBehaviour
             {
                 resources.CurrentMana = resources.MaxMana;
             }
-            if (resources.MaxMana != resources.CurrentMana)
+            if (current != resources.CurrentMana)
                 manaBar.UpdateBar(resources.CurrentMana / resources.MaxMana);
-
         }
     }
 }

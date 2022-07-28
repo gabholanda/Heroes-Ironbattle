@@ -24,6 +24,12 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
+    public void FindAndSetEnemies()
+    {
+        FindAllEnemies()
+            .AddListeners();
+    }
+
     public MonsterManager FindAllEnemies()
     {
         totalSpawnedEnemies.AddRange(GameObject.FindGameObjectsWithTag("Monster"));

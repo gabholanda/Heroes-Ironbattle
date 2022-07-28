@@ -31,6 +31,12 @@ public class DefenseResistances : IStats<DefenseResistances>
         this.MagicResistance -= b.MagicResistance;
     }
 
+    public void SetStats(DefenseResistances b)
+    {
+        this.Defense = b.Defense;
+        this.MagicResistance = b.MagicResistance;
+    }
+
     public override string ToString()
     {
         return "Defense: " + Defense + "\n" +

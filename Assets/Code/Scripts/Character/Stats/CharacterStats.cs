@@ -9,13 +9,13 @@ public class CharacterStats
     public CharacterStats() { }
 
     [SerializeField]
-    public ResourcesStats resources;
+    public ResourcesStats resources = new ResourcesStats();
     [SerializeField]
-    public CombatStats combatStats;
+    public CombatStats combatStats = new CombatStats();
     [SerializeField]
-    public DefenseResistances defensesResistances;
+    public DefenseResistances defensesResistances = new DefenseResistances();
     [SerializeField]
-    public ElementalResistances elementalResistances;
+    public ElementalResistances elementalResistances = new ElementalResistances();
     [SerializeField]
     public Dictionary<ElementType, float> elementalAffinities = new Dictionary<ElementType, float>();
 
@@ -31,26 +31,22 @@ public class CharacterStats
 
     public void SetCombatStats(CharacterBaseStats baseStats)
     {
-        combatStats = new CombatStats();
-        combatStats.IncreaseStats(baseStats.stats.combatStats);
+        combatStats.SetStats(baseStats.stats.combatStats);
     }
 
     public void SetResourcesStats(CharacterBaseStats baseStats)
     {
-        resources = new ResourcesStats();
-        resources.IncreaseStats(baseStats.stats.resources);
+        resources.SetStats(baseStats.stats.resources);
     }
 
     public void SetDefensesResistances(CharacterBaseStats baseStats)
     {
-        defensesResistances = new DefenseResistances();
-        defensesResistances.IncreaseStats(baseStats.stats.defensesResistances);
+        defensesResistances.SetStats(baseStats.stats.defensesResistances);
     }
 
     public void SetElementalResistances(CharacterBaseStats baseStats)
     {
-        elementalResistances = new ElementalResistances();
-        elementalResistances.IncreaseStats(baseStats.stats.elementalResistances);
+        elementalResistances.SetStats(baseStats.stats.elementalResistances);
     }
 
     public void AddAffinities()

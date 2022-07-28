@@ -11,7 +11,7 @@ public class DamageDealer : MonoBehaviour
     {
         float totalDamage = damageFormula(ability);
         AbilityData abilityData = ability.handler.GetAbilityData();
-        if (damageReceiver)
+        if (damageReceiver && damageReceiver.IsAlive())
             damageReceiver
                 .CheckDeath()
                 .ReceiveDamage(totalDamage, abilityData, dealer)

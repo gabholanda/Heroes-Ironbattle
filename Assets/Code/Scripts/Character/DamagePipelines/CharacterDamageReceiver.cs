@@ -27,12 +27,13 @@ public class CharacterDamageReceiver : DamageReceiver
 
     protected override void DoDeathProcedures()
     {
+        sm.isDead = true;
+        sm.movement.enabled = false;
+        sm.stats.elementalAffinities.Clear();
         sm.RemoveState("Controls");
         sm.RemoveState("ClosedMenu");
         sm.animator.SetAnimation("Dying", false, true, true, false);
-        Destroy(sm.combat);
-        Destroy(sm.movement);
-        Destroy(this);
+        sm.OnPlayerDeath?.Raise();
     }
 
     private void UpdateUI()

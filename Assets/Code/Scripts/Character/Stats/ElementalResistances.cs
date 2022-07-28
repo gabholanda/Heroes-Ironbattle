@@ -50,6 +50,14 @@ public class ElementalResistances : IStats<ElementalResistances>
         this.Lightning -= b.Lightning;
     }
 
+    public void SetStats(ElementalResistances b)
+    {
+        this.Fire = b.Fire;
+        this.Ice = b.Ice;
+        this.Dark = b.Dark;
+        this.Lightning = b.Lightning;
+    }
+
     public override string ToString()
     {
         return "Fire: " + Fire + "\n" +

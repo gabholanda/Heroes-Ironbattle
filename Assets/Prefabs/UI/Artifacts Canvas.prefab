@@ -117,6 +117,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
   - {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
   - {fileID: 11400000, guid: e4b5c71620df6d449a062fbdc9191667, type: 2}
+  - {fileID: 11400000, guid: e6e122013942ecf41913d72c343741ec, type: 2}
   firstArtifactButton: {fileID: 2722008446705783421}
   firstArtifactBackground: {fileID: 9027887046087254733}
   firstArtifactText: {fileID: 7349393990363945749}

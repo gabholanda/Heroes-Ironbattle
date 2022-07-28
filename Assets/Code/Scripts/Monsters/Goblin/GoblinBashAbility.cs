@@ -19,8 +19,10 @@ public class GoblinBashAbility : Ability
 
     public void AdjustPosition()
     {
-        transform.position = caster.GetComponent<GoblinStateMachine>().HitPoint.position;
+        if (caster)
+            transform.position = caster.GetComponent<GoblinStateMachine>().HitPoint.position;
     }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player") && notHit)

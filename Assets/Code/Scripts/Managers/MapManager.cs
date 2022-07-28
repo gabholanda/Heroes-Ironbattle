@@ -13,7 +13,8 @@ public class MapManager : MonoBehaviour
     [SerializeField]
     MapGenerator mapGenerator;
     public GameObject player;
-    public List<GameObject> enemies;
+    [SerializeField]
+    private List<GameObject> enemies;
     public List<GameObject> enemiesToSpawn;
     public List<MapItems> availableMapItems;
     public Tilemap floorTilemap;
@@ -22,8 +23,7 @@ public class MapManager : MonoBehaviour
     public int minSize, maxSize;
     public AstarPath astarPath;
 
-    [SerializeField]
-    private MonsterManager enemyManager;
+    public GameEvent OnFinishGeneratingMap;
 
     private float wave;
     private void Awake()
@@ -32,19 +32,24 @@ public class MapManager : MonoBehaviour
         //StartCoroutine(Automap());
         StartGeneratingMap();
     }
+
+    public void Restart()
+    {
+        wave = 0;
+        StartGeneratingMap();
+    }
+
     public void StartGeneratingMap()
     {
         SetTilemaps()
         .PickGenerator()
         .GenerateMap()
         .SpawnPlayer()
-        .SetEnemiesToSpawn()
+        .ClearEnemies()
         .SpawnEnemies()
         .Pathfind();
 
-        enemyManager
-            .FindAllEnemies()
-            .AddListeners();
+        OnFinishGeneratingMap?.Raise();
 
         wave++;
 
@@ -114,10 +119,10 @@ public class MapManager : MonoBehaviour
         }
         return this;
     }
-    private MapManager SetEnemiesToSpawn()
+
+    public MapManager ClearEnemies()
     {
-        //enemiesToSpawn = enemies.FindAll(enemy => enemy.GetComponent<EnemyController>().type == mapGenerator.mapItems.type);
-        enemiesToSpawn = enemies.FindAll(enemy => enemy);
+        enemies.ForEach(e => Destroy(e));
         return this;
     }
 
@@ -126,7 +131,7 @@ public class MapManager : MonoBehaviour
         int enemiesQty = Random.Range(5, 15);
         for (int i = 0; i < enemiesQty; i++)
         {
-            Instantiate(GetRandomEnemy(), GetRandomEnemySpawnPoint(), Quaternion.identity);
+            enemies.Add(Instantiate(GetRandomEnemy(), GetRandomEnemySpawnPoint(), Quaternion.identity));
         }
         return this;
     }
