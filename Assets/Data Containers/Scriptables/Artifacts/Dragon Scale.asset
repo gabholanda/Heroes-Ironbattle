@@ -17,7 +17,10 @@ MonoBehaviour:
 
     +10% Fire Affinity
 
-    +2 Magic Resistance/Defense'
+    +2 Magic Resistance
+
+    +2
+    Armor'
   rarity: {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
   onApplyEvent:
     m_PersistentCalls:
@@ -53,14 +56,13 @@ MonoBehaviour:
       _maxHealth: 0
       _currentMana: 0
       _maxMana: 0
-      _regenRate: 0
+      _manaRegen: 0
+      _healthRegen: 0
     combatStats:
-      _strength: 0
-      _intelligence: 0
-      _dexterity: 0
+      _attackPower: 0
       _moveSpeed: 0
     defensesResistances:
-      _defense: 2
+      _armor: 2
       _magicResistance: 2
     elementalResistances:
       _fire: 20

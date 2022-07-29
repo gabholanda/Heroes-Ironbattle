@@ -21,12 +21,10 @@ MonoBehaviour:
       _manaRegen: 0
       _healthRegen: 0
     combatStats:
-      _strength: 5
-      _intelligence: 1
-      _dexterity: 1
+      _attackPower: 6
       _moveSpeed: 11
     defensesResistances:
-      _defense: 1
+      _armor: 1
       _magicResistance: 2
     elementalResistances:
       _fire: 5

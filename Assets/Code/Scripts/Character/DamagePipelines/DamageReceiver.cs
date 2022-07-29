@@ -6,7 +6,7 @@ public class DamageReceiver : MonoBehaviour
     protected GameObject popUpPrefab;
     protected StateMachine stateMachine;
     protected ResourcesStats resources;
-    protected DefenseResistances defensesResistances;
+    protected DefensiveStats defensesResistances;
     protected ElementalResistances elementalResistances;
     [SerializeField]
     protected GameEvent onHitEvent;
@@ -73,6 +73,8 @@ public class DamageReceiver : MonoBehaviour
     {
         stateMachine.isDead = true;
         stateMachine.ChangeState("Dying");
+        stateMachine.CancelInvoke();
+        stateMachine.StopAllCoroutines();
     }
 
     protected bool DamageIsBelowMinimum(float finalDamage)
@@ -109,7 +111,7 @@ public class DamageReceiver : MonoBehaviour
 
     private float MitigatePhysicalDamage(float damage, ElementType element)
     {
-        int physicalDefense = defensesResistances.Defense;
+        int physicalDefense = defensesResistances.Armor;
         float elementalResistance = 1f - GetElementResistance(element);
         damage -= physicalDefense * elementalResistance;
         return damage;

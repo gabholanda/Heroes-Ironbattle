@@ -5,16 +5,9 @@ using UnityEngine;
 public class GoblinBashAbility : Ability
 {
     private DamageDealer damageDealer;
-    private DamageFormula damageHandler;
-    private DamageResources dealerHandler;
-    private bool notHit;
     private void OnEnable()
     {
-        notHit = true;
         damageDealer = GetComponent<DamageDealer>();
-        damageHandler = GoblinBashFormula;
-        dealerHandler = DamageMethods.StandardDamageDealing;
-        Invoke(nameof(AdjustPosition), 0.1f);
     }
 
     public void AdjustPosition()
@@ -25,20 +18,19 @@ public class GoblinBashAbility : Ability
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Player") && notHit)
+        if (collider.gameObject.CompareTag("Player"))
         {
-            notHit = false;
             DamageReceiver receiver = collider.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
-            damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
+            damageDealer.DealDamage(this, caster);
             AfterHit(collider);
         }
     }
 
-    private float GoblinBashFormula(Ability ability)
+
+    public override void AfterSetup()
     {
-        int strength = caster.GetComponent<StateMachine>().stats.combatStats.Strength;
-        float scalingCoeficient = ability.handler.GetAbilityData().scalingCoeficient;
-        return Mathf.Round(strength * scalingCoeficient);
+        AdjustPosition();
     }
+
 }

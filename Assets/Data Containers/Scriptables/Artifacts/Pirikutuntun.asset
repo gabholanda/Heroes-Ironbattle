@@ -17,7 +17,7 @@ MonoBehaviour:
 
     +10 Mana
 
-    +3 Intelligence'
+    +3 Attack Power'
   rarity: {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
   onApplyEvent:
     m_PersistentCalls:
@@ -31,14 +31,13 @@ MonoBehaviour:
       _maxHealth: 20
       _currentMana: 10
       _maxMana: 10
-      _regenRate: 0
+      _manaRegen: 0
+      _healthRegen: 0
     combatStats:
-      _strength: 0
-      _intelligence: 3
-      _dexterity: 0
+      _attackPower: 3
       _moveSpeed: 0
     defensesResistances:
-      _defense: 0
+      _armor: 0
       _magicResistance: 0
     elementalResistances:
       _fire: 0

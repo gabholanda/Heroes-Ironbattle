@@ -4,15 +4,11 @@ public class MagmaBallAbility : Ability
 {
     ProjectileHandler newHandler;
     private DamageDealer damageDealer;
-    private DamageFormula damageHandler;
-    private DamageResources dealerHandler;
 
     private void OnEnable()
     {
         newHandler = (ProjectileHandler)handler;
         damageDealer = GetComponent<DamageDealer>();
-        damageHandler = MagmaBallFormula;
-        dealerHandler = DamageMethods.StandardDamageDealing;
         source = GetComponent<AudioSource>();
         source.clip = handler.GetAbilityData().onCastSound;
         source.Play();
@@ -29,7 +25,7 @@ public class MagmaBallAbility : Ability
         {
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
-            damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
+            damageDealer.DealDamage(this, caster);
             onHitParticles.Play();
             source.clip = handler.GetAbilityData().onHitSound;
             source.Play();
@@ -37,11 +33,4 @@ public class MagmaBallAbility : Ability
         }
     }
 
-    private float MagmaBallFormula(Ability ability)
-    {
-        CombatStats stats = caster.GetComponent<StateMachine>().stats.combatStats;
-        int attribute = Mathf.Max(stats.Dexterity, stats.Strength, stats.Intelligence);
-        float scalingCoeficient = ability.handler.GetAbilityData().scalingCoeficient;
-        return Mathf.Round(attribute * scalingCoeficient);
-    }
 }

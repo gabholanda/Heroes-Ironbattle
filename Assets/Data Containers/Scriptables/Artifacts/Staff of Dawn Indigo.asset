@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Staff of Dawn Indigo
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 726033b065368364083455d65f1a9229, type: 3}
-  description: +5 Intelligence
+  description: +5 Attack Power
   rarity: {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
   onApplyEvent:
     m_PersistentCalls:
@@ -27,14 +27,13 @@ MonoBehaviour:
       _maxHealth: 0
       _currentMana: 0
       _maxMana: 0
-      _regenRate: 0
+      _manaRegen: 0
+      _healthRegen: 0
     combatStats:
-      _strength: 0
-      _intelligence: 5
-      _dexterity: 0
+      _attackPower: 5
       _moveSpeed: 0
     defensesResistances:
-      _defense: 0
+      _armor: 0
       _magicResistance: 0
     elementalResistances:
       _fire: 0

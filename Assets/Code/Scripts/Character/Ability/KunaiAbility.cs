@@ -6,16 +6,12 @@ public class KunaiAbility : Ability
 {
     ProjectileHandler newHandler;
     private DamageDealer damageDealer;
-    private DamageFormula damageHandler;
-    private DamageResources dealerHandler;
     private Vector2 casterDir;
 
     private void OnEnable()
     {
         newHandler = (ProjectileHandler)handler;
         damageDealer = GetComponent<DamageDealer>();
-        damageHandler = KunaiFormula;
-        dealerHandler = DamageMethods.StandardDamageDealing;
         source = GetComponent<AudioSource>();
         source.clip = handler.GetAbilityData().onCastSound;
         source.Play();
@@ -32,20 +28,13 @@ public class KunaiAbility : Ability
         {
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
-            damageDealer.DealDamage(GetComponent<Ability>(), damageHandler, dealerHandler);
+            damageDealer.DealDamage(this, caster);
             source.clip = handler.GetAbilityData().onHitSound;
             source.Play();
             AfterHit(collider);
         }
     }
 
-    private float KunaiFormula(Ability ability)
-    {
-        CombatStats stats = caster.GetComponent<StateMachine>().stats.combatStats;
-        int attribute = Mathf.Max(stats.Dexterity, stats.Strength, stats.Intelligence);
-        float scalingCoeficient = ability.handler.GetAbilityData().scalingCoeficient;
-        return Mathf.Round(attribute * scalingCoeficient);
-    }
 
     public override void SetupAbility(GameObject caster)
     {

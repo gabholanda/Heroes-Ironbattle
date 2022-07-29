@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 5e3bf62c947350b40bf07f0f91994088, type: 3}
   description: '+40% Lightning Resistance
 
-    +2 Defense
+    +2 Armor
 
     +2 Magic Resistance'
   rarity: {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
@@ -34,12 +34,10 @@ MonoBehaviour:
       _manaRegen: 0
       _healthRegen: 0
     combatStats:
-      _strength: 0
-      _intelligence: 0
-      _dexterity: 0
+      _attackPower: 0
       _moveSpeed: 0
     defensesResistances:
-      _defense: 2
+      _armor: 2
       _magicResistance: 2
     elementalResistances:
       _fire: 0

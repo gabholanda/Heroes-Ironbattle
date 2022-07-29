@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 77a28944ae2230e429377fae771ac4b6, type: 3}
   description: '+2 Magic Resistance
 
-    +1 Defense
+    +1 Armor
 
     +5% All Elements Resistance'
   rarity: {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
@@ -34,12 +34,10 @@ MonoBehaviour:
       _manaRegen: 0
       _healthRegen: 0
     combatStats:
-      _strength: 0
-      _intelligence: 0
-      _dexterity: 0
+      _attackPower: 0
       _moveSpeed: 0
     defensesResistances:
-      _defense: 1
+      _armor: 1
       _magicResistance: 2
     elementalResistances:
       _fire: 5

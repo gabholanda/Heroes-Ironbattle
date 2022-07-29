@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: One Winged Angel's Wing
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 59c6cac3a359cf04fb00973cad4eddd3, type: 3}
-  description: '+5 All Stats
+  description: '+5 Attack Power
+
+    +5 Move Speed
 
     +50% Dark Affinity
 
-    Shoots Dark Slashes in
-    all directions every 7 seconds'
+    Shoots
+    Dark Slashes in all directions every 7 seconds'
   rarity: {fileID: 11400000, guid: e6e122013942ecf41913d72c343741ec, type: 2}
   onApplyEvent:
     m_PersistentCalls:
@@ -66,14 +68,13 @@ MonoBehaviour:
       _maxHealth: 0
       _currentMana: 0
       _maxMana: 0
-      _regenRate: 0
+      _manaRegen: 0
+      _healthRegen: 0
     combatStats:
-      _strength: 5
-      _intelligence: 5
-      _dexterity: 5
+      _attackPower: 5
       _moveSpeed: 5
     defensesResistances:
-      _defense: 0
+      _armor: 0
       _magicResistance: 0
     elementalResistances:
       _fire: 0

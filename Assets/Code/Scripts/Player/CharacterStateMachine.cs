@@ -54,7 +54,7 @@ public class CharacterStateMachine : StateMachine
 
     private ManaRegenerator manaRegenerator;
     private HealthRegenerator healthRegenerator;
-    private void OnEnable()
+    private void Awake()
     {
         InitializeStates();
         InitializeCharacter();
@@ -90,6 +90,7 @@ public class CharacterStateMachine : StateMachine
         StartInitialStates();
         InitializeEvents();
         healthBar.UpdateBar(stats.resources.CurrentHealth / stats.resources.MaxHealth);
+        manaBar.UpdateBar(stats.resources.CurrentMana / stats.resources.MaxMana);
     }
 
     public void OpenSettings()

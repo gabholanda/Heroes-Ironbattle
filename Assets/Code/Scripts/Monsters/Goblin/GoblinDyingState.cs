@@ -26,7 +26,6 @@ public class GoblinDyingState : BaseState
 
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
         changeStateTimer += Time.deltaTime;
         if (changeStateTimer > changeStateTimerDur)
         {

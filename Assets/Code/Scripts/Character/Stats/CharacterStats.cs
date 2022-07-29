@@ -13,7 +13,7 @@ public class CharacterStats
     [SerializeField]
     public CombatStats combatStats = new CombatStats();
     [SerializeField]
-    public DefenseResistances defensesResistances = new DefenseResistances();
+    public DefensiveStats defensesResistances = new DefensiveStats();
     [SerializeField]
     public ElementalResistances elementalResistances = new ElementalResistances();
     [SerializeField]
@@ -60,7 +60,7 @@ public class CharacterStats
 
     internal void Deconstruct(
         out ResourcesStats resources,
-        out DefenseResistances defenses,
+        out DefensiveStats defenses,
         out ElementalResistances elementalResistances)
     {
         resources = this.resources;

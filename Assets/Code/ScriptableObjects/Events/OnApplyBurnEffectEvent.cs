@@ -48,8 +48,7 @@ public class OnApplyBurnEffectEvent : OnAbilityHitEvent
         burn.element = element;
         burn.type = damageType;
         burn.duration = duration * characterElementalScalingAffinity;
-        int intelligence = stats.combatStats.Intelligence;
-        burn.effectValue = Mathf.Round(intelligence * scalingCoeficient * characterElementalScalingAffinity);
+        burn.effectValue = Mathf.Round(stats.combatStats.AttackPower * scalingCoeficient * characterElementalScalingAffinity);
         burn.Apply();
     }
 

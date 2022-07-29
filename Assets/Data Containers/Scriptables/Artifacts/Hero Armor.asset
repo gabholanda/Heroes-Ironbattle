@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 76e060254d205094783424a6a6f58d48, type: 3}
   description: '+30% All Elements Resistance
 
-    +100 Health
+    +25 Health
 
     +10 Mana
 
@@ -41,20 +41,18 @@ MonoBehaviour:
       m_Calls: []
   stats:
     resources:
-      _currentHealth: 100
-      _maxHealth: 100
+      _currentHealth: 25
+      _maxHealth: 25
       _currentMana: 10
       _maxMana: 10
       _manaRegen: 0
       _healthRegen: 0
     combatStats:
-      _strength: 1
-      _intelligence: 1
-      _dexterity: 1
+      _attackPower: 1
       _moveSpeed: 1
     defensesResistances:
-      _defense: 0
-      _magicResistance: 0
+      _armor: 1
+      _magicResistance: 1
     elementalResistances:
       _fire: 30
       _ice: 30

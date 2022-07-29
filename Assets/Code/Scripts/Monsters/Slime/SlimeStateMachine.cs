@@ -40,7 +40,7 @@ public class SlimeStateMachine : StateMachine
         InstantiateDefaultStates();
         AddDefaultStates();
         currentState = GetInitialState();
-        Invoke("EnterInitialState", 0.5f);
+        Invoke(nameof(EnterInitialState), 0.5f);
     }
 
     private void EnterInitialState()

@@ -4,27 +4,15 @@ using UnityEngine;
 public class CombatStats : IStats<CombatStats>
 {
     public CombatStats() { }
-    public CombatStats(int strength, int intelligence, int dexterity, float moveSpeed)
+    public CombatStats(int attackPower, float moveSpeed)
     {
-        Strength = strength;
-        Intelligence = intelligence;
-        Dexterity = dexterity;
+        AttackPower = attackPower;
         MoveSpeed = moveSpeed;
     }
     [SerializeField]
     [Min(0)]
-    private int _strength;
-    public int Strength { get { return _strength; } set { _strength = value; } }
-
-    [SerializeField]
-    [Min(0)]
-    private int _intelligence;
-    public int Intelligence { get { return _intelligence; } set { _intelligence = value; } }
-
-    [SerializeField]
-    [Min(0)]
-    private int _dexterity;
-    public int Dexterity { get { return _dexterity; } set { _dexterity = value; } }
+    private int _attackPower;
+    public int AttackPower { get { return _attackPower; } set { _attackPower = value; } }
 
     [SerializeField]
     [Min(0)]
@@ -33,33 +21,25 @@ public class CombatStats : IStats<CombatStats>
 
     public void IncreaseStats(CombatStats b)
     {
-        this.Strength += b.Strength;
-        this.Intelligence += b.Intelligence;
-        this.Dexterity += b.Dexterity;
+        this.AttackPower += b.AttackPower;
         this.MoveSpeed += b.MoveSpeed;
     }
 
     public void DecreaseStats(CombatStats b)
     {
-        this.Strength -= b.Strength;
-        this.Intelligence -= b.Intelligence;
-        this.Dexterity -= b.Dexterity;
+        this.AttackPower -= b.AttackPower;
         this.MoveSpeed -= b.MoveSpeed;
     }
 
     public void SetStats(CombatStats b)
     {
-        this.Strength = b.Strength;
-        this.Intelligence = b.Intelligence;
-        this.Dexterity = b.Dexterity;
+        this.AttackPower = b.AttackPower;
         this.MoveSpeed = b.MoveSpeed;
     }
 
     public override string ToString()
     {
-        return "Stremgth: " + Strength + "\n" +
-            "Ingelligence: " + Intelligence + "\n" +
-            "Dexterity: " + Dexterity + "\n" +
+        return "AttackPower: " + AttackPower + "\n" +
             "MoveSpeed: " + MoveSpeed + "\n";
     }
 }

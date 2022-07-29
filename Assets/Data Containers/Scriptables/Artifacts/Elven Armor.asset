@@ -17,7 +17,7 @@ MonoBehaviour:
 
     +7 Health Regeneration
 
-    +4 Defense
+    +4 Armor
 
     +2 Magic
     Resistance
@@ -52,12 +52,10 @@ MonoBehaviour:
       _manaRegen: 0
       _healthRegen: 7
     combatStats:
-      _strength: 0
-      _intelligence: 0
-      _dexterity: 0
+      _attackPower: 0
       _moveSpeed: 0
     defensesResistances:
-      _defense: 4
+      _armor: 4
       _magicResistance: 2
     elementalResistances:
       _fire: 10

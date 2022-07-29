@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Frost Dagger
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: c72fa10c86e16654e94c2dec7044ad94, type: 3}
-  description: '+4 Dexterity
+  description: '+2 Attack Power
+
+    +1 Move Speed
 
     +20% Ice Affinity'
   rarity: {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
@@ -54,12 +56,10 @@ MonoBehaviour:
       _manaRegen: 0
       _healthRegen: 0
     combatStats:
-      _strength: 0
-      _intelligence: 0
-      _dexterity: 4
-      _moveSpeed: 0
+      _attackPower: 2
+      _moveSpeed: 1
     defensesResistances:
-      _defense: 0
+      _armor: 0
       _magicResistance: 0
     elementalResistances:
       _fire: 0
