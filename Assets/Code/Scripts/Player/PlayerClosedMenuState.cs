@@ -27,7 +27,7 @@ public class PlayerClosedMenuState : BaseState
 
     private void OnMenuOpen(InputAction.CallbackContext obj)
     {
-        _sm.OpenSettings();
+        _sm.OnOpenMenu.Raise();
         _sm.RemoveState("ClosedMenu");
         _sm.AddState(_sm.openMenuState);
         _sm.openMenuState.Enter();

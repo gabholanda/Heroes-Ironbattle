@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+using System.Collections.Generic;
 public class DamageReceiver : MonoBehaviour
 {
     [SerializeField]
@@ -7,7 +8,7 @@ public class DamageReceiver : MonoBehaviour
     protected StateMachine stateMachine;
     protected ResourcesStats resources;
     protected DefensiveStats defensesResistances;
-    protected ElementalResistances elementalResistances;
+    protected Dictionary<string, Element> elements;
     [SerializeField]
     protected GameEvent onHitEvent;
 
@@ -17,7 +18,7 @@ public class DamageReceiver : MonoBehaviour
     protected virtual void Start()
     {
         stateMachine = GetComponent<StateMachine>();
-        (resources, defensesResistances, elementalResistances) = stateMachine.stats;
+        (resources, defensesResistances, elements) = stateMachine.stats;
     }
 
     public virtual DamageReceiver ReceiveDamage(float damage, AbilityData abilityData, DamageResources damageResources)
@@ -29,7 +30,7 @@ public class DamageReceiver : MonoBehaviour
         return this;
     }
 
-    public virtual DamageReceiver ReceiveDamage(float damage, DamageType type, ElementType element, DamageResources damageResources)
+    public virtual DamageReceiver ReceiveDamage(float damage, DamageType type, Element element, DamageResources damageResources)
     {
         int finalDamage = MitigateDamage(damage, type, element);
         SetMinimumDamage(ref finalDamage);
@@ -43,7 +44,7 @@ public class DamageReceiver : MonoBehaviour
         if (DamageIsBelowMinimum(finalDamage)) finalDamage = 1;
     }
 
-    public int MitigateDamage(float damage, DamageType type, ElementType element)
+    public int MitigateDamage(float damage, DamageType type, Element element)
     {
         if (type == DamageType.Magical)
         {
@@ -92,13 +93,13 @@ public class DamageReceiver : MonoBehaviour
     }
     public DamageReceiver TriggerEvent()
     {
-        onHitEvent.Raise();
+        onHitEvent?.Raise();
         return this;
     }
 
     public DamageReceiver PlaySound()
     {
-        onHitSource.Play();
+        onHitSource?.Play();
         return this;
     }
 
@@ -109,43 +110,26 @@ public class DamageReceiver : MonoBehaviour
     }
 
 
-    private float MitigatePhysicalDamage(float damage, ElementType element)
+    private float MitigatePhysicalDamage(float damage, Element element)
     {
         int physicalDefense = defensesResistances.Armor;
-        float elementalResistance = 1f - GetElementResistance(element);
-        damage -= physicalDefense * elementalResistance;
+        float elementalResistance = 1f - element.resistance;
+        damage = (damage - physicalDefense) * elementalResistance;
         return damage;
     }
 
-    private float MitigateMagicDamage(float damage, ElementType element)
+    private float MitigateMagicDamage(float damage, Element element)
     {
         int magicResistance = defensesResistances.MagicResistance;
-        float elementalResistance = 1f - GetElementResistance(element);
-        damage -= (magicResistance) * elementalResistance;
+        float elementalResistance = 1f - element.resistance;
+        damage = (damage - magicResistance) * elementalResistance;
         return damage;
     }
 
-    private float MitigateTrueDamage(float damage, ElementType element)
+    private float MitigateTrueDamage(float damage, Element element)
     {
-        float elementalResistance = 1f - GetElementResistance(element);
+        float elementalResistance = 1f - element.resistance;
         damage *= elementalResistance;
         return damage;
-    }
-
-    private float GetElementResistance(ElementType element)
-    {
-        switch (element)
-        {
-            case ElementType.Fire:
-                return elementalResistances.Fire / 100;
-            case ElementType.Ice:
-                return elementalResistances.Ice / 100;
-            case ElementType.Dark:
-                return elementalResistances.Dark / 100;
-            case ElementType.Lightning:
-                return elementalResistances.Lightning / 100;
-            default:
-                return 0f;
-        }
     }
 }

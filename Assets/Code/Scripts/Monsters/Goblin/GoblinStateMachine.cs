@@ -5,17 +5,17 @@ using UnityEngine;
 public class GoblinStateMachine : StateMachine
 {
     [HideInInspector]
-    public GoblinIdleState idleState;
+    public StandardIdleState idleState;
     [HideInInspector]
-    public GoblinPatrollingState patrollingState;
+    public StandardPatrollingState patrollingState;
     [HideInInspector]
-    public GoblinChasingState chasingState;
+    public StandardChasingState chasingState;
     [HideInInspector]
-    public GoblinAttackState attackState;
+    public StandardAttackState attackState;
     [HideInInspector]
-    public GoblinDyingState dyingState;
+    public StandardDyingState dyingState;
     [HideInInspector]
-    public GoblinDeadState deadState;
+    public StandardDeadState deadState;
 
     public MonsterActions actions;
 
@@ -45,12 +45,12 @@ public class GoblinStateMachine : StateMachine
 
     private void InstantiateDefaultStates()
     {
-        idleState = new GoblinIdleState(this);
-        patrollingState = new GoblinPatrollingState(this);
-        chasingState = new GoblinChasingState(this);
-        attackState = new GoblinAttackState(this);
-        dyingState = new GoblinDyingState(this);
-        deadState = new GoblinDeadState(this);
+        idleState = new StandardIdleState(this);
+        patrollingState = new StandardPatrollingState(this);
+        chasingState = new StandardChasingState(this);
+        attackState = new StandardAttackState(this);
+        dyingState = new StandardDyingState(this);
+        deadState = new StandardDeadState(this);
     }
 
     private void AddDefaultStates()

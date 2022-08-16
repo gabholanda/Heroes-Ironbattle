@@ -39,7 +39,7 @@ public class DefensiveStats : IStats<DefensiveStats>
 
     public override string ToString()
     {
-        return "Armor: " + Armor + "\n" +
-            "MagicResistance: " + MagicResistance + "\n";
+        return "<sprite name=Armor> " + Armor + "\n" +
+            "<sprite name=Magic Resistance> " + MagicResistance + "\n";
     }
 }

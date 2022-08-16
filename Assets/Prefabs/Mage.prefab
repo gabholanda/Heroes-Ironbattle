@@ -10070,18 +10070,18 @@ MonoBehaviour:
       _manaRegen: 0
       _healthRegen: 0
     combatStats:
-      _strength: 0
-      _intelligence: 0
-      _dexterity: 0
+      _attackPower: 0
       _moveSpeed: 0
     defensesResistances:
-      _defense: 0
+      _armor: 0
       _magicResistance: 0
-    elementalResistances:
-      _fire: 0
-      _ice: 0
-      _dark: 0
-      _lightning: 0
+    elementsToAdd:
+    - {fileID: 11400000, guid: cea281fde581a654eaa33b3a6d788619, type: 2}
+    - {fileID: 11400000, guid: 82c5f97ba73ff8f4f81d27fe56b95dee, type: 2}
+    - {fileID: 11400000, guid: fa7792712c58aa449b5890e3854b8363, type: 2}
+    - {fileID: 11400000, guid: 25433ba3876fa984d93947582ef4cec7, type: 2}
+    - {fileID: 11400000, guid: 654bb8969a6bf6940b4d5eaea5efb25e, type: 2}
+    resistances: []
   isDead: 0
   eventManager: {fileID: 0}
   movement: {fileID: 0}
@@ -10092,6 +10092,14 @@ MonoBehaviour:
   OnFinishSetupCharacter: {fileID: 11400000, guid: 37bfbca2749467342baf51094259d92e,
     type: 2}
   OnPlayerDeath: {fileID: 11400000, guid: 5061cad342e8e3544b0f748ba3b4aed7, type: 2}
+  OnOpenMenu: {fileID: 11400000, guid: 019d6f5701089f4419e3f8132f158b0e, type: 2}
+  OnCloseMenu: {fileID: 11400000, guid: 29fd7831c87494748ad1e92d4162c02d, type: 2}
+  OnOpenStatsTab: {fileID: 11400000, guid: 88f5c5f5663febd4ea57266ad8bc663f, type: 2}
+  OnCloseStatsTab: {fileID: 11400000, guid: c1e81efb414215542b11acd62dd2d966, type: 2}
+  CharacterEvents:
+  - {fileID: 11400000, guid: cbfb14f9d8574cf4d981393ed7ef22ea, type: 2}
+  - {fileID: 11400000, guid: 448dcab6c6b5d2f45b93f79c2f6687c0, type: 2}
+  - {fileID: 11400000, guid: 627341ed8d25fc34ca77d1b62e345192, type: 2}
   rarities:
   - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
   - {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}

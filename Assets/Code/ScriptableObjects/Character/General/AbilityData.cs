@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using ScriptableObjectDropdown;
 
 [CreateAssetMenu(fileName = "New Ability", menuName = "ScriptableObjects/Ability/New Ability")]
 public class AbilityData : ScriptableObject
@@ -12,7 +13,7 @@ public class AbilityData : ScriptableObject
     public string description;
 
     [Header("Battle Data")]
-    public ElementType element;
+    [ScriptableObjectDropdown(grouping = ScriptableObjectGrouping.ByFolderFlat)] public Element element;
     public DamageType type;
     public float manaCost;
     public float cooldownDuration;

@@ -64,22 +64,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et luctus
-    leo. Ut sit amet pulvinar risus. Phasellus at facilisis leo. Sed ultricies purus
-    vitae quam imperdiet, ut volutpat quam luctus. Suspendisse gravida metus sit
-    amet tempus mollis. Sed porta efficitur elit, sit amet luctus elit imperdiet
-    a. Proin in.
+  m_text: '+5 <sprite name=Mana>Regeneration
+
+    +5 <sprite name=AttackPower>
+
+    Casts
+    a Mana Blast around the wielder every 5 seconds.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e196cdd0859ea79469be7ba5e129619c, type: 2}
-  m_sharedMaterial: {fileID: -7450995108722110257, guid: e196cdd0859ea79469be7ba5e129619c,
+  m_fontAsset: {fileID: 11400000, guid: 365e7d174a0582242951ab634b250d1d, type: 2}
+  m_sharedMaterial: {fileID: -5177623425339032347, guid: 365e7d174a0582242951ab634b250d1d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279440147
+  m_fontColor: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -88,7 +89,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: c87a0f4103064104bbed0ec4d505155d, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -96,10 +97,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.75
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 10, y: 0, z: 10, w: 0}
+  m_margin: {x: 10, y: 4.644684, z: 10, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -397,16 +398,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hand Of Fire
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e196cdd0859ea79469be7ba5e129619c, type: 2}
-  m_sharedMaterial: {fileID: -7450995108722110257, guid: e196cdd0859ea79469be7ba5e129619c,
+  m_fontAsset: {fileID: 11400000, guid: 365e7d174a0582242951ab634b250d1d, type: 2}
+  m_sharedMaterial: {fileID: -5177623425339032347, guid: 365e7d174a0582242951ab634b250d1d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279505940
+  m_fontColor: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -423,7 +424,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.8
+  m_fontSize: 23.15
   m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 1

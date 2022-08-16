@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d57a2675400f547b7c5c5300c6a77d, type: 3}
+  m_Name: Elven Armor
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 43dc15919d864384a8b4c5cc1a4137f4, type: 3}
+  description: '+30 <sprite name=Health>
+
+    +7 <sprite name=Health> Regeneration
+
+    +4
+    <sprite name=Armor>
+
+    +2 <sprite name=Magic Resistance>
+
+    +10% <sprite
+    name=Fire Resistance><sprite name=Ice Resistance><sprite name=Dark Resistance><sprite
+    name=Lightning Resistance>
+
+'
+  rarity: {fileID: 11400000, guid: e6e122013942ecf41913d72c343741ec, type: 2}
+  onApplyEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a2af88950eb13fa4dae23c79c7c598c9, type: 2}
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 00780fe26c2b3b54688ce2ed72907c95, type: 2}
+        m_MethodName: IncreaseAffinity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ac59718f0ac7f8341a3cec81a24e7297, type: 2}
+        m_MethodName: IncreaseAffinity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 512f1f83893baf94687009b86a23d68b, type: 2}
+        m_MethodName: IncreaseAffinity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: fdeacc44ab4fc8f448e1851b79a505cd, type: 2}
+        m_MethodName: IncreaseAffinity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onUnapplyEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 00780fe26c2b3b54688ce2ed72907c95, type: 2}
+        m_MethodName: DecreaseAffinity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ac59718f0ac7f8341a3cec81a24e7297, type: 2}
+        m_MethodName: DecreaseAffinity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 512f1f83893baf94687009b86a23d68b, type: 2}
+        m_MethodName: DecreaseAffinity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: fdeacc44ab4fc8f448e1851b79a505cd, type: 2}
+        m_MethodName: DecreaseAffinity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onStatsChangeEnd: {fileID: 11400000, guid: 5bebc078b1120f84eae2442e77400eb5, type: 2}
+  stats:
+    resources:
+      _currentHealth: 30
+      _maxHealth: 30
+      _currentMana: 0
+      _maxMana: 0
+      _manaRegen: 0
+      _healthRegen: 7
+    combatStats:
+      _attackPower: 0
+      _moveSpeed: 0
+    defensesResistances:
+      _armor: 4
+      _magicResistance: 2
+    elementsToAdd: []
+    resistances: []

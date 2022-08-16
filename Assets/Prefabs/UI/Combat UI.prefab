@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 8064820252113293343}
+  afterUpdateEvent: {fileID: 11400000, guid: 627341ed8d25fc34ca77d1b62e345192, type: 2}
 --- !u!1 &8064820252230342881
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 8064820253023848894}
+  afterUpdateEvent: {fileID: 11400000, guid: cbfb14f9d8574cf4d981393ed7ef22ea, type: 2}
 --- !u!1 &8064820253047676446
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +636,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &8064820253047676440
 MonoBehaviour:
@@ -682,6 +684,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8064820252230342880}
     m_Modifications:
+    - target: {fileID: 1316503649899856856, guid: 1548f791dbda5fb47ab6a4d935e09533,
+        type: 3}
+      propertyPath: m_text
+      value: R
+      objectReference: {fileID: 0}
     - target: {fileID: 7119111109991672708, guid: 1548f791dbda5fb47ab6a4d935e09533,
         type: 3}
       propertyPath: m_Pivot.x
@@ -792,6 +799,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RSkill
       objectReference: {fileID: 0}
+    - target: {fileID: 7119111109991672715, guid: 1548f791dbda5fb47ab6a4d935e09533,
+        type: 3}
+      propertyPath: m_TagString
+      value: RSkill
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1548f791dbda5fb47ab6a4d935e09533, type: 3}
 --- !u!224 &9211619751571730370 stripped
@@ -807,6 +819,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8064820252230342880}
     m_Modifications:
+    - target: {fileID: 1316503649899856856, guid: 1548f791dbda5fb47ab6a4d935e09533,
+        type: 3}
+      propertyPath: m_text
+      value: Q
+      objectReference: {fileID: 0}
     - target: {fileID: 7119111109991672708, guid: 1548f791dbda5fb47ab6a4d935e09533,
         type: 3}
       propertyPath: m_Pivot.x
@@ -917,6 +934,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: QSkill
       objectReference: {fileID: 0}
+    - target: {fileID: 7119111109991672715, guid: 1548f791dbda5fb47ab6a4d935e09533,
+        type: 3}
+      propertyPath: m_TagString
+      value: QSkill
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1548f791dbda5fb47ab6a4d935e09533, type: 3}
 --- !u!224 &2893331762818568028 stripped
@@ -932,6 +954,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8064820252230342880}
     m_Modifications:
+    - target: {fileID: 1316503649899856856, guid: 1548f791dbda5fb47ab6a4d935e09533,
+        type: 3}
+      propertyPath: m_text
+      value: E
+      objectReference: {fileID: 0}
     - target: {fileID: 7119111109991672708, guid: 1548f791dbda5fb47ab6a4d935e09533,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1040,6 +1067,11 @@ PrefabInstance:
     - target: {fileID: 7119111109991672715, guid: 1548f791dbda5fb47ab6a4d935e09533,
         type: 3}
       propertyPath: m_Name
+      value: ESkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119111109991672715, guid: 1548f791dbda5fb47ab6a4d935e09533,
+        type: 3}
+      propertyPath: m_TagString
       value: ESkill
       objectReference: {fileID: 0}
     m_RemovedComponents: []

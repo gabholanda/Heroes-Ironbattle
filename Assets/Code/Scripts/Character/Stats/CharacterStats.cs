@@ -14,19 +14,19 @@ public class CharacterStats
     public CombatStats combatStats = new CombatStats();
     [SerializeField]
     public DefensiveStats defensesResistances = new DefensiveStats();
-    [SerializeField]
-    public ElementalResistances elementalResistances = new ElementalResistances();
-    [SerializeField]
-    public Dictionary<ElementType, float> elementalAffinities = new Dictionary<ElementType, float>();
 
+    [SerializeField]
+    public Dictionary<string, Element> elements = new Dictionary<string, Element>();
+    public List<Element> elementsToAdd;
+    public List<ResistanceAdjuster> resistances;
 
     public void SetCharacterStats(CharacterBaseStats baseStats)
     {
         SetCombatStats(baseStats);
         SetResourcesStats(baseStats);
         SetDefensesResistances(baseStats);
-        SetElementalResistances(baseStats);
-        AddAffinities();
+        SetElements(baseStats);
+        SetResistanceAdjuster(baseStats);
     }
 
     public void SetCombatStats(CharacterBaseStats baseStats)
@@ -44,28 +44,33 @@ public class CharacterStats
         defensesResistances.SetStats(baseStats.stats.defensesResistances);
     }
 
-    public void SetElementalResistances(CharacterBaseStats baseStats)
+    public void SetElements(CharacterBaseStats baseStats)
     {
-        elementalResistances.SetStats(baseStats.stats.elementalResistances);
+
+        baseStats.stats.elementsToAdd.ForEach(element =>
+        {
+            Element newElement = ScriptableObject.Instantiate(element);
+            newElement.name = element.name;
+            elements.Add(element.name, newElement);
+        });
     }
 
-    public void AddAffinities()
+    public void SetResistanceAdjuster(CharacterBaseStats baseStats)
     {
-        elementalAffinities.Add(ElementType.Fire, 1);
-        elementalAffinities.Add(ElementType.Ice, 1);
-        elementalAffinities.Add(ElementType.Dark, 1);
-        elementalAffinities.Add(ElementType.Lightning, 1);
-        elementalAffinities.Add(ElementType.Neutral, 1);
+        baseStats.stats.resistances.ForEach(resistance =>
+        {
+            elements[resistance.element.name].resistance += resistance.value;
+        });
     }
 
     internal void Deconstruct(
         out ResourcesStats resources,
         out DefensiveStats defenses,
-        out ElementalResistances elementalResistances)
+        out Dictionary<string, Element> elementalResistances)
     {
         resources = this.resources;
         defenses = this.defensesResistances;
-        elementalResistances = this.elementalResistances;
+        elementalResistances = this.elements;
     }
 
     public override string ToString()
@@ -74,6 +79,6 @@ public class CharacterStats
         return resources.ToString() + "\n" +
             combatStats.ToString() + "\n" +
             defensesResistances.ToString() + "\n" +
-            elementalResistances.ToString() + "\n";
+            elements.ToString() + "\n";
     }
 }

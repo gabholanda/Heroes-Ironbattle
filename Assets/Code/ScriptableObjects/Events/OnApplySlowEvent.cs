@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ScriptableObjectDropdown;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "OnApplySlowEvent", menuName = "ScriptableObjects/Events/New Slow Event")]
 public class OnApplySlowEvent : OnAbilityHitEvent
@@ -7,7 +8,7 @@ public class OnApplySlowEvent : OnAbilityHitEvent
     [Range(0f, 1f)]
     public float scalingCoeficient;
     public float duration;
-    public ElementType element;
+    [ScriptableObjectDropdown(grouping = ScriptableObjectGrouping.ByFolderFlat)] public Element element;
     public DamageType damageType;
 
     private void SetStatusEffect(GameObject target)
@@ -18,7 +19,7 @@ public class OnApplySlowEvent : OnAbilityHitEvent
             GameObject slowObj = Instantiate(effectPrefab, target.transform);
             slow = slowObj.GetComponent<Slow>();
             slow.target = target;
-            slow.element = ElementType.Ice;
+            slow.element = ScriptableObject.Instantiate(element);
             slow.type = DamageType.Magical;
             slow.duration = 10f;
             slow.effectValue = scalingCoeficient;

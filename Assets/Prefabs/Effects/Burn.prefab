@@ -51,7 +51,7 @@ MonoBehaviour:
   timeCheck: 0.3
   effectValue: 0
   current: 0
-  element: 0
+  element: {fileID: 11400000, guid: cea281fde581a654eaa33b3a6d788619, type: 2}
   type: 1
   target: {fileID: 0}
 --- !u!198 &1930644112

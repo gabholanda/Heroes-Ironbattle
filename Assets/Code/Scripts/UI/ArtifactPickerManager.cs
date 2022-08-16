@@ -122,14 +122,20 @@ public class ArtifactPickerManager : MonoBehaviour
 
     private void SetChoice(Artifact artifact)
     {
+
+        player.GetComponent<InventoryManager>().inventory.Add(new ArtifactInventoryItem(artifact));
+        DeactivateCanvas();
+        OnSelectEvent.Raise();
+    }
+
+    public void DeactivateCanvas()
+    {
         firstArtifactButton.interactable = false;
         secondArtifactButton.interactable = false;
         thirdArtifactButton.interactable = false;
         firstArtifactButton.onClick.RemoveAllListeners();
         secondArtifactButton.onClick.RemoveAllListeners();
         thirdArtifactButton.onClick.RemoveAllListeners();
-        player.GetComponent<InventoryManager>().inventory.Add(new ArtifactInventoryItem(artifact));
-        OnSelectEvent.Raise();
         gameObject.SetActive(false);
     }
 }

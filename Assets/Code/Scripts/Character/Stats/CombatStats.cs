@@ -39,7 +39,7 @@ public class CombatStats : IStats<CombatStats>
 
     public override string ToString()
     {
-        return "AttackPower: " + AttackPower + "\n" +
-            "MoveSpeed: " + MoveSpeed + "\n";
+        return "<sprite name=AttackPower> " + AttackPower + "\n" +
+            "<sprite name=Speed> " + MoveSpeed + "\n";
     }
 }

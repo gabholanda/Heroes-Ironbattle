@@ -454,14 +454,13 @@ MonoBehaviour:
       _maxHealth: 0
       _currentMana: 0
       _maxMana: 0
-      _regenRate: 0
+      _manaRegen: 0
+      _healthRegen: 0
     combatStats:
-      _strength: 0
-      _intelligence: 0
-      _dexterity: 0
+      _attackPower: 0
       _moveSpeed: 0
     defensesResistances:
-      _defense: 0
+      _armor: 0
       _magicResistance: 0
     elementalResistances:
       _fire: 0

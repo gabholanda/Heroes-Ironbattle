@@ -103,7 +103,17 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
-    private void CloseWindow()
+    public void OpenWindow()
+    {
+        int children = transform.childCount;
+
+        for (int i = 0; i < children; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+    }
+
+    public void CloseWindow()
     {
         int children = transform.childCount;
 

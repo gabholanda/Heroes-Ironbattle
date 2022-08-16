@@ -9,6 +9,11 @@ public class CharacterStateMachine : StateMachine
     public PlayerClosedMenuState closedMenuState;
     [HideInInspector]
     public PlayerOpenMenuState openMenuState;
+    [HideInInspector]
+    public PlayerCloseStatsTabState closedTabState;
+    [HideInInspector]
+    public PlayerOpenStatsTabState openTabState;
+
 
     [HideInInspector]
     public CharacterEvent eventManager;
@@ -26,7 +31,11 @@ public class CharacterStateMachine : StateMachine
     [Header("Events")]
     public GameEvent OnFinishSetupCharacter;
     public GameEvent OnPlayerDeath;
-
+    public GameEvent OnOpenMenu;
+    public GameEvent OnCloseMenu;
+    public GameEvent OnOpenStatsTab;
+    public GameEvent OnCloseStatsTab;
+    public List<GameEvent> CharacterEvents;
     [SerializeField]
     private List<Rarity> rarities;
 
@@ -93,15 +102,6 @@ public class CharacterStateMachine : StateMachine
         manaBar.UpdateBar(stats.resources.CurrentMana / stats.resources.MaxMana);
     }
 
-    public void OpenSettings()
-    {
-        int children = menu.transform.childCount;
-        for (int i = 0; i < children; i++)
-        {
-            menu.transform.GetChild(i).gameObject.SetActive(true);
-        }
-    }
-
     public void CloseSettings()
     {
         int children = menu.transform.childCount;
@@ -117,11 +117,14 @@ public class CharacterStateMachine : StateMachine
         controlsState = new PlayerControlsState(this);
         closedMenuState = new PlayerClosedMenuState(this);
         openMenuState = new PlayerOpenMenuState(this);
+        openTabState = new PlayerOpenStatsTabState(this);
+        closedTabState = new PlayerCloseStatsTabState(this);
     }
     private void AddDefaultStates()
     {
         AddState(controlsState);
         AddState(closedMenuState);
+        AddState(closedTabState);
     }
 
     private void StartInitialStates()
@@ -170,7 +173,7 @@ public class CharacterStateMachine : StateMachine
     private void InitializeEvents()
     {
         eventManager
-            .InitializeEvents()
+            .InitializeEvents(CharacterEvents)
             .AddListeners();
     }
 

@@ -6,14 +6,15 @@ public class CharacterEvent : MonoBehaviour
 {
     public Dictionary<string, GameEvent> events;
 
-    public CharacterEvent InitializeEvents()
+    public CharacterEvent InitializeEvents(List<GameEvent> list)
     {
-        events = new Dictionary<string, GameEvent>()
+        events = new Dictionary<string, GameEvent>();
+
+        list.ForEach(gameEvent =>
         {
-            {"Dash", ScriptableObject.CreateInstance<GameEvent>() },
-            {"Cast", ScriptableObject.CreateInstance<GameEvent>() },
-            {"Hurt", ScriptableObject.CreateInstance<GameEvent>() }
-        };
+            events.Add(gameEvent.name, gameEvent);
+        });
+
         return this;
     }
     public CharacterEvent AddListeners()

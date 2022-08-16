@@ -118,7 +118,9 @@ MonoBehaviour:
   rb: {fileID: 1808508212}
   caster: {fileID: 0}
   onHitParticles: {fileID: 8522427297811960926}
+  listener: {fileID: 0}
   source: {fileID: 7971894521430886707}
+  OnHitEvent: {fileID: 0}
 --- !u!82 &7971894521430886707
 AudioSource:
   m_ObjectHideFlags: 0
@@ -146,7 +148,7 @@ AudioSource:
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:

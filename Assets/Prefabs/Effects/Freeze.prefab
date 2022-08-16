@@ -4772,6 +4772,6 @@ MonoBehaviour:
   timeCheck: 0
   effectValue: 0
   current: 0
-  element: 0
+  element: {fileID: 11400000, guid: fa7792712c58aa449b5890e3854b8363, type: 2}
   type: 0
   target: {fileID: 0}

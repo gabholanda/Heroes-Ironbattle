@@ -11,12 +11,24 @@ public class CharacterDamageReceiver : DamageReceiver
     {
         stateMachine = GetComponent<CharacterStateMachine>();
         sm = GetComponent<CharacterStateMachine>();
-        (resources, defensesResistances, elementalResistances) = stateMachine.stats;
+        (resources, defensesResistances, elements) = stateMachine.stats;
         healthBar = healthBarObj.GetComponent<SlidingBar>();
     }
+
     public override DamageReceiver ReceiveDamage(float damage, AbilityData abilityData, DamageResources damageResources)
     {
         int finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
+        SetMinimumDamage(ref finalDamage);
+        damageResources(resources, finalDamage);
+        sm.eventManager.events["Hurt"].Raise();
+        InstantiateDamagePopUp(finalDamage);
+        UpdateUI();
+        return this;
+    }
+
+    public override DamageReceiver ReceiveDamage(float damage, DamageType type, Element element, DamageResources damageResources)
+    {
+        int finalDamage = MitigateDamage(damage, type, element);
         SetMinimumDamage(ref finalDamage);
         damageResources(resources, finalDamage);
         sm.eventManager.events["Hurt"].Raise();
@@ -29,7 +41,7 @@ public class CharacterDamageReceiver : DamageReceiver
     {
         sm.isDead = true;
         sm.movement.enabled = false;
-        sm.stats.elementalAffinities.Clear();
+        sm.stats.elements.Clear();
         sm.RemoveState("Controls");
         sm.RemoveState("ClosedMenu");
         sm.animator.SetAnimation("Dying", false, true, true, false);

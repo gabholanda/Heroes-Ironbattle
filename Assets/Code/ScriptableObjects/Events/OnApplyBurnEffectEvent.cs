@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ScriptableObjectDropdown;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "OnApplyBurnEffectEvent", menuName = "ScriptableObjects/Events/New Burn Event")]
@@ -7,7 +7,8 @@ public class OnApplyBurnEffectEvent : OnAbilityHitEvent
     public GameObject effectPrefab;
     public float scalingCoeficient;
     public float duration;
-    public ElementType element;
+    [ScriptableObjectDropdown(grouping = ScriptableObjectGrouping.ByFolderFlat)]
+    public Element element;
     public DamageType damageType;
 
     public bool isStackable;
@@ -42,7 +43,7 @@ public class OnApplyBurnEffectEvent : OnAbilityHitEvent
         GameObject burnObj = Instantiate(effectPrefab, target.transform);
         Burn burn = burnObj.GetComponent<Burn>();
         CharacterStats stats = caster.GetComponent<StateMachine>().stats;
-        float characterElementalScalingAffinity = stats.elementalAffinities[burn.element];
+        float characterElementalScalingAffinity = stats.elements[burn.element.name].affinity;
 
         burn.target = target;
         burn.element = element;

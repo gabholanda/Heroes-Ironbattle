@@ -60,9 +60,9 @@ public class ElementalResistances : IStats<ElementalResistances>
 
     public override string ToString()
     {
-        return "Fire: " + Fire + "\n" +
-            "Ice: " + Ice + "\n" +
-            "Dark: " + Dark + "\n" +
-            "Lightning: " + Lightning + "\n";
+        return "<sprite name=Fire> " + Fire + "%\n" +
+            "<sprite name=Ice> " + Ice + "%\n" +
+            "<sprite name=Dark> " + Dark + "%\n" +
+            "<sprite name=Lightning>: " + Lightning + "%\n";
     }
 }

@@ -11,6 +11,7 @@ public class Artifact : ScriptableObject
     [Header("Events")]
     public ArtifactEvent onApplyEvent;
     public ArtifactEvent onUnapplyEvent;
+    public GameEvent onStatsChangeEnd;
 
 
     public CharacterStats stats;
@@ -18,11 +19,11 @@ public class Artifact : ScriptableObject
     public void Apply(GameObject holder)
     {
         CharacterStats holderStats = holder.GetComponent<StateMachine>().stats;
-        applyCombatStats(holderStats);
-        applyResourcesStats(holderStats);
+        ApplyCombatStats(holderStats);
+        ApplyResourcesStats(holderStats);
         ApplyRawDefenses(holderStats);
-        ApplyElementalResistances(holderStats);
         onApplyEvent?.Invoke(holder);
+        onStatsChangeEnd?.Raise();
     }
     public void Unapply(GameObject holder)
     {
@@ -30,16 +31,16 @@ public class Artifact : ScriptableObject
         UnapplyCombatStats(holderStats);
         UnapplyResourcesStats(holderStats);
         UnapplyRawDefenses(holderStats);
-        UnapplyElementalResistances(holderStats);
         onUnapplyEvent?.Invoke(holder);
+        onStatsChangeEnd?.Raise();
     }
 
-    private void applyCombatStats(CharacterStats holderStats)
+    private void ApplyCombatStats(CharacterStats holderStats)
     {
         holderStats.combatStats.IncreaseStats(stats.combatStats);
     }
 
-    private void applyResourcesStats(CharacterStats holderStats)
+    private void ApplyResourcesStats(CharacterStats holderStats)
     {
         holderStats.resources.IncreaseStats(stats.resources);
     }
@@ -47,11 +48,6 @@ public class Artifact : ScriptableObject
     private void ApplyRawDefenses(CharacterStats holderStats)
     {
         holderStats.defensesResistances.IncreaseStats(stats.defensesResistances);
-    }
-
-    private void ApplyElementalResistances(CharacterStats holderStats)
-    {
-        holderStats.elementalResistances.IncreaseStats(stats.elementalResistances);
     }
 
     private void UnapplyCombatStats(CharacterStats holderStats)
@@ -67,11 +63,6 @@ public class Artifact : ScriptableObject
     private void UnapplyRawDefenses(CharacterStats holderStats)
     {
         holderStats.defensesResistances.DecreaseStats(stats.defensesResistances);
-    }
-
-    private void UnapplyElementalResistances(CharacterStats holderStats)
-    {
-        holderStats.elementalResistances.DecreaseStats(stats.elementalResistances);
     }
 
 }

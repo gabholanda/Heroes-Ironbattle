@@ -63,8 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 3908830871946676400}
-  artifactCanvas: {fileID: 6025568565574128798, guid: 5c8e33865d707604192ed6362b298b3b,
-    type: 3}
+  artifactCanvas: {fileID: 0}
 --- !u!114 &3588210525171120033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5030712812815941714
 Transform:
   m_ObjectHideFlags: 0

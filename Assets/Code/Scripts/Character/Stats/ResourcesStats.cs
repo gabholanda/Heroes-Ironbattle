@@ -81,12 +81,8 @@ public class ResourcesStats : IStats<ResourcesStats>
 
     public override string ToString()
     {
-        return "CurrentHealth: " + CurrentHealth + "\n" +
-            "MaxHealth: " + MaxHealth + "\n" +
-            "HealthRegen: " + HealthRegen + "\n" +
-            "CurrentMana: " + CurrentMana + "\n" +
-            "MaxMana: " + MaxMana + "\n" +
-            "ManaRegen: " + ManaRegen + "\n";
+        return "<sprite name=Health> " + CurrentHealth + "/" + MaxHealth + "(" + HealthRegen + "/s)" + "\n" +
+            "<sprite name=Mana> "+ CurrentMana + "/" + MaxMana + "(" + ManaRegen + "/s)" + "\n";
     }
 
 }

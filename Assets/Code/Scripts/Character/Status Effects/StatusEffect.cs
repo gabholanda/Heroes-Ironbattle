@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using ScriptableObjectDropdown;
 
 public abstract class StatusEffect : MonoBehaviour
 {
@@ -9,8 +10,7 @@ public abstract class StatusEffect : MonoBehaviour
     public float timeCheck;
     public float effectValue;
     public float current = 0f;
-
-    public ElementType element;
+    [ScriptableObjectDropdown(grouping = ScriptableObjectGrouping.ByFolderFlat)] public Element element;
     public DamageType type;
     public DamageResources dealer;
     public GameObject target;
