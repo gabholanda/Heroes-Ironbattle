@@ -42,8 +42,10 @@ public class CharacterDamageReceiver : DamageReceiver
         sm.isDead = true;
         sm.movement.enabled = false;
         sm.stats.elements.Clear();
-        sm.RemoveState("Controls");
-        sm.RemoveState("ClosedMenu");
+        foreach (var kv in sm.states)
+        {
+            sm.RemoveState(kv.Key);
+        }
         sm.animator.SetAnimation("Dying", false, true, true, false);
         sm.OnPlayerDeath?.Raise();
     }

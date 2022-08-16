@@ -658,6 +658,7 @@ GameObject:
   - component: {fileID: 1442283060}
   - component: {fileID: 1442283061}
   - component: {fileID: 1442283062}
+  - component: {fileID: 1161692870}
   m_Layer: 5
   m_Name: Stats Canvas
   m_TagString: Untagged
@@ -916,6 +917,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5603490070473262467}
         m_MethodName: UpdateTab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1161692870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603490070473262470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8923f180a60069b4b8958e115c8d6d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 5061cad342e8e3544b0f748ba3b4aed7, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5603490070473262467}
+        m_MethodName: HideTab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
