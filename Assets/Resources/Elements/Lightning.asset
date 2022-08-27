@@ -17,3 +17,6 @@ MonoBehaviour:
   affinityIcon: Lightning
   resistance: 0
   affinity: 1
+  vertexColor: {r: 0.990566, g: 0.85592526, b: 0.21026169, a: 1}
+  outlineColor: {r: 1.3773584, g: 1.029061, b: 0, a: 1}
+  glowColor: {r: 4, g: 2.224719, b: 0, a: 0.5019608}

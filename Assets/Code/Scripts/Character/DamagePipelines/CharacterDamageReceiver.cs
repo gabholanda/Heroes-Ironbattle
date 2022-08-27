@@ -21,7 +21,7 @@ public class CharacterDamageReceiver : DamageReceiver
         SetMinimumDamage(ref finalDamage);
         damageResources(resources, finalDamage);
         sm.eventManager.events["Hurt"].Raise();
-        InstantiateDamagePopUp(finalDamage);
+        InstantiateDamagePopUp(finalDamage, abilityData);
         UpdateUI();
         return this;
     }
@@ -32,7 +32,7 @@ public class CharacterDamageReceiver : DamageReceiver
         SetMinimumDamage(ref finalDamage);
         damageResources(resources, finalDamage);
         sm.eventManager.events["Hurt"].Raise();
-        InstantiateDamagePopUp(finalDamage);
+        InstantiateDamagePopUp(finalDamage, element);
         UpdateUI();
         return this;
     }
@@ -41,11 +41,12 @@ public class CharacterDamageReceiver : DamageReceiver
     {
         sm.isDead = true;
         sm.movement.enabled = false;
-        sm.stats.elements.Clear();
         foreach (var kv in sm.states)
         {
-            sm.RemoveState(kv.Key);
+            sm.states[kv.Key].Exit();
         }
+        sm.states.Clear();
+        sm.stats.elements.Clear();
         sm.animator.SetAnimation("Dying", false, true, true, false);
         sm.OnPlayerDeath?.Raise();
     }

@@ -14,8 +14,8 @@ public class MapManager : MonoBehaviour
     MapGenerator mapGenerator;
     public GameObject player;
     [SerializeField]
-    private List<GameObject> enemies;
-    public List<GameObject> enemiesToSpawn;
+    private List<GameObject> monsters;
+    public List<GameObject> monstersToSpawn;
     public List<MapItems> availableMapItems;
     public Tilemap floorTilemap;
     public Tilemap middleTilemap;
@@ -24,6 +24,8 @@ public class MapManager : MonoBehaviour
     public AstarPath astarPath;
 
     public GameEvent OnFinishGeneratingMap;
+
+    public ArtifactInventory monsterInventory;
 
     private float wave;
     private void Awake()
@@ -66,6 +68,32 @@ public class MapManager : MonoBehaviour
             StartGeneratingMap();
             yield return new WaitForSeconds(10f);
         }
+    }
+
+    public void ClearMonsterInventory()
+    {
+        if (monsterInventory != null)
+        {
+            monsterInventory.Items.Clear();
+            monsterInventory.applyableRarities.Clear();
+        }
+    }
+
+    private List<ArtifactInventoryItem> CreateChosenInventory(Rarity rarity)
+    {
+        List<ArtifactInventoryItem> inventory = monsterInventory.Items.FindAll(artifact => artifact.Item.rarity == rarity);
+        return inventory;
+    }
+
+    private ArtifactInventoryItem PickRandomArtifact(List<ArtifactInventoryItem> inventory)
+    {
+        ArtifactInventoryItem item = inventory[Random.Range(0, inventory.Count - 1)];
+        return item;
+    }
+
+    private void AddItem(ArtifactInventoryItem item)
+    {
+        monsterInventory.Add(item);
     }
 
     private MapManager SetTilemaps()
@@ -122,7 +150,7 @@ public class MapManager : MonoBehaviour
 
     public MapManager ClearEnemies()
     {
-        enemies.ForEach(e => Destroy(e));
+        monsters.ForEach(e => Destroy(e));
         return this;
     }
 
@@ -131,13 +159,13 @@ public class MapManager : MonoBehaviour
         int enemiesQty = Random.Range(5, 15);
         for (int i = 0; i < enemiesQty; i++)
         {
-            enemies.Add(Instantiate(GetRandomEnemy(), GetRandomEnemySpawnPoint(), Quaternion.identity));
+            monsters.Add(Instantiate(GetRandomEnemy(), GetRandomEnemySpawnPoint(), Quaternion.identity));
         }
         return this;
     }
     private GameObject GetRandomEnemy()
     {
-        return enemiesToSpawn[Random.Range(0, enemiesToSpawn.Count)];
+        return monstersToSpawn[Random.Range(0, monstersToSpawn.Count)];
     }
     private Vector3 GetRandomEnemySpawnPoint()
     {

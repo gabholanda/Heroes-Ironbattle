@@ -1211,6 +1211,29 @@ PrefabInstance:
       propertyPath: astarPath
       value: 
       objectReference: {fileID: 1595128638}
+    - target: {fileID: 9128437707784266417, guid: 034db2ff28a93b44c80f85957e513371,
+        type: 3}
+      propertyPath: monstersToSpawn.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128437707784266417, guid: 034db2ff28a93b44c80f85957e513371,
+        type: 3}
+      propertyPath: monstersToSpawn.Array.data[0]
+      value: 
+      objectReference: {fileID: 3906688315430537506, guid: f10a52b3ae6781e4887e6d728adb934b,
+        type: 3}
+    - target: {fileID: 9128437707784266417, guid: 034db2ff28a93b44c80f85957e513371,
+        type: 3}
+      propertyPath: monstersToSpawn.Array.data[1]
+      value: 
+      objectReference: {fileID: 8093643435774689572, guid: 5229345229876bb419e4e89b615998da,
+        type: 3}
+    - target: {fileID: 9128437707784266417, guid: 034db2ff28a93b44c80f85957e513371,
+        type: 3}
+      propertyPath: monstersToSpawn.Array.data[2]
+      value: 
+      objectReference: {fileID: 6150235615014590966, guid: da860cd7661847e4fb18b57a28c6c87a,
+        type: 3}
     - target: {fileID: 9128437707784266422, guid: 034db2ff28a93b44c80f85957e513371,
         type: 3}
       propertyPath: m_Name

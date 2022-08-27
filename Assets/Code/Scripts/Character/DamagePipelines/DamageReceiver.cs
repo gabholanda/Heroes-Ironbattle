@@ -25,7 +25,7 @@ public class DamageReceiver : MonoBehaviour
     {
         int finalDamage = MitigateDamage(damage, abilityData.type, abilityData.element);
         SetMinimumDamage(ref finalDamage);
-        InstantiateDamagePopUp(finalDamage);
+        InstantiateDamagePopUp(finalDamage, abilityData);
         damageResources(resources, finalDamage);
         return this;
     }
@@ -34,7 +34,7 @@ public class DamageReceiver : MonoBehaviour
     {
         int finalDamage = MitigateDamage(damage, type, element);
         SetMinimumDamage(ref finalDamage);
-        InstantiateDamagePopUp(finalDamage);
+        InstantiateDamagePopUp(finalDamage, element);
         damageResources(resources, finalDamage);
         return this;
     }
@@ -103,11 +103,27 @@ public class DamageReceiver : MonoBehaviour
         return this;
     }
 
-    protected void InstantiateDamagePopUp(float finalDamage)
+    protected void InstantiateDamagePopUp(float finalDamage, AbilityData data)
     {
         GameObject popUp = Instantiate(popUpPrefab, transform);
-        popUp.GetComponent<DamagePopUp>().SetDamageText(finalDamage);
+        Element element = data.element;
+        popUp.GetComponent<DamagePopUp>()
+            .SetColor(element.vertexColor)
+            .SetOutlineColor(element.outlineColor)
+            .SetGlowColor(element.glowColor)
+            .SetDamageText(finalDamage);
     }
+
+    protected void InstantiateDamagePopUp(float finalDamage, Element element)
+    {
+        GameObject popUp = Instantiate(popUpPrefab, transform);
+        popUp.GetComponent<DamagePopUp>()
+            .SetColor(element.vertexColor)
+            .SetOutlineColor(element.outlineColor)
+            .SetGlowColor(element.glowColor)
+            .SetDamageText(finalDamage);
+    }
+
 
 
     private float MitigatePhysicalDamage(float damage, Element element)

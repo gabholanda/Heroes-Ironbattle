@@ -47,6 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMeshObject: {fileID: 1132289029}
   speed: 5
+  vertexColor: {r: 0.74509805, g: 0.1882353, b: 0.18039216, a: 1}
+  outlineColor: {r: 1.4980392, g: 0.5882353, b: 0.3372549, a: 1}
+  glowColor: {r: 2.9960785, g: 2.0862746, b: 0.6745098, a: 0.5019608}
 --- !u!1818360610 &1408799052969592000
 ScaleConstraint:
   m_ObjectHideFlags: 0

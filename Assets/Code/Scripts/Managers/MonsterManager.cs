@@ -7,6 +7,7 @@ public class MonsterManager : MonoBehaviour
     [SerializeField]
     private GameObject portalPrefab;
     private bool isAppRunning = true;
+    public ArtifactInventory monsterInventory;
 
     void OnApplicationQuit()
     {
@@ -27,7 +28,8 @@ public class MonsterManager : MonoBehaviour
     public void FindAndSetEnemies()
     {
         FindAllEnemies()
-            .AddListeners();
+            .AddListeners()
+            .AddArtifactItems();
     }
 
     public MonsterManager FindAllEnemies()
@@ -39,6 +41,19 @@ public class MonsterManager : MonoBehaviour
     public MonsterManager AddListeners()
     {
         totalSpawnedEnemies.ForEach(enemy => enemy.GetComponent<MonsterEvents>().MonsterDeathEvent += OnEnemyDeath);
+        return this;
+    }
+
+    public MonsterManager AddArtifactItems()
+    {
+        totalSpawnedEnemies.ForEach(monster =>
+        {
+            InventoryManager manager = monster.GetComponent<InventoryManager>();
+            monsterInventory.Items.ForEach(item =>
+                {
+                    manager.inventory.Add(item);
+                });
+        });
         return this;
     }
 }

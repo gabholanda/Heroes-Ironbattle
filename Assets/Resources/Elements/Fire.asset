@@ -17,3 +17,6 @@ MonoBehaviour:
   affinityIcon: Fire
   resistance: 0
   affinity: 1
+  vertexColor: {r: 0.7830189, g: 0.7694723, b: 0.16620687, a: 1}
+  outlineColor: {r: 2.1185474, g: 0.48804232, b: 0.22183743, a: 1}
+  glowColor: {r: 4.547667, g: 0.06655122, b: 0.06655122, a: 1}

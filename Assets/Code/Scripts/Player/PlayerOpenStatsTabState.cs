@@ -19,7 +19,6 @@ public class PlayerOpenStatsTabState : BaseState
 
     public override void Exit()
     {
-        base.Exit();
         UnregisterMenuEvent();
         DisableMenuEvent();
     }

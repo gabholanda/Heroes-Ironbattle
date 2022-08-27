@@ -17,3 +17,6 @@ MonoBehaviour:
   affinityIcon: Ice
   resistance: 0
   affinity: 1
+  vertexColor: {r: 0.27772337, g: 0.745283, b: 0.6806609, a: 1}
+  outlineColor: {r: 0.1882353, g: 1.2862746, b: 2.572549, a: 1}
+  glowColor: {r: 0.6847925, g: 1.9521694, b: 1.023169, a: 1}
