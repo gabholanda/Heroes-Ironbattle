@@ -49,11 +49,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapGenerator: {fileID: 11400000, guid: 7e391b20f5e0dd34da0a063cbf2ac7c5, type: 2}
   player: {fileID: 6431199696723903610, guid: 91de32c705765f54fa0fbb1ed105b6ac, type: 3}
-  enemies: []
-  enemiesToSpawn:
+  monsters: []
+  monstersToSpawn:
   - {fileID: 3906688315430537506, guid: f10a52b3ae6781e4887e6d728adb934b, type: 3}
   - {fileID: 8093643435774689572, guid: 5229345229876bb419e4e89b615998da, type: 3}
-  - {fileID: 7908052695562099612, guid: b8a786477ea7af840901bd9e8bd5a2ce, type: 3}
+  - {fileID: 6150235615014590966, guid: da860cd7661847e4fb18b57a28c6c87a, type: 3}
   availableMapItems:
   - {fileID: 11400000, guid: 003bc9e0d5217024491a23cf743da3ce, type: 2}
   floorTilemap: {fileID: 9128437707753171491}
@@ -64,6 +64,7 @@ MonoBehaviour:
   astarPath: {fileID: 0}
   OnFinishGeneratingMap: {fileID: 11400000, guid: 7728029970d6500438a3df56ef9ac5a8,
     type: 2}
+  monsterInventory: {fileID: 0}
 --- !u!114 &2135468465
 MonoBehaviour:
   m_ObjectHideFlags: 0

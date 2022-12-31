@@ -260,12 +260,12 @@ PrefabInstance:
     - target: {fileID: 6769578339813526062, guid: 2118847242b9fe7449b45e378df31960,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2154808
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6769578339813526062, guid: 2118847242b9fe7449b45e378df31960,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2290947
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6769578339813526062, guid: 2118847242b9fe7449b45e378df31960,
         type: 3}
@@ -847,12 +847,12 @@ PrefabInstance:
     - target: {fileID: 5030712812815941714, guid: a361a2ca655e86a4c8b4f78ad67c10b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5030712812815941714, guid: a361a2ca655e86a4c8b4f78ad67c10b7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.96
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5030712812815941714, guid: a361a2ca655e86a4c8b4f78ad67c10b7,
         type: 3}
@@ -1036,6 +1036,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Artifacts Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6025568565574128798, guid: 5c8e33865d707604192ed6362b298b3b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c8e33865d707604192ed6362b298b3b, type: 3}
 --- !u!1 &1058759871
@@ -1213,26 +1218,9 @@ PrefabInstance:
       objectReference: {fileID: 1595128638}
     - target: {fileID: 9128437707784266417, guid: 034db2ff28a93b44c80f85957e513371,
         type: 3}
-      propertyPath: monstersToSpawn.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9128437707784266417, guid: 034db2ff28a93b44c80f85957e513371,
-        type: 3}
-      propertyPath: monstersToSpawn.Array.data[0]
-      value: 
-      objectReference: {fileID: 3906688315430537506, guid: f10a52b3ae6781e4887e6d728adb934b,
-        type: 3}
-    - target: {fileID: 9128437707784266417, guid: 034db2ff28a93b44c80f85957e513371,
-        type: 3}
-      propertyPath: monstersToSpawn.Array.data[1]
-      value: 
-      objectReference: {fileID: 8093643435774689572, guid: 5229345229876bb419e4e89b615998da,
-        type: 3}
-    - target: {fileID: 9128437707784266417, guid: 034db2ff28a93b44c80f85957e513371,
-        type: 3}
       propertyPath: monstersToSpawn.Array.data[2]
       value: 
-      objectReference: {fileID: 6150235615014590966, guid: da860cd7661847e4fb18b57a28c6c87a,
+      objectReference: {fileID: 7908052695562099612, guid: b8a786477ea7af840901bd9e8bd5a2ce,
         type: 3}
     - target: {fileID: 9128437707784266422, guid: 034db2ff28a93b44c80f85957e513371,
         type: 3}
@@ -1303,6 +1291,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 830841875, guid: 91de32c705765f54fa0fbb1ed105b6ac, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2100419940, guid: 91de32c705765f54fa0fbb1ed105b6ac, type: 3}
       propertyPath: healthBarObj
       value: 
@@ -1766,6 +1758,12 @@ PrefabInstance:
       propertyPath: portalPrefab
       value: 
       objectReference: {fileID: 1125620864}
+    - target: {fileID: 4424975402713205467, guid: f2b6748b3640af2489859093d8eb6017,
+        type: 3}
+      propertyPath: monsterInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 9556fb0332f7af943b51fe3af867e4c7,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2b6748b3640af2489859093d8eb6017, type: 3}
 --- !u!1001 &5603490069228805836
