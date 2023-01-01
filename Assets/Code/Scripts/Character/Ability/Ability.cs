@@ -42,6 +42,11 @@ public abstract class Ability : MonoBehaviour
 
     }
 
+    public virtual bool CanHit(Collider2D collider)
+    {
+        return caster && collider && collider.gameObject.tag != caster.tag;
+    }
+
     public virtual void AfterHit(Collider2D target)
     {
         if (listener != null)

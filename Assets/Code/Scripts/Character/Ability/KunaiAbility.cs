@@ -24,7 +24,7 @@ public class KunaiAbility : Ability
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag != caster.tag)
+        if (CanHit(collider))
         {
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);

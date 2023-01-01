@@ -37,7 +37,7 @@ public class HealthRegenerator : MonoBehaviour
             {
                 resources.CurrentHealth = resources.MaxHealth;
             }
-            if (current != resources.CurrentHealth)
+            if (healthBar && current != resources.CurrentHealth)
                 healthBar.UpdateBar(resources.CurrentHealth / resources.MaxHealth);
         }
     }

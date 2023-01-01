@@ -16,7 +16,7 @@ public class GoblinBashAbility : Ability
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Player"))
+        if (CanHit(collider))
         {
             DamageReceiver receiver = collider.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);
