@@ -1043,6 +1043,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6025568565574128795, guid: 5c8e33865d707604192ed6362b298b3b,
+        type: 3}
+      propertyPath: globalRaritiesInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 886f92a3a5a39fd49b1f1534198a01e4,
+        type: 2}
     - target: {fileID: 6025568565574128798, guid: 5c8e33865d707604192ed6362b298b3b,
         type: 3}
       propertyPath: m_Name
@@ -1225,6 +1231,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9128437707784266417, guid: 034db2ff28a93b44c80f85957e513371,
         type: 3}
+      propertyPath: waves
+      value: 
+      objectReference: {fileID: 11400000, guid: 416f0c465e6d86a428c7e34866eacd39,
+        type: 2}
+    - target: {fileID: 9128437707784266417, guid: 034db2ff28a93b44c80f85957e513371,
+        type: 3}
       propertyPath: astarPath
       value: 
       objectReference: {fileID: 1595128638}
@@ -1330,7 +1342,8 @@ PrefabInstance:
     - target: {fileID: 830841875, guid: 91de32c705765f54fa0fbb1ed105b6ac, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 3e0aca4eb88d2c1448f86078e646fcc8,
+        type: 2}
     - target: {fileID: 2100419940, guid: 91de32c705765f54fa0fbb1ed105b6ac, type: 3}
       propertyPath: healthBarObj
       value: 
@@ -1824,6 +1837,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4424975402713205467, guid: f2b6748b3640af2489859093d8eb6017,
         type: 3}
+      propertyPath: waves
+      value: 
+      objectReference: {fileID: 11400000, guid: 416f0c465e6d86a428c7e34866eacd39,
+        type: 2}
+    - target: {fileID: 4424975402713205467, guid: f2b6748b3640af2489859093d8eb6017,
+        type: 3}
       propertyPath: portalPrefab
       value: 
       objectReference: {fileID: 1125620864}
@@ -1836,7 +1855,7 @@ PrefabInstance:
     - target: {fileID: 4424975402713205467, guid: f2b6748b3640af2489859093d8eb6017,
         type: 3}
       propertyPath: rarities.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4424975402713205467, guid: f2b6748b3640af2489859093d8eb6017,
         type: 3}
@@ -1849,6 +1868,12 @@ PrefabInstance:
       propertyPath: rarities.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8,
+        type: 2}
+    - target: {fileID: 4424975402713205467, guid: f2b6748b3640af2489859093d8eb6017,
+        type: 3}
+      propertyPath: globalRaritiesInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 886f92a3a5a39fd49b1f1534198a01e4,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2b6748b3640af2489859093d8eb6017, type: 3}

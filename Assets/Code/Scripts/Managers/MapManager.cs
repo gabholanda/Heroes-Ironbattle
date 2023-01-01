@@ -24,18 +24,18 @@ public class MapManager : MonoBehaviour
     public AstarPath astarPath;
 
     public GameEvent OnFinishGeneratingMap;
-
-    private float wave;
+    [SerializeField]
+    private FloatVariable waves;
     private void Awake()
     {
-        wave = 0;
+        waves.Value = 0;
         //StartCoroutine(Automap());
         StartGeneratingMap();
     }
 
     public void Restart()
     {
-        wave = 0;
+        waves.Value = 0;
         StartGeneratingMap();
     }
 
@@ -51,9 +51,9 @@ public class MapManager : MonoBehaviour
 
         OnFinishGeneratingMap?.Raise();
 
-        wave++;
+        waves.Value++;
 
-        if (wave % 3 == 0)
+        if (waves.Value % 3 == 0)
         {
             Debug.Log("Boss time!");
         }

@@ -10,6 +10,7 @@ public class ArtifactPickerManager : MonoBehaviour
     [Header("Item Variables")]
     public ArtifactInventory allArtifacts;
     public List<Rarity> rarityList = new List<Rarity>();
+    public ArtifactInventory globalRaritiesInventory;
 
     [Header("UI Variables")]
     public Button firstArtifactButton;
@@ -63,7 +64,7 @@ public class ArtifactPickerManager : MonoBehaviour
     {
         List<Artifact> filteredArtifacts = new List<Artifact>();
         chosenRarity = ChooseRandomRarity();
-
+        globalRaritiesInventory.applyableRarities.Add(chosenRarity);
         allArtifacts.Items.ForEach((inventoryItem) =>
         {
             if (inventoryItem.Item.rarity == chosenRarity)

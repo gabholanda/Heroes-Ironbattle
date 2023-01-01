@@ -7,16 +7,19 @@ public class ReboundAbilityEvent : OnAbilityHitEvent
 
     public override void Raise(GameObject caster, Collider2D collision)
     {
-        Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
-        CharacterMovement movement = collision.GetComponent<CharacterMovement>();
-        StateMachine sm = collision.GetComponent<StateMachine>();
-        if (!sm.isDead)
+        if (collision && caster)
         {
-            if (movement)
-                movement.SetVector(new Vector2(0, 0));
-            playerRb.velocity *= 0;
-            Vector3 dir = (collision.transform.position - caster.transform.position).normalized;
-            playerRb.AddForce(force * dir, ForceMode2D.Impulse);
+            Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
+            CharacterMovement movement = collision.GetComponent<CharacterMovement>();
+            StateMachine sm = collision.GetComponent<StateMachine>();
+            if (sm && !sm.isDead)
+            {
+                if (movement)
+                    movement.SetVector(new Vector2(0, 0));
+                playerRb.velocity *= 0;
+                Vector3 dir = (collision.transform.position - caster.transform.position).normalized;
+                playerRb.AddForce(force * dir, ForceMode2D.Impulse);
+            }
         }
     }
 }

@@ -10,14 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c11a14ed9f8175c4e80acae85a860f72, type: 3}
-  m_Name: Monster Artifacts
+  m_Name: TestInventory
   m_EditorClassIdentifier: 
   Items:
-  - Item: {fileID: 11400000, guid: b5295a93c1fbbd849b154573d109f956, type: 2}
-    quantity: 1
-  - Item: {fileID: 11400000, guid: 26eb2bc6ab159c847a0662140bd3c776, type: 2}
-    quantity: 1
-  - Item: {fileID: 11400000, guid: da7e0810aef811f4cb1495ff56791d05, type: 2}
+  - Item: {fileID: 11400000, guid: 254656f31ca617d4cbca974021ce7ece, type: 2}
     quantity: 1
   holder: {fileID: 0}
   applyableRarities:

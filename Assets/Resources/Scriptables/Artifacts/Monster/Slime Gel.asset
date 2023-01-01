@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   description: 
-  rarity: {fileID: 0}
+  rarity: {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
   onApplyEvent:
     m_PersistentCalls:
       m_Calls: []

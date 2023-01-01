@@ -5,10 +5,12 @@ public class MonsterManager : MonoBehaviour
 {
     readonly List<GameObject> totalSpawnedEnemies = new List<GameObject>();
     [SerializeField]
+    private FloatVariable waves;
+    [SerializeField]
     private GameObject portalPrefab;
     private bool isAppRunning = true;
     public ArtifactInventory monsterInventory;
-    public List<Rarity> rarities;
+    public ArtifactInventory globalRaritiesInventory;
 
     void OnApplicationQuit()
     {
@@ -57,9 +59,10 @@ public class MonsterManager : MonoBehaviour
 
     private MonsterManager AddArtifactItems()
     {
-        for (int i = 0; i < monsterInventory.Items.Count; i++)
+        for (int i = 0; i < globalRaritiesInventory.applyableRarities.Count; i++)
         {
-            ArtifactInventoryItem randomArtifact = PickRandomArtifact(monsterInventory.Items);
+            List<ArtifactInventoryItem> inventoryBasedOnRarity = GenerateRarityBasedInventory(globalRaritiesInventory.applyableRarities[i]);
+            ArtifactInventoryItem randomArtifact = PickRandomArtifact(inventoryBasedOnRarity);
             for (int j = 0; j < totalSpawnedEnemies.Count; j++)
             {
                 totalSpawnedEnemies[j].GetComponent<InventoryManager>().inventory.Add(randomArtifact);
@@ -67,6 +70,11 @@ public class MonsterManager : MonoBehaviour
         }
 
         return this;
+    }
+
+    private List<ArtifactInventoryItem> GenerateRarityBasedInventory(Rarity rarity)
+    {
+        return monsterInventory.Items.FindAll(i => i.Item.rarity == rarity);
     }
 
     private ArtifactInventoryItem PickRandomArtifact(List<ArtifactInventoryItem> inventory)
