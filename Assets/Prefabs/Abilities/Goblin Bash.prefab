@@ -47,16 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0110ba1cd8f7143beac2defe10358a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handler: {fileID: 11400000, guid: ca8628af65bb6344aa446cc0268f71e5, type: 2}
+  handler: {fileID: 0}
   rb: {fileID: 0}
   caster: {fileID: 0}
   onHitParticles: {fileID: 0}
   listener: {fileID: 0}
   source: {fileID: 2550484427388888629}
-  effectList:
-  - {fileID: 11400000, guid: 949d7da0f183b19459b8c1ec67c6c546, type: 2}
-  abilitiesToTriggerOnHit: []
-  onHitEvent: {fileID: 0}
+  OnHitEvent: {fileID: 0}
 --- !u!58 &595609864047480261
 CircleCollider2D:
   m_ObjectHideFlags: 0

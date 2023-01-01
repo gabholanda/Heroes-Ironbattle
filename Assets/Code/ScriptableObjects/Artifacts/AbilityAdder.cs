@@ -21,15 +21,14 @@ public class AbilityAdder : ScriptableObject
 
     public void AddToOnHit(GameObject target)
     {
-        AbilityHandler[] handlers = target.GetComponent<CharacterStateMachine>().handlers;
-
-        for (int i = 0; i < handlers.Length; i++)
+        List<AbilityHandler> targetHandlers = target.GetComponent<StateMachine>().handlers;
+        targetHandlers.ForEach(handler =>
         {
             for (int j = 0; j < abilities.Count; j++)
             {
-                handlers[i].abilitiesToTriggerOnHit.Add(abilities[j]);
+                handler.abilitiesToTriggerOnHit.Add(abilities[j]);
             }
-        }
+        });
     }
 
     public void AddProjectileMultiCastToAuto(GameObject target)
@@ -51,20 +50,24 @@ public class AbilityAdder : ScriptableObject
     public void AddProjectileMultiCastToDash(GameObject caster)
     {
         GameEventListener actionListener = caster.GetComponentInChildren<GameEventListener>();
-        actionListener.Event = caster.GetComponent<CharacterEvent>().events["Dash"];
-        actionListener.TryRegister();
-        for (int i = 0; i < abilities.Count; i++)
+        if (actionListener != null)
         {
-            MultiCastHandler multicastHandler = (MultiCastHandler)abilities[i];
-            multicastHandler.abilities.ForEach(handler =>
+            actionListener.Event = caster.GetComponent<CharacterEvent>().events["Dash"];
+
+            actionListener.TryRegister();
+            for (int i = 0; i < abilities.Count; i++)
             {
-                ProjectileHandler projectileHandler = (ProjectileHandler)handler;
-                AbilityCallback abilityCallback = new AbilityCallback()
-                .AddCaster(caster)
-                .AddPosition(projectileHandler.dir)
-                .AddTriggerAbilityCallback(projectileHandler.Execute);
-                actionListener.Response.AddListener(abilityCallback.TriggerAbilityCallback);
-            });
+                MultiCastHandler multicastHandler = (MultiCastHandler)abilities[i];
+                multicastHandler.abilities.ForEach(handler =>
+                {
+                    ProjectileHandler projectileHandler = (ProjectileHandler)handler;
+                    AbilityCallback abilityCallback = new AbilityCallback()
+                    .AddCaster(caster)
+                    .AddPosition(projectileHandler.dir)
+                    .AddTriggerAbilityCallback(projectileHandler.Execute);
+                    actionListener.Response.AddListener(abilityCallback.TriggerAbilityCallback);
+                });
+            }
         }
     }
 }

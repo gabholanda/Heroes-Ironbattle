@@ -56,7 +56,7 @@ public abstract class AbilityHandler : ScriptableObject
     public AbilityHandler DeepCopy(AbilityHandler copy)
     {
         copy.abilityData = abilityData;
-        copy.ability = ability;
+        copy.ability = prefab.GetComponent<Ability>();
         copy.ability.handler = copy;
         copy.prefab = prefab;
         copy.isCoolingDown = isCoolingDown;

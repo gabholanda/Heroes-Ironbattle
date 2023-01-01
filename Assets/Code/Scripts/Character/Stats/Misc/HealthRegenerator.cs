@@ -20,10 +20,10 @@ public class HealthRegenerator : MonoBehaviour
 
     public void StartRegeneration()
     {
-        StartCoroutine(RegenerateMana());
+        StartCoroutine(Regenerate());
     }
 
-    private IEnumerator RegenerateMana()
+    private IEnumerator Regenerate()
     {
         while (true)
         {

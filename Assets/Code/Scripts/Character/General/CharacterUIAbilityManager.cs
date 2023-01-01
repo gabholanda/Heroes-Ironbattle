@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-
+using System.Collections.Generic;
 public class CharacterUIAbilityManager : MonoBehaviour
 {
-    private AbilityHandler[] handlers;
+    private List<AbilityHandler> handlers;
     [SerializeField]
     private UICooldownUpdater QAbilityUI;
     [SerializeField]
@@ -17,7 +17,7 @@ public class CharacterUIAbilityManager : MonoBehaviour
         RAbilityUI = GameObject.FindGameObjectWithTag("RSkill")?.GetComponent<UICooldownUpdater>();
     }
 
-    public CharacterUIAbilityManager SetAbilityHandlers(AbilityHandler[] _handlers)
+    public CharacterUIAbilityManager SetAbilityHandlers(List<AbilityHandler> _handlers)
     {
         handlers = _handlers;
         return this;

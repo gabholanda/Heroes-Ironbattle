@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11a14ed9f8175c4e80acae85a860f72, type: 3}
   m_Name: Monster Artifacts
   m_EditorClassIdentifier: 
-  Items: []
+  Items:
+  - Item: {fileID: 11400000, guid: b5295a93c1fbbd849b154573d109f956, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 26eb2bc6ab159c847a0662140bd3c776, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: da7e0810aef811f4cb1495ff56791d05, type: 2}
+    quantity: 1
   holder: {fileID: 0}
-  applyableRarities: []
+  applyableRarities:
+  - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
+  - {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}

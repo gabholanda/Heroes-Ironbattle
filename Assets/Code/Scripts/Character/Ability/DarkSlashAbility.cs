@@ -20,7 +20,7 @@ public class DarkSlashAbility : Ability
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Monster"))
+        if (collider.gameObject.tag != caster.tag)
         {
             DamageReceiver receiver = collider.gameObject.GetComponent<DamageReceiver>();
             damageDealer.SetReceiver(receiver);

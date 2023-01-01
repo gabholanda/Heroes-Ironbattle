@@ -25,8 +25,6 @@ public class MapManager : MonoBehaviour
 
     public GameEvent OnFinishGeneratingMap;
 
-    public ArtifactInventory monsterInventory;
-
     private float wave;
     private void Awake()
     {
@@ -68,32 +66,6 @@ public class MapManager : MonoBehaviour
             StartGeneratingMap();
             yield return new WaitForSeconds(10f);
         }
-    }
-
-    public void ClearMonsterInventory()
-    {
-        if (monsterInventory != null)
-        {
-            monsterInventory.Items.Clear();
-            monsterInventory.applyableRarities.Clear();
-        }
-    }
-
-    private List<ArtifactInventoryItem> CreateChosenInventory(Rarity rarity)
-    {
-        List<ArtifactInventoryItem> inventory = monsterInventory.Items.FindAll(artifact => artifact.Item.rarity == rarity);
-        return inventory;
-    }
-
-    private ArtifactInventoryItem PickRandomArtifact(List<ArtifactInventoryItem> inventory)
-    {
-        ArtifactInventoryItem item = inventory[Random.Range(0, inventory.Count - 1)];
-        return item;
-    }
-
-    private void AddItem(ArtifactInventoryItem item)
-    {
-        monsterInventory.Add(item);
     }
 
     private MapManager SetTilemaps()

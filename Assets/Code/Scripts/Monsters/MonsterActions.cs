@@ -12,16 +12,14 @@ public class MonsterActions : MonoBehaviour
 
     public Transform target;
 
-    [Header("Abilities")]
-    public List<AbilityHandler> abilities = new List<AbilityHandler>();
-    public Dictionary<string, AbilityHandler> abilitiesDict = new Dictionary<string, AbilityHandler>();
     private void Awake()
     {
         sm = GetComponent<StateMachine>();
         seekerAI = GetComponent<MonsterSeekerAI>();
         graphics = GetComponent<MonsterGraphics>();
         physics = GetComponent<MonsterPhysics>();
-        abilities.ForEach(ability => ability.Initialize(gameObject));
+        sm.InitializeAbilities();
+        sm.InitializeRegenerator();
     }
 
     public void SetMovement(float speed)

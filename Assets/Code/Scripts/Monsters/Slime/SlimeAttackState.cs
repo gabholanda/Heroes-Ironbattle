@@ -36,9 +36,9 @@ public class SlimeAttackState : BaseState
 
     private void ExecuteAbility()
     {
-        _sm.actions.abilities[0].Execute(_sm.gameObject, _sm.transform.position);
+        _sm.handlers[0].Execute(_sm.gameObject, _sm.transform.position);
         totalTime = _sm.goUpTime + _sm.goDownTime;
-        _sm.actions.abilities[0].GetAbilityData().cooldownDuration = totalTime;
+        _sm.handlers[0].GetAbilityData().cooldownDuration = totalTime;
     }
 
     private void AddForceTowardsTarget()

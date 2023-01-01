@@ -173,16 +173,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8fdd5e0f4ed5c4eaccc2825e699f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handler: {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
+  handler: {fileID: 0}
   rb: {fileID: 7052658729549891977}
   caster: {fileID: 0}
   onHitParticles: {fileID: 0}
   listener: {fileID: 0}
   source: {fileID: 0}
-  effectList:
-  - {fileID: 11400000, guid: b15b8d62834109c44bad567892d50f69, type: 2}
-  abilitiesToTriggerOnHit: []
-  onHitEvent: {fileID: 0}
+  OnHitEvent: {fileID: 0}
 --- !u!114 &-3374566189054268712
 MonoBehaviour:
   m_ObjectHideFlags: 0

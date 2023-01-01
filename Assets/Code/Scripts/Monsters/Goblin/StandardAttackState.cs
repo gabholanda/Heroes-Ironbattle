@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StandardAttackState : BaseState
@@ -21,12 +20,12 @@ public class StandardAttackState : BaseState
 
     public void ExecuteAbility()
     {
-        if (_sm.actions.abilities[0].isCoolingDown)
+        if (_sm.handlers[0].isCoolingDown)
         {
             _sm.ChangeState(_sm.chasingState);
         }
-        _sm.actions.abilities[0].Execute(_sm.gameObject, new Vector2());
-        _sm.actions.abilities[0].StartCooldown();
+        _sm.handlers[0].Execute(_sm.gameObject, new Vector2());
+        _sm.handlers[0].StartCooldown();
     }
 
     public IEnumerator GoBackChasing()

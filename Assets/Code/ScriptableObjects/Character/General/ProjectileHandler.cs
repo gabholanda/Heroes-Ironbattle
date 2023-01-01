@@ -16,7 +16,7 @@ public class ProjectileHandler : AbilityHandler
     }
     public override Ability Execute(GameObject caster, Vector2 v2)
     {
-        startPoint = caster.GetComponent<CharacterStateMachine>().castingPoint.transform;
+        startPoint = caster.GetComponent<StateMachine>().castingPoint.transform;
         dir = SetDirection(v2, caster.transform.localScale, limiter);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         GameObject obj = Instantiate(prefab,

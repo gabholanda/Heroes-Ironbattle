@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d601c84f58566d4a854f76eee86da6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handler: {fileID: 11400000, guid: e4707d87be4849048b30879822792815, type: 2}
+  handler: {fileID: 0}
   rb: {fileID: 0}
   caster: {fileID: 0}
   onHitParticles: {fileID: 0}

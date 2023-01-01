@@ -1,18 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 public class MonsterEvents : MonoBehaviour
 {
-    public delegate void monsterDeathDelegate(GameObject g);
-    public event monsterDeathDelegate MonsterDeathEvent;
+    public delegate void MonsterDeathDelegate(GameObject g);
+    public event MonsterDeathDelegate MonsterDeathEvent;
     private void OnDestroy()
     {
         if (MonsterDeathEvent != null)
             MonsterDeathEvent(gameObject);
     }
-
-
-
 }

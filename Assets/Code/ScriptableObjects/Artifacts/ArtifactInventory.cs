@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Artifact Inventory", menuName = "ScriptableObjects/Inventories/New Artifact Inventory")]
-public class ArtifactInventory : Inventory<ArtifactInventoryItem>
+public class ArtifactInventory : Inventory<ArtifactInventoryItem>, ISerializationCallbackReceiver
 {
     public List<ArtifactInventoryItem> Items;
     public GameObject holder;
@@ -36,5 +36,15 @@ public class ArtifactInventory : Inventory<ArtifactInventoryItem>
                 Items.Remove(inventoryItem);
             }
         }
+    }
+
+    public void OnAfterDeserialize()
+    {
+        Items.ForEach(i => i.quantity = 1);
+    }
+
+    public void OnBeforeSerialize()
+    {
+
     }
 }

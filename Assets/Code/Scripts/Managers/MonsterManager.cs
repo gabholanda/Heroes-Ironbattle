@@ -8,6 +8,7 @@ public class MonsterManager : MonoBehaviour
     private GameObject portalPrefab;
     private bool isAppRunning = true;
     public ArtifactInventory monsterInventory;
+    public List<Rarity> rarities;
 
     void OnApplicationQuit()
     {
@@ -29,6 +30,7 @@ public class MonsterManager : MonoBehaviour
     {
         FindAllEnemies()
             .AddListeners()
+            .StartInventory()
             .AddArtifactItems();
     }
 
@@ -44,16 +46,32 @@ public class MonsterManager : MonoBehaviour
         return this;
     }
 
-    public MonsterManager AddArtifactItems()
+    public MonsterManager StartInventory()
     {
         totalSpawnedEnemies.ForEach(monster =>
         {
-            InventoryManager manager = monster.GetComponent<InventoryManager>();
-            monsterInventory.Items.ForEach(item =>
-                {
-                    manager.inventory.Add(item);
-                });
+            monster.GetComponent<InventoryManager>().StartInventory();
         });
         return this;
+    }
+
+    private MonsterManager AddArtifactItems()
+    {
+        for (int i = 0; i < monsterInventory.Items.Count; i++)
+        {
+            ArtifactInventoryItem randomArtifact = PickRandomArtifact(monsterInventory.Items);
+            for (int j = 0; j < totalSpawnedEnemies.Count; j++)
+            {
+                totalSpawnedEnemies[j].GetComponent<InventoryManager>().inventory.Add(randomArtifact);
+            }
+        }
+
+        return this;
+    }
+
+    private ArtifactInventoryItem PickRandomArtifact(List<ArtifactInventoryItem> inventory)
+    {
+        ArtifactInventoryItem item = inventory[Random.Range(0, inventory.Count)];
+        return item;
     }
 }
