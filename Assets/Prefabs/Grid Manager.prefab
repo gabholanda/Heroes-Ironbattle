@@ -53,7 +53,7 @@ MonoBehaviour:
   monstersToSpawn:
   - {fileID: 3906688315430537506, guid: f10a52b3ae6781e4887e6d728adb934b, type: 3}
   - {fileID: 8093643435774689572, guid: 5229345229876bb419e4e89b615998da, type: 3}
-  - {fileID: 6150235615014590966, guid: da860cd7661847e4fb18b57a28c6c87a, type: 3}
+  - {fileID: 7908052695562099612, guid: b8a786477ea7af840901bd9e8bd5a2ce, type: 3}
   availableMapItems:
   - {fileID: 11400000, guid: 003bc9e0d5217024491a23cf743da3ce, type: 2}
   floorTilemap: {fileID: 9128437707753171491}
@@ -64,7 +64,7 @@ MonoBehaviour:
   astarPath: {fileID: 0}
   OnFinishGeneratingMap: {fileID: 11400000, guid: 7728029970d6500438a3df56ef9ac5a8,
     type: 2}
-  monsterInventory: {fileID: 0}
+  waves: {fileID: 11400000, guid: 416f0c465e6d86a428c7e34866eacd39, type: 2}
 --- !u!114 &2135468465
 MonoBehaviour:
   m_ObjectHideFlags: 0

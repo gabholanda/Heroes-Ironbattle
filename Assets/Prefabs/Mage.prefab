@@ -4855,6 +4855,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SetEnemiesItems
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1387867187
 GameObject:
   m_ObjectHideFlags: 0
@@ -10083,6 +10094,15 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 654bb8969a6bf6940b4d5eaea5efb25e, type: 2}
     resistances: []
   isDead: 0
+  castingPoint: {fileID: 1387867187}
+  handlersSchema:
+  - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
+  - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
+  - {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
+  handlers:
+  - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
+  - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
+  - {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
   eventManager: {fileID: 0}
   movement: {fileID: 0}
   combat: {fileID: 0}
@@ -10103,18 +10123,9 @@ MonoBehaviour:
   rarities:
   - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
   - {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
-  handlersSchema:
-  - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
-  - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
-  - {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
-  handlers:
-  - {fileID: 11400000, guid: e67fcd6961dbf8a428004c10870d1842, type: 2}
-  - {fileID: 11400000, guid: 4cbf4609693024147a75c48d688ed59e, type: 2}
-  - {fileID: 11400000, guid: 9b131300e0ebc6247a9d43804d2a04fb, type: 2}
   dashHandler: {fileID: 11400000, guid: 193e502b3a4d0864fa5e9cd43fea9459, type: 2}
   reader: {fileID: 11400000, guid: 53ea8df7d4014f04495930a3c5d17354, type: 2}
   castingParticles: {fileID: 1812459884}
-  castingPoint: {fileID: 1387867187}
   manaBar: {fileID: 0}
   healthBar: {fileID: 0}
   menu: {fileID: 0}
@@ -10190,7 +10201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2303e14c5f42acd42bde884b5ebb49f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 3e0aca4eb88d2c1448f86078e646fcc8, type: 2}
   rarities:
   - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
   - {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
