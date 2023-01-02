@@ -15,3 +15,4 @@ MonoBehaviour:
   Items: []
   holder: {fileID: 0}
   applyableRarities: []
+  resetRaritiesOnDeserialize: 1

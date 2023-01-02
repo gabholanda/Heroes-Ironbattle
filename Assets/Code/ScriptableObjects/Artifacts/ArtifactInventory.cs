@@ -7,6 +7,7 @@ public class ArtifactInventory : Inventory<ArtifactInventoryItem>, ISerializatio
     public List<ArtifactInventoryItem> Items;
     public GameObject holder;
     public List<Rarity> applyableRarities;
+    public bool resetRaritiesOnDeserialize = false;
     public override void Add(ArtifactInventoryItem inventoryItem)
     {
         if (!Items.Contains(inventoryItem))
@@ -41,6 +42,10 @@ public class ArtifactInventory : Inventory<ArtifactInventoryItem>, ISerializatio
     public void OnAfterDeserialize()
     {
         Items.ForEach(i => i.quantity = 1);
+        if (resetRaritiesOnDeserialize)
+        {
+            applyableRarities.Clear();
+        }
     }
 
     public void OnBeforeSerialize()
