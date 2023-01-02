@@ -17,7 +17,10 @@ MonoBehaviour:
     quantity: 1
   - Item: {fileID: 11400000, guid: 26eb2bc6ab159c847a0662140bd3c776, type: 2}
     quantity: 1
+  - Item: {fileID: 11400000, guid: 332ea814514b0fd4c97be8f286daa59e, type: 2}
+    quantity: 1
   holder: {fileID: 0}
   applyableRarities:
   - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
   - {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
+  resetRaritiesOnDeserialize: 0

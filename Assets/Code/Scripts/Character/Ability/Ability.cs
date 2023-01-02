@@ -52,7 +52,7 @@ public abstract class Ability : MonoBehaviour
         if (listener != null)
         {
 
-            handler?.effectList?.ForEach(effect =>
+            handler.effectList.ForEach(effect =>
             {
                 AbilityCallback abilityCallback = new AbilityCallback()
                 .AddCaster(caster)
@@ -61,7 +61,7 @@ public abstract class Ability : MonoBehaviour
                 listener.Response.AddListener(abilityCallback.TriggerTargetCallback);
             });
 
-            handler?.abilitiesToTriggerOnHit?.ForEach(ability =>
+            handler.abilitiesToTriggerOnHit?.ForEach(ability =>
             {
                 AbilityCallback abilityCallback = new AbilityCallback()
                 .AddCaster(caster)

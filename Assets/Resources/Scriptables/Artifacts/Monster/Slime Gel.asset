@@ -32,9 +32,9 @@ MonoBehaviour:
       _healthRegen: 1
     combatStats:
       _attackPower: 0
-      _moveSpeed: 0
+      _moveSpeed: 1
     defensesResistances:
-      _armor: 0
-      _magicResistance: 0
+      _armor: 2
+      _magicResistance: 2
     elementsToAdd: []
     resistances: []

@@ -62,10 +62,13 @@ public class MonsterManager : MonoBehaviour
         for (int i = 0; i < globalRaritiesInventory.applyableRarities.Count; i++)
         {
             List<ArtifactInventoryItem> inventoryBasedOnRarity = GenerateRarityBasedInventory(globalRaritiesInventory.applyableRarities[i]);
-            ArtifactInventoryItem randomArtifact = PickRandomArtifact(inventoryBasedOnRarity);
-            for (int j = 0; j < totalSpawnedEnemies.Count; j++)
+            if (inventoryBasedOnRarity.Count > 0)
             {
-                totalSpawnedEnemies[j].GetComponent<InventoryManager>().inventory.Add(randomArtifact);
+                ArtifactInventoryItem randomArtifact = PickRandomArtifact(inventoryBasedOnRarity);
+                for (int j = 0; j < totalSpawnedEnemies.Count; j++)
+                {
+                    totalSpawnedEnemies[j].GetComponent<InventoryManager>().inventory.Add(randomArtifact);
+                }
             }
         }
 
