@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Leaf of Life
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: d596325e6edf52e42bc87cc2fafbf5a2, type: 3}
-  description: +4 <sprite name=Health> Regeneration
+  description: +1 <sprite name=Health> Regeneration
   rarity: {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
   onApplyEvent:
     m_PersistentCalls:
@@ -21,6 +21,7 @@ MonoBehaviour:
   onUnapplyEvent:
     m_PersistentCalls:
       m_Calls: []
+  onStatsChangeEnd: {fileID: 0}
   stats:
     resources:
       _currentHealth: 0
@@ -28,15 +29,12 @@ MonoBehaviour:
       _currentMana: 0
       _maxMana: 0
       _manaRegen: 0
-      _healthRegen: 4
+      _healthRegen: 1
     combatStats:
       _attackPower: 0
       _moveSpeed: 0
     defensesResistances:
       _armor: 0
       _magicResistance: 0
-    elementalResistances:
-      _fire: 0
-      _ice: 0
-      _dark: 0
-      _lightning: 0
+    elementsToAdd: []
+    resistances: []

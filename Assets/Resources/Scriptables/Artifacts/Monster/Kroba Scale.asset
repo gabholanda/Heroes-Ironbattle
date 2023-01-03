@@ -29,11 +29,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 46128d8e5eca2e544a2ded1b6141d4d3, type: 2}
+        m_MethodName: IncreaseAffinity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onUnapplyEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 7cbe3ac1931ddd340916e1daf30851ad, type: 2}
         m_MethodName: Remove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 46128d8e5eca2e544a2ded1b6141d4d3, type: 2}
+        m_MethodName: DecreaseAffinity
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -53,10 +75,10 @@ MonoBehaviour:
       _manaRegen: 0
       _healthRegen: 0
     combatStats:
-      _attackPower: 0
+      _attackPower: 1
       _moveSpeed: 0
     defensesResistances:
-      _armor: 0
-      _magicResistance: 0
+      _armor: 1
+      _magicResistance: 1
     elementsToAdd: []
     resistances: []

@@ -17,19 +17,29 @@ public class StatsTabManager : MonoBehaviour
     private GameEventListener listener;
     public void Initialize()
     {
-        GetPlayer();
-        UpdateTab();
-    }
-
-    public void GetPlayer()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        CharacterStateMachine sm = player.GetComponent<CharacterStateMachine>();
-        listener = gameObject.AddComponent<GameEventListener>();
+        GameObject player = GetPlayer();
+        CharacterStateMachine sm = GetPlayerStateMachine(player);
+        listener = GetGameEventListener();
         stats = sm.stats;
         OnHurt = sm.eventManager.events["Hurt"];
         listener.Event = OnHurt;
         listener.Response.AddListener(UpdateResources);
+        UpdateTab();
+    }
+
+    private GameObject GetPlayer()
+    {
+        return GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private CharacterStateMachine GetPlayerStateMachine(GameObject player)
+    {
+        return player.GetComponent<CharacterStateMachine>();
+    }
+
+    private GameEventListener GetGameEventListener()
+    {
+        return gameObject.AddComponent<GameEventListener>();
     }
 
     public void ShowTab()

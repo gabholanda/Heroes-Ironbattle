@@ -5,7 +5,8 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "Affinity Adjuster", menuName = "ScriptableObjects/New Status Effect Adder")]
 public class StatusEffectAdder : ScriptableObject
 {
-    [ScriptableObjectDropdown(grouping = ScriptableObjectGrouping.ByFolderFlat)] public OnAbilityHitEvent onHitEffect;
+    [ScriptableObjectDropdown(grouping = ScriptableObjectGrouping.ByFolderFlat)]
+    public OnAbilityHitEvent onHitEffect;
 
     public void Add(GameObject target)
     {

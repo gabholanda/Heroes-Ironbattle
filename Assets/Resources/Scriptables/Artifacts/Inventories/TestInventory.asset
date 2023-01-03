@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: TestInventory
   m_EditorClassIdentifier: 
   Items:
-  - Item: {fileID: 11400000, guid: 254656f31ca617d4cbca974021ce7ece, type: 2}
+  - Item: {fileID: 11400000, guid: 22573b5c0da18f14186111b39bf77042, type: 2}
     quantity: 1
   holder: {fileID: 0}
   applyableRarities:
   - {fileID: 11400000, guid: 0a2ef42e561ac5149984973f7d2a858a, type: 2}
   - {fileID: 11400000, guid: de594f8a365e9114f8e4568fe6627bb8, type: 2}
+  resetRaritiesOnDeserialize: 0

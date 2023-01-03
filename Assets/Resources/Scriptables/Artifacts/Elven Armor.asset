@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 43dc15919d864384a8b4c5cc1a4137f4, type: 3}
   description: '+30 <sprite name=Health>
 
-    +7 <sprite name=Health> Regeneration
+    +2 <sprite name=Health> Regeneration
 
     +4
     <sprite name=Armor>
@@ -141,7 +141,7 @@ MonoBehaviour:
       _currentMana: 0
       _maxMana: 0
       _manaRegen: 0
-      _healthRegen: 7
+      _healthRegen: 2
     combatStats:
       _attackPower: 0
       _moveSpeed: 0
