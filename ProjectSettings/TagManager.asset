@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ability
+  - Monster
+  - Obstacles
+  - MapManager
+  - QSkill
+  - ESkill
+  - RSkill
+  - Settings
+  - ArtifactCanvas
   layers:
   - Default
   - TransparentFX
@@ -13,11 +22,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ability
+  - Player
+  - Obstacles
+  - Monster
+  - Damage
   - 
   - 
   - 
@@ -38,6 +47,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Damage
+    uniqueID: 246986377
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

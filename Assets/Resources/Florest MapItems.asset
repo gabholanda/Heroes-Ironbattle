@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe527fd682001a40951aaad083be43e, type: 3}
+  m_Name: Florest MapItems
+  m_EditorClassIdentifier: 
+  outerBottomTiles:
+  - {fileID: 11400000, guid: b2fe94281baf8ed4985f18812934315b, type: 2}
+  - {fileID: 11400000, guid: 35d0d4606b1bd0048be851e662db5b6b, type: 2}
+  - {fileID: 11400000, guid: 3fc33449cef80a04c994b0cd0b9b8860, type: 2}
+  - {fileID: 11400000, guid: 2689ae2a72687cf4ebd968cade11338c, type: 2}
+  - {fileID: 11400000, guid: c5a6963edae6aba4aa2a91ad1125b0dd, type: 2}
+  - {fileID: 11400000, guid: 25481d6c75bdec54cb8cca4fd844ca52, type: 2}
+  - {fileID: 11400000, guid: eedd2ccb7e12faa439c1d23327df237d, type: 2}
+  - {fileID: 11400000, guid: 74e26cc1f66f8f048b3714aea7e57580, type: 2}
+  - {fileID: 11400000, guid: 43cad132f1f991549a8e5d06037fa55a, type: 2}
+  outerTopTiles:
+  - {fileID: 11400000, guid: 5e33c20f18c968547aa8965fbe333477, type: 2}
+  - {fileID: 11400000, guid: a9eb0ba81addaa047ac9bce97918cb90, type: 2}
+  - {fileID: 11400000, guid: cc9c4006ff7ed0e45a0b035e58bb08b7, type: 2}
+  bottomTiles:
+  - {fileID: 11400000, guid: ca8fc82550ca306428c991accb043daa, type: 2}
+  - {fileID: 11400000, guid: 593bf85642245944696179a5a3e51f51, type: 2}
+  - {fileID: 11400000, guid: 710a27e2f8a590a458b170279dcd4b47, type: 2}
+  - {fileID: 11400000, guid: 684c4c312647f084893316e0888eb6f5, type: 2}
+  - {fileID: 11400000, guid: 3704aba032a0f8448a879fc6fa0f5b7d, type: 2}
+  - {fileID: 11400000, guid: c43b1e5c882cafe4790e15bc2561db6c, type: 2}
+  - {fileID: 11400000, guid: 9bcf7c19a5f8a284ea66c65e2d365947, type: 2}
+  - {fileID: 11400000, guid: 77256133df5da3f4fa6f88bf6dee333b, type: 2}
+  - {fileID: 11400000, guid: 89fe868014c00b04a936a0597fe1346d, type: 2}
+  middleTiles:
+  - {fileID: 11400000, guid: e3455de349761bb40a3060103fbacd68, type: 2}
+  - {fileID: 11400000, guid: 450a62999d03df140a016c70a10e7117, type: 2}
+  - {fileID: 11400000, guid: c0aebb850316f004086800dade358611, type: 2}
+  - {fileID: 11400000, guid: f6d3a38527a054447bc5abe62f289b7f, type: 2}
+  - {fileID: 11400000, guid: 3a567127961877d4da5f23806b70e17c, type: 2}
+  - {fileID: 11400000, guid: 204e965e26c3155409e1d962816dfc84, type: 2}
+  - {fileID: 11400000, guid: ed90d58f5150fa940910a2e83b8ab598, type: 2}
+  - {fileID: 11400000, guid: 8d1be87b72dd781448cd463d899166d4, type: 2}
+  - {fileID: 11400000, guid: c5ee77b0d4e4fbb4cbba2e1192b806cf, type: 2}
+  - {fileID: 11400000, guid: fbb22e8fe3b629e4294a6a6bd9a5cfa2, type: 2}
+  - {fileID: 11400000, guid: c4abdbd86e05a0540a845ca5da5e110c, type: 2}
+  - {fileID: 11400000, guid: f7c29ce31f7ddfa4f92361965376d0f8, type: 2}
+  - {fileID: 11400000, guid: d2c00f0176e7dad4fb76cef9c2bc5779, type: 2}
+  - {fileID: 11400000, guid: 2731583dcf1a4c947baef0486d0b4c48, type: 2}
+  - {fileID: 11400000, guid: b8e9552d0b4bb8248b35a737299c5b86, type: 2}
+  - {fileID: 11400000, guid: f37cc6a551f59b24ba136203f8badff5, type: 2}
+  topTiles:
+  - {fileID: 11400000, guid: 9756df710a4ad9f43bd080a43b7355b1, type: 2}
+  - {fileID: 11400000, guid: 7689561ad4a5f19408911836376acd40, type: 2}
+  - {fileID: 11400000, guid: 2519f061f8363a4469cb2fd83f77437a, type: 2}
+  type: 0

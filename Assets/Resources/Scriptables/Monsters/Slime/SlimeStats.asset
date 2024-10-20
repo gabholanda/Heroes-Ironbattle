@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741bc61c554c1048815340ebecd146e, type: 3}
+  m_Name: SlimeStats
+  m_EditorClassIdentifier: 
+  stats:
+    resources:
+      _currentHealth: 30
+      _maxHealth: 30
+      _currentMana: 0
+      _maxMana: 0
+      _manaRegen: 0
+      _healthRegen: 0
+    combatStats:
+      _attackPower: 3
+      _moveSpeed: 6
+    defensesResistances:
+      _armor: 1
+      _magicResistance: 1
+    elementalResistances:
+      _fire: 0
+      _ice: 0
+      _dark: 0
+      _lightning: 0

@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d57a2675400f547b7c5c5300c6a77d, type: 3}
+  m_Name: One Winged Angel's Wing
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 59c6cac3a359cf04fb00973cad4eddd3, type: 3}
+  description: '+5 <sprite name=AttackPower>
+
+    +5 <sprite name=Speed>
+
+    +50%
+    <sprite name=Dark>
+
+    Shoots Dark Slashes in all directions every 7 seconds'
+  rarity: {fileID: 11400000, guid: e6e122013942ecf41913d72c343741ec, type: 2}
+  onApplyEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 04e73b6f8486d734a980973d7b383e01, type: 2}
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 11db8c4550e1be94aabf096bc432aea2, type: 2}
+        m_MethodName: IncreaseAffinity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3141112463668897001, guid: 6904bfbd76858d347a35cf170da40301,
+          type: 3}
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onUnapplyEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onStatsChangeEnd: {fileID: 0}
+  stats:
+    resources:
+      _currentHealth: 0
+      _maxHealth: 0
+      _currentMana: 0
+      _maxMana: 0
+      _manaRegen: 0
+      _healthRegen: 0
+    combatStats:
+      _attackPower: 5
+      _moveSpeed: 5
+    defensesResistances:
+      _armor: 0
+      _magicResistance: 0
+    elementsToAdd: []
+    resistances: []

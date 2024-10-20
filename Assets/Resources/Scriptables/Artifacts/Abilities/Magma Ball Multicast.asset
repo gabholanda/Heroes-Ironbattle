@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e4d0629096fdb4ab05aa545640e98e, type: 3}
+  m_Name: Magma Ball Multicast
+  m_EditorClassIdentifier: 
+  abilityData: {fileID: 0}
+  ability: {fileID: 0}
+  prefab: {fileID: 0}
+  isCoolingDown: 0
+  coRunner: {fileID: 0}
+  onHitEvent: {fileID: 0}
+  abilities:
+  - {fileID: 11400000, guid: 1d99d3091aad95041976328ec7bf90c8, type: 2}
+  - {fileID: 11400000, guid: 009d54199567c5b4086cc6a2e8dd1f2c, type: 2}
+  - {fileID: 11400000, guid: 3a2e4821ca8f3e74e841051d3f8a2be3, type: 2}
+  - {fileID: 11400000, guid: e81159312181a644580367d74270daab, type: 2}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 510d6c43f398c4649b1b08c9dd0c44b5, type: 3}
+  m_Name: Thunderlightning
+  m_EditorClassIdentifier: 
+  onCastSound: {fileID: 8300000, guid: 6e0aad310cab9cc41a993e04f6409859, type: 3}
+  onHitSound: {fileID: 8300000, guid: 81c43618951f4a84487f682bd4e110a4, type: 3}
+  icon: {fileID: 21300000, guid: 1d51e2691ffc77f4f81fbd5524a6082d, type: 3}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  description: A powerful lightning strike that deals 150% damage to enemies and
+    deals a slight Stun effect with a 25% chance and 1s  during 10s
+  element: {fileID: 11400000, guid: 25433ba3876fa984d93947582ef4cec7, type: 2}
+  type: 1
+  manaCost: 15
+  cooldownDuration: 7
+  cooldownOnAbilityEnd: 0
+  abilityDestroyDuration: 0.5
+  scalingCoeficient: 1.5

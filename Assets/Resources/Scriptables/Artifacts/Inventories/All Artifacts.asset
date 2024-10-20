@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11a14ed9f8175c4e80acae85a860f72, type: 3}
+  m_Name: All Artifacts
+  m_EditorClassIdentifier: 
+  Items:
+  - Item: {fileID: 11400000, guid: 2f3bc894d1615c842b4577fef5dd26c4, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: eafc230325b179f4786ba9a7082e874d, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 254656f31ca617d4cbca974021ce7ece, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 22573b5c0da18f14186111b39bf77042, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 222dfc28bbbab4642b66ca1791a12e5e, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 283f36198214ed743b630bc28c449128, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 17d37d3b780a926438ee438b7f397b22, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: b2479672be64db84a85f08ede76330c2, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: db4e607e1bd12af48b69323c9bcdfae6, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 28c4a05c4e5cbc94289f23c4a69b12fb, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: b762b1da725af044ab34e1fc036c97f9, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 7f7670eca73d9d643abce125a3b323b0, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 31577768f7087eb43a9844706e38f921, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: b654c08b2813f9d4aaa9626151280478, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: a6f610c883905da42bc06983174e5278, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 6b75318e5fd4bda458b7fc3091c8a079, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: c3bc10142925b1043b0c3d05d91e013e, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 60bb8722c0ef407468a69673642d9b5a, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 6ecdc99cba1374449befae56794d0312, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 372c93c4e5773f3429f4358d59f57dfc, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 302d11aa54c8e65408e944ae28273955, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 3bebe5e415dde9a4c93f2a4488e845c1, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: ac1e0b5546fb96e4bb24c443e5215ebf, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 2041a21aa5822a14e9f37242366afe32, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 3576e1333ece08e4e8cd777546608bd3, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: 58967d4b3eb6fca4683cea4b98c30c47, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: f943bcfc97471a249a851b3481e7a4b1, type: 2}
+    quantity: 1
+  - Item: {fileID: 11400000, guid: b3d6ac002137f8249b8fd76a5123c6e3, type: 2}
+    quantity: 1
+  holder: {fileID: 0}
+  applyableRarities: []

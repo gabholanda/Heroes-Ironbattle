@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924b2faabd901a1488747dd11e61f432, type: 3}
+  m_Name: Minor Ice Adjuster
+  m_EditorClassIdentifier: 
+  element: {fileID: 11400000, guid: fa7792712c58aa449b5890e3854b8363, type: 2}
+  value: 0.15
